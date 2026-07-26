@@ -1842,18 +1842,106 @@
         max-width: 100%;
       }
       .service-showcase {
-        display: grid;
-        grid-template-columns: minmax(260px, 0.42fr) minmax(0, 1fr);
+        display: block;
+        min-height: 0;
+      }
+      .service-carousel-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         gap: 18px;
-        min-height: 620px;
+        margin-bottom: 12px;
+      }
+      .service-slide-hint {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: #c8cada;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .service-slide-hint i {
+        position: relative;
+        display: inline-block;
+        width: 46px;
+        height: 24px;
+        border: 1px solid rgba(39, 199, 255, 0.24);
+        border-radius: 999px;
+        background: rgba(39, 199, 255, 0.06);
+      }
+      .service-slide-hint i::before {
+        content: "↔";
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        color: #9fe6ff;
+        font-style: normal;
+        animation: swipeHint 1.7s ease-in-out infinite;
+      }
+      @keyframes swipeHint {
+        50% {
+          transform: translateX(4px);
+        }
+      }
+      .service-carousel-controls {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+      }
+      .service-arrow {
+        display: grid;
+        place-items: center;
+        width: 42px;
+        height: 42px;
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.11);
+        border-radius: 13px;
+        background: rgba(255, 255, 255, 0.035);
+        cursor: pointer;
+        transition:
+          transform 0.25s ease,
+          border-color 0.25s ease,
+          background 0.25s ease;
+      }
+      .service-arrow:hover {
+        transform: translateY(-2px);
+        border-color: rgba(39, 199, 255, 0.34);
+        background: rgba(39, 199, 255, 0.08);
+      }
+      .service-dots {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        min-height: 24px;
+        margin: 8px 0 13px;
+      }
+      .service-dot {
+        width: 7px;
+        height: 7px;
+        padding: 0;
+        border: 0;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.2);
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+      .service-dot.active {
+        width: 27px;
+        background: linear-gradient(90deg, var(--pink), var(--blue));
+        box-shadow: 0 0 14px rgba(104, 72, 255, 0.35);
       }
       .service-switcher {
         display: flex;
-        flex-direction: column;
-        gap: 8px;
+        gap: 10px;
         padding: 12px;
+        overflow-x: auto;
+        overflow-y: hidden;
         border: 1px solid var(--line);
-        border-radius: 28px;
+        border-radius: 22px;
         background:
           radial-gradient(
             circle at 0 0,
@@ -1863,12 +1951,26 @@
           rgba(12, 13, 23, 0.82);
         box-shadow: 0 26px 70px rgba(0, 0, 0, 0.24);
         backdrop-filter: blur(18px);
+        scroll-behavior: smooth;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        cursor: grab;
+        user-select: none;
+        touch-action: pan-x;
+      }
+      .service-switcher::-webkit-scrollbar {
+        display: none;
+      }
+      .service-switcher.dragging {
+        cursor: grabbing;
+        scroll-behavior: auto;
       }
       .service-tab {
         position: relative;
         isolation: isolate;
         display: grid;
         grid-template-columns: 34px 1fr 48px;
+        flex: 0 0 clamp(225px, 25vw, 292px);
         align-items: center;
         gap: 12px;
         min-height: 85px;
@@ -1879,6 +1981,9 @@
         border: 1px solid transparent;
         border-radius: 19px;
         background: transparent;
+        scroll-snap-align: start;
+        touch-action: pan-x;
+        cursor: pointer;
         transition:
           transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
           border-color 0.32s ease,
@@ -1913,7 +2018,7 @@
         transition: 0.3s ease;
       }
       .service-tab:hover {
-        transform: translateX(4px);
+        transform: translateY(-3px);
         border-color: rgba(255, 255, 255, 0.08);
       }
       .service-tab.active {
@@ -2005,6 +2110,17 @@
         box-shadow:
           0 30px 90px rgba(0, 0, 0, 0.32),
           inset 0 1px 0 rgba(255, 255, 255, 0.035);
+        margin-top: 0;
+        cursor: grab;
+        touch-action: pan-y;
+        transition:
+          transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+          border-color 0.28s ease;
+      }
+      .service-stage.dragging {
+        cursor: grabbing;
+        border-color: rgba(104, 72, 255, 0.5);
+        transform: scale(0.995);
       }
       .service-stage::before {
         content: "";
@@ -2051,6 +2167,57 @@
           700 10px Orbitron,
           sans-serif;
         letter-spacing: 0.14em;
+      }
+      .service-stage-slider {
+        position: absolute;
+        right: clamp(20px, 4vw, 48px);
+        bottom: clamp(20px, 4vw, 36px);
+        z-index: 5;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      .service-stage-slider > span {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: #c7c9d8;
+        font-size: 9px;
+        font-weight: 800;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+      }
+      .service-stage-slider > span i {
+        color: #8ee3ff;
+        font-size: 15px;
+        font-style: normal;
+        animation: stageSwipeHint 1.7s ease-in-out infinite;
+      }
+      @keyframes stageSwipeHint {
+        50% {
+          transform: translateX(4px);
+        }
+      }
+      .service-stage-slider > div {
+        display: flex;
+        gap: 7px;
+      }
+      .service-stage-slider button {
+        display: grid;
+        place-items: center;
+        width: 38px;
+        height: 38px;
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 12px;
+        background: rgba(5, 6, 13, 0.62);
+        cursor: pointer;
+        transition: 0.25s ease;
+      }
+      .service-stage-slider button:hover {
+        transform: translateY(-2px);
+        border-color: rgba(39, 199, 255, 0.35);
+        background: rgba(39, 199, 255, 0.09);
       }
       .service-stage-content {
         position: relative;
@@ -2274,16 +2441,14 @@
       }
       @media (max-width: 1100px) {
         .service-showcase {
-          grid-template-columns: 1fr;
           min-height: 0;
         }
         .service-switcher {
-          display: grid;
-          grid-template-columns: repeat(3, minmax(0, 1fr));
-          overflow: visible;
+          display: flex;
+          overflow-x: auto;
         }
         .service-tab {
-          min-width: 0;
+          flex-basis: clamp(220px, 38vw, 290px);
           min-height: 78px;
         }
         .service-tab:hover {
@@ -2301,17 +2466,31 @@
           gap: 12px;
         }
         .service-switcher {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
+          display: flex;
           margin-inline: -4px;
           padding: 8px;
+          overflow-x: auto;
           border-radius: 20px;
         }
         .service-tab {
           grid-template-columns: 28px 1fr 40px;
-          min-width: 0;
+          flex: 0 0 min(78vw, 285px);
           min-height: 70px;
           padding: 9px 10px;
           border-radius: 14px;
+        }
+        .service-carousel-head {
+          align-items: flex-end;
+          margin-bottom: 10px;
+        }
+        .service-slide-hint {
+          max-width: 220px;
+          font-size: 9px;
+          line-height: 1.45;
+        }
+        .service-arrow {
+          width: 38px;
+          height: 38px;
         }
         .service-tab i {
           width: 38px;
@@ -2325,6 +2504,18 @@
           min-height: 580px;
           padding: 26px 22px 32px;
           border-radius: 8px 24px 8px 24px;
+        }
+        .service-stage-slider {
+          right: 18px;
+          bottom: 17px;
+          gap: 9px;
+        }
+        .service-stage-slider > span {
+          font-size: 8px;
+        }
+        .service-stage-slider button {
+          width: 35px;
+          height: 35px;
         }
         .service-stage-content {
           width: 100%;
@@ -2410,6 +2601,10 @@
         .service-stage {
           min-height: 610px;
         }
+        .service-stage-slider > span {
+          max-width: 94px;
+          line-height: 1.4;
+        }
         .service-stage .btn {
           width: 100%;
         }
@@ -2430,17 +2625,19 @@
         }
       }
       @media (max-width: 340px) {
-        .service-switcher {
-          grid-template-columns: 1fr;
+        .service-tab {
+          flex-basis: 86vw;
         }
       }
       @media (hover: none) and (pointer: coarse) {
-        .service-tab,
         .unit-option,
         .duration-option,
         .pc-tier,
         .pack-portal {
           touch-action: manipulation;
+        }
+        .service-tab {
+          touch-action: pan-x;
         }
         .service-tab:hover,
         .unit-option:hover,
@@ -2530,71 +2727,13 @@
             </p>
           </div>
           <div class="service-showcase reveal">
-            <div
-              class="service-switcher"
-              role="tablist"
-              aria-label="Ace Gaming services"
-            >
-              <button
-                class="service-tab active"
-                type="button"
-                role="tab"
-                aria-selected="true"
-                data-service="pc"
-              >
-                <span>01</span><b>Gaming PC</b><i>PC</i>
-              </button>
-              <button
-                class="service-tab"
-                type="button"
-                role="tab"
-                aria-selected="false"
-                data-service="ps5"
-              >
-                <span>02</span><b>PlayStation 5</b><i>PS5</i>
-              </button>
-              <button
-                class="service-tab"
-                type="button"
-                role="tab"
-                aria-selected="false"
-                data-service="sim"
-              >
-                <span>03</span><b>Sim Racing</b><i>SIM</i>
-              </button>
-              <button
-                class="service-tab"
-                type="button"
-                role="tab"
-                aria-selected="false"
-                data-service="events"
-              >
-                <span>04</span><b>Events & Parties</b><i>EV</i>
-              </button>
-              <button
-                class="service-tab"
-                type="button"
-                role="tab"
-                aria-selected="false"
-                data-service="staff"
-              >
-                <span>05</span><b>Friendly Staff</b><i>TEAM</i>
-              </button>
-              <button
-                class="service-tab"
-                type="button"
-                role="tab"
-                aria-selected="false"
-                data-service="food"
-              >
-                <span>06</span><b>Food & Drinks</b><i>FOOD</i>
-              </button>
-            </div>
             <article
               class="service-stage"
               id="serviceStage"
               role="tabpanel"
               aria-live="polite"
+              tabindex="0"
+              aria-label="Swipe or drag this card to explore services"
             >
               <div class="service-glow" aria-hidden="true">
                 <i></i><i></i><i></i>
@@ -2602,6 +2741,21 @@
               <div class="service-stage-top">
                 <span id="serviceKicker">ACE PERFORMANCE ZONE</span>
                 <b id="serviceCount">01 / 06</b>
+              </div>
+              <div class="service-stage-slider">
+                <span><i aria-hidden="true">↔</i> Swipe or drag this card</span>
+                <div>
+                  <button id="serviceStagePrev" type="button" aria-label="Previous service">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                      <path d="m15 18-6-6 6-6"></path>
+                    </svg>
+                  </button>
+                  <button id="serviceStageNext" type="button" aria-label="Next service">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                      <path d="m9 18 6-6-6-6"></path>
+                    </svg>
+                  </button>
+                </div>
               </div>
               <div class="service-stage-content">
                 <div class="service-main-symbol" id="serviceMainSymbol">PC</div>
@@ -3029,23 +3183,12 @@
         serviceText = document.querySelector("#serviceText"),
         serviceFeatureList = document.querySelector("#serviceFeatureList"),
         serviceWatermark = document.querySelector("#serviceWatermark"),
-        serviceTabs = [...document.querySelectorAll("[data-service]")];
-      function selectService(key, moveFocus) {
+        serviceStagePrev = document.querySelector("#serviceStagePrev"),
+        serviceStageNext = document.querySelector("#serviceStageNext"),
+        serviceKeys = Object.keys(serviceData);
+      function selectService(key) {
         const data = serviceData[key];
         if (!data) return;
-        serviceTabs.forEach((tab) => {
-          const selected = tab.dataset.service === key;
-          tab.classList.toggle("active", selected);
-          tab.setAttribute("aria-selected", String(selected));
-          if (selected && moveFocus) {
-            tab.focus({ preventScroll: true });
-            tab.scrollIntoView({
-              behavior: "smooth",
-              block: "nearest",
-              inline: "center",
-            });
-          }
-        });
         serviceKicker.textContent = data.kicker;
         serviceCount.textContent = data.count;
         serviceMainSymbol.textContent = data.symbol;
@@ -3062,27 +3205,49 @@
         void serviceStage.offsetWidth;
         serviceStage.classList.add("switching");
       }
-      serviceTabs.forEach((tab, index) => {
-        tab.addEventListener("click", () =>
-          selectService(tab.dataset.service, false),
+      function stepService(direction) {
+        const currentIndex = Math.max(
+          0,
+          serviceKeys.indexOf(serviceStage.dataset.activeService || "pc"),
         );
-        tab.addEventListener("keydown", (event) => {
-          if (
-            !["ArrowRight", "ArrowDown", "ArrowLeft", "ArrowUp"].includes(
-              event.key,
-            )
-          )
-            return;
-          event.preventDefault();
-          const direction =
-            event.key === "ArrowRight" || event.key === "ArrowDown" ? 1 : -1;
-          const next =
-            serviceTabs[
-              (index + direction + serviceTabs.length) % serviceTabs.length
-            ];
-          selectService(next.dataset.service, true);
-        });
+        const nextIndex =
+          (currentIndex + direction + serviceKeys.length) % serviceKeys.length;
+        selectService(serviceKeys[nextIndex]);
+      }
+      serviceStagePrev.addEventListener("click", () => stepService(-1));
+      serviceStageNext.addEventListener("click", () => stepService(1));
+      serviceStage.addEventListener("keydown", (event) => {
+        if (!["ArrowLeft", "ArrowRight"].includes(event.key)) return;
+        event.preventDefault();
+        stepService(event.key === "ArrowRight" ? 1 : -1);
       });
+
+      let serviceDragging = false,
+        serviceStartX = 0,
+        serviceStartY = 0;
+      serviceStage.addEventListener("pointerdown", (event) => {
+        if (event.target.closest("button, a")) return;
+        serviceDragging = true;
+        serviceStartX = event.clientX;
+        serviceStartY = event.clientY;
+        serviceStage.classList.add("dragging");
+        serviceStage.setPointerCapture(event.pointerId);
+      });
+      function stopServiceDrag(event) {
+        if (!serviceDragging) return;
+        serviceDragging = false;
+        serviceStage.classList.remove("dragging");
+        if (serviceStage.hasPointerCapture(event.pointerId)) {
+          serviceStage.releasePointerCapture(event.pointerId);
+        }
+        const distanceX = event.clientX - serviceStartX;
+        const distanceY = event.clientY - serviceStartY;
+        if (Math.abs(distanceX) > 48 && Math.abs(distanceX) > Math.abs(distanceY)) {
+          stepService(distanceX < 0 ? 1 : -1);
+        }
+      }
+      serviceStage.addEventListener("pointerup", stopServiceDrag);
+      serviceStage.addEventListener("pointercancel", stopServiceDrag);
       serviceStage.dataset.activeService = "pc";
       const packData = {
         hours: {
