@@ -1022,6 +1022,12 @@
         border-radius: 20px;
         padding: 26px;
       }
+      .hero-livebar-in {
+        max-width: 920px;
+        margin: 50px auto 0;
+        grid-template-columns: repeat(3, 1fr);
+        padding: 26px;
+      }
       .bottom-livebar-in {
         grid-template-columns: repeat(3, 1fr);
       }
@@ -1075,6 +1081,19 @@
         .livebar-in {
           grid-template-columns: repeat(2, 1fr);
           gap: 16px 0;
+        }
+        .hero-livebar-in {
+          grid-template-columns: 1fr;
+          gap: 0;
+          padding: 16px;
+        }
+        .hero-livebar-in .lstat {
+          padding: 18px 8px;
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+        }
+        .hero-livebar-in .lstat:last-child {
+          border-bottom: 0;
         }
         .bottom-livebar-in {
           grid-template-columns: 1fr;
@@ -2750,11 +2769,16 @@
               <button class="btn primary open-book">Book a setup</button
               ><a class="btn soft" href="#packages">Explore packages</a>
             </div>
-            <div class="stats">
-              <span><b>PC</b>Gaming sessions</span
-              ><span><b>PS5</b>Console zone</span
-              ><span><b>SIM</b>Racing setup</span
-              ><span><b>TEAM</b>Floor support</span>
+            <div class="livebar-in hero-livebar-in" aria-label="Ace Gaming highlights">
+              <div class="lstat">
+                <b data-count="1700">0</b><span>Gamers Served</span>
+              </div>
+              <div class="lstat">
+                <b data-count="35000">0</b><span>Hours Played</span>
+              </div>
+              <div class="lstat live">
+                <span class="dot"></span><b>5★</b><span>Average Rating</span>
+              </div>
             </div>
           </div>
         </section>
@@ -2922,22 +2946,6 @@
               rel="noopener"
               style="min-width: 220px;"
             >Contact Us ↗</a>
-          </div>
-        </section>
-        <section
-          class="livebar reveal bottom-stats"
-          aria-label="Ace Gaming highlights"
-        >
-          <div class="livebar-in bottom-livebar-in">
-            <div class="lstat">
-              <b data-count="1700">0</b><span>Gamers Served</span>
-            </div>
-            <div class="lstat">
-              <b data-count="35000">0</b><span>Hours Played</span>
-            </div>
-            <div class="lstat live">
-              <span class="dot"></span><b>5★</b><span>Average Rating</span>
-            </div>
           </div>
         </section>
       </div>
