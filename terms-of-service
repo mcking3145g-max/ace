@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Terms of Service | Ace Gaming</title>
+  <meta name="description" content="Terms of Service for Ace Gaming." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Orbitron:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #06060d;
+      --panel: #0f111c;
+      --panel-2: #0b0d17;
+      --muted: #9ea4b8;
+      --line: rgba(255,255,255,.095);
+      --pink: #ff3e9d;
+      --blue: #27c7ff;
+      --violet: #6848ff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      color: #fff;
+      font-family: Inter, Arial, sans-serif;
+      background:
+        linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px),
+        radial-gradient(circle at 88% 5%, rgba(39,199,255,.09), transparent 24%),
+        radial-gradient(circle at 8% 18%, rgba(255,62,157,.08), transparent 28%),
+        var(--bg);
+      background-size: 44px 44px, 44px 44px, auto, auto, auto;
+    }
+    a { color: inherit; text-decoration: none; }
+    .legal-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(6,6,13,.86);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(18px);
+    }
+    .legal-nav {
+      width: min(1180px, calc(100% - 32px));
+      min-height: 74px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .legal-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      font: 800 13px Orbitron, sans-serif;
+      letter-spacing: .08em;
+    }
+    .legal-logo {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 11px;
+      background: linear-gradient(135deg, rgba(255,62,157,.22), rgba(39,199,255,.16));
+      color: #fff;
+      font-size: 9px;
+      box-shadow: 0 0 24px rgba(104,72,255,.18);
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 15px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      color: #d8dbe6;
+      background: rgba(255,255,255,.02);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .04em;
+      transition: .22s ease;
+    }
+    .back-link:hover {
+      transform: translateY(-2px);
+      color: #fff;
+      border-color: rgba(39,199,255,.32);
+    }
+    .legal-shell {
+      width: min(1180px, calc(100% - 32px));
+      margin: auto;
+      padding: 60px 0 90px;
+      display: grid;
+      grid-template-columns: 300px minmax(0, 1fr);
+      align-items: start;
+      gap: 24px;
+    }
+    .legal-side {
+      position: sticky;
+      top: 98px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at 88% 8%, rgba(104,72,255,.16), transparent 31%),
+        rgba(15,17,28,.88);
+      box-shadow: 0 24px 70px rgba(0,0,0,.22);
+      backdrop-filter: blur(16px);
+    }
+    .side-icon {
+      display: grid;
+      place-items: center;
+      width: 52px;
+      height: 52px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 15px;
+      background: linear-gradient(135deg, rgba(255,62,157,.2), rgba(39,199,255,.14));
+      color: #fff;
+      font: 800 10px Orbitron, sans-serif;
+    }
+    .eyebrow {
+      display: block;
+      margin-top: 25px;
+      color: #91ddff;
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .18em;
+    }
+    h1 {
+      margin-top: 11px;
+      font: 700 clamp(32px, 4vw, 48px) / 1 Orbitron, sans-serif;
+      letter-spacing: -.05em;
+    }
+    .side-intro {
+      margin-top: 17px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.75;
+    }
+    .updated {
+      display: inline-flex;
+      margin-top: 20px;
+      padding: 8px 10px;
+      border: 1px solid rgba(39,199,255,.17);
+      border-radius: 999px;
+      color: #c7edf9;
+      background: rgba(39,199,255,.055);
+      font-size: 9px;
+      font-weight: 700;
+    }
+    .legal-switch {
+      display: grid;
+      gap: 8px;
+      margin-top: 24px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+    }
+    .legal-switch a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 44px;
+      padding: 0 13px;
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 12px;
+      color: var(--muted);
+      background: rgba(255,255,255,.018);
+      font-size: 10px;
+      font-weight: 700;
+      transition: .22s ease;
+    }
+    .legal-switch a:hover,
+    .legal-switch a.active {
+      color: #fff;
+      border-color: rgba(104,72,255,.35);
+      background: linear-gradient(110deg, rgba(255,62,157,.08), rgba(39,199,255,.055));
+    }
+    .legal-switch a span { color: var(--blue); }
+    .legal-document {
+      min-width: 0;
+      display: grid;
+      gap: 14px;
+    }
+    .document-top {
+      padding: 24px 26px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: rgba(15,17,28,.74);
+    }
+    .document-top p {
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.7;
+    }
+    .legal-section {
+      position: relative;
+      padding: clamp(26px, 4vw, 42px);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(15,17,28,.82);
+      box-shadow: 0 15px 45px rgba(0,0,0,.12);
+      transition: border-color .25s ease, transform .25s ease;
+      scroll-margin-top: 96px;
+    }
+    .legal-section:hover {
+      transform: translateY(-2px);
+      border-color: rgba(104,72,255,.28);
+    }
+    .legal-section::before {
+      content: attr(data-index);
+      position: absolute;
+      right: 24px;
+      top: 20px;
+      color: rgba(255,255,255,.045);
+      font: 800 36px Orbitron, sans-serif;
+    }
+    h2 {
+      max-width: calc(100% - 60px);
+      font: 700 clamp(19px, 2.4vw, 27px) Orbitron, sans-serif;
+      letter-spacing: -.03em;
+    }
+    p, li {
+      color: #c8cbd7;
+      font-size: 13px;
+      line-height: 1.85;
+    }
+    .legal-section p,
+    .legal-section ul {
+      margin-top: 15px;
+    }
+    ul { padding-left: 19px; }
+    li + li { margin-top: 8px; }
+    .contact-card {
+      padding: 20px;
+      border: 1px solid rgba(39,199,255,.18);
+      border-radius: 16px;
+      background: linear-gradient(120deg, rgba(255,62,157,.055), rgba(39,199,255,.05));
+    }
+    .contact-card a { color: #91ddff; font-weight: 800; }
+    .notice {
+      padding: 18px 20px;
+      border: 1px dashed rgba(255,255,255,.12);
+      border-radius: 16px;
+      color: var(--muted);
+      background: rgba(255,255,255,.018);
+      font-size: 10px;
+      line-height: 1.75;
+    }
+    .legal-footer {
+      width: min(1180px, calc(100% - 32px));
+      margin: auto;
+      padding: 24px 0 38px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 10px;
+    }
+    .legal-footer div { display: flex; gap: 9px; flex-wrap: wrap; }
+    .legal-footer a {
+      padding: 8px 10px;
+      border: 1px solid rgba(255,255,255,.075);
+      border-radius: 9px;
+      color: #c9ccda;
+      background: rgba(255,255,255,.018);
+      transition: .2s ease;
+    }
+    .legal-footer a:hover { color: #fff; border-color: rgba(39,199,255,.28); }
+    @media (max-width: 900px) {
+      .legal-shell { grid-template-columns: 1fr; }
+      .legal-side { position: static; }
+      .legal-switch { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 620px) {
+      .legal-nav { min-height: 66px; }
+      .legal-brand { font-size: 11px; }
+      .legal-logo { width: 34px; height: 34px; }
+      .back-link { min-height: 38px; padding: 0 11px; }
+      .legal-shell { padding: 30px 0 66px; }
+      .legal-side { padding: 23px; border-radius: 20px; }
+      .legal-switch { grid-template-columns: 1fr; }
+      .legal-section { border-radius: 18px; }
+      .legal-footer { align-items: flex-start; flex-direction: column; }
+    }
+</style>
+</head>
+<body>
+  <header class="legal-header">
+    <nav class="legal-nav" aria-label="Legal page navigation">
+      <a class="legal-brand" href="./index.html"><span class="legal-logo">AG</span> ACE GAMING</a>
+      <a class="back-link" href="./index.html">← Back to website</a>
+    </nav>
+  </header>
+
+  <main class="legal-shell">
+    <aside class="legal-side">
+      <div class="side-icon">RULES</div>
+      <span class="eyebrow">RULES FOR USING ACE GAMING</span>
+      <h1>Terms of Service</h1>
+      <p class="side-intro">These terms set out the basic rules for website use, booking requests, gaming sessions, equipment and venue conduct.</p>
+      <span class="updated">Effective date: 28 July 2026</span>
+      <div class="legal-switch">
+        <a class="" href="./privacy-policy.html">Privacy Policy <span>→</span></a>
+        <a class="active" href="./terms-of-service.html">Terms of Service <span>→</span></a>
+      </div>
+    </aside>
+
+    <article class="legal-document">
+      <div class="document-top"><p>A clear overview of booking, venue, equipment and website rules.</p></div>
+      <section class="legal-section" id="section-1" data-index="01"><h2>1. Acceptance of terms</h2><p>By using the Ace Gaming website, contacting us or making a booking request, you agree to these Terms of Service. A booking is confirmed only after Ace Gaming accepts the requested date, time, service and any applicable payment terms.</p></section><section class="legal-section" id="section-2" data-index="02"><h2>2. Bookings and availability</h2><ul><li>Website and WhatsApp requests are subject to availability.</li><li>Customers must provide accurate booking details and a reachable phone number.</li><li>Session time may include setup, login and changeover time where communicated.</li><li>A requested package, game or machine may be changed if equipment is unavailable or under maintenance.</li></ul></section><section class="legal-section" id="section-3" data-index="03"><h2>3. Prices, payments and cancellations</h2><p>Current prices, deposits, payment methods, cancellation conditions and refund eligibility will be shown or confirmed before payment. Customers should review those details before confirming a booking. Failure to arrive on time may reduce the playable session time.</p></section><section class="legal-section" id="section-4" data-index="04"><h2>4. Players and minors</h2><p>Customers must follow the player limits shown for each setup. PlayStation bookings may allow up to four players where supported by the selected game. Minors must have parent or guardian approval where required, and venue staff may request an accompanying adult for certain sessions or events.</p></section><section class="legal-section" id="section-5" data-index="05"><h2>5. Venue conduct</h2><p>Customers must treat staff, other players and the venue respectfully. Harassment, abusive behaviour, cheating, unsafe conduct, damage, illegal activity or repeated failure to follow staff instructions may result in removal without continuation of the session.</p></section><section class="legal-section" id="section-6" data-index="06"><h2>6. Equipment and accounts</h2><p>Customers must use gaming equipment carefully and follow staff instructions. Ace Gaming may charge for intentional damage or damage caused by reckless misuse, where permitted. Customers are responsible for signing out of personal gaming accounts and protecting their own passwords and digital purchases.</p></section><section class="legal-section" id="section-7" data-index="07"><h2>7. Games, connectivity and performance</h2><p>Game availability, updates, online services, internet connectivity and third-party servers may change or become temporarily unavailable. Ace Gaming will make reasonable efforts to provide the booked experience but cannot control external platforms or game servers.</p></section><section class="legal-section" id="section-8" data-index="08"><h2>8. Food, allergies and belongings</h2><p>Customers should inform staff about relevant allergies before ordering food. Personal belongings remain the customer’s responsibility. Ace Gaming is not responsible for loss or damage except where liability cannot legally be excluded.</p></section><section class="legal-section" id="section-9" data-index="09"><h2>9. Website and intellectual property</h2><p>The Ace Gaming name, visual design, website content and original materials may not be copied, resold or used to impersonate the business without permission. Customers may use the website only for lawful personal booking and information purposes.</p></section><section class="legal-section" id="section-10" data-index="10"><h2>10. Liability</h2><p>To the maximum extent permitted by applicable law, Ace Gaming is not liable for indirect or consequential loss, third-party service failures, interrupted gameplay or loss of personal data from a customer’s own account. Nothing in these terms limits rights or liabilities that cannot legally be limited.</p></section><section class="legal-section" id="section-11" data-index="11"><h2>11. Changes and suspension</h2><p>We may update services, packages, operating rules or these terms. We may refuse, pause or cancel a booking where necessary for safety, maintenance, suspected misuse, non-payment or circumstances outside reasonable control.</p></section><section class="legal-section" id="section-12" data-index="12"><h2>12. Governing law</h2><p>These terms are governed by the laws of India. Courts with jurisdiction over Ace Gaming’s operating location will handle disputes unless applicable law requires a different process.</p></section><section class="legal-section" id="section-13" data-index="13"><h2>13. Contact</h2><div class="contact-card"><p>Questions about these terms or a booking can be sent on WhatsApp at <a href="https://wa.me/919076060602" rel="noopener" target="_blank">+91 90760 60602</a>.</p></div></section>
+      <p class="notice">This page is a general website template for Ace Gaming and should be reviewed against the business’s actual booking, payment, retention and venue practices before launch.</p>
+    </article>
+  </main>
+
+  <footer class="legal-footer">
+    <span>© 2026 Ace Gaming. All rights reserved.</span>
+    <div>
+      <a href="./index.html">Home</a>
+      <a href="./privacy-policy.html">Privacy</a>
+      <a href="./terms-of-service.html">Terms</a>
+    </div>
+  </footer>
+</body>
+</html>
