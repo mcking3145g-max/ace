@@ -1016,6 +1016,9 @@
         border-radius: 20px;
         padding: 26px;
       }
+      .bottom-livebar-in {
+        grid-template-columns: repeat(3, 1fr);
+      }
       .lstat {
         text-align: center;
         border-right: 1px solid var(--line);
@@ -1066,6 +1069,17 @@
         .livebar-in {
           grid-template-columns: repeat(2, 1fr);
           gap: 16px 0;
+        }
+        .bottom-livebar-in {
+          grid-template-columns: 1fr;
+        }
+        .bottom-livebar-in .lstat {
+          padding: 14px 0;
+          border-right: none;
+          border-bottom: 1px solid var(--line);
+        }
+        .bottom-livebar-in .lstat:last-child {
+          border-bottom: none;
         }
         .lstat:nth-child(2) {
           border-right: none;
@@ -1510,6 +1524,16 @@
       .pack-portal:hover b i {
         transform: translateX(6px);
       }
+
+      .pack-portal[data-open-pack="ps5"] {
+        background:
+          radial-gradient(circle at 86% 18%, rgba(39, 199, 255, 0.22), transparent 28%),
+          linear-gradient(135deg, rgba(18, 27, 48, 0.98), rgba(10, 11, 20, 0.98));
+      }
+      .pack-portal[data-open-pack="ps5"]::after {
+        transform: scaleX(1);
+        opacity: 0.5;
+      }
       .pack-page {
         min-height: 100vh;
         padding: 130px 0 100px;
@@ -1658,7 +1682,7 @@
       }
       .pc-tiers {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(3, 1fr);
         gap: 12px;
         margin-top: 26px;
       }
@@ -1764,6 +1788,9 @@
         .pack-builder {
           grid-template-columns: 1fr;
         }
+        .pc-tiers {
+          grid-template-columns: repeat(2, 1fr);
+        }
         .pack-summary {
           position: static;
         }
@@ -1809,7 +1836,17 @@
           min-height: 260px;
           padding: 26px;
         }
-        .pack-page {
+  
+      .pack-portal[data-open-pack="ps5"] {
+        background:
+          radial-gradient(circle at 86% 18%, rgba(39, 199, 255, 0.22), transparent 28%),
+          linear-gradient(135deg, rgba(18, 27, 48, 0.98), rgba(10, 11, 20, 0.98));
+      }
+      .pack-portal[data-open-pack="ps5"]::after {
+        transform: scaleX(1);
+        opacity: 0.5;
+      }
+      .pack-page {
           padding-top: 112px;
         }
         .pack-page-head {
@@ -2781,8 +2818,7 @@
               <h2>A pack for every kind of session.</h2>
             </div>
             <p>
-              Open a pack, choose your time and then select a Super PC or
-              Premium PC setup.
+              Open a pack, choose your time and select the setup that fits your session.
             </p>
           </div>
           <div class="pack-portals">
@@ -2807,12 +2843,26 @@
               <p>HALF MONTH • 1 • 2 • 3 MONTHS</p>
               <b>OPEN PACK <i>→</i></b>
             </button>
-            <button class="pack-portal reveal" data-open-pack="custom">
+            <button class="pack-portal reveal" data-open-pack="ps5">
               <span class="pack-index">04</span>
-              <small>YOU SET THE LIMIT</small>
-              <h3>Custom Pack</h3>
-              <p>10+ HOURS • FLEXIBLE DURATION</p>
-              <b>BUILD YOUR PACK <i>→</i></b>
+              <small>PLAY TOGETHER</small>
+              <h3>PS5 Packs</h3>
+              <p>1 • 2 • 3 HOURS • MAX 4 PLAYERS</p>
+              <b>OPEN PACK <i>→</i></b>
+            </button>
+            <button class="pack-portal reveal" data-open-pack="vr">
+              <span class="pack-index">05</span>
+              <small>STEP INTO THE GAME</small>
+              <h3>VR Packs</h3>
+              <p>30 MIN • 1 HOUR • 2 HOURS</p>
+              <b>OPEN PACK <i>→</i></b>
+            </button>
+            <button class="pack-portal reveal" data-open-pack="sim">
+              <span class="pack-index">06</span>
+              <small>RACE AT FULL SPEED</small>
+              <h3>Sim Racing</h3>
+              <p>15 MIN • 30 MIN • 1 HOUR</p>
+              <b>OPEN PACK <i>→</i></b>
             </button>
           </div>
         </section>
@@ -2858,25 +2908,29 @@
             ready to help.
           </p>
           <div class="actions center">
-            <button class="btn primary open-contact">Contact us</button>
+            <a
+              class="btn primary"
+              id="contactWhatsApp"
+              href="#"
+              target="_blank"
+              rel="noopener"
+            >Chat on WhatsApp ↗</a>
+            <button class="btn ghost open-book" type="button">Book with form</button>
           </div>
         </section>
         <section
           class="livebar reveal bottom-stats"
           aria-label="Ace Gaming highlights"
         >
-          <div class="livebar-in">
+          <div class="livebar-in bottom-livebar-in">
             <div class="lstat">
-              <b data-count="500">0</b><span>Gamers Served</span>
+              <b data-count="1700">0</b><span>Gamers Served</span>
             </div>
             <div class="lstat">
-              <b data-count="50">0</b><span>Events Hosted</span>
-            </div>
-            <div class="lstat">
-              <b data-count="1200">0</b><span>Hours Played</span>
+              <b data-count="35000">0</b><span>Hours Played</span>
             </div>
             <div class="lstat live">
-              <span class="dot"></span><b>4.9★</b><span>Average Rating</span>
+              <span class="dot"></span><b>5★</b><span>Average Rating</span>
             </div>
           </div>
         </section>
@@ -2949,11 +3003,11 @@
               <div class="step-title">
                 <span>02</span>
                 <div>
-                  <small>CHOOSE YOUR MACHINE</small>
-                  <h2>Pick your PC tier</h2>
+                  <small id="setupKicker">CHOOSE YOUR SETUP</small>
+                  <h2 id="setupTitle">Pick your gaming setup</h2>
                 </div>
               </div>
-              <div class="pc-tiers">
+              <div class="pc-tiers" id="setupOptions">
                 <button
                   class="pc-tier active"
                   type="button"
@@ -2970,6 +3024,12 @@
                   <p>Higher-end graphics • premium gear • max visual quality</p>
                   <b>SELECT</b>
                 </button>
+                <button class="pc-tier" type="button" data-pc-tier="ps5">
+                  <span>PLAYSTATION 5</span>
+                  <h3>Made for groups</h3>
+                  <p>DualSense controllers • couch multiplayer • up to 4 players</p>
+                  <b>SELECT</b>
+                </button>
               </div>
             </div>
           </div>
@@ -2983,7 +3043,7 @@
               ><strong id="summaryDuration">1 Hour</strong>
             </div>
             <div class="summary-line">
-              <small>PC TIER</small><strong id="summaryPc">Super PC</strong>
+              <small id="summarySetupLabel">SETUP</small><strong id="summaryPc">Super PC</strong>
             </div>
             <ul>
               <li>Reserved gaming station</li>
@@ -3017,7 +3077,7 @@
           target="_blank"
           rel="noopener"
           >Ace Store ↗</a
-        ><a href="#">Instagram</a><a href="#">WhatsApp</a
+        ><a href="#">Instagram</a><a id="footerWhatsApp" href="#" target="_blank" rel="noopener">WhatsApp</a
         ><a href="#">Location</a>
       </div>
     </footer>
@@ -3029,10 +3089,10 @@
         <h2>Reserve at Ace Gaming</h2>
         <form id="bookForm">
           <div class="form-grid">
-            <label>Name<input required placeholder="Your name" /></label
-            ><label>Phone<input required placeholder="+91" /></label
+            <label>Name<input id="bookName" name="name" required placeholder="Your name" /></label
+            ><label>Phone<input id="bookPhone" name="phone" type="tel" required placeholder="+91" /></label
             ><label
-              >Service<select id="bookService">
+              >Service<select id="bookService" name="service">
                 <option>Gaming PC</option>
                 <option>PlayStation 5</option>
                 <option>Sim Racing</option>
@@ -3041,25 +3101,25 @@
                 <option>Membership</option>
               </select></label
             ><label
-              >Players<select>
+              >Players<select id="bookPlayers" name="players">
                 <option>1 Player</option>
                 <option>2 Players</option>
                 <option>3 Players</option>
                 <option>4 Players</option>
-                <option>5+ Players</option>
               </select></label
-            ><label>Date<input type="date" required /></label
-            ><label>Time<input type="time" required /></label>
+            ><label>Date<input id="bookDate" name="date" type="date" required /></label
+            ><label>Time<input id="bookTime" name="time" type="time" required /></label>
           </div>
           <label
             >Notes<textarea
               id="bookMessage"
+              name="notes"
               placeholder="Any session details"
             ></textarea></label
-          ><button class="btn primary full">Send booking</button>
+          ><button class="btn primary full" type="submit">Continue on WhatsApp →</button>
         </form>
         <div class="success" id="bookSuccess">
-          Booking prepared. Connect the form to WhatsApp or a backend.
+          Opening WhatsApp with your booking details.
         </div>
       </div>
     </div>
@@ -3268,11 +3328,23 @@
             "A flexible long-term choice for regular players and practice routines.",
           options: ["Half Month", "1 Month", "2 Months", "3 Months"],
         },
-        custom: {
-          title: "Custom Pack",
+        ps5: {
+          title: "PS5 Packs",
           description:
-            "Build a flexible plan starting at ten hours and choose the time unit yourself.",
-          options: [],
+            "Choose your play time and enjoy local multiplayer with up to four players.",
+          options: ["1 Hour", "2 Hours", "3 Hours"],
+        },
+        vr: {
+          title: "VR Packs",
+          description:
+            "Choose a virtual-reality session and step directly into immersive gameplay.",
+          options: ["30 Minutes", "1 Hour", "2 Hours"],
+        },
+        sim: {
+          title: "Sim Racing",
+          description:
+            "Choose your race duration and experience a focused simulator session.",
+          options: ["15 Minutes", "30 Minutes", "1 Hour"],
         },
       };
       const homeView = document.querySelector("#homeView"),
@@ -3285,10 +3357,15 @@
         packDescription = document.querySelector("#packPageDescription"),
         summaryPack = document.querySelector("#summaryPack"),
         summaryDuration = document.querySelector("#summaryDuration"),
-        summaryPc = document.querySelector("#summaryPc");
+        summaryPc = document.querySelector("#summaryPc"),
+        summarySetupLabel = document.querySelector("#summarySetupLabel"),
+        setupKicker = document.querySelector("#setupKicker"),
+        setupTitle = document.querySelector("#setupTitle"),
+        setupOptions = document.querySelector("#setupOptions");
       let activePack = "hours",
         activeDuration = "1 Hour",
         activePc = "super",
+        activePlayers = "1 Player",
         activeUnit = "Hours";
       function updatePackSummary() {
         const d = packData[activePack];
@@ -3298,8 +3375,12 @@
         }
         summaryPack.textContent = d.title;
         summaryDuration.textContent = activeDuration;
-        summaryPc.textContent =
-          activePc === "super" ? "Super PC" : "Premium PC";
+        summarySetupLabel.textContent = activePack === "ps5" ? "PLAYERS" : "SETUP";
+        summaryPc.textContent = activePack === "ps5"
+          ? activePlayers
+          : activePc === "super"
+            ? "Super PC"
+            : "Premium PC";
       }
       function renderPack() {
         const d = packData[activePack];
@@ -3312,6 +3393,37 @@
           return;
         }
         activeDuration = d.options[0];
+        if (activePack === "ps5") {
+          activePlayers = "1 Player";
+          setupKicker.textContent = "CHOOSE PLAYERS";
+          setupTitle.textContent = "How many players?";
+          setupOptions.innerHTML = [1, 2, 3, 4]
+            .map((count, index) => {
+              const label = count === 1 ? "1 Player" : `${count} Players`;
+              return `<button class="pc-tier player-tier${index === 0 ? " active" : ""}" type="button" data-player-count="${label}">
+                <span>PLAYER OPTION</span>
+                <h3>${label}</h3>
+                <p>${count === 1 ? "Solo PlayStation session" : `Play together with ${count} controllers`}</p>
+                <b>${index === 0 ? "SELECTED" : "SELECT"}</b>
+              </button>`;
+            })
+            .join("");
+        } else {
+          setupKicker.textContent = "CHOOSE YOUR SETUP";
+          setupTitle.textContent = "Pick your gaming setup";
+          if (activePc !== "super" && activePc !== "premium") activePc = "super";
+          setupOptions.innerHTML = `
+            <button class="pc-tier${activePc === "super" ? " active" : ""}" type="button" data-pc-tier="super">
+              <span>SUPER PC</span><h3>Fast & competitive</h3>
+              <p>High-FPS system • high-refresh display • esports-ready</p>
+              <b>${activePc === "super" ? "SELECTED" : "SELECT"}</b>
+            </button>
+            <button class="pc-tier${activePc === "premium" ? " active" : ""}" type="button" data-pc-tier="premium">
+              <span>PREMIUM PC</span><h3>Maximum experience</h3>
+              <p>Higher-end graphics • premium gear • max visual quality</p>
+              <b>${activePc === "premium" ? "SELECTED" : "SELECT"}</b>
+            </button>`;
+        }
         durationOptions.innerHTML = d.options
           .map(
             (option, index) =>
@@ -3360,16 +3472,17 @@
         activeDuration = button.dataset.duration;
         updatePackSummary();
       });
-      document.querySelectorAll("[data-pc-tier]").forEach((button) => {
-        button.addEventListener("click", () => {
-          activePc = button.dataset.pcTier;
-          document.querySelectorAll("[data-pc-tier]").forEach((item) => {
-            item.classList.toggle("active", item === button);
-            item.querySelector("b").textContent =
-              item === button ? "SELECTED" : "SELECT";
-          });
-          updatePackSummary();
+      setupOptions.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-pc-tier], [data-player-count]");
+        if (!button) return;
+        if (button.dataset.playerCount) activePlayers = button.dataset.playerCount;
+        if (button.dataset.pcTier) activePc = button.dataset.pcTier;
+        setupOptions.querySelectorAll(".pc-tier").forEach((item) => {
+          const selected = item === button;
+          item.classList.toggle("active", selected);
+          item.querySelector("b").textContent = selected ? "SELECTED" : "SELECT";
         });
+        updatePackSummary();
       });
       customAmount.addEventListener("input", updatePackSummary);
       customUnit.addEventListener("click", (event) => {
@@ -3386,13 +3499,18 @@
       document
         .querySelector("[data-package-book]")
         .addEventListener("click", () => {
-          document.querySelector("#bookService").value = "Gaming PC";
+          document.querySelector("#bookService").value =
+            activePack === "ps5" ? "PlayStation 5" : activePack === "sim" ? "Sim Racing" : "Gaming PC";
+          if (activePack === "ps5") {
+            const playersSelect = document.querySelector("#bookForm select:not(#bookService)");
+            if (playersSelect) playersSelect.value = activePlayers;
+          }
           document.querySelector("#bookMessage").value =
-            `${packData[activePack].title} • ${activeDuration} • ${activePc === "super" ? "Super PC" : "Premium PC"}`;
+            `${packData[activePack].title} • ${activeDuration} • ${activePack === "ps5" ? activePlayers : activePc === "super" ? "Super PC" : "Premium PC"}`;
         });
       function routePackPage() {
         const match = location.hash.match(
-          /^#packages\/(hours|days|months|custom)$/,
+          /^#packages\/(hours|days|months|ps5|vr|sim)$/,
         );
         if (match) openPack(match[1], false);
         else if (!packPage.hidden) {
@@ -3470,6 +3588,60 @@
         if (e.key === "Escape") {
           cb();
           cc();
+        }
+      };
+
+      /* Replace this with Ace Gaming's WhatsApp number.
+         Use country code + number only, with no +, spaces or dashes.
+         Example for India: 919876543210 */
+      const ACE_WHATSAPP_NUMBER = "919076060602";
+
+      function createWhatsAppUrl(message) {
+        return `https://wa.me/${ACE_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+      }
+
+      const directWhatsAppMessage =
+        "Hi Ace Gaming, I would like to know more about your gaming sessions and packages.";
+      const directWhatsAppUrl = createWhatsAppUrl(directWhatsAppMessage);
+      const contactWhatsApp = document.querySelector("#contactWhatsApp");
+      const footerWhatsApp = document.querySelector("#footerWhatsApp");
+      if (contactWhatsApp) contactWhatsApp.href = directWhatsAppUrl;
+      if (footerWhatsApp) footerWhatsApp.href = directWhatsAppUrl;
+
+      const bookingForm = document.querySelector("#bookForm");
+      bookingForm.onsubmit = (event) => {
+        event.preventDefault();
+
+        const name = document.querySelector("#bookName").value.trim();
+        const phone = document.querySelector("#bookPhone").value.trim();
+        const service = document.querySelector("#bookService").value;
+        const players = document.querySelector("#bookPlayers").value;
+        const date = document.querySelector("#bookDate").value;
+        const time = document.querySelector("#bookTime").value;
+        const notes = document.querySelector("#bookMessage").value.trim();
+
+        const bookingMessage = [
+          "ACE GAMING — NEW BOOKING REQUEST",
+          "",
+          `Name: ${name}`,
+          `Phone: ${phone}`,
+          `Service: ${service}`,
+          `Players: ${players}`,
+          `Date: ${date}`,
+          `Time: ${time}`,
+          notes ? `Details: ${notes}` : "Details: None",
+          "",
+          "Please confirm availability and the final price.",
+        ].join("\n");
+
+        const whatsappWindow = window.open(
+          createWhatsAppUrl(bookingMessage),
+          "_blank",
+          "noopener,noreferrer",
+        );
+
+        if (!whatsappWindow) {
+          window.location.href = createWhatsAppUrl(bookingMessage);
         }
       };
       (function () {
