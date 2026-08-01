@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#070711">
-  <meta name="description" content="Shop performance gaming PCs, PlayStation 5 consoles, controllers and gaming accessories from Ace Gaming.">
-  <title>Ace Gaming Store</title>
+  <meta name="description" content="Rent performance gaming PCs, monitors, RAM and gaming accessories from Ace Gaming.">
+  <title>Ace Gaming Rentals</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@600;700;800;900&display=swap" rel="stylesheet">
@@ -87,6 +87,14 @@
     .desktop-nav a{transition:.25s ease}
     .desktop-nav a:hover{color:#fff}
     .header-actions{display:flex;align-items:center;gap:8px}
+    .whatsapp-booking{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:43px;padding:0 15px;
+      border:1px solid rgba(64,223,160,.38);border-radius:13px;color:#effff8;
+      background:linear-gradient(120deg,rgba(64,223,160,.18),rgba(41,199,255,.09));
+      box-shadow:0 10px 28px rgba(0,0,0,.18);font-size:11px;font-weight:900;letter-spacing:.035em;transition:.25s ease;
+    }
+    .whatsapp-booking:hover{transform:translateY(-2px);border-color:rgba(64,223,160,.66);background:linear-gradient(120deg,rgba(64,223,160,.25),rgba(41,199,255,.13));box-shadow:0 12px 30px rgba(64,223,160,.12)}
+    .whatsapp-booking svg{flex:0 0 auto}
     .home-link{
       display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:43px;padding:0 14px;
       border:1px solid rgba(123,70,255,.44);border-radius:13px;color:#fff;
@@ -209,12 +217,22 @@
     .mini-specs li{height:max-content;padding:6px 8px;border:1px solid var(--line);border-radius:7px;background:rgba(255,255,255,.025);color:#b7b8c8;font-size:9px;font-weight:700}
     .price-line{display:flex;align-items:center;justify-content:space-between;gap:12px}
     .price{font-family:var(--font-display);font-size:19px;font-weight:800}
+    .price.discounted,.detail-price.discounted{color:var(--green)}
+    .price-suffix{margin-left:4px;color:var(--muted);font-size:10px;font-weight:700}
     .mrp{display:block;margin-top:3px;color:#6f7182;font-size:10px;text-decoration:line-through}
     .stock{display:flex;align-items:center;gap:6px;color:var(--green);font-size:10px;font-weight:800}
     .stock::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;box-shadow:0 0 10px currentColor}
     .card-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px}
     .card-actions .button{min-height:42px;padding:10px 8px;font-size:11px}
     .no-products{grid-column:1/-1;padding:55px 20px;border:1px dashed var(--line);border-radius:20px;text-align:center;color:var(--muted)}
+    .rental-period-field{display:grid;gap:7px;margin-top:22px}
+    .rental-period-field label,.cart-period label{color:var(--muted);font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+    .rental-period-field select,.cart-period select{
+      width:100%;height:44px;padding:0 12px;border:1px solid var(--line);border-radius:11px;outline:0;
+      background:#121221;color:#fff;font-size:12px;font-weight:700;
+    }
+    .rental-period-field select:focus,.cart-period select:focus{border-color:rgba(41,199,255,.5)}
+    .cart-period{display:grid;gap:7px;margin-bottom:16px}
 
     .detail-page{padding:72px 0 100px;animation:pageIn .45s ease}
     .breadcrumbs{display:flex;align-items:center;gap:8px;margin-bottom:25px;color:var(--muted);font-size:12px}
@@ -237,7 +255,7 @@
     .detail-rating{display:flex;align-items:center;gap:9px;margin:17px 0;color:#ffd45b;font-size:12px}
     .detail-rating span{color:var(--muted)}
     .detail-price{margin:24px 0;font-family:var(--font-display);font-size:30px;font-weight:900}
-    .detail-price del{margin-left:10px;color:#656678;font-family:Inter;font-size:14px;font-weight:500}
+    .detail-price del{display:block;width:max-content;margin:7px 0 0;color:#656678;font-family:Inter;font-size:13px;font-weight:500}
     .detail-note{display:flex;align-items:center;gap:8px;color:var(--green);font-size:12px;font-weight:800}
     .spec-panel{margin-top:27px;border:1px solid var(--line);border-radius:19px;background:rgba(255,255,255,.025)}
     .spec-panel h3{margin:0;padding:17px 18px;border-bottom:1px solid var(--line);font-family:var(--font-display);font-size:13px}
@@ -245,13 +263,24 @@
     .spec-list li{display:flex;justify-content:space-between;gap:20px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:12px}
     .spec-list li:last-child{border-bottom:0}
     .spec-list span{color:var(--muted)}.spec-list strong{text-align:right}
+    .detail-services{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:22px}
+    .detail-service{
+      display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:center;padding:13px;
+      border:1px solid var(--line);border-radius:12px;background:linear-gradient(135deg,rgba(255,63,157,.06),rgba(41,199,255,.035));
+    }
+    .detail-service-icon{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:rgba(41,199,255,.09);color:var(--blue);font-weight:900}
+    .detail-service strong{display:block;font-size:10px}.detail-service small{display:block;margin-top:3px;color:var(--muted);font-size:8px;line-height:1.4}
+    .best-for{margin-top:18px;padding:17px 18px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.025)}
+    .best-for h3{margin:0 0 12px;font-family:var(--font-display);font-size:11px;letter-spacing:.08em}
+    .best-for-list{display:flex;flex-wrap:wrap;gap:7px}
+    .best-for-list span{padding:8px 10px;border:1px solid rgba(118,87,255,.22);border-radius:9px;background:rgba(118,87,255,.07);color:#d7d0ff;font-size:9px;font-weight:800}
     .quantity-buy{display:grid;grid-template-columns:108px 1fr;gap:10px;margin-top:26px}
     .quantity{
       display:grid;grid-template-columns:34px 1fr 34px;align-items:center;border:1px solid var(--line);border-radius:13px;background:rgba(255,255,255,.035);
     }
     .quantity button{height:100%;border:0;background:transparent;cursor:pointer;color:var(--muted);font-size:18px}
     .quantity strong{text-align:center;font-size:13px}
-    .buy-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+    .rent-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
     .assurance{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:22px}
     .assurance div{padding:12px;border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.025);color:var(--muted);font-size:9px;line-height:1.45;text-align:center}
     .assurance strong{display:block;margin-bottom:3px;color:#fff;font-size:10px}
@@ -390,32 +419,118 @@
     .cart-total-row.grand{padding-top:10px;border-top:1px solid var(--line);color:#fff;font-size:16px;font-weight:800}
     .cart-note{margin:10px 0 0;color:#6f7183;font-size:9px;line-height:1.5;text-align:center}
 
-    .modal-overlay{display:grid;place-items:center;padding:18px;z-index:80}
+    .modal-overlay{
+      display:grid;place-items:center;padding:24px;z-index:80;
+      background:rgba(3,4,11,.84);backdrop-filter:blur(18px) saturate(1.15);
+    }
     .checkout-modal{
-      width:min(760px,100%);max-height:min(86vh,760px);overflow:auto;border:1px solid var(--line);border-radius:24px;background:#0e0e1c;box-shadow:var(--shadow);
-      transform:translateY(20px) scale(.97);transition:.32s ease;
+      position:relative;width:min(1020px,100%);max-height:min(92vh,860px);overflow:auto;
+      border:1px solid rgba(255,255,255,.13);border-radius:30px;background:#090a12;
+      box-shadow:0 40px 120px rgba(0,0,0,.65),0 0 80px rgba(80,62,220,.08);
+      transform:translateY(24px) scale(.975);transition:.34s cubic-bezier(.2,.8,.2,1);
+      scrollbar-width:none;-ms-overflow-style:none;overscroll-behavior:contain;
+    }
+    .checkout-modal::-webkit-scrollbar,.checkout-summary-items::-webkit-scrollbar{display:none;width:0;height:0}
+    .checkout-modal::before{
+      content:"";position:absolute;inset:0 0 auto;height:2px;z-index:2;
+      background:linear-gradient(90deg,transparent 4%,var(--pink) 28%,#8a58ff 54%,var(--blue) 78%,transparent 96%);
     }
     .modal-overlay.open .checkout-modal{transform:translateY(0) scale(1)}
-    .checkout-head{display:flex;align-items:center;justify-content:space-between;padding:22px 24px;border-bottom:1px solid var(--line)}
-    .checkout-head h2{margin:0;font-family:var(--font-display);font-size:20px}
-    .checkout-grid{display:grid;grid-template-columns:1.1fr .9fr}
-    .checkout-form{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:24px}
-    .field{display:flex;flex-direction:column;gap:7px;color:var(--muted);font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.07em}
+    .checkout-head{
+      display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px 30px;
+      border-bottom:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.018);
+    }
+    .checkout-head-copy{display:grid;gap:7px}
+    .checkout-kicker{color:var(--pink-2);font-size:9px;font-weight:900;letter-spacing:.2em;text-transform:uppercase}
+    .checkout-head h2{margin:0;font-family:var(--font-display);font-size:25px;letter-spacing:-.02em}
+    .checkout-head p{margin:0;color:#7f8294;font-size:11px;line-height:1.55}
+    .checkout-head .close-button{
+      flex:0 0 auto;width:44px;height:44px;border-color:rgba(255,255,255,.12);border-radius:50%;
+      background:#12131d;color:#b7b9c8;font-size:17px;transition:.22s ease;
+    }
+    .checkout-head .close-button:hover{transform:rotate(90deg);border-color:rgba(255,63,157,.48);color:#fff;background:rgba(255,63,157,.1)}
+    .checkout-grid{display:grid;grid-template-columns:minmax(300px,.82fr) minmax(0,1.38fr)}
+    .checkout-form{
+      order:2;display:grid;grid-template-columns:1fr 1fr;align-content:start;gap:15px;padding:30px;
+      background:linear-gradient(145deg,rgba(255,255,255,.018),transparent 45%);
+    }
+    .form-intro{
+      display:flex!important;flex-direction:row!important;align-items:center;gap:13px!important;margin-bottom:5px;
+      color:inherit!important;text-transform:none!important;letter-spacing:0!important;
+    }
+    .form-step,.summary-step{
+      display:grid;place-items:center;flex:0 0 auto;width:38px;height:38px;border:1px solid rgba(255,255,255,.12);
+      border-radius:12px;background:#12131e;color:var(--blue);font-family:var(--font-display);font-size:10px;font-weight:900;
+    }
+    .form-intro span:not(.form-step),.summary-kicker{color:#777a8d;font-size:8px;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
+    .form-intro h3{margin:3px 0 0;color:#fff;font-size:16px;letter-spacing:-.01em}
+    .field{display:flex;flex-direction:column;gap:8px;color:#a8aabc;font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:.1em}
     .field.full{grid-column:1/-1}
     .field input,.field textarea,.field select{
-      width:100%;padding:12px 13px;border:1px solid var(--line);border-radius:11px;outline:0;background:rgba(255,255,255,.04);color:#fff;font-size:12px;text-transform:none;letter-spacing:0;
+      width:100%;min-height:49px;padding:13px 14px;border:1px solid rgba(255,255,255,.105);border-radius:13px;outline:0;
+      background:#11121c;color:#fff;font-size:12px;font-weight:650;text-transform:none;letter-spacing:0;transition:.22s ease;
     }
-    .field textarea{min-height:76px;resize:vertical}
-    .field input:focus,.field textarea:focus,.field select:focus{border-color:rgba(41,199,255,.5)}
-    .checkout-summary{padding:24px;border-left:1px solid var(--line);background:rgba(255,255,255,.02)}
-    .checkout-summary h3{margin:0 0 16px;font-family:var(--font-display);font-size:13px}
-    .checkout-summary-items{display:grid;gap:10px;max-height:240px;overflow:auto}
-    .summary-item{display:flex;justify-content:space-between;gap:14px;color:var(--muted);font-size:10px;line-height:1.45}
-    .summary-item strong{color:#fff;text-align:right;white-space:nowrap}
-    .summary-total{display:flex;justify-content:space-between;margin-top:17px;padding-top:15px;border-top:1px solid var(--line);font-weight:900}
-    .success-state{padding:55px 25px;text-align:center}
-    .success-icon{display:grid;place-items:center;width:70px;height:70px;margin:0 auto 18px;border-radius:50%;background:rgba(64,223,160,.13);color:var(--green);font-size:30px}
-    .success-state h2{font-family:var(--font-display)}
+    .field input::placeholder,.field textarea::placeholder{color:#626576}
+    .field textarea{min-height:88px;resize:vertical}
+    .field input:focus,.field textarea:focus,.field select:focus{
+      border-color:rgba(41,199,255,.55);background:#131521;box-shadow:0 0 0 4px rgba(41,199,255,.06);
+    }
+    .field.honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}
+    .form-status{
+      display:none;grid-column:1/-1;margin:0;padding:12px 13px;border:1px solid rgba(41,199,255,.25);border-radius:12px;
+      background:rgba(41,199,255,.07);color:#c9f2ff;font-size:11px;font-weight:700;line-height:1.5;text-transform:none;letter-spacing:0;
+    }
+    .form-status.show{display:block}
+    .form-status.error{border-color:rgba(255,82,125,.38);background:rgba(255,82,125,.08);color:#ffd3df}
+    .checkout-submit{
+      grid-column:1/-1;width:100%;justify-content:space-between;min-height:58px;margin-top:2px;padding:8px 9px 8px 19px;
+      border:1px solid rgba(255,255,255,.82);border-radius:16px;background:#f7f8fc;color:#090a12;
+      box-shadow:0 14px 34px rgba(0,0,0,.28);font-size:12px;font-weight:900;letter-spacing:.015em;
+    }
+    .checkout-submit::before{display:none}
+    .checkout-submit:hover{transform:translateY(-2px);background:#fff;box-shadow:0 18px 40px rgba(0,0,0,.38);filter:none}
+    .checkout-submit-icon{
+      display:grid;place-items:center;width:40px;height:40px;border-radius:12px;color:#fff;
+      background:linear-gradient(135deg,var(--pink),#8059ff 56%,var(--blue));
+      box-shadow:0 8px 20px rgba(108,75,255,.28);transition:.22s ease;
+    }
+    .checkout-submit:hover .checkout-submit-icon{transform:translateX(2px)}
+    .checkout-submit:disabled{justify-content:center}
+    .submit-note{grid-column:1/-1;margin:-3px 0 0;color:#707385;font-size:9px;line-height:1.55;text-align:left}
+    .button:disabled{cursor:wait;filter:saturate(.55);opacity:.72;transform:none;box-shadow:none}
+    .checkout-summary{
+      order:1;display:flex;flex-direction:column;min-width:0;padding:30px;border-right:1px solid rgba(255,255,255,.09);
+      background:
+        radial-gradient(circle at 10% 0%,rgba(255,63,157,.11),transparent 38%),
+        radial-gradient(circle at 100% 100%,rgba(41,199,255,.08),transparent 42%),
+        #0c0d16;
+    }
+    .summary-head{display:flex;align-items:center;gap:13px;margin-bottom:22px}
+    .summary-step{color:var(--pink-2)}
+    .summary-head h3{margin:3px 0 0;font-family:var(--font-display);font-size:16px}
+    .checkout-summary-items{display:grid;gap:10px;max-height:310px;overflow:auto;padding-right:3px;scrollbar-width:none;-ms-overflow-style:none}
+    .summary-item{
+      display:grid;grid-template-columns:50px minmax(0,1fr);gap:11px;padding:11px;
+      border:1px solid rgba(255,255,255,.09);border-radius:15px;background:rgba(255,255,255,.035);
+    }
+    .summary-thumb{width:50px;height:50px;border-radius:11px;object-fit:cover;background:#090a12}
+    .summary-item-copy{min-width:0;display:grid;align-content:center;gap:4px}
+    .summary-item-copy strong{overflow:hidden;color:#fff;font-size:10px;line-height:1.35;text-overflow:ellipsis;white-space:nowrap}
+    .summary-item-copy span{color:#777a8e;font-size:9px}
+    .summary-item-price{grid-column:1/-1;display:flex;justify-content:space-between;padding-top:9px;border-top:1px solid rgba(255,255,255,.07);color:#8b8ea0;font-size:9px}
+    .summary-item-price strong{color:#fff;font-size:10px}
+    .summary-total{
+      display:grid;grid-template-columns:1fr auto;align-items:end;gap:8px;margin-top:auto;padding:22px 0 17px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .summary-total span{color:#848798;font-size:10px}
+    .summary-total strong{font-family:var(--font-display);font-size:22px;letter-spacing:-.04em}
+    .summary-assurance{display:flex;gap:10px;padding-top:16px;color:#7d8091;font-size:9px;line-height:1.55}
+    .summary-assurance b{display:grid;place-items:center;flex:0 0 auto;width:22px;height:22px;border-radius:50%;background:rgba(64,223,160,.12);color:var(--green)}
+    .summary-assurance p{margin:0}
+    .success-state{padding:68px 25px;text-align:center;background:radial-gradient(circle at 50% 35%,rgba(64,223,160,.08),transparent 36%)}
+    .success-icon{display:grid;place-items:center;width:70px;height:70px;margin:0 auto 18px;border:1px solid rgba(64,223,160,.28);border-radius:22px;background:rgba(64,223,160,.09);color:var(--green);font-size:30px}
+    .success-state h2{font-family:var(--font-display);font-size:25px}
     .success-state p{max-width:470px;margin:0 auto 22px;color:var(--muted);line-height:1.7}
 
     .toast{
@@ -455,12 +570,15 @@
       .store-tools{align-items:stretch;flex-direction:column}.search-box{flex-basis:auto;max-width:none}
       .detail-layout{grid-template-columns:1fr}.detail-gallery{position:static}
       .builder-top{align-items:flex-start;flex-direction:column}.builder-layout{grid-template-columns:1fr}.builder-summary{position:static}.builder-controls{grid-template-columns:1fr 1fr}
-      .checkout-grid{grid-template-columns:1fr}.checkout-summary{border-left:0;border-top:1px solid var(--line)}
+      .checkout-grid{grid-template-columns:1fr}
+      .checkout-summary{min-height:auto;border-right:0;border-bottom:1px solid rgba(255,255,255,.09)}
+      .checkout-summary-items{max-height:210px}
     }
     @media (max-width:560px){
       .shell{width:min(100% - 22px,1240px)}
       .site-header{width:calc(100% - 16px);top:8px;margin-top:8px;padding:9px 10px 9px 13px}
       .brand{font-size:12px}.brand-mark{width:31px;height:31px}.header-actions{gap:6px}.icon-button{width:39px;height:39px}
+      .whatsapp-booking{width:39px;min-height:39px;padding:0}.whatsapp-booking-label{display:none}
       .home-link{width:39px;min-height:39px;padding:0}.home-link-label{display:none}
       .hero{min-height:auto;padding:82px 0 58px}.hero h1{font-size:clamp(40px,13vw,63px)}.hero p{font-size:14px}
       .benefits{grid-template-columns:1fr}.benefit{padding:17px}
@@ -470,8 +588,13 @@
       .detail-page{padding-top:45px}.detail-copy h1{font-size:37px}.detail-price{font-size:25px}
       .builder-page{padding-top:92px}.builder-controls{grid-template-columns:1fr}.builder-top h1{font-size:42px}.builder-stage-pill{display:none}
       .builder-actions{grid-template-columns:1fr}
-      .quantity-buy{grid-template-columns:100px 1fr}.buy-actions{grid-template-columns:1fr}.assurance{grid-template-columns:1fr 1fr}
-      .checkout-form{grid-template-columns:1fr;padding:18px}.field.full{grid-column:auto}.checkout-summary{padding:18px}
+      .quantity-buy{grid-template-columns:100px 1fr}.rent-actions{grid-template-columns:1fr}.assurance{grid-template-columns:1fr 1fr}.detail-services{grid-template-columns:1fr}
+      .modal-overlay{place-items:end center;padding:8px 8px 0}
+      .checkout-modal{max-height:95svh;border-radius:24px 24px 0 0}
+      .checkout-head{padding:21px 20px}.checkout-head h2{font-size:19px}.checkout-head p{display:none}.checkout-head .close-button{width:40px;height:40px}
+      .checkout-form{grid-template-columns:1fr;padding:20px}.field.full{grid-column:auto}.checkout-summary{padding:20px}
+      .checkout-submit{grid-column:auto}.submit-note,.form-status{grid-column:auto}
+      .summary-item{grid-template-columns:46px minmax(0,1fr)}.summary-thumb{width:46px;height:46px}
       .footer-inner{grid-template-columns:1fr}.copyright{flex-direction:column}
     }
     @media (prefers-reduced-motion:reduce){
@@ -485,19 +608,23 @@
   <header class="site-header">
     <a class="brand" href="#store" aria-label="Ace Gaming store home"><img class="brand-logo" src="data:image/jpeg;base64,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AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB//9k=" alt="Ace Gaming"></a>
     <nav class="desktop-nav" aria-label="Main navigation">
-      <a href="#store">Store</a>
+      <a href="#store">Rentals</a>
       <a href="#products" data-filter-link="pc">Gaming PCs</a>
-      <a href="#products" data-filter-link="console">PlayStation</a>
-      <a href="#products" data-filter-link="accessory">Accessories</a>
+      <a href="#products" data-filter-link="monitor">Monitors</a>
+      <a href="#products" data-filter-link="accessory">Add-ons</a>
     </nav>
     <div class="header-actions">
+      <a class="whatsapp-booking" id="topWhatsAppBooking" href="https://wa.me/919076060602?text=Hello%20Ace%20Gaming%2C%20I%20want%20to%20book%20a%20gaming%20rental.%20Please%20share%20availability%20and%20rental%20details." target="_blank" rel="noopener" aria-label="Book a rental on WhatsApp">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.5 9.4 9.4 0 0 1-4-1l-5 1 1-4.7a8.6 8.6 0 1 1 17-3.8Z"/><path d="M8.7 8.4c.2-.5.4-.5.7-.5h.5c.2 0 .4 0 .5.4l.8 1.9c.1.3 0 .5-.1.7l-.6.8c-.2.2-.1.4 0 .6.6 1 1.4 1.8 2.4 2.3.2.1.4.1.6-.1l.9-1.1c.2-.2.4-.2.7-.1l1.8.9c.3.1.5.2.5.4.1.2.1 1-.2 1.7-.3.7-1.5 1.3-2.1 1.4-.6.1-1.4.2-2.3-.1-.5-.2-1.2-.4-2-.8-3.5-1.5-5.8-5.1-6-5.3-.2-.3-1.4-1.9-1.4-3.6 0-1.7.9-2.5 1.2-2.9Z" transform="scale(.72) translate(5 5)"/></svg>
+        <span class="whatsapp-booking-label">WhatsApp Booking</span>
+      </a>
       <a class="home-link" href="./index.html" aria-label="Back to Ace Gaming main site">
         <span aria-hidden="true">←</span><span class="home-link-label">Main Site</span>
       </a>
       <button class="icon-button menu-button" type="button" aria-label="Go to products" onclick="document.querySelector('#products').scrollIntoView()">
         <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
-      <button class="icon-button" id="cartButton" type="button" aria-label="Open cart">
+      <button class="icon-button" id="cartButton" type="button" aria-label="Open rental list">
         <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h2l2.4 10.7a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L21 7H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
         <span class="cart-count" id="cartCount">0</span>
       </button>
@@ -508,45 +635,46 @@
     <div id="storeView">
       <section class="hero shell" id="store">
         <div class="hero-copy">
-          <span class="eyebrow">Ace Gaming Store</span>
-          <h1>Built to play.<br><span class="gradient-text">Made to dominate.</span></h1>
-          <p>Performance-tested gaming PCs, PlayStation consoles and battle-ready accessories—selected for smooth gameplay, reliable power and serious setups.</p>
+          <span class="eyebrow">Ace Gaming Rentals</span>
+          <h1>Play more.<br><span class="gradient-text">Own less.</span></h1>
+          <p>Rent performance-tested gaming PCs by the month, then add the monitor, RAM and gaming gear you need for a complete setup.</p>
           <div class="hero-actions">
-            <a class="button" href="#products">Shop all products
+            <a class="button" href="#products">View all rentals
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
             </a>
-            <button class="button secondary" type="button" data-view-product="pc-pro">View featured PC</button>
+            <button class="button secondary" type="button" data-view-product="pc-4060">View featured PC</button>
           </div>
           <div class="trust-row">
             <span>Performance tested</span>
-            <span>Secure checkout request</span>
+            <span>Monthly rental plans</span>
             <span>Expert support</span>
           </div>
         </div>
       </section>
 
-      <section class="benefits shell" aria-label="Shopping benefits">
-        <div class="benefit"><span class="benefit-icon">✓</span><span><strong>Tested Builds</strong><small>Stability checked before sale</small></span></div>
-        <div class="benefit"><span class="benefit-icon">⚡</span><span><strong>Fast Performance</strong><small>Balanced gaming hardware</small></span></div>
-        <div class="benefit"><span class="benefit-icon">♢</span><span><strong>Expert Support</strong><small>Help choosing your setup</small></span></div>
-        <div class="benefit"><span class="benefit-icon">⌁</span><span><strong>Pickup & Delivery</strong><small>Confirmed after your order</small></span></div>
+      <section class="benefits shell" aria-label="Rental benefits">
+        <div class="benefit"><span class="benefit-icon">✓</span><span><strong>Tested Builds</strong><small>Stability checked before rental</small></span></div>
+        <div class="benefit"><span class="benefit-icon">⚡</span><span><strong>Flexible Plans</strong><small>Choose 1, 2 or 3 months</small></span></div>
+        <div class="benefit"><span class="benefit-icon">♢</span><span><strong>Setup Add-ons</strong><small>Monitors, RAM and gaming gear</small></span></div>
+        <div class="benefit"><span class="benefit-icon">⌁</span><span><strong>Pickup & Delivery</strong><small>Confirmed with your request</small></span></div>
       </section>
 
       <section class="store-section shell" id="products">
         <div class="section-heading">
-          <div><span class="eyebrow">Shop the collection</span><h2>Level up your <span class="gradient-text">setup.</span></h2></div>
-          <p>Choose from complete gaming PCs, consoles, controllers and accessories. Open any item to view its complete specification and buying details.</p>
+          <div><span class="eyebrow">Rental collection</span><h2>Build your rented <span class="gradient-text">setup.</span></h2></div>
+          <p>Choose a gaming PC, monitor, RAM upgrade or gaming accessory and select the rental period that works for you.</p>
         </div>
         <div class="store-tools">
           <div class="filter-row" aria-label="Product categories">
-            <button class="filter active" type="button" data-filter="all">All Products</button>
+            <button class="filter active" type="button" data-filter="all">All Rentals</button>
             <button class="filter" type="button" data-filter="pc">Gaming PCs</button>
-            <button class="filter" type="button" data-filter="console">PS5 & Controllers</button>
-            <button class="filter" type="button" data-filter="accessory">Accessories</button>
+            <button class="filter" type="button" data-filter="monitor">Monitors</button>
+            <button class="filter" type="button" data-filter="accessory">Gaming Add-ons</button>
+            <button class="filter" type="button" data-filter="upgrade">RAM Upgrades</button>
           </div>
           <label class="search-box">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-            <input id="searchInput" type="search" placeholder="Search products..." aria-label="Search products">
+            <input id="searchInput" type="search" placeholder="Search rentals..." aria-label="Search rentals">
           </label>
         </div>
         <div class="product-grid" id="productGrid"></div>
@@ -555,57 +683,24 @@
 
     <section class="detail-page shell" id="detailView" hidden></section>
 
-    <section class="builder-page shell" id="builderView" hidden>
-      <div class="breadcrumbs"><button type="button" data-back-store>Store</button><span>/</span><span>Custom PC Builder</span></div>
-      <div class="builder-top">
-        <div>
-          <span class="eyebrow">Ace Custom Lab</span>
-          <h1>Build your <span class="gradient-text">dream PC.</span></h1>
-          <p>Choose every component, see your estimated total update instantly, and send the complete configuration to Ace Gaming for final compatibility, stock and price confirmation.</p>
-        </div>
-        <div class="builder-stage-pill">Live build estimate</div>
-      </div>
-      <div class="builder-layout">
-        <div class="builder-controls" id="builderControls"></div>
-        <aside class="builder-summary" aria-live="polite">
-          <div class="builder-summary-head">
-            <div class="builder-summary-head-row">
-              <h2>YOUR CUSTOM BUILD</h2>
-              <span class="compatibility-badge">Compatible</span>
-            </div>
-            <div class="builder-progress" aria-hidden="true"><span id="builderProgress"></span></div>
-          </div>
-          <div class="builder-summary-parts" id="builderSummaryParts"></div>
-          <div class="builder-summary-foot">
-            <div class="builder-tier"><span>Performance class</span><strong id="builderTier">Performance</strong></div>
-            <div class="builder-total"><span>Estimated total</span><strong id="builderTotal">₹0</strong></div>
-            <div class="builder-actions">
-              <button class="button secondary" type="button" data-reset-builder>Reset</button>
-              <button class="button" type="button" data-request-build>Request this build</button>
-            </div>
-            <p class="builder-disclaimer">Estimate includes assembly and testing. Final price, availability and compatibility are confirmed by Ace Gaming before payment.</p>
-          </div>
-        </aside>
-      </div>
-    </section>
   </main>
 
   <footer>
     <div class="footer-inner shell">
       <div>
         <a class="brand" href="#store"><img class="brand-logo" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAb8BvwMBEQACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAAAQYEBQcDAv/EAEgQAAEDAwEEBAgLBAoDAQAAAAABAgMEBREGEiExQRVRVGEHExQWIoGRkyMyUnFzkqGxwdHhM0Ji8Bc0NTZTVXKCorIkQ4NF/8QAGwEBAAIDAQEAAAAAAAAAAAAAAAEFAgMEBgf/xAAwEQEAAgIBAgYCAQIGAwEAAAAAAQIDBBEFEhMUITFRUhVBMiI0M0JDYXGBI2KRNf/aAAwDAQACEQMRAD8A4aAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAkCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfSJvA3FNpa9VVOyeCgkdG9MtVVRMobYw3n14aLbOKs8TL080L9/l7/ahPgX+GPm8Pyluj78q/2e/wCsn5jwMnwebw/LVXCgqrdULBWwuilTfsuNdqzWeJb6XreOayx2ornIicVMWcRzLaebl3VEVtFIqL1YDqjR2LRzFU+bd47DJ9gT+P2Pqebd47DJ9g9TyGx9TzbvHYZPsHqeQ2Pqebd47DJ9g9TyGx9TzbvHYZPsB5DY+p5t3jsMn2A8hsfU827x2GT7B6nkNj6nm3eOwyfYPU/H7H1eNVZbhSQ+NqaV8bMomVxxUNeXVy4o5vHDKk0teI4UmfS4jVMou23fw7+82+Fbjlw+PTnh4pYLmtfJQpSP8piZtvZng3rMfDtzwnxqdvdy1jkVF3mDa+QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASBAAAAAASgG90jZlvN3ZE9FWnjTbmXu6vWb8GPvs59rPGHHy7I1EaiNaiI1EwiJwRC3iIiOIeatbutMykliAVfX1kS5Wl1TAzNTSptphN7mc0/E5NrH3V5hY9P2Oy/ZP7cnTdvKtfezomjLr5dQeTSuzNT7srxc3kTD1nSdvxadlveFhM10AAAAAAAfMGPo5/rS7+V13kkK5hgXCqnBzjCXkurbfi5OyvtD6ZMzzesLVkbtNrXK5NreibXM2xb0rDz81/8AJf0/S4pXUPSrqnyiJZpXPpnLtJ8RiOci/aieo6ZvWZmXFGO/bFZ9ocmfxVetTht7rWPZ8kJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEgEAzaC11de7FJTvk7+CJ6w34tfLln+iG9ptD1r0Raiohi7ky5SeFnToma3raeGe3QsGPTrpFXuYg4dMdB+bofoWL9yukRf4mIo4RPQfi7Cn0NXN/YVUEnc7LV/EcOe/RM8fxnlq6vTl1pUV0lI5zeuNdohxZOn7GP3q1b4nMVWvarXJxRdyhyTWa+8Ia3LkREVVXciITEc+zGXY9HWZLNaGMe1PKZsPmXnnknqLbWx9lfV53ez+Jk9PaG9Ohwvh8jI9nbcibTkamVxlV5IRNoj3ZRW1ue2H2SgXhwHET6JieJ5cf1tZeh7u5Ym4pqj04t25OtvqUp9jH2Xek1M8Zcf+8NXZq99tr4qlnBrvTTrbzQ0LLVzzgyxeHVoJWVELJYlyx6ZRUM+XucWWuSsWiXpgls5g2V/lAd0GMA5gwv8oDmDH84B3I9RHKO6PlqdT3Tou2OexcTyLsRp+JEyrupbcYMXET6y5e9yucqquVVcqpi8ZPrPJncOQz3IBCgQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfSJkELdpnSzamNtXcmqka72RcNrvXuJiF70/pXixGTJ7LrDFFDGkcLGsY3cjWphEMuHpMeKmOvbWH2S2gAAECY+YiUTMRE8ud6xucddXeJp0b4qHKbeN7l5mEvHdT2K5MvFI9mZ4PbH0hcFrqiPNNTb0ym5z+SeridWtim9ufh57fz+Fj4j3l1MtXnpOIIjlyzXWoZKy7pT0cqtgo3+irV+NInFfVwKrYzza/p+nodPXimPm3vK/aZu7bzaYqrKJLjZlb1OT+cnfhyReqo28HhZJ+JbU3OSGn1VZ2Xq0SQ7Pw7EV8Ll5OTl6+Bo2McXrz+3ZpZ/CyRH6lxiRro3uY9Fa5Fw5vUpUTzEvSc8+r3iuFZDGjIqqZjE4Na9UQhtrny1jiLPrpSv7bUe8UMvM5vtJ0nX9tn94oPM5vtJ0pX9tn94oPM5vtJ0nX9tn94oPM5vtJ0pX9tn94oPMZvtJ0rcO21HvFB5nN9peM9VPUY8fNJJjhtuzgML5L3/lPLwDWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABKAWLR9n6QrVmnZmng3qnynckJhZ9M1Jz5O6faHRU3IZ8PYxWIjiAMgHIEPiaWOFm3NI2NvW5cEcsL5seP+U8NTVaptFPu8oWRyfuxtVft4Edyvy9W1qe3qrF61fUVjVho2rBEu5y/vO/IiVLt9Wvm/pp6Qr9NBJV1DIIGK+WR2GtTmorXmeIU1rRWOZdtslsjtFtho4cegnpr8p3NS6xUileHmNnNOa82ZxshoV/Wl7Sz2h3inYqaj4OLu63fz1nNs5OyvDu0decl+6faHHnKrlyq5XrKqZ5ehWXQl7W1XVsUzsUtT6D06l5L7Tfr5ey3q5NzBGXH/ALw64W8TzHLzcxxPEgHMvCNY/Ja5LlTsxDUftERNzX/qVezi7Z5hf6Gfvp2T7wpS8TkWCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJbxA6Zo6nSCxQu4LLl6mVXsukYuzXifluzJaAESPZExz5HI1jUy5y8EQhhe9ccd1p9FOvWscOdDa0TCbvHOT7kMeXndvrFp5ri/+qlVVtTVvV1TNJKq/KcQosma+SebTy8FUNaEA6F4NLJ+0u1Qz+Cnz9rjv1MPM90qrqWx2x2Vl0AsFKhzmsar3uRrGoqucvJEImYrHKaxMzxDjGrLw683aSdFXydi7EKL8nr9ZTZsnfbl6fXwxip2w0pqb0ou8DrmhL10paGQzPzU03oPz+8391fZuLXVy91eJUHUNfw790e0rKdSuYd3t8V1ts9HNjZlbhF+S7kvtNeSnfWYbtfNOLJFnErhRzUFZLS1DdmSJ2ypTWrNZ4l6ilotXuhjGLJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJQDrFhREslDj/Ab9xlX2e50P7an/AAzzJ2cgSpWubq9JUtsLsMREdLjmvUa5l5jrO3M28Kv/AGpqqFAAOIGwsdsku1yho4cptr6bvkt5qbMdO+3DXlyRjpNpdtpaeKlp46eBuzHG1GtT5i5rHbHEPL5LzktNpepkwU3wj3xaOhZbqd/w1Rvk62s/U4drLxHbC16dr8z3y5eq5K5dIAlANtpq7yWa6w1TF+Dzsyt+UxeP5m3Fk7LctOfFGXHNXaYpGTRMlidtMem01yc0XgXFbRaIl5jJXttMPszYqJ4SrJ42Jt2p2+lGiMnRObeTvwK7bxf5oXHTdj/Ts5wcC3AIAAAJAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD6TiB1LTEvjbDRr8mNG+zcZ19ntemW7taraErECHLtUq5b/AFu1/i/ga3h+oTM7N+flqQ4kASnEDqng9sfkFuWuqGYqKpNyKnxWcvaWerh4julR9Q2O63hx7Qtx2cKzh4V1XFQUktVUORsUbdpyqY3v2V7pbMWLxL9sOJXe4TXS4T1k6+lI7KJ8lOSFLe82mZeox44x0isMEwZmAAEpxBy6T4Nr146ndaZ35ki9KHvavFPUpYamb/LKn6jrx/iQvB3qh51EMdRBJBM1HxSNVrkVOSmNqd0cM6XnHaLQ5jc9AXSGqelC2OaBVXYcsiNVE78lZfVvE+i9xb+K1f6p9WL5i37s8XvmmHlsvw2edwfZHmLfuzxe+aT5bL8HncH2PMW/dni980eWy/B53B9hdDX1EysEKIm9VWZu4idfJHrMJjdwzPEWV2VixvcxcKrVVFwuU3Gh1RPo+FAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEoBetAV6PgmoXr6TPhGd6cyYl6TomxHE4pW0zeiAKBruiWK5Nq2t9CZqZ/1JuNc+7yXWcE0zd8e0quoUyAN/o+yrebuxkiL5PFh8qp1dXrN+DH32c+zm8LHy7G1Ea1ERMIiYRE5IXEekcPMzzM8ykIc68JV68bIy0wPyxi7c2Plck/ErtvLzPbC86dg7a98+6hKcKzEQCyaRsbbnJJNUovkzE2fncv5BadO0fMTM29mmudFJQVstNKm+N2EXrTkpLhz4Zw3mksQhpZNsrJbfXw1dOuJInI5O/uMqW7Z5Y3pF6zWXbrVXxXO3wVlOvoStzj5K80LrFeL15eXz4ZxZJqyzNqAAAASQquv72tstaUtO/FTVbuO9jOa/gcW1l7a9sLLp+v3377e0OUKpWL18gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMy11slvrI6mL4zF4dac0Ddr5pw5IvDqdurYbhSR1FO7LXpw5ovUpnEvb6uxXYx99WSS6muv8AbUulskgTCSp6Ua/xGMwr+oasZ8Mx+3LZo3xSOZI1WvauFReSmLxNqzWeJfLWK5yNamXKuETrUI9nZNIWZLNZ2Me3/wAiZduZe/knqLbWx9lfV53e2PFycR7Q3h0uJrtQXVlntc1W/G0iYjT5TuRqzZIpV06uCct4hxKeaSeZ80z1fI9yuc5eKqvMppmZnmXpYiIjiHmQl70dPJV1McECbUki4RA2Y8c5LRWP26vbaJluoYqSLgxN6/KXmplEPc6mCNfFFYhoNdWvx9K2vhZmSFMSY5t6/UJhUdZ1O6vi1j2UDmYvMiLhcgXXwdX1tHVut1S/ZhqHZjc5dzX/AIZOvVy8W7ZV+/r+JXvj3h0zdyxj5yz7o+VF2X/cJHMHZb4N3WOYR22+Acwnst8POpnipYHzzuRsbGq5XKvUY2vFY5Z0xWtaI4cSv11lvFzmrJcojlwxvyW8kKfLkm9uXpcOOMVIrDXGttQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlANxp69SWmqRVTbgfukZn7U7xzw7tHcnWv8A7OlUtRFVQMngej4npuVPuM4l7LDmrmp3Vl6ktyoa0sfjEW5U7d6J8K1P+xhMPN9X0P8AWowvB9boK69JLUOaqUybbI14vdy9ScTfrVi1vV5HeyzTF6ft1ct3nZ+QI45cn1/e+k7p5NC7NNS5amF3OdzX8Co2MvfbiHo9LB4VOZ95VU53YlOIF40NafFsW4zN9J7dmLPJOakxD0fRtP8A1bLcZvRzL5kY2Rjo5Eyx6Kip1opEteSkWxzE+zkdyijgrqiKF21GyRUavWhg8FmrFckxDFDUlFA9fKahP/fL9dSe6WPbX4T5VUdol+uo7p+Ttr8J8rqO0Te8Ud0/J21+EeVVH+PL9dR3T8nbX4fL6iZ7dl8r3N6lcqjulMREfp5qQlAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlFA3Fgvc1omy304HfHjVftTvHPDu0t2+tb09nRrfXU9wp2z0siPYvFObV6lMuXr9fZx7Fe6kslURUVFTKKm9Osyb7V7o4lRr/aKiy1rLpa1VsbXbWU4xu/IiJmk8vJdW6b4czasf0yvGltR099pd+I6qNESWJfvTuLTBnjJHq8Lt6lsM8x7PLWt66HtDkidipqMsiwu9qY3qRs5YrXiGehr+JfmfaHH3cSpegQBsLJbX3O4R07dzeL3dTQ6dTXnYyxWHVIY2QxMjiTEbGo1qdSGcPdY6RjrFY/T7JZtNqq59G2x2wvw03os7utTGZVXVdqMOKax7y5k5VVVyvExeO559XyAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABKAZ9quNXbqhstI9UXm3ijk6sCOf034NjJgnurLodmvdPcvgnZgq2/HhfuX1GUT+pes0upYtmOJ92zkY2SNzHtRzHJhWqm5TKVhasXjiVHvNpqtP1rbjanObC1cpsrvZ3L1oREzSeYeQ6n0ucczMR/TLTagvNRe6xKqpRGqjUajG8E+YXyTeeZU2LDXFXtq1Zg2pwoHSNIWryC3pNK3E86bS5/dbyQyiHrukavhY++3vLfGS4kVURFVVwmN69REsbTFY5lzDU90W53N7mrmGNdmNO7rMHiuobM580z+oaYOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnAFs8H9jW43NKudiLTUq5XPBz+SfidOti77cuLez+Fj4j3ldtS6YgvLfKIHJT17E9CZu7aXkjvzO3PrVtHNfdW6m9fDb1Vqmv1ZaKnyDUULkcm5Jk35Tr7yttW1J4s910/rcTXi8+iyskgq4NqNzJYXp86KnePd6Wt8eevp6wo2ptMPpFdVUDdqnXe5icWfoYTHDzHUOmWwzN6R6KuqYIUzeaRtiXK5osjcwwJtv7+pAsem63j5459odK5Y6jOHtIiIjiAlKvazunkVu8nidiafdu4o3mpjMqXrG14WLw6+8udLxMXk0AAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACQPamp5KmojgharpJHI1qdaqZViZniEWmKxMy7ZYLXHZrXDRMRFcxMyO+U9eKlxhxxSrzW1mnLebNgbYcrBvNuoLjRyMuMbViY3aWRdyx45ovI1ZaVtX+p0a+bJjvHY5BS3aa11kjrZO9YNtdlr+Dk70KafT2ew1tvLg4msrnaNU0VxRIqjEEy7tl/xXescvSa3VsWb+jJ7tZqTSu0i1drbxTLoU597RLj6h0v/AFMLTaWua2u5okiq2GZNiRFTgRCv6fsTr5o59pdLRUU2PaVtFo5gVcb14J1BM+kcud3yhvFyuUtQtBOrFXEabPBvIwl47bw7OfLN+2eGv6AuvYJvYQ5fJbH0k6AuvYJvYDyWx9JOgLr2Cb2A8lsfSToC69gm9gPJbH0k6AuvYJvYDyWx9JOgLr2Cb2A8lsfSToC69gm9gPJbH0kSwXZeFBN7AeS2PpKfN+7IiqtBMiJx3IETp54jmay1jkwqovIOafR8gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACUAv/AINbJtPddqhmUZltOi9fN34HdqYeZ7pVfUdjtjw4dDLFSSAUrwj3tKakS1wPXx1QmZcLwZ1es4dzJ6dsLfp2v6+JLmWSuXBnmBurPqOvtuGNkWWH/DkXh8y8g79XqGbBPHPMNnW9E6ib4ykclHcOOxJubJ6+sOnLODbjur/TZNl1DU2iXyG7NesbdyKu9Wfmg5Z6XUcmtPh5fZdoJo54mSwva+NyZa5OCmcS9Pjy0yVi1ZfZLMCQHADgBwA4AcADlxCOFW1pevJouj6Z2JpE+Eci72t6vWYT7qDq+9FY8KigqQ80gIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEoBn2W3TXW5QUUCZdI7evyW81M6U77cNeXJGOk2l22ipoaKkhpqdmzHExGtLmlYrXh5jLktktNpexn7NbGuNbDb6KWsqFRIom5Xv7jDJeK1mW3Di8S8VcSutfLcq+erqHenK7OOpOSepCltabTzL0+OkY6xWGGYs0AAJRcAj0ZE1XLMxrJXq9G/FV29U9ZDOb2mOJZ9ivlVa5kbG5XwOXDol4L8xMejr093LgtERPo6dG5XxterVbtNRcLyM4l7XHbupFvl9EswAAAAAARzDAvVzjtVC+d6osi7o29akTLi3tumDFM/tyypnlqJ3zTvV0j1yqqYPFZMlslu6zyDBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA3umdQpp+WWVlGyeWRuztOerdlOpDdiy+HPMOfYwRnr2zLf/0lVH+WQ+9X8jd52/w5PxeP5SnhKqOdsix9K4nztvhH4vH8tLqPVtZfYmwvjZTwIuVjYqrtL1qppyZ7XdWvqUwTzHurqmh1IAAAAAD6Y5WuRyLhU4KgInhsenrp2+f2h0Rt549O5HT107dN9YMvO5/sdPXTt031ged2PsdPXTt031ged2PsdPXTt031ged2PsdPXTt031ged2PsdPXTt031gecz/ZC3y5rxrp1/3BjO3n+0sWernqFzPK+Rf4nKoarZL3/lLxUMEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEqgEAAAEgAIAkAAAgAAAAAAAAAAAAJAgABIEAAAACQAACAJAAQAAAAAAAAAAAAAAAAAAPrABUxxA+QJAIgG6h0tepqTymOglWNUynXj5jb4N+OeGmdjHFu3lpnNVqqioqKm5UXkam5ADAGbR2mvrkzTUsj0zxxhA6Metlyfxqz00peOzIn+9Bw6PxmzP8AlT5p3fs7froOE/i9n6vKo01c6aCSeaFrY40y5dtNwa8mhnx17rRxD4o9P3Ktp2VFNT7UT87LtpN+/ARj0c+WvdSPR7eat47L/wAkDP8AGbP1PNW8dl/5IOD8ZtfU81bx2X/kgPxmz9WtuFDUW+bxNUzYkxnGchyZcVsVu23uxQ1pwBl01srqpu1TUk0jetrd3tDdTXy3/jV79AXbsE3sDZ5LY+ki2G6oiqtDKiImVygROpnj3q1qhzAHvR0dRWzthpYnSSO4IgbMeK+W3bWHzUU8tNM6GdiskYuHNXkGN6WpbttHq8lQMRAMmioKquesdJC6VyJlUbyDbiw3yzxSHhLG+KR0cjVa9q4VF5KGu1ZrPEvkIZVJbquta91LA+VGJlytTgG3HhyZI5rDGVqoqoqYVNyhrmOPRlUltrK1rnUtO+VG8VbyDZjwZMn8Y5ecdJPJUpTMjVZlds7CcchjGO037Ij1TWUVTQyrFVROifjOHBOTFfHPFoY4a30xivcjWplyrhECYjmeIZdbaq6gY19XTuia5cIq81Dbk18mL+UMLChpZlNaq+pbtQUkr29aN3BvrrZr/wAavboC69hm9gZ+S2PpL5kslzijdJJRSta1MqqpwDG2rmrHNqtcHOAAAAAAAAAAAABsrRWJTPlR6Rq1Ynqm2xHelsrj7Q248nawZXq97nuREVVzuTAa5nmXmEJQC56A0/0hVdI1bc0tO70Gqm57/wAkOvWwzeeZcG9s+FXtj3l01ZGJKjFeiSK3KJnfhCzma89qhmtrRy5/4RdPqjul6RvoruqEanBeTiu2sPHrC56fs90dllAwcS0W/R1gjqGeX1jUdHnETFTcq9a9xMQvek9P8X/yX9loud2orPE3yh2zlPQiYm/2ErrY3MOpXhpHa4o0X0aOZU/1IO5XT12n1R580nYpvroO4/O0+rSaj1Gt3YyGGN0MDd6oq52l7zGVZv8AUZ2fSI4hbtI/3do93J//AGUyq9B0n+2q8LrqqntldJSSU0r3Mxva5ETeg5adnq9MGSadvsw/Pik7HP8AWQdzn/O0+r4l1xT+Ld4mjkSTHoq5yYyRM8sb9diazFa+qmVc8lTO+aZyue9cuVSHn8mSclptb3eKbwwW/R1ijqUWtrWo+NN0ca8FXmqkxC86VoVyc5cntDZ3PV9JRSuhpYVnVi4VUXZag5dmx1fFhnsxV9mB59uT/wDPb7z9By5/zs/R8y65c+NzfIE3oqftf0HLC/W7WrMdvupykKIQDomlrfHaLS+trVRj5Go5yqnxWckMo9PV6rpuvXWxeLk/bH1takqaZLnAmVY308fvM6yJaerasXr49VEUh5tCAX/QNL4m2zVTtyzSYRf4W/qTD0/Q8XbjtklqdeW7yevZVxt+DnT0v9SCXB1jX8PL3x7Sq+yQp3UdM0HR1ngY5MSyJtvTvVOBlD2fTtaMWCIn3lQtR0vkd6qo2/EV+03vRd5i8vvY/D2LVWfweLmiq/pU+4mq66H/AAu1Vk362X6WX7lH7cOr/f8A/a4Xi2Ut2gWnlVrZGJljk4sX8iZh6Dc1cezE1n+Tmdyt09uqnQVDVRycFxucnWhi8dsYL4L9l3nQ/wBdp/pW/eGOL/Er/wAwu3hC/s+l37/Gr9xMvQ9a/wAKrx0fYYVpkuNaxHZ3xtdwRE5qRDX0zRp2+Nke9frSmp5VjpKdZ0bu21dsp6ieW3L1qmOe3HX0Ynn47nQJ739By0/nZ+jxrdaOqqSWDyJGpI1W58Zw+wctWfrFsuOadvHKpKQpACAAAAAAAAAACcAbKhoI6il8a6RI3JKjMvXdjH3kN2PHFo55Y1xhbTV00DFVWscqIqktd69tphjBi2mn7PLerjHSw7kzmR/yG81NmLHN7cNOfNXFTul2FfI7Hac+jFS00e7HUn4qWszGKrz0xfYy+jlU+p62XUCXdiqjmLhkaru2PklbOaZv3L+utSMXhuq0VVTXi1tmZh9POze1ftRSzrMZKKC9bYMvq5NqqxvsdydCm+B+XQuXm3q+dCpy4ppZ6DXzxmpyvtga1tlokbjHiUUxiPR7/Q4jWrw57qmaWW91fjVXLXq1EXkiGLynULWtsW7moyHEASB07SP93aPCcn/9lMqvZ9K/tavqvt1mqKp8la2FZl+Ntvwv3jiEZ9fTvkmcnux+h9O/IpvefqRxDT5Tp/8As8quh01SU8k7oYHIxMo1r8qq9XEj0as2HQx1m0Of1D2ySvexiMa5co1OCJ1B5q8xMzMPNOChi6RA5aXRiPg3PSmVUVOtTKPZ6uszTp0zVQbdDHUV8EMzsRveiOdnGEMHmcURa8Rb2XHzWsXbne+aSvfx2nx63ekekLPKqpFVTP69mRq4+wy4hsp0nWv/ABtypt4pY6K51NNDtLHG/ZbtLvwYvP7OOMeW1I/TZaStHSNwbJImYIF2n7vjLyQmIdnTtS2fLE/qGy11dUe9ttgd6DMOlVF4ryQS6+rbcWt4VPaGdou5traF1uqV2nxoqJlfjMXkIdPSNmMuOcN1W1Ha1tdyfFhfFO9KNe4hS7urOvlmP01TUyvAOSImXRLi7ojSSRt9F/imsT514k+0PUZreW0Y49JfUyN1DpdFTCzo3Kdz2oQmeN3S5/cKjpi2+X3eNkifBxenJnu5BS9P15y7ERP6Wq6XrxOp6KlaqbDHKkid7txPK42Nzt26Y4n0hrPCDSo2emqmpjaasbvnTgRLk63i4vF4/bL8Hn9Uq/pU+4mrf0T+F2qsn99l+ll+5SP24tP+/wD+2fqi5T2zUUE9O7/0ojmrwcmeCk2l09S2L4NuLVbZ7aDVdr2mrsyJzX40Tur5iHbMYupYf/ZR5rfPbbvDT1CekkrcKnByZ4oHnL698GaK2+Vp8IP9n0v0q/cTZd9a/wAOjNvD3QaRVYMt+Ba3d1KT7Q3bMzTp/wDSotmpoay5QQVL1ZE9VRyouMbjF5vWpXJlitp9FsTS1j7a9P8A7NJ9F5+O0/u9I9HWiXfHUzPRFx6MjV/AcNlek6145pblR66JsFZPExVVscitTPcpDzmWsVvMQ8A1oAAAAAAAAAAJTiBsKChqKyJyxSMaxrk+O5U3kN1MdrRzDDna5srmvdtORcKuc5Jap9yGJ80jY42q5712WoicVJiOZ4YzMRHMuw6RsTLJbEa9EWqlw6Z/UvJqdyFrr4vDrzLz+5s2y34j2VHWt4lvdzjtFty+Jj9ldlf2j/yQ5c+Sctu2qw0sEYcffdjf0e3xedJ1/tv0MPK5GyeoYIWXRtkvlimfDVeIfRy71RkuVY7rRMe06dfFkpPr7OLcz4M1eYn1brUlmjvlufTPwkqelC9f3XG7Nj8SHJqZ5w35VLSVy8W11orvg6iFVa1H89/D5yp5ms9svpPRt+s08O0/8MjUGmYrrJ4+F7YanGHKqbnfP3kcS6d3pddie+nurjtFXXO51MqdfjP0I4lUfhdn9I8yrr103vP0HEn4Xa+HjWaWrqGmfU1ElOkbE3/CfoPVqzdNy4a911x0h/d2j/3/APZSavRdJ/tatPqDTFdcbrNVQOgSN+MbT1ReHzCYlW7vTM+XNN6+zXeZN0+XTe8X8iOJcn4bZPMq6f4lL7xfyHEn4bZaa6W+S21K080kb5ERFXxbsogV+fDOG/ZPuwkXChpdA0dXQ19qdbpt742qitX95ikx7PTdLz1zYZwWV66aYuFFM7xMKzxZ9F8e/d3oRwq9jpufFeeI5hr+h7j2Gf6gc3lM/wBZWzQlHU0rqvymF8WUbjabjJMLzouLJS1u6Fd1BE+o1LVxQptPfNhqdakKfbpN9q1Y+VwXxWl9O8nS4+u9fwQn04X3Nen6np7yrNivNuofKJbhTSVNTM7Ku2WuRE9ZCn1NzDimbZa8zLcR6us8b9qO3yMd1tjYik8rCnV9as90U4Z96o4dQ2Ns1LhXtTbhVePe0S6dzHTe1/Ep7wpFjo1q71TU7mqnwiK5O5F3/cQ87qYpvnrSflYvCHVb6SlTqdI5PsT8RMrXrWX1rjh4aDuHiquSievoyptM7nJy9hMNXRtjtyeHb2lZIKOmsba+tTCeMXxip1J1e0ey4jBTTrfLH7c1nqpJqt9S9yrK6Txme/OSHkb5Ztk7181C1LrpVtS3e5GNmT8Q9JuxGfRi8fpjeDz+qVf0qfcTDV0P+F2qsf8AfZfpZfuUj9uPT/8A0P8AuX14QP7Xi+hT7yZT1n+4hpbVc57ZVNnp3Lu+M3k5O8hX6+zfBfuq6DEtBqWhjmaibUbkd/FG7JL1FJwdQpFv3DW+EFFW30v0q/cLOXrnpjqyNPVMN7sLqKdcyMZ4uRF445KTM8+jPQy12tacM+6q3DTdzpJXNSndMzO58aZRUMeJUubp2fHbjhh9D3HsU/1A0eUz/WV00NSz0tHUNqYnxq6RFRHJjKYJh6Ho+O9KWi8cKNdf7Sq/pn/eQ85sf4tv+WIGkAAAAAAAAAAJAz6C5OoopGNja9HKi+kqp9ykNtMs1jhhzP8AGyOfjG0ucIS1zPMthYLq2z1zaxaSOokYnwaPXCNXrM6X7Z5astPEr28rBcPCDW1VHLTxUscDpGq3xjXqqpk6L7VrRw48fT8dLRb3aTT17SyVTqpKRlRKqYa57lTY68GnHk7J5dWbF4te3nhY/wCkmq/y6H3i/kdHnbfDi/F4/k/pJqv8ug94v5Eedv8AB+Mp8n9JNV/l0HvF/Iect8H4ynzKuX+99M1jazyVlNMiYc6Ny+kvX85z5bxeeeHdgx+DHESyaDV1xpWNZKrahqcPGcfaYcrnB1bYxRxzy2Ca7kxvoGe8Ud0ur87f6p8+39gb9ccn52/1ae/agnvCsa5iRQs4MRc5XrUiXBub99r39IZdq1bLbqCKkZSse2POHK5Uzlc/iG/W6tfBjikQyvPqfsMf11J5l0fnsv1PPqfsUf11HMn57L9USa5qXRuaykjY5UwjtpVx3jljbrmW1ZjhVJpHSyOkkcrnuXKuXmpCktabTMy+Ah7UtTLSzNmp5HRyN4OaGePJbHburK1UmuJmsxV0qSOT95jsZ9RPK5xdbyRHF68sjz7h50MnvEHLd+cj6Hn1Bn+oSe8Qcn52Po01LfKaK+z3SWldIr1VWM2viKvMhW49ytdic01eGor4+8ysXYWKGNvox5zv5qGO7u22rc+0NOHCAWDTupHWiGSGSN00Tl2moi42VCy0eo21omsxzEvumv8AR016luEdE9EkbjY2k3KvFQY93Hj2PGirW325dK17qnZVjVajWtVeGA59vZnYy97Eo6h9LUsnjXD41RyBpxZJx3i0LBqDVCXSjbTQROhRV2pVVfjdydwWW51O2xjikeitBUrLa9Tx0lnWgnpnS7nNRyOxuULXD1Lw9ecMxy8tOahjs0M0bqZ0vjHI5FRcY3Bhpb8asTHHPLEoLsylvnSSxK5u253i89efzDTi2/D2PG4NRXZl4rGVDYVjRsaNwq5Bu7Xmcnfxw1IcbOtVzqLXVNnp3L/Ezk5O8OjW2b69+6rZ6l1Cy8QwxRQOiaxdpdpcrnGA6t/qE7cRHDT0VbPQTtmpZXRvTmnP5w4sWW+K3dSeFpptcvazFTRo53yo3Y+wnmVzTrl4ji9eXt59w9hl94g5Z/nI+h59Q5T/AMGT3iDk/ORx/FTaybyiqmmxjxj1djqypChyX77zb5eAYAAAAAAAAAAAAkCAAAAAAAAJAAAAEAAAACQIAASBAEgQBIEAAAAABIACAAAAAAAAJAgCQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB//9k=" alt="Ace Gaming"></a>
-        <p class="footer-copy">Premium gaming systems and accessories for gamers who care about performance, reliability and clean setups.</p>
+        <p class="footer-copy">Performance gaming PCs and setup add-ons available on flexible monthly rental plans.</p>
       </div>
-      <div class="footer-links"><a class="main-site-footer" href="./index.html">Ace Gaming Main Site</a><button type="button" data-open-builder>Build a PC</button><a href="#products">Gaming PCs</a><a href="#products">PlayStation</a><a href="#products">Accessories</a><button class="button secondary" type="button" id="footerCart">View Cart</button></div>
-      <div class="copyright"><span>© 2026 Ace Gaming. All rights reserved.</span><span>Prices and stock are confirmed before payment.</span></div>
+      <div class="footer-links"><a class="main-site-footer" href="./index.html">Ace Gaming Main Site</a><a href="#products" data-filter-link="pc">Gaming PCs</a><a href="#products" data-filter-link="monitor">Monitors</a><a href="#products" data-filter-link="accessory">Add-ons</a><button class="button secondary" type="button" id="footerCart">View Rental List</button></div>
+      <div class="copyright"><span>© 2026 Ace Gaming. All rights reserved.</span><span>Availability and rental terms are confirmed with every request.</span></div>
     </div>
   </footer>
 
   <div class="cart-overlay" id="cartOverlay" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
     <aside class="cart-drawer">
       <div class="cart-header">
-        <h2 id="cartTitle">Your Cart</h2>
-        <button class="close-button" type="button" data-close-cart aria-label="Close cart">×</button>
+        <h2 id="cartTitle">Your Rental List</h2>
+        <button class="close-button" type="button" data-close-cart aria-label="Close rental list">×</button>
       </div>
       <div class="cart-items" id="cartItems"></div>
       <div class="cart-footer" id="cartFooter"></div>
@@ -616,34 +711,54 @@
     <div class="checkout-modal">
       <div id="checkoutContent">
         <div class="checkout-head">
-          <h2 id="checkoutTitle">Complete your order</h2>
-          <button class="close-button" type="button" data-close-checkout aria-label="Close checkout">×</button>
+          <div class="checkout-head-copy">
+            <span class="checkout-kicker">Ace Gaming Rentals</span>
+            <h2 id="checkoutTitle">Finish your rental request</h2>
+            <p>Review your setup, add your details and continue securely to WhatsApp.</p>
+          </div>
+          <button class="close-button" type="button" data-close-checkout aria-label="Close rental request">×</button>
         </div>
         <div class="checkout-grid">
           <form class="checkout-form" id="checkoutForm">
+            <div class="form-intro field full">
+              <span class="form-step">02</span>
+              <div><span>Your details</span><h3>Where should we reach you?</h3></div>
+            </div>
             <label class="field">Full name<input name="name" autocomplete="name" required placeholder="Your name"></label>
             <label class="field">Phone number<input name="phone" autocomplete="tel" inputmode="tel" required placeholder="+91 00000 00000"></label>
             <label class="field full">Email address<input name="email" type="email" autocomplete="email" required placeholder="you@example.com"></label>
             <label class="field full">Delivery address<textarea name="address" autocomplete="street-address" required placeholder="House, street, area, city and PIN code"></textarea></label>
-            <label class="field">Order method<select name="method"><option>Home delivery</option><option>Store pickup</option></select></label>
-            <label class="field">Payment preference<select name="payment"><option>Confirm with store</option><option>Pay at store</option></select></label>
-            <button class="button wide field full" type="submit">Place order request
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+            <label class="field">Rental period<select name="duration" id="checkoutDuration"><option value="1">1 month</option><option value="2">2 months</option><option value="3">3 months</option></select></label>
+            <label class="field">Pickup or delivery<select name="method"><option>Home delivery</option><option>Store pickup</option></select></label>
+            <label class="field full">Notes (optional)<textarea name="notes" placeholder="Preferred delivery time or anything Ace Gaming should know"></textarea></label>
+            <label class="field honeypot" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
+            <p class="form-status" id="checkoutStatus" role="status" aria-live="polite"></p>
+            <button class="button checkout-submit" type="submit">
+              <span>Save &amp; open WhatsApp</span>
+              <span class="checkout-submit-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m9 18 6-6-6-6"/></svg></span>
             </button>
+            <p class="submit-note">Your request is saved first. You will review and send the prepared message in WhatsApp.</p>
           </form>
           <aside class="checkout-summary">
-            <h3>ORDER SUMMARY</h3>
+            <div class="summary-head">
+              <span class="summary-step">01</span>
+              <div><span class="summary-kicker">Order review</span><h3>Your rental setup</h3></div>
+            </div>
             <div class="checkout-summary-items" id="checkoutSummaryItems"></div>
-            <div class="summary-total"><span>Total</span><span id="checkoutTotal">₹0</span></div>
+            <div class="summary-total"><span id="checkoutTotalLabel">Estimated total</span><strong id="checkoutTotal">₹0</strong></div>
+            <div class="summary-assurance"><b>✓</b><p>Free request submission. Availability, deposit and delivery are confirmed by Ace Gaming.</p></div>
           </aside>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="toast" id="toast" role="status"><span class="toast-dot"></span><span id="toastText">Added to cart</span></div>
+  <div class="toast" id="toast" role="status"><span class="toast-dot"></span><span id="toastText">Added to rental list</span></div>
 
   <script>
+    const GOOGLE_SHEETS_WEB_APP_URL = 'PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE';
+    const ACE_WHATSAPP_NUMBER = '919076060602';
+    const SHEETS_MESSAGE_SOURCE = 'ace-gaming-rental-sheet';
     const svgData = (svg) => 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg);
     const pcFan = (cx,cy,r=48) => `
       <g>
@@ -717,10 +832,29 @@
         <text x="450" y="724" text-anchor="middle" fill="#f7f8ff" font-size="24" font-family="Arial" font-weight="800" letter-spacing="6">${label}</text>
       </svg>`);
     };
+    const gearArt = (title,subtitle,symbol,primary='#ff3f9d',secondary='#29c7ff') => svgData(`
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 760">
+        <defs>
+          <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="${primary}"/><stop offset="1" stop-color="${secondary}"/></linearGradient>
+          <radialGradient id="h"><stop stop-color="${primary}" stop-opacity=".32"/><stop offset="1" stop-color="#080812" stop-opacity="0"/></radialGradient>
+          <filter id="b"><feGaussianBlur stdDeviation="18"/></filter>
+        </defs>
+        <rect width="900" height="760" fill="#090914"/>
+        <circle cx="450" cy="335" r="330" fill="url(#h)"/>
+        <circle cx="450" cy="330" r="190" fill="none" stroke="url(#g)" stroke-width="5" opacity=".34"/>
+        <circle cx="450" cy="330" r="145" fill="#111426" stroke="url(#g)" stroke-width="4"/>
+        <circle cx="450" cy="330" r="122" fill="url(#g)" opacity=".12" filter="url(#b)"/>
+        <text x="450" y="380" text-anchor="middle" fill="white" font-family="Arial" font-size="142" font-weight="800">${symbol}</text>
+        <text x="450" y="625" text-anchor="middle" fill="white" font-family="Arial" font-size="29" font-weight="800" letter-spacing="5">${title}</text>
+        <text x="450" y="670" text-anchor="middle" fill="#9b9caf" font-family="Arial" font-size="19" font-weight="700" letter-spacing="3">${subtitle}</text>
+      </svg>`);
     const productArt = {
       pcCore: pcArt('ACE CORE · RTX 2060','#ff3f9d','#29c7ff',1),
       pcPro: pcArt('ACE PRO · RTX 4060','#9c4dff','#29c7ff',2),
       pcElite: pcArt('ACE ELITE · RX 7700 XT','#ff3f9d','#42e8ff',3),
+      pcRyzen: pcArt('ACE RYZEN · RX 7700 XT','#29c7ff','#ff3f9d',2),
+      monitor: gearArt('GAMING MONITOR','HIGH REFRESH DISPLAY','▭','#29c7ff','#7657ff'),
+      ram: gearArt('RAM UPGRADE','PERFORMANCE MEMORY','RAM','#7657ff','#40dfa0'),
       ps5: svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 760"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff3f9d"/><stop offset=".55" stop-color="#7458ff"/><stop offset="1" stop-color="#29c7ff"/></linearGradient><radialGradient id="r"><stop stop-color="#7657ff" stop-opacity=".45"/><stop offset="1" stop-color="#080812" stop-opacity="0"/></radialGradient></defs><rect width="900" height="760" fill="#090914"/><circle cx="450" cy="380" r="330" fill="url(#r)"/><ellipse cx="450" cy="655" rx="260" ry="35" fill="#000" opacity=".55"/><path d="M376 102c-50 66-56 135-45 233l22 256c3 41 28 64 68 64h58l19-553z" fill="#f2f4f9"/><path d="M524 102c50 66 56 135 45 233l-22 256c-3 41-28 64-68 64h-58l-19-553z" fill="#e7e9f2"/><path d="M412 113h76l-17 523h-42z" fill="#111426"/><path d="M404 142h92l-8 44h-76z" fill="url(#g)" opacity=".9"/><circle cx="467" cy="214" r="8" fill="#29c7ff"/><text x="450" y="708" text-anchor="middle" fill="white" font-family="Arial" font-size="28" font-weight="700" letter-spacing="7">PLAYSTATION 5</text></svg>`),
       controller: svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 760"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff3f9d"/><stop offset="1" stop-color="#29c7ff"/></linearGradient><radialGradient id="r"><stop stop-color="#7657ff" stop-opacity=".5"/><stop offset="1" stop-color="#080812" stop-opacity="0"/></radialGradient></defs><rect width="900" height="760" fill="#090914"/><circle cx="450" cy="370" r="330" fill="url(#r)"/><ellipse cx="450" cy="610" rx="280" ry="36" fill="#000" opacity=".5"/><path d="M237 292c-70 27-110 86-123 174-13 89 14 141 68 120 41-17 67-89 113-91h310c46 2 72 74 113 91 54 21 81-31 68-120-13-88-53-147-123-174-42-16-91-23-142-8-44 13-98 13-142 0-51-15-100-8-142 8z" fill="#f0f2f8"/><path d="M330 300h240c57 0 112 38 135 98l-54 29-53-63H302l-53 63-54-29c23-60 78-98 135-98z" fill="#171827"/><rect x="286" y="351" width="112" height="30" rx="8" fill="#343747"/><rect x="327" y="310" width="30" height="112" rx="8" fill="#343747"/><circle cx="606" cy="333" r="15" fill="#ff3f9d"/><circle cx="656" cy="376" r="15" fill="#29c7ff"/><circle cx="607" cy="419" r="15" fill="#7657ff"/><circle cx="557" cy="376" r="15" fill="#ff78bb"/><circle cx="450" cy="389" r="50" fill="#171827" stroke="url(#g)" stroke-width="5"/><circle cx="365" cy="472" r="45" fill="#202232"/><circle cx="535" cy="472" r="45" fill="#202232"/><text x="450" y="684" text-anchor="middle" fill="white" font-family="Arial" font-size="28" font-weight="700" letter-spacing="7">DUALSENSE</text></svg>`),
       keyboard: svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 760"><defs><linearGradient id="g"><stop stop-color="#ff3f9d"/><stop offset=".5" stop-color="#7657ff"/><stop offset="1" stop-color="#29c7ff"/></linearGradient><radialGradient id="r"><stop stop-color="#7657ff" stop-opacity=".45"/><stop offset="1" stop-color="#080812" stop-opacity="0"/></radialGradient></defs><rect width="900" height="760" fill="#090914"/><circle cx="450" cy="350" r="340" fill="url(#r)"/><g transform="translate(108 210) skewX(-8)"><rect width="685" height="330" rx="30" fill="#161827" stroke="url(#g)" stroke-width="4"/><g fill="#2b2e40" stroke="url(#g)" stroke-opacity=".65" stroke-width="2">${Array.from({length:5},(_,r)=>Array.from({length:13},(_,c)=>`<rect x="${28+c*49}" y="${28+r*51}" width="39" height="38" rx="6"/>`).join('')).join('')}</g><rect x="210" y="283" width="260" height="24" rx="8" fill="url(#g)"/></g><text x="450" y="665" text-anchor="middle" fill="white" font-family="Arial" font-size="28" font-weight="700" letter-spacing="7">MECHANICAL KEYBOARD</text></svg>`),
@@ -730,67 +864,128 @@
     };
     const products = [
       {
-        id:'pc-core', category:'pc', categoryName:'Gaming PC', badge:'Best value', image:productArt.pcCore,
-        name:'Ace Core RTX 2060 Gaming PC', price:44999, mrp:52999, rating:'4.8',
-        description:'A dependable Full HD gaming PC made for competitive titles, daily multitasking, streaming and content work.',
-        mini:['Ryzen 5 2600','RTX 2060','16GB RAM'],
-        specs:[['Processor','AMD Ryzen 5 2600'],['Graphics','MSI GeForce RTX 2060 Super OC'],['Motherboard','MSI B450M Pro M2-V2'],['Memory','G.Skill Ripjaws 16GB (8GB × 2)'],['Storage','WD 1TB NVMe SSD'],['Power Supply','Deepcool 450W'],['Cabinet','Cooler Master'],['Cooling','120mm RGB case fans']]
+        id:'pc-2060', category:'pc', categoryName:'Gaming PC Rental', badge:'Best value', image:productArt.pcCore,
+        name:'RTX 2060 Gaming PC', price:3999, plans:{1:3999,2:3699,3:3399}, rating:'4.8',
+        description:'A dependable Full HD gaming PC built for high-FPS gaming, competitive play, streaming, video editing and smooth multitasking.',
+        mini:['Ryzen 5 2600','RTX 2060 Super','16GB RAM'],
+        specs:[['Processor','AMD Ryzen 5 2600'],['Graphics Card','MSI GeForce RTX 2060 Super OC'],['Motherboard','MSI B450M PRO M2-V2'],['Memory','G.Skill Ripjaws 16GB (8GB × 2)'],['Storage','WD 1TB NVMe SSD'],['Power Supply','Deepcool 450W SMPS'],['Cabinet','Cooler Master'],['Case Fans','120mm RGB fans']],
+        bestFor:['AAA games','Competitive play','Streaming','Video editing']
       },
       {
-        id:'pc-pro', category:'pc', categoryName:'Gaming PC', badge:'Most popular', hot:true, image:productArt.pcPro,
-        name:'Ace Pro RTX 4060 Gaming PC', price:74999, mrp:84999, rating:'4.9',
-        description:'A modern high-performance build for smooth gaming, streaming, esports and creator workflows, with fast NVMe storage.',
-        mini:['Ryzen 7 5700','RTX 4060 8GB','1TB NVMe'],
-        specs:[['Processor','AMD Ryzen 7 5700 — 8 cores / 16 threads'],['Graphics','Colorful GeForce RTX 4060 8GB'],['Motherboard','B450M'],['Memory','XPG 16GB DDR4 3200MHz'],['Storage','WD 1TB NVMe SSD'],['Power Supply','Ant Esports 550W 80+ Bronze'],['Cabinet','Lian Li'],['Best for','Gaming, streaming and content creation']]
+        id:'pc-4060', category:'pc', categoryName:'Gaming PC Rental', badge:'Most popular', hot:true, image:productArt.pcPro,
+        name:'RTX 4060 Gaming PC', price:8999, plans:{1:8999,2:8499,3:7999}, rating:'4.9',
+        description:'A modern high-performance gaming PC with fast storage, strong airflow and reliable power for smooth gameplay and creator work.',
+        mini:['Ryzen 7 5700','RTX 4060 8GB','16GB RAM'],
+        specs:[['Processor','AMD Ryzen 7 5700 — 8 cores / 16 threads, up to 4.6GHz'],['Graphics Card','Colorful GeForce RTX 4060 8GB'],['Motherboard','B450M'],['Memory','XPG 16GB (1 × 16GB) DDR4 3200MHz'],['Storage','WD 1TB NVMe SSD'],['Cabinet','Lian Li'],['Power Supply','Ant Esports 550W 80+ Bronze']],
+        bestFor:['Gaming','Streaming','Content creation','Esports']
       },
       {
-        id:'pc-elite', category:'pc', categoryName:'Gaming PC', badge:'Flagship build', image:productArt.pcElite,
-        name:'Ace Elite RX 7700 XT Setup', price:129999, mrp:144999, rating:'5.0',
-        description:'A premium 1440p gaming and content setup with a powerful Intel processor, Radeon graphics and high-refresh display.',
-        mini:['i5-12600K','RX 7700 XT','32GB DDR5'],
-        specs:[['Processor','Intel Core i5-12600K'],['Graphics','Sapphire Radeon RX 7700 XT 12GB'],['Motherboard','MSI PRO Z790-A WIFI DDR5'],['Memory','Adata XPG 32GB DDR5 6000MHz CL30'],['Primary Storage','1TB Kingston Fury Renegade Gen4 NVMe'],['Secondary Storage','Crucial 500GB SATA SSD'],['CPU Cooler','Thermaltake TH240 V2 ARGB 240mm AIO'],['Cabinet','Thermaltake S200 TG ARGB'],['Power Supply','Cooler Master 650W V3 Bronze'],['Included Display','ViewSonic 27-inch 240Hz 2K IPS'],['Included Gear','Razer headset & mouse, Kreo keyboard']]
+        id:'pc-7700xt-i5', category:'pc', categoryName:'Gaming PC Rental', badge:'Premium Intel', image:productArt.pcElite,
+        name:'RX 7700 XT Intel i5 Gaming PC', price:12999, plans:{1:12999,2:11999,3:10999}, rating:'5.0',
+        description:'A premium 1440p gaming and content-creation setup with powerful Intel processing, Radeon graphics and advanced liquid cooling.',
+        mini:['Intel Core i5-12600K','RX 7700 XT 12GB','32GB DDR5'],
+        specs:[['Processor','Intel Core i5-12600K'],['Graphics Card','Sapphire Radeon RX 7700 XT 12GB'],['Motherboard','MSI PRO Z790-A WIFI (DDR5)'],['Memory','Adata XPG 32GB DDR5 6000MHz CL30'],['Primary Storage','1TB Kingston Fury Renegade NVMe Gen4 SSD'],['Secondary Storage','Crucial 500GB SATA SSD'],['CPU Cooler','Thermaltake TH240 V2 ARGB 240mm AIO'],['Cabinet','Thermaltake S200 TG ARGB Mid Tower'],['Power Supply','Cooler Master 650W V3 Bronze']],
+        peripherals:[['Monitor','ViewSonic 27-inch 240Hz 2K IPS with monitor arm'],['Mouse','Razer Cobra / Kreo Pegasus wired gaming mouse'],['Headset','Razer BlackShark V2 X wired gaming headset'],['Keyboard','Kreo Hive75 gaming keyboard']],
+        bestFor:['1440p gaming','High-FPS esports','Streaming','Content creation']
       },
       {
-        id:'ps5-slim', category:'console', categoryName:'PlayStation', badge:'Console favourite', image:productArt.ps5,
-        name:'PlayStation 5 Slim Console', price:54990, mrp:59990, rating:'4.9',
-        description:'Next-generation PlayStation gaming with ultra-fast loading, immersive feedback and brilliant 4K-ready performance.',
-        mini:['1TB Storage','4K Gaming','DualSense'],
-        specs:[['Console','PlayStation 5 Slim'],['Storage','1TB SSD'],['Video','Up to 4K output'],['Controller','1 × DualSense Wireless Controller'],['Audio','Tempest 3D AudioTech'],['Connectivity','Wi-Fi, Bluetooth, HDMI'],['Warranty','Manufacturer warranty as applicable']]
+        id:'pc-7700xt-ryzen', category:'pc', categoryName:'Gaming PC Rental', badge:'Premium Ryzen', image:productArt.pcRyzen,
+        name:'RX 7700 XT Ryzen Gaming PC', price:12999, plans:{1:12999,2:11999,3:10999}, rating:'5.0',
+        description:'A high-end Ryzen gaming PC for premium 1440p performance, smooth multitasking and demanding modern games.',
+        mini:['Ryzen 5 7600','RX 7700 XT 12GB','16GB RAM'],
+        specs:[['Processor','AMD Ryzen 5 7600'],['Graphics Card','AMD Radeon RX 7700 XT 12GB'],['Motherboard','MSI B650M-P PRO'],['Memory','16GB RAM'],['CPU Cooler','Cooler Master Hyper H212'],['Power Supply','Cooler Master 650W V3 Bronze']],
+        bestFor:['1440p gaming','Competitive gaming','Streaming','Multitasking']
       },
       {
-        id:'dualsense', category:'console', categoryName:'Controller', badge:'New arrival', image:productArt.controller,
-        name:'DualSense Wireless Controller', price:5990, mrp:6490, rating:'4.8',
-        description:'Responsive wireless control with haptic feedback, adaptive triggers, a built-in microphone and comfortable grip.',
-        mini:['Wireless','Haptic Feedback','USB-C'],
-        specs:[['Compatibility','PlayStation 5 and supported devices'],['Connection','Bluetooth / USB-C'],['Feedback','Haptic feedback'],['Triggers','Adaptive triggers'],['Audio','Built-in microphone and headset jack'],['Colour','White']]
+        id:'keyboard-chgbk25', category:'accessory', categoryName:'Gaming Accessory', badge:'Mechanical', image:productArt.keyboard,
+        name:'CHGBK25 Mechanical Keyboard', price:199, rating:'4.7',
+        description:'Mechanical gaming keyboard available for monthly rental.',
+        mini:['Mechanical','Gaming accessory'],
+        specs:[['Model','CHGBK25'],['Type','Mechanical gaming keyboard']]
       },
       {
-        id:'keyboard', category:'accessory', categoryName:'Accessory', badge:'RGB ready', image:productArt.keyboard,
-        name:'Ace RGB Mechanical Keyboard', price:3499, mrp:4499, rating:'4.7',
-        description:'A responsive mechanical gaming keyboard with vivid RGB lighting, durable switches and a clean tournament-ready layout.',
-        mini:['Mechanical','RGB Lighting','Anti-ghosting'],
-        specs:[['Type','Mechanical gaming keyboard'],['Layout','Full size'],['Lighting','Custom RGB effects'],['Keys','Anti-ghosting support'],['Connection','Wired USB'],['Compatibility','Windows PCs and laptops']]
+        id:'mouse-razer-deathadder', category:'accessory', categoryName:'Gaming Accessory', badge:'Razer', image:productArt.mouse,
+        name:'Razer DeathAdder Mouse', price:199, rating:'4.8',
+        description:'Razer DeathAdder gaming mouse available for monthly rental.',
+        mini:['Razer','DeathAdder'],
+        specs:[['Brand','Razer'],['Model','DeathAdder']]
       },
       {
-        id:'mouse', category:'accessory', categoryName:'Accessory', badge:'Precision gear', image:productArt.mouse,
-        name:'Ace Precision Gaming Mouse', price:1799, mrp:2499, rating:'4.7',
-        description:'A lightweight wired gaming mouse with adjustable sensitivity, responsive switches and programmable controls.',
-        mini:['Adjustable DPI','6 Buttons','RGB'],
-        specs:[['Sensor','Optical gaming sensor'],['Sensitivity','Adjustable DPI'],['Buttons','6 programmable controls'],['Lighting','RGB'],['Connection','Wired USB'],['Design','Right-handed ergonomic shell']]
+        id:'mouse-logitech-g402', category:'accessory', categoryName:'Gaming Accessory', badge:'Logitech', image:productArt.mouse,
+        name:'Logitech G402 Gaming Mouse', price:349, rating:'4.8',
+        description:'Logitech G402 gaming mouse available for monthly rental.',
+        mini:['Logitech','G402'],
+        specs:[['Brand','Logitech'],['Model','G402']]
       },
       {
-        id:'headset', category:'accessory', categoryName:'Accessory', badge:'Immersive audio', image:productArt.headset,
-        name:'Ace Surround Gaming Headset', price:2999, mrp:3999, rating:'4.8',
-        description:'Clear positional game audio, a focused microphone and soft over-ear comfort for longer sessions.',
-        mini:['7.1 Audio','Noise-reducing Mic','RGB'],
-        specs:[['Audio','Virtual 7.1 surround'],['Microphone','Noise-reducing flexible mic'],['Controls','On-cable volume and mute'],['Lighting','RGB accents'],['Connection','USB / 3.5mm'],['Fit','Adjustable over-ear design']]
+        id:'headphones-ant-esports', category:'accessory', categoryName:'Gaming Accessory', badge:'Ant Esports', image:productArt.headset,
+        name:'Ant Esports Gaming Headphones', price:199, rating:'4.7',
+        description:'Ant Esports gaming headphones available for monthly rental.',
+        mini:['Ant Esports','Gaming audio'],
+        specs:[['Brand','Ant Esports'],['Type','Gaming headphones']]
       },
       {
-        id:'mousepad', category:'accessory', categoryName:'Accessory', badge:'Desk upgrade', image:productArt.mousepad,
-        name:'Ace Extended RGB Mouse Pad', price:1299, mrp:1799, rating:'4.6',
-        description:'A smooth extended desk surface with a non-slip base, stitched edges and selectable RGB lighting.',
-        mini:['Extended Size','RGB Edge','Non-slip'],
-        specs:[['Size','Extended desk mat'],['Surface','Low-friction cloth'],['Base','Non-slip rubber'],['Edges','Anti-fray stitched'],['Lighting','Multi-mode RGB edge'],['Connection','USB powered']]
+        id:'headset-logitech-g431', category:'accessory', categoryName:'Gaming Accessory', badge:'Logitech', image:productArt.headset,
+        name:'Logitech G431 Gaming Headset', price:499, rating:'4.9',
+        description:'Logitech G431 gaming headset available for monthly rental.',
+        mini:['Logitech','G431'],
+        specs:[['Brand','Logitech'],['Model','G431']]
+      },
+      {
+        id:'mousepad-cybeart-l', category:'accessory', categoryName:'Gaming Accessory', badge:'Cybeart', image:productArt.mousepad,
+        name:'Cybeart L Mousepad', price:129, rating:'4.7',
+        description:'Large Cybeart mousepad available for monthly rental.',
+        mini:['Cybeart','Large size'],
+        specs:[['Brand','Cybeart'],['Size','L']]
+      },
+      {
+        id:'mousepad-cybeart-xxl', category:'accessory', categoryName:'Gaming Accessory', badge:'Cybeart', image:productArt.mousepad,
+        name:'Cybeart XXL Mousepad', price:199, rating:'4.8',
+        description:'Extra-extra-large Cybeart mousepad available for monthly rental.',
+        mini:['Cybeart','XXL size'],
+        specs:[['Brand','Cybeart'],['Size','XXL']]
+      },
+      {
+        id:'monitor-samsung-144', category:'monitor', categoryName:'Monitor Rental', badge:'Curved 144Hz', image:productArt.monitor,
+        name:'Samsung 144Hz Curved 24-inch Monitor', price:1299, rating:'4.8',
+        description:'A curved 24-inch Samsung high-refresh monitor available for monthly rental.',
+        mini:['24 inch','144Hz','Curved'],
+        specs:[['Brand','Samsung'],['Size','24 inch'],['Refresh rate','144Hz']]
+      },
+      {
+        id:'monitor-aoc-240', category:'monitor', categoryName:'Monitor Rental', badge:'240Hz', image:productArt.monitor,
+        name:'AOC 240Hz 24-inch Monitor', price:1499, rating:'4.9',
+        description:'A fast 24-inch AOC 240Hz display designed for competitive gaming.',
+        mini:['24 inch','240Hz','Esports ready'],
+        specs:[['Brand','AOC'],['Size','24 inch'],['Refresh rate','240Hz']]
+      },
+      {
+        id:'monitor-viewsonic-240', category:'monitor', categoryName:'Monitor Rental', badge:'27-inch 240Hz', image:productArt.monitor,
+        name:'ViewSonic 240Hz 27-inch Monitor', price:1999, rating:'4.9',
+        description:'A spacious 27-inch ViewSonic 240Hz monitor for premium high-frame-rate gaming.',
+        mini:['27 inch','240Hz','Premium display'],
+        specs:[['Brand','ViewSonic'],['Size','27 inch'],['Refresh rate','240Hz']]
+      },
+      {
+        id:'monitor-gigabyte-165', category:'monitor', categoryName:'Monitor Rental', badge:'165Hz', image:productArt.monitor,
+        name:'Gigabyte 165Hz 27-inch Monitor', price:1499, rating:'4.8',
+        description:'A 27-inch Gigabyte 165Hz monitor that balances size, speed and value.',
+        mini:['27 inch','165Hz','Gaming display'],
+        specs:[['Brand','Gigabyte'],['Size','27 inch'],['Refresh rate','165Hz']]
+      },
+      {
+        id:'ram-16gb', category:'upgrade', categoryName:'RAM Rental', badge:'16GB', image:productArt.ram,
+        name:'16GB RAM Upgrade', price:1499, rating:'4.8',
+        description:'A 16GB RAM upgrade available for monthly rental.',
+        mini:['16GB','RAM upgrade'],
+        specs:[['Capacity','16GB']]
+      },
+      {
+        id:'ram-32gb', category:'upgrade', categoryName:'RAM Rental', badge:'32GB', image:productArt.ram,
+        name:'32GB RAM Upgrade', price:2999, rating:'4.9',
+        description:'A 32GB RAM upgrade available for monthly rental.',
+        mini:['32GB','RAM upgrade'],
+        specs:[['Capacity','32GB']]
       }
     ];
 
@@ -885,14 +1080,20 @@
     let activeFilter = 'all';
     let toastTimer;
     let detailQuantity = 1;
-    let buyNowItems = null;
+    let rentalDuration = 1;
+    let rentalNowItems = null;
+    let currentCheckoutEntries = [];
     let builderSelection = {...builderDefaults};
     let openBuilderMenu = null;
 
     const money = value => new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',maximumFractionDigits:0}).format(value);
     const getProduct = id => products.find(product => product.id === id);
     const cartEntries = () => Object.entries(cart).map(([id,quantity]) => ({product:getProduct(id),quantity})).filter(item => item.product && item.quantity > 0);
-    const cartTotal = entries => entries.reduce((sum,item) => sum + item.product.price * item.quantity,0);
+    const discountedPrice = product => product.plans?.[3] || product.price;
+    const originalPrice = product => product.plans?.[1] || null;
+    const rentalRate = product => discountedPrice(product);
+    const rentalMonthlyTotal = (entries,months=rentalDuration) => entries.reduce((sum,item) => sum + rentalRate(item.product,months) * item.quantity,0);
+    const rentalTermTotal = (entries,months=rentalDuration) => rentalMonthlyTotal(entries,months) * months;
     const productVisual = product => `<img src="${product.image}" alt="${product.name}" loading="lazy">`;
     const cartVisual = product => `<img src="${product.image}" alt="">`;
     const detailVisual = product => `<div class="detail-main-image"><img src="${product.image}" alt="${product.name}"></div>`;
@@ -915,44 +1116,16 @@
           <div class="product-info">
             <span class="category-label">${product.categoryName}</span>
             <h3><a href="#product/${product.id}" data-view-product="${product.id}">${product.name}</a></h3>
-            <ul class="mini-specs">${product.mini.map(spec => `<li>${spec}</li>`).join('')}</ul>
+            <ul class="mini-specs">${product.mini.filter(spec => !spec.includes('₹')).map(spec => `<li>${spec}</li>`).join('')}</ul>
             <div class="price-line">
-              <span><b class="price">${money(product.price)}</b><del class="mrp">${money(product.mrp)}</del></span>
-              <span class="stock">In stock</span>
+              <span><b class="price ${originalPrice(product) ? 'discounted' : ''}">${money(discountedPrice(product))}</b><small class="price-suffix">/ month</small>${originalPrice(product) ? `<del class="mrp">${money(originalPrice(product))}/month</del>` : ''}</span>
+              <span class="stock">Available</span>
             </div>
             <div class="card-actions">
               <button class="button secondary" type="button" data-view-product="${product.id}">View details</button>
               <button class="button" type="button" data-add="${product.id}">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h2l2.4 10.7a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L21 7H6"/><path d="M12 9v5M9.5 11.5h5"/></svg>
-                Add to cart
-              </button>
-            </div>
-          </div>
-        </article>`;
-    }
-
-    function customBuildCard(){
-      return `
-        <article class="product-card custom-build-card" data-category="pc" data-name="custom pc build your own computer dream gaming pc">
-          <div class="builder-card-visual">
-            <span class="badge">Custom PC</span>
-            <span class="component-chip cpu">CPU</span>
-            <span class="component-chip gpu">GPU</span>
-            <span class="component-chip ram">RAM</span>
-            <span class="component-chip ssd">NVMe</span>
-            <div class="builder-core">+</div>
-          </div>
-          <div class="product-info">
-            <span class="category-label">Ace Custom Lab</span>
-            <h3>Build Your Custom Gaming PC</h3>
-            <ul class="mini-specs"><li>Choose every part</li><li>Live price estimate</li><li>Compatibility checked</li></ul>
-            <div class="price-line">
-              <span><b class="price">₹62,291</b><small class="starting-label">Starting estimate</small></span>
-              <span class="stock">Custom</span>
-            </div>
-            <div class="card-actions builder-card-action">
-              <button class="button wide" type="button" data-open-builder>LET'S BUILD
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+                Add to rental
               </button>
             </div>
           </div>
@@ -1048,39 +1221,9 @@
       document.getElementById('builderProgress').style.width = `${Math.round(parts.length / builderCatalog.length * 100)}%`;
     }
 
-    function showBuilder(push=true){
-      document.getElementById('storeView').hidden = true;
-      document.getElementById('detailView').hidden = true;
-      document.getElementById('builderView').hidden = false;
-      openBuilderMenu = null;
-      renderBuilder();
-      if(push) history.pushState({builder:true},'','#build-pc');
-      window.scrollTo({top:0,behavior:'smooth'});
-    }
-
-    function resetBuilder(){
-      builderSelection = {...builderDefaults};
-      openBuilderMenu = null;
-      renderBuilder();
-      showToast('Custom build reset');
-    }
-
-    function openBuilderCheckout(){
-      const parts = selectedBuilderParts();
-      const total = builderEstimate();
-      buyNowItems = {type:'custom-build',parts,total};
-      document.getElementById('checkoutTitle').textContent = 'Request your custom PC';
-      document.getElementById('checkoutSummaryItems').innerHTML = parts.map(({section,part}) => `
-        <div class="summary-item"><span>${section.label}<br>${part.name}</span><strong>${money(part.price)}</strong></div>
-      `).join('') + `<div class="summary-item"><span>Assembly & testing</span><strong>${money(assemblyFee)}</strong></div>`;
-      document.getElementById('checkoutTotal').textContent = money(total);
-      document.getElementById('checkoutOverlay').classList.add('open');
-      document.body.classList.add('no-scroll');
-    }
-
     function renderProducts(){
       const grid = document.getElementById('productGrid');
-      grid.innerHTML = customBuildCard() + products.map(productCard).join('') + '<div class="no-products" id="noProducts" hidden>No products match your search.</div>';
+      grid.innerHTML = products.map(productCard).join('') + '<div class="no-products" id="noProducts" hidden>No rentals match your search.</div>';
       requestAnimationFrame(() => {
         document.querySelectorAll('.product-card').forEach((card,index) => setTimeout(() => card.classList.add('visible'),35 + index * 40));
       });
@@ -1109,10 +1252,11 @@
     }
 
     function addToCart(id,quantity=1,button){
+      const product = getProduct(id);
+      if(!product) return;
       cart[id] = (cart[id] || 0) + quantity;
       saveCart();
-      const product = getProduct(id);
-      showToast(`${product.name} added to cart`);
+      showToast(`${product.name} added to rental list`);
       if(button){
         const original = button.innerHTML;
         button.classList.add('added');
@@ -1141,8 +1285,8 @@
       const itemsEl = document.getElementById('cartItems');
       const footerEl = document.getElementById('cartFooter');
       if(!entries.length){
-        itemsEl.innerHTML = `<div class="empty-cart"><div><svg width="55" height="55" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3h2l2.4 10.7a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L21 7H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg><strong>Your cart is empty</strong><span>Add a gaming upgrade to get started.</span></div></div>`;
-        footerEl.innerHTML = `<button class="button secondary wide" type="button" data-close-cart>Continue shopping</button>`;
+        itemsEl.innerHTML = `<div class="empty-cart"><div><svg width="55" height="55" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3h2l2.4 10.7a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L21 7H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg><strong>Your rental list is empty</strong><span>Start by adding a gaming PC.</span></div></div>`;
+        footerEl.innerHTML = `<button class="button secondary wide" type="button" data-close-cart>Continue browsing</button>`;
         return;
       }
       itemsEl.innerHTML = entries.map(({product,quantity}) => `
@@ -1150,7 +1294,7 @@
           ${cartVisual(product)}
           <div>
             <h4>${product.name}</h4>
-            <span class="cart-item-price">${money(product.price)}</span>
+            <span class="cart-item-price">${money(rentalRate(product))}/month</span>
             <div class="cart-qty">
               <button type="button" data-cart-minus="${product.id}" aria-label="Decrease quantity">−</button>
               <span>${quantity}</span>
@@ -1159,15 +1303,24 @@
           </div>
           <button class="remove-item" type="button" data-remove="${product.id}" aria-label="Remove ${product.name}">×</button>
         </article>`).join('');
-      const subtotal = cartTotal(entries);
+      const monthlyTotal = rentalMonthlyTotal(entries);
+      const termTotal = rentalTermTotal(entries);
       footerEl.innerHTML = `
-        <div class="cart-totals">
-          <div class="cart-total-row"><span>Subtotal</span><strong>${money(subtotal)}</strong></div>
-          <div class="cart-total-row"><span>Delivery</span><strong>Confirmed by store</strong></div>
-          <div class="cart-total-row grand"><span>Total</span><span>${money(subtotal)}</span></div>
+        <div class="cart-period">
+          <label for="cartDuration">Rental period</label>
+          <select id="cartDuration">
+            <option value="1" ${rentalDuration === 1 ? 'selected' : ''}>1 month</option>
+            <option value="2" ${rentalDuration === 2 ? 'selected' : ''}>2 months</option>
+            <option value="3" ${rentalDuration === 3 ? 'selected' : ''}>3 months</option>
+          </select>
         </div>
-        <button class="button wide" type="button" data-checkout>Proceed to checkout</button>
-        <p class="cart-note">No online payment is collected on this demo page. Ace Gaming confirms stock, delivery and payment before completing the sale.</p>`;
+        <div class="cart-totals">
+          <div class="cart-total-row"><span>Monthly rent</span><strong>${money(monthlyTotal)}</strong></div>
+          <div class="cart-total-row"><span>Pickup / delivery</span><strong>Confirmed by Ace Gaming</strong></div>
+          <div class="cart-total-row grand"><span>${rentalDuration}-month estimate</span><span>${money(termTotal)}</span></div>
+        </div>
+        <button class="button wide" type="button" data-checkout>Send rental request</button>
+        <p class="cart-note">This page sends a rental request only. Ace Gaming confirms availability, verification, deposit, pickup or delivery, and the final rental agreement.</p>`;
     }
 
     function openCart(){
@@ -1185,11 +1338,11 @@
       if(!product) return;
       detailQuantity = 1;
       document.getElementById('storeView').hidden = true;
-      document.getElementById('builderView').hidden = true;
+      document.title = `${product.name} | Ace Gaming Rentals`;
       const detail = document.getElementById('detailView');
       detail.hidden = false;
       detail.innerHTML = `
-        <div class="breadcrumbs"><button type="button" data-back-store>Store</button><span>/</span><span>${product.categoryName}</span><span>/</span><span>${product.name}</span></div>
+        <div class="breadcrumbs"><button type="button" data-back-store>Rentals</button><span>/</span><span>${product.categoryName}</span><span>/</span><span>${product.name}</span></div>
         <div class="detail-layout">
           <div class="detail-gallery">${detailVisual(product)}</div>
           <div class="detail-copy">
@@ -1197,21 +1350,45 @@
             <h1>${product.name}</h1>
             <div class="detail-rating">★★★★★ <span>${product.rating} rating · Performance checked</span></div>
             <p class="detail-description">${product.description}</p>
-            <div class="detail-price">${money(product.price)} <del>${money(product.mrp)}</del></div>
-            <div class="detail-note"><span class="stock">In stock</span><span>·</span><span>Price confirmed before payment</span></div>
+            <div class="detail-price ${originalPrice(product) ? 'discounted' : ''}">${money(discountedPrice(product))} <small class="price-suffix">/ month</small>${originalPrice(product) ? `<del>${money(originalPrice(product))}/month</del>` : ''}</div>
+            <div class="detail-note"><span class="stock">Available</span><span>·</span><span>Final availability confirmed with your request</span></div>
+            ${product.category === 'pc' ? `
+              <div class="detail-services">
+                <div class="detail-service"><span class="detail-service-icon">⌁</span><span><strong>Free home delivery</strong><small>1-hour delivery available</small></span></div>
+                <div class="detail-service"><span class="detail-service-icon">⚙</span><span><strong>Hassle-free service</strong><small>Support throughout the rental</small></span></div>
+                <div class="detail-service"><span class="detail-service-icon">✓</span><span><strong>No hidden costs</strong><small>Rental terms confirmed clearly</small></span></div>
+              </div>` : ''}
             <div class="spec-panel">
-              <h3>FULL SPECIFICATIONS</h3>
-              <ul class="spec-list">${product.specs.map(([label,value]) => `<li><span>${label}</span><strong>${value}</strong></li>`).join('')}</ul>
+              <h3>${product.category === 'pc' ? 'COMPLETE PC SPECIFICATIONS' : 'RENTAL DETAILS'}</h3>
+              <ul class="spec-list">${product.specs.filter(([label]) => !/rate|monthly rent|requirement/i.test(label)).map(([label,value]) => `<li><span>${label}</span><strong>${value}</strong></li>`).join('')}</ul>
+            </div>
+            ${product.peripherals ? `
+              <div class="spec-panel">
+                <h3>INCLUDED SETUP & PERIPHERALS</h3>
+                <ul class="spec-list">${product.peripherals.map(([label,value]) => `<li><span>${label}</span><strong>${value}</strong></li>`).join('')}</ul>
+              </div>` : ''}
+            ${product.bestFor ? `
+              <div class="best-for">
+                <h3>PERFECT FOR</h3>
+                <div class="best-for-list">${product.bestFor.map(item => `<span>${item}</span>`).join('')}</div>
+              </div>` : ''}
+            <div class="rental-period-field">
+              <label for="detailRentalDuration">Rental period</label>
+              <select id="detailRentalDuration">
+                <option value="1" ${rentalDuration === 1 ? 'selected' : ''}>1 month</option>
+                <option value="2" ${rentalDuration === 2 ? 'selected' : ''}>2 months</option>
+                <option value="3" ${rentalDuration === 3 ? 'selected' : ''}>3 months</option>
+              </select>
             </div>
             <div class="quantity-buy">
               <div class="quantity"><button type="button" data-detail-minus aria-label="Decrease quantity">−</button><strong id="detailQuantity">1</strong><button type="button" data-detail-plus aria-label="Increase quantity">+</button></div>
-              <button class="button" type="button" data-detail-add="${product.id}">Add to cart</button>
+              <button class="button" type="button" data-detail-add="${product.id}">Add to rental list</button>
             </div>
-            <div class="buy-actions">
-              <button class="button secondary" type="button" data-back-store>Continue shopping</button>
-              <button class="button" type="button" data-buy-now="${product.id}">Buy now</button>
+            <div class="rent-actions">
+              <button class="button secondary" type="button" data-back-store>Continue browsing</button>
+              <button class="button" type="button" data-rent-now="${product.id}">Rent now</button>
             </div>
-            <div class="assurance"><div><strong>Performance tested</strong>Checked for stability</div><div><strong>Expert support</strong>Help when you need it</div><div><strong>Order confirmation</strong>Stock verified by store</div></div>
+            <div class="assurance"><div><strong>Performance tested</strong>Checked for stability</div><div><strong>Flexible period</strong>Choose 1, 2 or 3 months</div><div><strong>Rental confirmation</strong>Terms verified by Ace Gaming</div></div>
           </div>
         </div>`;
       if(push) history.pushState({product:id},'',`#product/${id}`);
@@ -1220,19 +1397,40 @@
 
     function showStore(push=true){
       document.getElementById('detailView').hidden = true;
-      document.getElementById('builderView').hidden = true;
       document.getElementById('storeView').hidden = false;
+      document.title = 'Ace Gaming Rentals';
       if(push) history.pushState({},'','#products');
       setTimeout(() => document.getElementById('products').scrollIntoView({behavior:'smooth'}),20);
     }
 
+    function renderCheckoutSummary(){
+      const itemsEl = document.getElementById('checkoutSummaryItems');
+      const totalEl = document.getElementById('checkoutTotal');
+      const totalLabel = document.getElementById('checkoutTotalLabel');
+      if(!itemsEl || !totalEl || !totalLabel) return;
+      itemsEl.innerHTML = currentCheckoutEntries.map(item => `
+        <div class="summary-item">
+          <img class="summary-thumb" src="${item.product.image}" alt="">
+          <div class="summary-item-copy">
+            <strong>${item.product.name}</strong>
+            <span>Quantity ${item.quantity} · ${money(rentalRate(item.product))}/month each</span>
+          </div>
+          <div class="summary-item-price"><span>Monthly subtotal</span><strong>${money(rentalRate(item.product) * item.quantity)}</strong></div>
+        </div>`).join('');
+      totalLabel.textContent = `${rentalDuration}-month estimate`;
+      totalEl.textContent = money(rentalTermTotal(currentCheckoutEntries));
+    }
+
     function openCheckout(singleProductId){
-      const entries = singleProductId ? [{product:getProduct(singleProductId),quantity:detailQuantity}] : cartEntries();
-      if(!entries.length){showToast('Your cart is empty');return}
-      buyNowItems = singleProductId ? entries : null;
-      document.getElementById('checkoutTitle').textContent = 'Complete your order';
-      document.getElementById('checkoutSummaryItems').innerHTML = entries.map(item => `<div class="summary-item"><span>${item.product.name} × ${item.quantity}</span><strong>${money(item.product.price * item.quantity)}</strong></div>`).join('');
-      document.getElementById('checkoutTotal').textContent = money(cartTotal(entries));
+      const singleProduct = singleProductId ? getProduct(singleProductId) : null;
+      const entries = singleProduct ? [{product:singleProduct,quantity:detailQuantity}] : cartEntries();
+      if(!entries.length){showToast('Your rental list is empty');return}
+      rentalNowItems = singleProduct ? entries : null;
+      currentCheckoutEntries = entries;
+      document.getElementById('checkoutTitle').textContent = 'Finish your rental request';
+      const durationSelect = document.getElementById('checkoutDuration');
+      if(durationSelect) durationSelect.value = String(rentalDuration);
+      renderCheckoutSummary();
       const overlay = document.getElementById('checkoutOverlay');
       overlay.classList.add('open');
       document.body.classList.add('no-scroll');
@@ -1247,64 +1445,201 @@
 
     function resetCheckout(){
       document.getElementById('checkoutContent').innerHTML = `
-        <div class="checkout-head"><h2 id="checkoutTitle">Complete your order</h2><button class="close-button" type="button" data-close-checkout aria-label="Close checkout">×</button></div>
+        <div class="checkout-head">
+          <div class="checkout-head-copy"><span class="checkout-kicker">Ace Gaming Rentals</span><h2 id="checkoutTitle">Finish your rental request</h2><p>Review your setup, add your details and continue securely to WhatsApp.</p></div>
+          <button class="close-button" type="button" data-close-checkout aria-label="Close rental request">×</button>
+        </div>
         <div class="checkout-grid">
           <form class="checkout-form" id="checkoutForm">
+            <div class="form-intro field full"><span class="form-step">02</span><div><span>Your details</span><h3>Where should we reach you?</h3></div></div>
             <label class="field">Full name<input name="name" autocomplete="name" required placeholder="Your name"></label>
             <label class="field">Phone number<input name="phone" autocomplete="tel" inputmode="tel" required placeholder="+91 00000 00000"></label>
             <label class="field full">Email address<input name="email" type="email" autocomplete="email" required placeholder="you@example.com"></label>
             <label class="field full">Delivery address<textarea name="address" autocomplete="street-address" required placeholder="House, street, area, city and PIN code"></textarea></label>
-            <label class="field">Order method<select name="method"><option>Home delivery</option><option>Store pickup</option></select></label>
-            <label class="field">Payment preference<select name="payment"><option>Confirm with store</option><option>Pay at store</option></select></label>
-            <button class="button wide field full" type="submit">Place order request <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg></button>
+            <label class="field">Rental period<select name="duration" id="checkoutDuration"><option value="1" ${rentalDuration === 1 ? 'selected' : ''}>1 month</option><option value="2" ${rentalDuration === 2 ? 'selected' : ''}>2 months</option><option value="3" ${rentalDuration === 3 ? 'selected' : ''}>3 months</option></select></label>
+            <label class="field">Pickup or delivery<select name="method"><option>Home delivery</option><option>Store pickup</option></select></label>
+            <label class="field full">Notes (optional)<textarea name="notes" placeholder="Preferred delivery time or anything Ace Gaming should know"></textarea></label>
+            <label class="field honeypot" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
+            <p class="form-status" id="checkoutStatus" role="status" aria-live="polite"></p>
+            <button class="button checkout-submit" type="submit"><span>Save &amp; open WhatsApp</span><span class="checkout-submit-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m9 18 6-6-6-6"/></svg></span></button>
+            <p class="submit-note">Your request is saved first. You will review and send the prepared message in WhatsApp.</p>
           </form>
-          <aside class="checkout-summary"><h3>ORDER SUMMARY</h3><div class="checkout-summary-items" id="checkoutSummaryItems"></div><div class="summary-total"><span>Total</span><span id="checkoutTotal">₹0</span></div></aside>
+          <aside class="checkout-summary">
+            <div class="summary-head"><span class="summary-step">01</span><div><span class="summary-kicker">Order review</span><h3>Your rental setup</h3></div></div>
+            <div class="checkout-summary-items" id="checkoutSummaryItems"></div>
+            <div class="summary-total"><span id="checkoutTotalLabel">Estimated total</span><strong id="checkoutTotal">₹0</strong></div>
+            <div class="summary-assurance"><b>✓</b><p>Free request submission. Availability, deposit and delivery are confirmed by Ace Gaming.</p></div>
+          </aside>
         </div>`;
     }
 
-    function handleOrderSubmit(form){
+    function createOrderId(){
+      const date = new Date().toISOString().slice(0,10).replaceAll('-','');
+      const random = Math.floor(1000 + Math.random() * 9000);
+      return `AG-${date}-${random}`;
+    }
+
+    function createRequestToken(){
+      if(window.crypto?.getRandomValues){
+        const values = new Uint32Array(4);
+        window.crypto.getRandomValues(values);
+        return Array.from(values,value => value.toString(16).padStart(8,'0')).join('');
+      }
+      return `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+    }
+
+    function sheetsConnectionReady(){
+      return /^https:\/\/script\.google\.com\/macros\/s\/[^/]+\/exec(?:\?.*)?$/.test(GOOGLE_SHEETS_WEB_APP_URL);
+    }
+
+    function setCheckoutStatus(message,isError=false){
+      const status = document.getElementById('checkoutStatus');
+      if(!status) return;
+      status.textContent = message;
+      status.classList.add('show');
+      status.classList.toggle('error',isError);
+    }
+
+    function submitOrderToGoogleSheets(order){
+      return new Promise((resolve,reject) => {
+        if(!sheetsConnectionReady()){
+          reject(new Error('Google Sheets is not connected yet. Add the Apps Script web-app URL using the included setup guide.'));
+          return;
+        }
+
+        let frame = document.getElementById('aceGoogleSheetsFrame');
+        if(!frame){
+          frame = document.createElement('iframe');
+          frame.id = 'aceGoogleSheetsFrame';
+          frame.name = 'aceGoogleSheetsFrame';
+          frame.title = 'Google Sheets order submission';
+          frame.hidden = true;
+          document.body.appendChild(frame);
+        }
+
+        const requestToken = createRequestToken();
+        const timeout = window.setTimeout(() => {
+          window.removeEventListener('message',onMessage);
+          reject(new Error('Google Sheets did not confirm the save. Please check the connection and try again.'));
+        },20000);
+
+        function onMessage(event){
+          const data = event.data;
+          if(!data || data.source !== SHEETS_MESSAGE_SOURCE || data.requestToken !== requestToken) return;
+          window.clearTimeout(timeout);
+          window.removeEventListener('message',onMessage);
+          if(data.ok) resolve(data);
+          else reject(new Error(data.message || 'Google Sheets could not save this request.'));
+        }
+
+        window.addEventListener('message',onMessage);
+
+        const postForm = document.createElement('form');
+        postForm.method = 'POST';
+        postForm.action = GOOGLE_SHEETS_WEB_APP_URL;
+        postForm.target = frame.name;
+        postForm.hidden = true;
+
+        Object.entries({...order,requestToken}).forEach(([name,value]) => {
+          const input = document.createElement('input');
+          input.type = 'hidden';
+          input.name = name;
+          input.value = value == null ? '' : String(value);
+          postForm.appendChild(input);
+        });
+
+        document.body.appendChild(postForm);
+        postForm.submit();
+        window.setTimeout(() => postForm.remove(),1000);
+      });
+    }
+
+    function buildWhatsAppUrl(order){
+      const itemLines = order.itemsSummary.split(' | ').map(item => `• ${item}`).join('\n');
+      const message = [
+        'Hello Ace Gaming, I want to request a rental.',
+        '',
+        `Order ID: ${order.orderId}`,
+        `Name: ${order.customerName}`,
+        `Phone: ${order.phone}`,
+        `Email: ${order.email}`,
+        `Address: ${order.address}`,
+        `Pickup / delivery: ${order.deliveryMethod}`,
+        `Rental period: ${order.rentalMonths} month${order.rentalMonths === 1 ? '' : 's'}`,
+        '',
+        'Items:',
+        itemLines,
+        '',
+        `Monthly rent: ${money(order.monthlyTotal)}`,
+        `Estimated term total: ${money(order.termTotal)}`,
+        order.notes ? `Notes: ${order.notes}` : '',
+        '',
+        'Please confirm availability, verification, deposit, and final rental terms.'
+      ].filter(line => line !== '').join('\n');
+      return `https://wa.me/${ACE_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    }
+
+    async function handleOrderSubmit(form){
       if(!form.reportValidity()) return;
-      const orderId = `ACE-${Date.now().toString().slice(-6)}`;
-      const isCustomBuild = buyNowItems?.type === 'custom-build';
-      if(!buyNowItems){cart={};saveCart()}
+      const submitButton = form.querySelector('button[type="submit"]');
+      const data = new FormData(form);
+      const orderId = createOrderId();
+      const monthlyTotal = rentalMonthlyTotal(currentCheckoutEntries);
+      const termTotal = rentalTermTotal(currentCheckoutEntries);
+      const order = {
+        orderId,
+        status:'New rental request',
+        customerName:String(data.get('name') || '').trim(),
+        phone:String(data.get('phone') || '').trim(),
+        email:String(data.get('email') || '').trim(),
+        address:String(data.get('address') || '').trim(),
+        rentalMonths:Number(data.get('duration') || rentalDuration),
+        deliveryMethod:String(data.get('method') || ''),
+        itemsSummary:currentCheckoutEntries.map(item => `${item.product.name} × ${item.quantity} at ${money(rentalRate(item.product))}/month`).join(' | '),
+        monthlyTotal,
+        termTotal,
+        notes:String(data.get('notes') || '').trim(),
+        website:String(data.get('website') || ''),
+        pageUrl:location.href,
+        customerSubmittedAt:new Date().toISOString()
+      };
+      const whatsappUrl = buildWhatsAppUrl(order);
+      let savedToSheets = false;
+
+      submitButton.disabled = true;
+      submitButton.textContent = 'Preparing WhatsApp booking…';
+      setCheckoutStatus('Preparing your rental details for WhatsApp…');
+
+      if(sheetsConnectionReady()){
+        try{
+          await submitOrderToGoogleSheets(order);
+          savedToSheets = true;
+        }catch(error){
+          console.warn('Google Sheets save failed; continuing to WhatsApp.',error);
+        }
+      }
+
+      if(!rentalNowItems){cart={};saveCart()}
       document.getElementById('checkoutContent').innerHTML = `
         <div class="success-state">
           <div class="success-icon">✓</div>
-          <span class="eyebrow">${isCustomBuild ? 'Build request sent' : 'Order request sent'}</span>
-          <h2>Thanks for choosing Ace Gaming.</h2>
-          <p>Your request number is <strong>${orderId}</strong>. The store can confirm ${isCustomBuild ? 'component compatibility, ' : ''}stock, delivery and payment details before completing your order.</p>
-          <button class="button" type="button" data-close-checkout>Continue shopping</button>
+          <span class="eyebrow">${savedToSheets ? 'Saved & ready' : 'WhatsApp booking ready'}</span>
+          <h2>Opening WhatsApp…</h2>
+          <p>Your request number is <strong>${orderId}</strong>. Your complete customer, rental-period, delivery and item details are prepared for <strong>+91 90760 60602</strong>.</p>
+          <a class="button" href="${whatsappUrl}">Open WhatsApp now</a>
         </div>`;
-      buyNowItems = null;
+      rentalNowItems = null;
+      currentCheckoutEntries = [];
+      window.setTimeout(() => {window.location.href = whatsappUrl},500);
     }
 
     document.addEventListener('click',event => {
-      if(openBuilderMenu && !event.target.closest('.builder-menu')){
-        openBuilderMenu = null;
-        renderBuilder();
-      }
       const target = event.target.closest('button,a,[data-view-product]');
       if(!target) return;
 
-      if(target.matches('[data-builder-toggle]')){
-        const sectionId = target.dataset.builderToggle;
-        openBuilderMenu = openBuilderMenu === sectionId ? null : sectionId;
-        renderBuilder();
-        return;
-      }
-      if(target.matches('[data-builder-option]')){
-        builderSelection[target.dataset.builderSection] = target.dataset.builderOption;
-        openBuilderMenu = null;
-        renderBuilder();
-        return;
-      }
       if(target.matches('[data-view-product]')){
         event.preventDefault();
         showProduct(target.dataset.viewProduct);
-      }
-      if(target.matches('[data-open-builder]')){
-        event.preventDefault();
-        showBuilder();
       }
       if(target.matches('[data-add]')){
         addToCart(target.dataset.add,1,target);
@@ -1322,16 +1657,28 @@
       if(target.matches('[data-close-cart]')) closeCart();
       if(target.matches('[data-cart-minus]')) setQuantity(target.dataset.cartMinus,(cart[target.dataset.cartMinus] || 1)-1);
       if(target.matches('[data-cart-plus]')) setQuantity(target.dataset.cartPlus,(cart[target.dataset.cartPlus] || 0)+1);
-      if(target.matches('[data-remove]')){const product=getProduct(target.dataset.remove);delete cart[target.dataset.remove];saveCart();showToast(`${product.name} removed`)}
+      if(target.matches('[data-remove]')){const product=getProduct(target.dataset.remove);setQuantity(target.dataset.remove,0);showToast(`${product.name} removed`)}
       if(target.matches('[data-checkout]')) openCheckout();
       if(target.matches('[data-close-checkout]')) closeCheckout();
       if(target.matches('[data-back-store]')) showStore();
       if(target.matches('[data-detail-minus]')){detailQuantity=Math.max(1,detailQuantity-1);document.getElementById('detailQuantity').textContent=detailQuantity}
       if(target.matches('[data-detail-plus]')){detailQuantity=Math.min(10,detailQuantity+1);document.getElementById('detailQuantity').textContent=detailQuantity}
       if(target.matches('[data-detail-add]')) addToCart(target.dataset.detailAdd,detailQuantity,target);
-      if(target.matches('[data-buy-now]')) openCheckout(target.dataset.buyNow);
-      if(target.matches('[data-reset-builder]')) resetBuilder();
-      if(target.matches('[data-request-build]')) openBuilderCheckout();
+      if(target.matches('[data-rent-now]')) openCheckout(target.dataset.rentNow);
+    });
+
+    document.addEventListener('change',event => {
+      if(event.target.matches('#cartDuration')){
+        rentalDuration = Number(event.target.value);
+        updateCartUI();
+      }
+      if(event.target.matches('#detailRentalDuration')){
+        rentalDuration = Number(event.target.value);
+      }
+      if(event.target.matches('#checkoutDuration')){
+        rentalDuration = Number(event.target.value);
+        renderCheckoutSummary();
+      }
     });
 
     document.addEventListener('submit',event => {
@@ -1347,17 +1694,14 @@
       if(event.key === 'Escape'){
         closeCart();
         closeCheckout();
-        if(openBuilderMenu){openBuilderMenu=null;renderBuilder()}
       }
     });
 
     window.addEventListener('popstate',() => {
       const match = location.hash.match(/^#product\/(.+)$/);
       if(match) showProduct(match[1],false);
-      else if(location.hash === '#build-pc') showBuilder(false);
       else{
         document.getElementById('detailView').hidden = true;
-        document.getElementById('builderView').hidden = true;
         document.getElementById('storeView').hidden = false;
       }
     });
@@ -1366,7 +1710,6 @@
     updateCartUI();
     const initialProduct = location.hash.match(/^#product\/(.+)$/);
     if(initialProduct) showProduct(initialProduct[1],false);
-    else if(location.hash === '#build-pc') showBuilder(false);
   </script>
 </body>
 </html>
