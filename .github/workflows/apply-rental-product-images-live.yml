@@ -1,0 +1,107 @@
+name: Apply rental product images live
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/apply-rental-product-images-live.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Pillow
+        run: python -m pip install --quiet Pillow
+
+      - name: Download and optimize dark product photos
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from urllib.request import Request, urlopen
+          from html import unescape
+          from io import BytesIO
+          import re
+          from PIL import Image
+
+          sources = {
+              'pcCore': ('https://unsplash.com/photos/black-and-white-computer-tower-yJdDPQlljAc', 'pc-rtx2060.webp'),
+              'pcPro': ('https://unsplash.com/photos/a-computer-tower-with-a-black-screen-fMbiAi0rbkA', 'pc-rtx4060.webp'),
+              'pcElite': ('https://unsplash.com/photos/a-close-up-of-a-black-device-7_AraS9JLXo', 'pc-rx7700xt-intel.webp'),
+              'pcRyzen': ('https://unsplash.com/photos/a-computer-tower-with-a-fan-FtP3ZM6hmNM', 'pc-rx7700xt-ryzen.webp'),
+              'monitor': ('https://unsplash.com/photos/black-flat-screen-computer-monitor-turned-on-with-black-computer-keyboard-cIxE9fk7B2c', 'monitor.webp'),
+              'ram': ('https://unsplash.com/photos/black-ram-stick-XIqWVbtftIs', 'ram.webp'),
+              'keyboard': ('https://unsplash.com/photos/a-black-mechanical-keyboard-with-rgb-lighting-Gmoqo0u2ucY', 'keyboard.webp'),
+              'mouse': ('https://unsplash.com/photos/black-and-white-box-on-black-surface-bh-aYQn8vfI', 'mouse.webp'),
+              'headset': ('https://unsplash.com/photos/a-close-up-of-a-gaming-headset-on-a-black-background-Z1BBqeQ_2uM', 'headset.webp'),
+              'mousepad': ('https://unsplash.com/photos/black-flat-screen-computer-monitor-turned-on-beside-black-computer-keyboard-xxL1FavYOh0', 'mousepad.webp'),
+          }
+
+          headers = {'User-Agent': 'Mozilla/5.0'}
+          out = Path('assets/rentals')
+          out.mkdir(parents=True, exist_ok=True)
+
+          def get(url):
+              with urlopen(Request(url, headers=headers), timeout=30) as r:
+                  return r.read()
+
+          def find_og_image(page_url):
+              page = get(page_url).decode('utf-8', errors='ignore')
+              patterns = [
+                  r'<meta[^>]+property=["\']og:image["\'][^>]+content=["\']([^"\']+)',
+                  r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+property=["\']og:image["\']',
+              ]
+              for pattern in patterns:
+                  m = re.search(pattern, page, flags=re.I)
+                  if m:
+                      return unescape(m.group(1))
+              raise RuntimeError(f'No og:image found for {page_url}')
+
+          for key, (page_url, filename) in sources.items():
+              image_url = find_og_image(page_url)
+              image = Image.open(BytesIO(get(image_url))).convert('RGB')
+              image.thumbnail((1000, 1000), Image.Resampling.LANCZOS)
+              image.save(out / filename, 'WEBP', quality=82, method=6)
+              print('saved', key, filename)
+
+          p = Path('rentals.html')
+          s = p.read_text(encoding='utf-8')
+          start = s.index('    const productArt = {')
+          end = s.index('    const products = [', start)
+          mapping = {
+              'pcCore': 'assets/rentals/pc-rtx2060.webp',
+              'pcPro': 'assets/rentals/pc-rtx4060.webp',
+              'pcElite': 'assets/rentals/pc-rx7700xt-intel.webp',
+              'pcRyzen': 'assets/rentals/pc-rx7700xt-ryzen.webp',
+              'monitor': 'assets/rentals/monitor.webp',
+              'ram': 'assets/rentals/ram.webp',
+              'keyboard': 'assets/rentals/keyboard.webp',
+              'mouse': 'assets/rentals/mouse.webp',
+              'headset': 'assets/rentals/headset.webp',
+              'mousepad': 'assets/rentals/mousepad.webp',
+          }
+          block = '    const productArt = {\n'
+          for key, path in mapping.items():
+              block += f"      {key}: '{path}',\n"
+          block += '    };\n'
+          p.write_text(s[:start] + block + s[end:], encoding='utf-8')
+          print('rentals.html updated')
+          PY
+
+      - name: Commit images and remove one-time workflow
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add rentals.html assets/rentals/*.webp .github/workflows/apply-rental-product-images-live.yml
+          git rm .github/workflows/apply-rental-product-images-live.yml
+          git commit -m 'Use real product photos in rentals'
+          git push
