@@ -17,41 +17,38 @@
     {
       "source": "/",
       "headers": [
-        {
-          "key": "Vary",
-          "value": "User-Agent"
-        },
-        {
-          "key": "Cache-Control",
-          "value": "no-store, max-age=0"
-        }
+        {"key": "Vary", "value": "User-Agent"},
+        {"key": "Cache-Control", "value": "no-store, max-age=0"}
       ]
     },
     {
       "source": "/mobile.html",
       "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "no-store, max-age=0"
-        }
+        {"key": "Cache-Control", "value": "no-store, max-age=0"}
       ]
     },
     {
       "source": "/mobile.css",
       "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "no-store, max-age=0"
-        }
+        {"key": "Cache-Control", "value": "no-store, max-age=0"}
       ]
     },
     {
       "source": "/mobile-enhancer.js",
       "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "no-store, max-age=0"
-        }
+        {"key": "Cache-Control", "value": "no-store, max-age=0"}
+      ]
+    },
+    {
+      "source": "/index-source.html",
+      "headers": [
+        {"key": "Cache-Control", "value": "no-store, max-age=0"}
+      ]
+    },
+    {
+      "source": "/book-mobile.html",
+      "headers": [
+        {"key": "Cache-Control", "value": "no-store, max-age=0"}
       ]
     }
   ]
