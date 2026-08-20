@@ -1,0 +1,35 @@
+/* Verified Ace Gaming booking prices */
+.pack-portal{position:relative!important}
+.ace-pack-price{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap;margin-top:18px;padding-top:15px;border-top:1px solid rgba(255,255,255,.09);text-align:left}
+.ace-pack-price>span{color:#7f859a;font-size:8px;font-weight:900;letter-spacing:.16em}
+.ace-pack-price>strong{font:800 22px Orbitron,Inter,sans-serif;letter-spacing:-.04em;background:linear-gradient(100deg,#fff,#ff79bd 45%,#68d7ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.ace-pack-price>small{width:100%;color:#8f95aa!important;font:700 9px Inter,sans-serif!important;letter-spacing:.02em!important;line-height:1.45}
+
+.duration-option.ace-priced{display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:space-between!important;gap:7px!important;min-height:112px!important;text-align:left!important;padding:13px 14px!important;background:linear-gradient(155deg,rgba(255,255,255,.045),rgba(255,255,255,.018))!important}
+.duration-option.ace-priced.active{background:linear-gradient(#101321,#101321) padding-box,linear-gradient(115deg,#ff3e9d,#6848ff,#27c7ff) border-box!important}
+.ace-duration-name{display:block;color:#f4f5fb;font:800 11px Orbitron,Inter,sans-serif;letter-spacing:.025em;line-height:1.25}
+.ace-duration-price{display:block;margin-top:auto;font:800 21px Orbitron,Inter,sans-serif;letter-spacing:-.045em;color:#fff}
+.ace-duration-price.unknown{font-size:11px;letter-spacing:.04em;color:#9298aa}
+.ace-duration-meta{display:block;color:#777e94;font:700 8px Inter,sans-serif;line-height:1.35;letter-spacing:.035em;text-transform:uppercase}
+.duration-option.active .ace-duration-meta{color:#aab5cc}
+
+.ace-price-note{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:11px}
+.ace-price-note-card{padding:12px 13px;border:1px solid rgba(255,255,255,.08);border-radius:14px;background:linear-gradient(135deg,rgba(255,62,157,.055),rgba(39,199,255,.045));text-align:left}
+.ace-price-note-card span{display:block;color:#9096aa;font-size:8px;font-weight:900;letter-spacing:.1em;text-transform:uppercase}
+.ace-price-note-card strong{display:block;margin-top:6px;color:#fff;font:800 14px Orbitron,Inter,sans-serif;line-height:1.35}
+.ace-price-note-card small{display:block;margin-top:5px;color:#7f859a;font-size:8px;line-height:1.45}
+
+.ace-summary-price-line{position:relative;overflow:hidden;border-radius:12px!important;padding:15px!important;background:linear-gradient(125deg,rgba(255,62,157,.09),rgba(104,72,255,.08),rgba(39,199,255,.075))!important;border:1px solid rgba(255,255,255,.09)!important}
+.ace-summary-price-line::after{content:"";position:absolute;inset:auto 12px 0;height:1px;background:linear-gradient(90deg,transparent,#ff3e9d,#27c7ff,transparent);opacity:.65}
+.ace-summary-price-line small{color:#91ddff!important}
+.ace-summary-price-line strong{font:800 22px Orbitron,Inter,sans-serif!important;letter-spacing:-.04em!important}
+.ace-summary-price-line em{display:block;margin-top:5px;color:#8d94a9;font-size:8px;font-style:normal;font-weight:700;line-height:1.35;text-transform:uppercase}
+
+@media(max-width:760px){
+  .ace-pack-price{margin-top:14px;padding-top:12px}
+  .ace-pack-price>strong{font-size:19px}
+  .duration-option.ace-priced{min-height:104px!important;padding:11px!important}
+  .ace-duration-price{font-size:18px}
+  .ace-price-note{grid-template-columns:1fr}
+  .ace-summary-price-line strong{font-size:19px!important}
+}
