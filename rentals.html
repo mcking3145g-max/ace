@@ -1089,9 +1089,9 @@
     const money = value => new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',maximumFractionDigits:0}).format(value);
     const getProduct = id => products.find(product => product.id === id);
     const cartEntries = () => Object.entries(cart).map(([id,quantity]) => ({product:getProduct(id),quantity})).filter(item => item.product && item.quantity > 0);
-    const discountedPrice = product => product.plans?.[3] || product.price;
+    const discountedPrice = product => product.plans?.[1] || product.price;
     const originalPrice = product => product.plans?.[1] || null;
-    const rentalRate = product => discountedPrice(product);
+    const rentalRate = (product,months=rentalDuration) => product.plans?.[months] || product.price;
     const rentalMonthlyTotal = (entries,months=rentalDuration) => entries.reduce((sum,item) => sum + rentalRate(item.product,months) * item.quantity,0);
     const rentalTermTotal = (entries,months=rentalDuration) => rentalMonthlyTotal(entries,months) * months;
     const productVisual = product => `<img src="${product.image}" alt="${product.name}" loading="lazy">`;
@@ -1118,7 +1118,7 @@
             <h3><a href="#product/${product.id}" data-view-product="${product.id}">${product.name}</a></h3>
             <ul class="mini-specs">${product.mini.filter(spec => !spec.includes('₹')).map(spec => `<li>${spec}</li>`).join('')}</ul>
             <div class="price-line">
-              <span><b class="price ${originalPrice(product) ? 'discounted' : ''}">${money(discountedPrice(product))}</b><small class="price-suffix">/ month</small>${originalPrice(product) ? `<del class="mrp">${money(originalPrice(product))}/month</del>` : ''}</span>
+              <span><b class="price ${originalPrice(product) ? 'discounted' : ''}">${money(discountedPrice(product))}</b><small class="price-suffix">/ month</small>${product.plans ? `<small class="mrp" style="text-decoration:none;color:#9b9caf">2 mo: ${money(product.plans[2])}/mo · 3 mo: ${money(product.plans[3])}/mo</small>` : ''}</span>
               <span class="stock">Available</span>
             </div>
             <div class="card-actions">
