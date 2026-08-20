@@ -1,0 +1,44 @@
+name: Apply rental product images
+
+on:
+  push:
+    branches:
+      - rental-product-images
+    paths:
+      - .github/workflows/apply-rental-product-images.yml
+      - scripts/apply_rental_product_images.py
+
+permissions:
+  contents: write
+
+jobs:
+  apply-images:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          ref: rental-product-images
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Pillow
+        run: python -m pip install --quiet Pillow
+
+      - name: Download and optimize product images
+        run: python scripts/apply_rental_product_images.py
+
+      - name: Commit generated assets and rental page update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add rentals.html assets/rentals/*.webp
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Use real product photos in rentals"
+            git push origin rental-product-images
+          fi
