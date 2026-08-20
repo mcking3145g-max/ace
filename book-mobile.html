@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#06060d">
+  <title>Book at Ace Gaming</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Orbitron:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#06060d;--panel:#0c0f19;--line:rgba(255,255,255,.11);--muted:#9ea5b8;--pink:#ff3e9d;--blue:#27c7ff;--violet:#6848ff}
+    *{box-sizing:border-box}
+    html{min-height:100%;background:var(--bg);scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+    body{min-height:100dvh;margin:0;overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch;background:radial-gradient(circle at 15% 10%,rgba(255,62,157,.12),transparent 32%),radial-gradient(circle at 85% 5%,rgba(39,199,255,.12),transparent 34%),linear-gradient(160deg,#070711,#06060d 55%,#07111a);color:#fff;font-family:Inter,system-ui,sans-serif}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.2;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,#000,transparent 78%)}
+    .page{position:relative;width:min(100%,560px);min-height:100dvh;margin:0 auto;padding:calc(14px + env(safe-area-inset-top,0px)) 14px calc(28px + env(safe-area-inset-bottom,0px))}
+    .topbar{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:12px;margin:-1px -2px 16px;padding:8px 2px;background:linear-gradient(to bottom,rgba(6,6,13,.97) 60%,rgba(6,6,13,0));backdrop-filter:blur(12px)}
+    .brand{display:flex;align-items:center;gap:9px;font:800 12px Orbitron,sans-serif;letter-spacing:.11em}
+    .mark{width:34px;height:34px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.12);border-radius:11px;background:linear-gradient(135deg,rgba(255,62,157,.16),rgba(39,199,255,.15));font:800 12px Orbitron,sans-serif}
+    .back{width:42px;height:42px;border:1px solid rgba(255,255,255,.12);border-radius:13px;background:rgba(255,255,255,.045);color:#fff;font-size:22px;line-height:1;cursor:pointer}
+    .card{overflow:hidden;border:1px solid var(--line);border-radius:24px;background:rgba(10,12,22,.93);box-shadow:0 24px 70px rgba(0,0,0,.36)}
+    .card-head{padding:22px 18px 17px;border-bottom:1px solid rgba(255,255,255,.07);background:linear-gradient(130deg,rgba(255,62,157,.09),transparent 46%,rgba(39,199,255,.08))}
+    .eyebrow{display:block;color:#83ddff;font-size:8px;font-weight:800;letter-spacing:.17em}
+    h1{max-width:330px;margin:8px 0 0;font:700 clamp(27px,8.5vw,34px)/1.08 Orbitron,sans-serif;letter-spacing:-.04em}
+    .card-body{padding:18px}
+    form{margin:0}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 10px}
+    .full{grid-column:1/-1}
+    label{display:grid;gap:6px;color:#eef0f6;font-size:9px;font-weight:800;line-height:1.2;letter-spacing:.11em;text-transform:uppercase}
+    input,select{width:100%;height:52px;min-width:0;padding:0 12px;border:1px solid rgba(255,255,255,.11);border-radius:13px;background:#11141f;color:#fff;outline:none;font:700 14px Inter,sans-serif;text-transform:none;letter-spacing:0;appearance:auto}
+    input::placeholder{color:#6f7689}
+    input:focus,select:focus{border-color:rgba(39,199,255,.55);box-shadow:0 0 0 3px rgba(39,199,255,.09)}
+    select option{background:#11141f;color:#fff}
+    .submit{width:100%;height:54px;margin-top:16px;border:0;border-radius:14px;background:linear-gradient(110deg,var(--pink),var(--violet),var(--blue));color:#fff;font-size:11px;font-weight:800;letter-spacing:.07em;cursor:pointer}
+    .tiny{margin:12px 2px 0;color:var(--muted);font-size:10px;line-height:1.5;text-align:center}
+    .package{display:none;margin:0 0 14px;padding:11px 12px;border:1px solid rgba(39,199,255,.13);border-radius:12px;background:rgba(39,199,255,.055);color:#cbd3e6;font-size:11px;line-height:1.5}
+    .package.show{display:block}
+    @media(max-width:360px){.page{padding-inline:10px}.card-head{padding-inline:15px}.card-body{padding:15px}.grid{gap:10px 8px}input,select{height:49px;padding-inline:9px;font-size:13px}h1{font-size:27px}}
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="topbar">
+      <div class="brand"><span class="mark">AG</span><span>ACE GAMING</span></div>
+      <button class="back" id="backBtn" type="button" aria-label="Go back">×</button>
+    </div>
+
+    <section class="card" aria-labelledby="bookingTitle">
+      <div class="card-head">
+        <span class="eyebrow">RESERVE YOUR SLOT</span>
+        <h1 id="bookingTitle">Reserve at Ace Gaming</h1>
+      </div>
+      <div class="card-body">
+        <div class="package" id="packageContext"></div>
+        <form id="mobileBookingForm">
+          <div class="grid">
+            <label class="full">Name
+              <input id="name" name="name" autocomplete="name" required placeholder="Enter your name">
+            </label>
+            <label class="full">Phone
+              <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="+91 98765 43210">
+            </label>
+            <label>Service
+              <select id="service" name="service">
+                <option>Gaming PC</option>
+                <option>PlayStation 5</option>
+                <option>Sim Racing</option>
+                <option>Birthday Party</option>
+                <option>Tournament</option>
+                <option>Membership</option>
+              </select>
+            </label>
+            <label>Players
+              <select id="players" name="players">
+                <option>1 Player</option>
+                <option>2 Players</option>
+                <option>3 Players</option>
+                <option>4 Players</option>
+              </select>
+            </label>
+            <label>Date
+              <input id="date" name="date" type="date" required>
+            </label>
+            <label>Time
+              <input id="time" name="time" type="time" required>
+            </label>
+          </div>
+          <button class="submit" type="submit">CONTINUE ON WHATSAPP →</button>
+          <p class="tiny">Your booking details are prepared first, then WhatsApp opens for you to send them.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    (()=>{
+      const ACE_WHATSAPP_NUMBER='919076060602';
+      const params=new URLSearchParams(location.search);
+      const $=id=>document.getElementById(id);
+
+      const localDateString=()=>{
+        const d=new Date();
+        const y=d.getFullYear();
+        const m=String(d.getMonth()+1).padStart(2,'0');
+        const day=String(d.getDate()).padStart(2,'0');
+        return `${y}-${m}-${day}`;
+      };
+
+      const date=$('date');
+      date.min=localDateString();
+
+      const setSelect=(id,value)=>{
+        if(!value)return;
+        const el=$(id);
+        const match=[...el.options].find(option=>option.value===value||option.textContent===value);
+        if(match)el.value=match.value;
+      };
+
+      setSelect('service',params.get('service'));
+      setSelect('players',params.get('players'));
+      if(params.get('date'))date.value=params.get('date');
+      if(params.get('time'))$('time').value=params.get('time');
+
+      const details=(params.get('details')||'').trim();
+      if(details){
+        $('packageContext').textContent=details;
+        $('packageContext').classList.add('show');
+      }
+
+      $('backBtn').addEventListener('click',()=>{
+        if(history.length>1)history.back();
+        else location.href='/';
+      });
+
+      $('mobileBookingForm').addEventListener('submit',event=>{
+        event.preventDefault();
+        const name=$('name').value.trim();
+        const phone=$('phone').value.trim();
+        const service=$('service').value;
+        const players=$('players').value;
+        const bookingDate=$('date').value;
+        const bookingTime=$('time').value;
+
+        const message=[
+          'ACE GAMING — NEW BOOKING REQUEST',
+          '',
+          `Name: ${name}`,
+          `Phone: ${phone}`,
+          `Service: ${service}`,
+          `Players: ${players}`,
+          `Date: ${bookingDate}`,
+          `Time: ${bookingTime}`,
+          details?`Details: ${details}`:'Details: None',
+          '',
+          'Please confirm availability and the final price.'
+        ].join('\n');
+
+        location.href=`https://wa.me/${ACE_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+      });
+    })();
+  </script>
+</body>
+</html>
