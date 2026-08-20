@@ -1,0 +1,66 @@
+/* Final Ace Gaming delivery polish — intentionally subtle */
+html{scroll-behavior:smooth}
+body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+
+/* Desktop: reduce visual scale only a little */
+@media(min-width:901px){
+  header{height:64px!important;padding-inline:15px!important}
+  .hero{min-height:860px!important;padding-top:122px!important;padding-bottom:68px!important}
+  .hero h1{font-size:clamp(56px,6.6vw,100px)!important}
+  .copy>p{font-size:16px!important}
+  .section{padding:94px 0!important}
+  .heading h2,.contact h2{font-size:clamp(38px,4.8vw,66px)!important}
+  .card,.price,.menu-card{padding:24px!important}
+  .btn{min-height:44px!important;padding-inline:18px!important}
+  .pack-portal{padding:24px!important}
+  .builder-step,.pack-summary{padding:22px!important}
+  .duration-option.ace-priced{min-height:106px!important}
+}
+
+/* Mobile: a small size reduction and cheaper rendering for smoother scrolling */
+@media(max-width:900px){
+  html.ace-mobile body::after{display:none!important}
+  html.ace-mobile header{
+    height:54px!important;
+    backdrop-filter:blur(10px) saturate(125%)!important;
+    -webkit-backdrop-filter:blur(10px) saturate(125%)!important;
+  }
+  html.ace-mobile .logo-img{height:28px!important}
+  html.ace-mobile .menu{width:38px!important;height:38px!important;min-width:38px!important;min-height:38px!important}
+  html.ace-mobile .section{padding:50px 0!important}
+  html.ace-mobile .heading h2,html.ace-mobile .contact h2{font-size:clamp(29px,9.2vw,40px)!important}
+  html.ace-mobile .copy>p{font-size:14px!important;line-height:1.6!important}
+  html.ace-mobile .actions .btn,
+  html.ace-mobile .contact .btn,
+  html.ace-mobile .rent-bottom .btn,
+  html.ace-mobile .pack-summary .btn,
+  html.ace-mobile .service-stage .btn{min-height:50px!important}
+  html.ace-mobile .card,
+  html.ace-mobile .price,
+  html.ace-mobile .menu-card,
+  html.ace-mobile .pack-portal{padding:19px!important}
+  html.ace-mobile .builder-step,html.ace-mobile .pack-summary{padding:17px!important}
+  html.ace-mobile .duration-option.ace-priced{min-height:98px!important;padding:10px!important}
+  html.ace-mobile .ace-duration-price{font-size:17px!important}
+  html.ace-mobile .ace-pack-price>strong{font-size:18px!important}
+  html.ace-mobile .ace-summary-price-line{padding:13px!important}
+  html.ace-mobile .ace-summary-price-line strong{font-size:18px!important}
+  html.ace-mobile .mobile-desktop-link{display:none!important}
+
+  /* Remove desktop-only hover work on touch devices. */
+  .card,.price,.menu-card,.pack-portal,.duration-option,.pc-tier,.btn,.service-row,.service-tab{
+    -webkit-tap-highlight-color:transparent!important;
+  }
+}
+
+@media(hover:none) and (pointer:coarse){
+  .btn:hover,.card:hover,.price:hover,.menu-card:hover,.pack-portal:hover,.duration-option:hover,.pc-tier:hover,.service-row:hover{transform:none!important}
+  .reveal{transition-duration:.34s!important}
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto!important}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+
+.ace-duration-meta:empty,.ace-summary-price-line em:empty,.ace-pack-price small:empty{display:none!important}
