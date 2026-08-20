@@ -4,12 +4,25 @@ html.ace-mobile .booking-modal{
   max-width:520px!important;
   max-height:92dvh!important;
   margin:0 auto!important;
-  overflow:auto!important;
+  overflow:hidden!important;
   border-radius:22px 22px 0 0!important;
 }
-html.ace-mobile .booking-main{
-  padding:20px 16px calc(18px + env(safe-area-inset-bottom,0px))!important;
+html.ace-mobile .booking-shell{
+  max-height:92dvh!important;
+  overflow:hidden!important;
 }
+html.ace-mobile .booking-main{
+  max-height:92dvh!important;
+  overflow-y:auto!important;
+  overflow-x:hidden!important;
+  -webkit-overflow-scrolling:touch!important;
+  overscroll-behavior-y:contain!important;
+  touch-action:pan-y!important;
+  padding:20px 16px calc(32px + env(safe-area-inset-bottom,0px))!important;
+  scrollbar-width:none!important;
+}
+html.ace-mobile .booking-main::-webkit-scrollbar{display:none!important}
+html.ace-mobile body.lock .mobile-dock{display:none!important}
 html.ace-mobile .booking-head{
   display:block!important;
   padding-right:46px!important;
