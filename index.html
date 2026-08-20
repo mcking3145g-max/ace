@@ -7,28 +7,46 @@
   <title>Ace Gaming</title>
   <style>
     html,body{margin:0;min-height:100%;background:#06060d;color:#fff;font-family:Inter,system-ui,sans-serif}
-    body{display:grid;place-items:center;overflow:hidden}
-    .boot{width:min(320px,82vw);text-align:center}
-    .boot b{display:block;font:800 28px Orbitron,system-ui,sans-serif;letter-spacing:.14em;margin-bottom:18px;background:linear-gradient(90deg,#ff3e9d,#6848ff,#27c7ff);-webkit-background-clip:text;background-clip:text;color:transparent}
-    .boot span{font-size:11px;font-weight:800;letter-spacing:.14em;color:#a1a6ba;text-transform:uppercase}
-    .bar{height:5px;margin-top:18px;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden}
-    .bar i{display:block;height:100%;width:45%;border-radius:inherit;background:linear-gradient(90deg,#ff3e9d,#27c7ff);animation:load 1.1s ease-in-out infinite alternate}
-    @keyframes load{to{transform:translateX(125%)}}
+    body{margin:0;background:#06060d}
   </style>
 </head>
 <body>
-  <div class="boot"><b>ACE</b><span>Loading</span><div class="bar"><i></i></div></div>
   <script>
     (async()=>{
       try{
-        const response=await fetch('/index-source.html?v=5',{cache:'no-store'});
+        const response=await fetch('/index-source.html?v=9',{cache:'no-store'});
         if(!response.ok)throw new Error('Could not load homepage source');
-        let html=await response.text();
-        html=html.replace(/<aside\s+class=["']booking-side["'][^>]*>[\s\S]*?<\/aside>\s*/i,'');
-        html=html.replace(/(<div\s+class=["']booking-head["'][^>]*>[\s\S]*?<h3>Reserve at Ace Gaming<\/h3>)\s*<p>[\s\S]*?<\/p>/i,'$1');
-        html=html.replace('</head>','<style id="booking-form-only">.booking-shell{grid-template-columns:1fr!important}.booking-main{grid-column:1/-1!important}</style>\n</head>');
+
+        const source=await response.text();
+        const parsed=new DOMParser().parseFromString(source,'text/html');
+        const isMobile=matchMedia('(max-width:900px)').matches||/Android|iPhone|iPod|Mobile|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+        if(isMobile){
+          parsed.documentElement.classList.add('ace-mobile');
+
+          parsed.querySelectorAll('.open-book').forEach(el=>{
+            const link=parsed.createElement('a');
+            [...el.attributes].forEach(attr=>{
+              if(attr.name!=='type'&&attr.name!=='href'&&attr.name!=='class')link.setAttribute(attr.name,attr.value);
+            });
+            link.className=(el.className||'').replace(/\bopen-book\b/g,'').trim()+' mobile-book-link';
+            link.href='/book-mobile.html';
+            link.innerHTML=el.innerHTML;
+            el.replaceWith(link);
+          });
+
+          const mobileCss=parsed.createElement('link');
+          mobileCss.rel='stylesheet';
+          mobileCss.href='/mobile.css?v=9';
+          parsed.head.appendChild(mobileCss);
+
+          const enhancer=parsed.createElement('script');
+          enhancer.src='/mobile-enhancer.js?v=9';
+          parsed.body.appendChild(enhancer);
+        }
+
         document.open();
-        document.write(html);
+        document.write('<!doctype html>\n'+parsed.documentElement.outerHTML);
         document.close();
       }catch(error){
         console.error(error);
