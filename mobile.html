@@ -31,7 +31,7 @@
         html=html.replace(/<aside\s+class=["']booking-side["'][^>]*>[\s\S]*?<\/aside>\s*/i,'');
         html=html.replace(/(<div\s+class=["']booking-head["'][^>]*>[\s\S]*?<h3>Reserve at Ace Gaming<\/h3>)\s*<p>[\s\S]*?<\/p>/i,'$1');
         html=html.replace(/<html([^>]*)>/i,'<html$1 class="ace-mobile">');
-        html=html.replace('</head>','<link rel="stylesheet" href="/mobile.css?v=6">\n<link rel="stylesheet" href="/booking-mobile.css?v=2">\n<style id="booking-form-only">.booking-shell{grid-template-columns:1fr!important}.booking-main{grid-column:1/-1!important}</style>\n</head>');
+        html=html.replace('</head>','<link rel="stylesheet" href="/mobile.css?v=6">\n<link rel="stylesheet" href="/booking-mobile.css?v=3">\n<style id="booking-form-only">.booking-shell{grid-template-columns:1fr!important}.booking-main{grid-column:1/-1!important}</style>\n</head>');
         html=html.replace('</body>','<script src="/mobile-enhancer.js?v=6"><\/script>\n</body>');
         document.open();
         document.write(html);
