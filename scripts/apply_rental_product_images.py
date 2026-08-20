@@ -1,3 +1,4 @@
+# Triggered after workflow creation so GitHub Actions can apply the rental image update.
 from pathlib import Path
 from urllib.request import Request, urlopen
 from urllib.parse import urlparse
