@@ -29,8 +29,8 @@
         if(!response.ok)throw new Error('Could not load homepage source');
         let html=await response.text();
         html=html.replace(/<html([^>]*)>/i,'<html$1 class="ace-mobile">');
-        html=html.replace('</head>','<link rel="stylesheet" href="/mobile.css?v=1">\n</head>');
-        html=html.replace('</body>','<script src="/mobile-enhancer.js?v=1"><\/script>\n</body>');
+        html=html.replace('</head>','<link rel="stylesheet" href="/mobile.css?v=2">\n</head>');
+        html=html.replace('</body>','<script src="/mobile-enhancer.js?v=2"><\/script>\n</body>');
         document.open();
         document.write(html);
         document.close();
