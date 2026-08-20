@@ -14,7 +14,7 @@
   <script>
     (async()=>{
       try{
-        const response=await fetch('/index-source.html?v=11',{cache:'no-store'});
+        const response=await fetch('/index-source.html?v=12',{cache:'no-store'});
         if(!response.ok)throw new Error('Could not load homepage source');
 
         const source=await response.text();
@@ -23,6 +23,9 @@
 
         if(isMobile){
           parsed.documentElement.classList.add('ace-mobile');
+
+          const mobileStats=parsed.querySelector('.hero .stats');
+          if(mobileStats)mobileStats.remove();
 
           parsed.querySelectorAll('.open-book').forEach(el=>{
             const link=parsed.createElement('a');
@@ -37,16 +40,16 @@
 
           const mobileCss=parsed.createElement('link');
           mobileCss.rel='stylesheet';
-          mobileCss.href='/mobile.css?v=11';
+          mobileCss.href='/mobile.css?v=12';
           parsed.head.appendChild(mobileCss);
 
           const headerCss=parsed.createElement('link');
           headerCss.rel='stylesheet';
-          headerCss.href='/mobile-header.css?v=11';
+          headerCss.href='/mobile-header.css?v=12';
           parsed.head.appendChild(headerCss);
 
           const enhancer=parsed.createElement('script');
-          enhancer.src='/mobile-enhancer.js?v=11';
+          enhancer.src='/mobile-enhancer.js?v=12';
           parsed.body.appendChild(enhancer);
         }
 
