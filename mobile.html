@@ -5,48 +5,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#06060d">
   <title>Ace Gaming</title>
-  <style>
-    html,body{margin:0;min-height:100%;background:#06060d;color:#fff;font-family:Inter,system-ui,sans-serif}
-    body{overflow:hidden}
-  </style>
+  <meta http-equiv="refresh" content="0;url=/">
+  <style>html,body{margin:0;min-height:100%;background:#06060d}</style>
 </head>
 <body>
-  <script>
-    (async()=>{
-      try{
-        const response=await fetch('/index-source.html?v=8',{cache:'no-store'});
-        if(!response.ok)throw new Error('Could not load homepage source');
-        const source=await response.text();
-        const parsed=new DOMParser().parseFromString(source,'text/html');
-
-        parsed.documentElement.classList.add('ace-mobile');
-
-        // Convert mobile booking triggers BEFORE the original homepage scripts run.
-        // This prevents the desktop modal system from binding to mobile booking buttons.
-        parsed.querySelectorAll('.open-book').forEach(el=>{
-          el.classList.remove('open-book');
-          el.classList.add('mobile-book-link');
-          if(el.tagName==='A')el.setAttribute('href','/book-mobile.html');
-        });
-
-        const mobileCss=parsed.createElement('link');
-        mobileCss.rel='stylesheet';
-        mobileCss.href='/mobile.css?v=8';
-        parsed.head.appendChild(mobileCss);
-
-        const enhancer=parsed.createElement('script');
-        enhancer.src='/mobile-enhancer.js?v=8';
-        parsed.body.appendChild(enhancer);
-
-        document.open();
-        document.write('<!doctype html>\n'+parsed.documentElement.outerHTML);
-        document.close();
-      }catch(error){
-        console.error(error);
-        document.body.style.overflow='auto';
-        document.body.innerHTML='<div style="padding:24px;text-align:center">Ace Gaming could not load. Please refresh.</div>';
-      }
-    })();
-  </script>
+  <script>location.replace('/');</script>
 </body>
 </html>
