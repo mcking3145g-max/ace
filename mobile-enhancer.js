@@ -28,23 +28,23 @@
   };
 
   const installMobileBookingRouter=()=>{
-    const buttons=[...document.querySelectorAll('.open-book')];
+    // Capture clicks before any package/button handler can run.
+    document.addEventListener('click',event=>{
+      const trigger=event.target.closest('.mobile-book-link');
+      if(!trigger)return;
+      event.preventDefault();
+      event.stopPropagation();
+      event.stopImmediatePropagation();
+      document.body.classList.remove('lock');
+      location.assign(buildBookingUrl());
+    },true);
 
-    buttons.forEach(original=>{
-      const clean=original.cloneNode(true);
-      original.replaceWith(clean);
-
-      if(clean.tagName==='A')clean.setAttribute('href','/book-mobile.html');
-
-      clean.addEventListener('click',event=>{
-        event.preventDefault();
-        document.body.classList.remove('lock');
-        location.assign(buildBookingUrl());
-      });
+    document.querySelectorAll('.mobile-book-link').forEach(el=>{
+      if(el.tagName==='A')el.setAttribute('href','/book-mobile.html');
+      el.setAttribute('aria-label','Open booking page');
     });
 
-    // The desktop booking modal is deliberately removed on mobile.
-    // This prevents its body-lock and nested overflow rules from ever running.
+    // Mobile never uses the legacy desktop booking modal.
     document.querySelector('#bookModal')?.remove();
     document.body.classList.remove('lock');
   };
