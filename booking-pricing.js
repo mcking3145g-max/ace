@@ -4,7 +4,7 @@
   const portalPrices={
     hours:{main:'₹89',meta:'Regular 1 hour • Happy Hour ₹69'},
     days:{main:'₹499',meta:'Half-Day • 8 hours'},
-    months:{main:'LONG-TERM',meta:'Current month-pass rate at counter'},
+    months:{main:'LONG-TERM',meta:''},
     ps5:{main:'₹99',meta:'30 minutes • 1 controller'},
     vr:{main:'₹149',meta:'15 minutes • all days'},
     sim:{main:'₹299',meta:'30 minutes • Mon–Thu'}
@@ -67,7 +67,7 @@
       const x=simPrices[duration];
       return{main:money(x.weekday),meta:`Mon–Thu • Fri–Sun ${money(x.weekend)}`};
     }
-    return{main:'RATE AT COUNTER',meta:'No verified price shown in the supplied rate sheet',unknown:true};
+    return{main:'RATE AT COUNTER',meta:'',unknown:true};
   };
 
   const decoratePortals=()=>{
@@ -78,7 +78,7 @@
       let chip=card.querySelector('.ace-pack-price');
       if(!chip){chip=document.createElement('div');chip.className='ace-pack-price';card.appendChild(chip)}
       const label=data.main.startsWith('₹')?'FROM':'PLAN';
-      chip.innerHTML=`<span>${label}</span><strong>${data.main}</strong><small>${data.meta}</small>`;
+      chip.innerHTML=`<span>${label}</span><strong>${data.main}</strong>${data.meta?`<small>${data.meta}</small>`:''}`;
     });
   };
 
@@ -104,7 +104,7 @@
       if(button.dataset.acePriceSig===sig)return;
       button.dataset.acePriceSig=sig;
       button.classList.add('ace-priced');
-      button.innerHTML=`<span class="ace-duration-name">${duration}</span><strong class="ace-duration-price${info.unknown?' unknown':''}">${info.main}</strong><small class="ace-duration-meta">${info.meta}</small>`;
+      button.innerHTML=`<span class="ace-duration-name">${duration}</span><strong class="ace-duration-price${info.unknown?' unknown':''}">${info.main}</strong>${info.meta?`<small class="ace-duration-meta">${info.meta}</small>`:''}`;
     });
 
     let notes=document.querySelector('#acePriceNotes');
@@ -112,9 +112,6 @@
     if(pack==='sim'){
       notes.hidden=false;
       notes.innerHTML=`<div class="ace-price-note-card"><span>SIM RACING VR • 30 MIN</span><strong>${money(simVrPrices['30 Minutes'].weekday)} <small>/ Mon–Thu</small></strong><small>Fri–Sun ${money(simVrPrices['30 Minutes'].weekend)} • Extra minute ₹5 / ₹8</small></div><div class="ace-price-note-card"><span>SIM RACING VR • 1 HOUR</span><strong>${money(simVrPrices['1 Hour'].weekday)} <small>/ Mon–Thu</small></strong><small>Fri–Sun ${money(simVrPrices['1 Hour'].weekend)}</small></div>`;
-    }else if(pack==='months'){
-      notes.hidden=false;
-      notes.innerHTML='<div class="ace-price-note-card"><span>MONTH PASSES</span><strong>Current rate at counter</strong><small>No monthly price was visible in the supplied pricing photos, so no amount has been guessed.</small></div>';
     }else{
       notes.hidden=true;notes.innerHTML='';
     }
@@ -131,7 +128,7 @@
       setupLine?.insertAdjacentElement('afterend',line)||summary.appendChild(line);
     }
     const info=infoFor(getPack(),duration);
-    line.innerHTML=`<small>PRICE</small><strong>${info.main}</strong><em>${info.meta}</em>`;
+    line.innerHTML=`<small>PRICE</small><strong>${info.main}</strong>${info.meta?`<em>${info.meta}</em>`:''}`;
   };
 
   let queued=false;
