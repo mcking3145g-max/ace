@@ -50,8 +50,7 @@
   const init=()=>{
     installMobileBookingRouter();
 
-    // The hamburger is the only mobile navigation. Remove the old five-button dock.
-    document.querySelectorAll('.mobile-dock').forEach(el=>el.remove());
+    document.querySelectorAll('.mobile-dock,.mobile-desktop-link').forEach(el=>el.remove());
     document.body.style.setProperty('padding-bottom','18px','important');
 
     const header=document.querySelector('header');
@@ -73,21 +72,11 @@
       menu?.setAttribute('aria-expanded','false');
     }));
 
-    // Tighten the first screen so the hero sits directly under the header.
     const hero=document.querySelector('.hero');
     const heroTitle=hero?.querySelector('h1');
-    hero?.style.setProperty('padding-top','calc(var(--mobile-header-h) + env(safe-area-inset-top,0px) + 28px)','important');
-    heroTitle?.style.setProperty('font-size','clamp(38px,11.5vw,54px)','important');
+    hero?.style.setProperty('padding-top','calc(var(--mobile-header-h) + env(safe-area-inset-top,0px) + 26px)','important');
+    heroTitle?.style.setProperty('font-size','clamp(37px,11.2vw,52px)','important');
     heroTitle?.style.setProperty('line-height','.98','important');
-
-    const footer=document.querySelector('.site-footer, footer');
-    if(footer&&!footer.querySelector('.mobile-desktop-link')){
-      const a=document.createElement('a');
-      a.href='/index.html';
-      a.className='mobile-desktop-link';
-      a.textContent='View desktop version';
-      footer.appendChild(a);
-    }
 
     const setViewport=()=>document.documentElement.style.setProperty('--mobile-vh',`${innerHeight*.01}px`);
     setViewport();
