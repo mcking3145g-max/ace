@@ -28,7 +28,6 @@
   };
 
   const installMobileBookingRouter=()=>{
-    // Capture clicks before any package/button handler can run.
     document.addEventListener('click',event=>{
       const trigger=event.target.closest('.mobile-book-link');
       if(!trigger)return;
@@ -44,13 +43,16 @@
       el.setAttribute('aria-label','Open booking page');
     });
 
-    // Mobile never uses the legacy desktop booking modal.
     document.querySelector('#bookModal')?.remove();
     document.body.classList.remove('lock');
   };
 
   const init=()=>{
     installMobileBookingRouter();
+
+    // The hamburger is the only mobile navigation. Remove the old five-button dock.
+    document.querySelectorAll('.mobile-dock').forEach(el=>el.remove());
+    document.body.style.setProperty('padding-bottom','18px','important');
 
     const header=document.querySelector('header');
     const menu=document.querySelector('.menu');
@@ -71,32 +73,12 @@
       menu?.setAttribute('aria-expanded','false');
     }));
 
-    if(!document.querySelector('.mobile-dock')){
-      const dock=document.createElement('nav');
-      dock.className='mobile-dock';
-      dock.setAttribute('aria-label','Mobile quick navigation');
-      dock.innerHTML=''
-        +'<a href="#home" data-mobile-target="home"><i>⌂</i><span>Home</span></a>'
-        +'<a href="#services" data-mobile-target="services"><i>◈</i><span>Explore</span></a>'
-        +'<a href="rentals.html"><i>▣</i><span>Rentals</span></a>'
-        +'<a href="#contact" data-mobile-target="contact"><i>✦</i><span>Contact</span></a>'
-        +'<a href="/index.html"><i>↗</i><span>Desktop</span></a>';
-      document.body.appendChild(dock);
-
-      const quickLinks=[...dock.querySelectorAll('[data-mobile-target]')];
-      const sectionIds=['home','services','contact'];
-      const setActive=()=>{
-        const y=window.scrollY+window.innerHeight*.34;
-        let best='home';
-        sectionIds.forEach(id=>{
-          const el=document.getElementById(id);
-          if(el&&el.offsetTop<=y)best=id;
-        });
-        quickLinks.forEach(a=>a.classList.toggle('active',a.dataset.mobileTarget===best));
-      };
-      addEventListener('scroll',setActive,{passive:true});
-      setActive();
-    }
+    // Tighten the first screen so the hero sits directly under the header.
+    const hero=document.querySelector('.hero');
+    const heroTitle=hero?.querySelector('h1');
+    hero?.style.setProperty('padding-top','calc(var(--mobile-header-h) + env(safe-area-inset-top,0px) + 28px)','important');
+    heroTitle?.style.setProperty('font-size','clamp(38px,11.5vw,54px)','important');
+    heroTitle?.style.setProperty('line-height','.98','important');
 
     const footer=document.querySelector('.site-footer, footer');
     if(footer&&!footer.querySelector('.mobile-desktop-link')){
