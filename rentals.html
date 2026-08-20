@@ -1,127 +1,65 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#050507">
-  <title>Ace Gaming Rentals</title>
-  <style>
-    html,body{margin:0;min-height:100%;background:#050507;color:#f7f7fb;font-family:Inter,system-ui,sans-serif}
-    .boot{min-height:100vh;display:grid;place-items:center;background:radial-gradient(circle at 50% 30%,rgba(118,87,255,.15),transparent 32rem),#050507}
-    .boot span{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#9b9caf}
-  </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#050507">
+<title>Ace Gaming Rentals</title>
+<style>html,body{margin:0;min-height:100%;background:#050507;color:#f7f7fb;font-family:Inter,system-ui,sans-serif}.boot{min-height:100vh;display:grid;place-items:center}.boot span{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#9b9caf}</style>
 </head>
 <body>
-  <div class="boot"><span>Loading Ace Gaming Rentals…</span></div>
-  <script>
-    (async () => {
-      const imageMap = {
-        'pc-2060':'https://www.memorypc.de/media/ac/c0/6d/1732624088/561541-1732624086-0-1732624087.webp',
-        'pc-4060':'https://www.adorama.com/images/Large/MSIARS2F7820.jpg',
-        'pc-7700xt-i5':'https://www.memorypc.de/media/6c/e2/fa/1778677808/562708_1778677806_0_1778677807.png',
-        'pc-7700xt-ryzen':'https://pisces.bbystatic.com/image2/BestBuy_US/images/products/fed70360-a222-4439-ae61-eb402ba04e29.jpg',
-        'keyboard-chgbk25':'https://tlggaming.b-cdn.net/image/cache/catalog/products/Gaming%20Keyboards/cosmic%20byte/gk-25%20blue%20switch/gk%2025%2026-1200x1200.jpg',
-        'mouse-razer-deathadder':'https://xoticpc.com/cdn/shop/files/RazerDeathAdderEssentialMAIN.png?v=1721942918',
-        'mouse-logitech-g402':'https://www.gameshop.my/cdn/shop/products/logitech_g402_hyperion_fury_fps_gaming_mouse.jpg?v=1591178194',
-        'headphones-ant-esports':'https://5.imimg.com/data5/SELLER/Default/2022/4/PC/KV/WJ/9432891/ant-esports-h1000-wired-gaming-headset-with-mic-rgb-light.jpg',
-        'headset-logitech-g431':'https://logitech.onlinesalestore.pk/cdn/shop/files/logitechg4317.1surroundsoundgamingheadsetspecs01.jpg?v=1700746557',
-        'mousepad-cybeart-l':'https://cybeart.in/cdn/shop/products/MP-RA45-CYB01_1.jpg?v=1699555864',
-        'mousepad-cybeart-xxl':'https://cybeart.in/cdn/shop/products/MP-RA90-CYB01.jpg?v=1699555863',
-        'monitor-samsung-144':'https://pisces.bbystatic.com/image2/BestBuy_US/images/products/e8f64c0e-457d-4b8b-86ca-ee71222409c1.jpg',
-        'monitor-aoc-240':'https://app.contabilium.com/files/explorer/7026/Productos-Servicios/concepto-9937526.png',
-        'monitor-viewsonic-240':'https://www.viewsonic.com/vsAssetFile/ap/img/slides/_lcd_display_%28new%29/XG2709A/GPG-24-MON-VX2779AJ-HD-PRO-Product%20Photo_LF02_pc.jpg',
-        'monitor-gigabyte-165':'https://ddtech.mx/assets/uploads/f45103209bedfb58f790ed2b34912e61.jpg',
-        'ram-16gb':'https://bilmeliyiz.com/product-files/kingston-fury-beast-16-gb-5600-mhz-cl36-kf556c36bbe16-ddr5-ram/kingston-fury-beast-16-gb-5600-mhz-cl36-kf556c36bbe16-ddr5-ram_779.webp',
-        'ram-32gb':'https://cdn.atacadoconnect.com/produtos/1311747/memoria-ram-kingston-fury-renegade-rgb-32gb-ddr5-6400mhz-kf564c32rsa-32-1311747-14680.webp'
-      };
-
-      const premiumCss = `
-<style id="ace-premium-product-photos">
-  .product-card{
-    border-color:rgba(255,255,255,.09)!important;
-    background:linear-gradient(160deg,rgba(17,17,22,.99),rgba(7,7,10,.99))!important;
-    box-shadow:0 18px 52px rgba(0,0,0,.28)!important;
-  }
-  .product-card:hover{
-    transform:translateY(-7px)!important;
-    border-color:rgba(255,255,255,.18)!important;
-    box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.035)!important;
-  }
-  .product-image{
-    position:relative!important;display:flex!important;align-items:center!important;justify-content:center!important;
-    aspect-ratio:1/1!important;padding:22px!important;overflow:hidden!important;
-    background:radial-gradient(circle at 50% 28%,#202025 0%,#0e0e12 45%,#050507 100%)!important;
-    border-bottom:1px solid rgba(255,255,255,.07)!important;
-    isolation:isolate;
-  }
-  .product-image::before{
-    content:""!important;position:absolute!important;inset:0!important;z-index:1!important;pointer-events:none!important;
-    background:radial-gradient(circle at 50% 48%,transparent 42%,rgba(5,5,7,.15) 64%,rgba(5,5,7,.88) 100%)!important;
-  }
-  .product-image::after{
-    content:""!important;position:absolute!important;left:16%!important;right:16%!important;bottom:7%!important;height:11%!important;z-index:1!important;
-    background:radial-gradient(ellipse,rgba(0,0,0,.62),transparent 70%)!important;filter:blur(8px)!important;pointer-events:none!important;
-  }
-  .product-image img{
-    position:relative!important;z-index:0!important;width:100%!important;height:100%!important;object-fit:contain!important;
-    border-radius:14px!important;filter:contrast(1.035) saturate(1.04) drop-shadow(0 20px 28px rgba(0,0,0,.42))!important;
-    transition:transform .5s cubic-bezier(.2,.75,.2,1),filter .35s ease!important;
-  }
-  .product-card:hover .product-image img{
-    transform:scale(1.035)!important;filter:contrast(1.055) saturate(1.07) drop-shadow(0 25px 36px rgba(0,0,0,.56))!important;
-  }
-  .product-image .badge,.product-image .quick-view{z-index:3!important}
-  .photo-reference{
-    position:absolute;left:14px;bottom:12px;z-index:3;padding:6px 8px;border:1px solid rgba(255,255,255,.1);border-radius:8px;
-    background:rgba(5,5,7,.68);backdrop-filter:blur(10px);color:#a9a9b6;font-size:7px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
-  }
-  .product-info{background:linear-gradient(180deg,rgba(12,12,16,.96),rgba(8,8,11,.99))!important}
-  .detail-main-image{
-    position:relative!important;min-height:520px!important;display:flex!important;align-items:center!important;justify-content:center!important;padding:38px!important;
-    overflow:hidden!important;border-color:rgba(255,255,255,.1)!important;
-    background:radial-gradient(circle at 50% 30%,#24242a 0%,#101014 48%,#050507 100%)!important;
-    box-shadow:0 30px 90px rgba(0,0,0,.45)!important;isolation:isolate;
-  }
-  .detail-main-image::after{
-    content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
-    background:radial-gradient(circle at 50% 50%,transparent 48%,rgba(5,5,7,.24) 72%,rgba(5,5,7,.86) 100%);
-  }
-  .detail-main-image img{
-    position:relative!important;z-index:0!important;width:100%!important;height:100%!important;max-height:440px!important;aspect-ratio:auto!important;object-fit:contain!important;
-    border-radius:18px!important;filter:contrast(1.04) saturate(1.05) drop-shadow(0 28px 40px rgba(0,0,0,.5))!important;
-  }
-  .cart-item img,.summary-thumb{
-    object-fit:contain!important;padding:7px!important;background:linear-gradient(180deg,#1b1b20,#09090c)!important;
-    border:1px solid rgba(255,255,255,.08)!important;box-shadow:0 8px 20px rgba(0,0,0,.22)!important;
-  }
-  @media(max-width:560px){
-    .product-image{padding:18px!important}
-    .detail-main-image{min-height:360px!important;padding:24px!important}
-    .detail-main-image img{max-height:310px!important}
-    .photo-reference{font-size:6px;bottom:10px;left:11px}
-  }
+<div class="boot"><span>Loading Ace Gaming Rentals…</span></div>
+<script>
+(async()=>{
+const imageMap={
+'pc-2060':'https://www.memorypc.de/media/ac/c0/6d/1732624088/561541-1732624086-0-1732624087.webp',
+'pc-4060':'https://www.adorama.com/images/Large/MSIARS2F7820.jpg',
+'pc-7700xt-i5':'https://www.memorypc.de/media/6c/e2/fa/1778677808/562708_1778677806_0_1778677807.png',
+'pc-7700xt-ryzen':'https://pisces.bbystatic.com/image2/BestBuy_US/images/products/fed70360-a222-4439-ae61-eb402ba04e29.jpg',
+'keyboard-chgbk25':'https://tlggaming.b-cdn.net/image/cache/catalog/products/Gaming%20Keyboards/cosmic%20byte/gk-25%20blue%20switch/gk%2025%2026-1200x1200.jpg',
+'mouse-razer-deathadder':'https://xoticpc.com/cdn/shop/files/RazerDeathAdderEssentialMAIN.png?v=1721942918',
+'mouse-logitech-g402':'https://www.gameshop.my/cdn/shop/products/logitech_g402_hyperion_fury_fps_gaming_mouse.jpg?v=1591178194',
+'headphones-ant-esports':'https://5.imimg.com/data5/SELLER/Default/2022/4/PC/KV/WJ/9432891/ant-esports-h1000-wired-gaming-headset-with-mic-rgb-light.jpg',
+'headset-logitech-g431':'https://logitech.onlinesalestore.pk/cdn/shop/files/logitechg4317.1surroundsoundgamingheadsetspecs01.jpg?v=1700746557',
+'mousepad-cybeart-l':'https://cybeart.in/cdn/shop/products/MP-RA45-CYB01_1.jpg?v=1699555864',
+'mousepad-cybeart-xxl':'https://cybeart.in/cdn/shop/products/MP-RA90-CYB01.jpg?v=1699555863',
+'monitor-samsung-144':'https://www.promotech.com/wp-content/uploads/2023/11/3487a4f7-32ec-46ed-a2e1-c52f89dfaca6.jpg',
+'monitor-aoc-240':'https://www.altstore.si/modules/uploader/uploads/s_product/pictures/aoc-monitor-led-24g2ze-23.8-gamin-0.jpg',
+'monitor-viewsonic-240':'https://www.viewsonic.com/vsAssetFile/ap/img/slides/_lcd_display_%28new%29/XG2709A/GPG-24-MON-VX2779AJ-HD-PRO-Product%20Photo_LF02_pc.jpg',
+'monitor-gigabyte-165':'https://ddtech.mx/assets/uploads/f45103209bedfb58f790ed2b34912e61.jpg',
+'ram-16gb':'https://assets.mmsrg.com/isr/166325/c1/-/ASSET_MP_141521866?align=center&cdx=536&cdy=402&cox=0&coy=0&ex=536&ey=402&format=jpg&quality=80&resizesource=&sp=yes&strip=yes&trim=&unsharp=1.5x1+0.7+0.02&x=536&y=402',
+'ram-32gb':'https://cdn.atacadoconnect.com/produtos/1311747/memoria-ram-kingston-fury-renegade-rgb-32gb-ddr5-6400mhz-kf564c32rsa-32-1311747-14680.webp'
+};
+const css=`<style id="ace-product-photo-fix">
+.product-card{border-color:rgba(255,255,255,.09)!important;background:linear-gradient(160deg,#111116,#07070a)!important;box-shadow:0 18px 52px rgba(0,0,0,.28)!important}
+.product-card:hover{transform:translateY(-7px)!important;border-color:rgba(255,255,255,.18)!important;box-shadow:0 30px 80px rgba(0,0,0,.5)!important}
+.product-image{position:relative!important;display:flex!important;align-items:center!important;justify-content:center!important;aspect-ratio:1/1!important;padding:16px!important;overflow:hidden!important;background:#050507!important;border-bottom:1px solid rgba(255,255,255,.07)!important}
+.product-image img{width:100%!important;height:100%!important;object-fit:contain!important;border-radius:14px!important;filter:contrast(1.04) saturate(1.04) drop-shadow(0 18px 28px rgba(0,0,0,.5))!important;transition:.45s ease!important}
+.product-card:hover .product-image img{transform:scale(1.035)!important}
+.product-image.full-card-photo{padding:0!important}
+.product-image.full-card-photo img{width:100%!important;height:100%!important;object-fit:cover!important;border-radius:0!important;transform:scale(1.035)!important}
+.product-image .badge,.product-image .quick-view{z-index:3!important}
+.detail-main-image{min-height:500px!important;display:flex!important;align-items:center!important;justify-content:center!important;padding:14px!important;background:#050507!important}
+.detail-main-image img{width:100%!important;height:100%!important;max-height:470px!important;object-fit:contain!important;border-radius:16px!important}
+.cart-item img,.summary-thumb{object-fit:contain!important;padding:6px!important;background:#09090c!important}
+@media(max-width:560px){.product-image{padding:10px!important}.product-image.full-card-photo{padding:0!important}.detail-main-image{min-height:330px!important}.detail-main-image img{max-height:310px!important}}
 </style>`;
-
-      try {
-        const response = await fetch('./rentals-original.html', {cache:'no-store'});
-        if(!response.ok) throw new Error(`Rental source failed: ${response.status}`);
-        let html = await response.text();
-        html = html.replace('</head>', premiumCss + '\n</head>');
-
-        const startup = '    renderProducts();\n    updateCartUI();';
-        const enhancement = `    const premiumProductImages = ${JSON.stringify(imageMap)};\n    const representativePhotoIds = new Set(['pc-2060','pc-4060','pc-7700xt-i5','pc-7700xt-ryzen','headphones-ant-esports','ram-16gb','ram-32gb']);\n    products.forEach(product => {\n      product.originalArtwork = product.image;\n      if(premiumProductImages[product.id]) product.image = premiumProductImages[product.id];\n      product.representativePhoto = representativePhotoIds.has(product.id);\n    });\n    document.addEventListener('error', event => {\n      const image = event.target;\n      if(!(image instanceof HTMLImageElement) || image.dataset.aceFallbackUsed === '1') return;\n      const product = products.find(item => item.image === image.getAttribute('src'));\n      if(product?.originalArtwork){\n        image.dataset.aceFallbackUsed = '1';\n        image.src = product.originalArtwork;\n      }\n    }, true);\n    renderProducts();\n    updateCartUI();\n    requestAnimationFrame(() => {\n      products.filter(product => product.representativePhoto).forEach(product => {\n        const photo = document.querySelector('.product-image[data-view-product="' + product.id + '"]');\n        if(photo && !photo.querySelector('.photo-reference')){\n          const note = document.createElement('span');\n          note.className = 'photo-reference';\n          note.textContent = 'Representative product photo';\n          photo.appendChild(note);\n        }\n      });\n    });`;
-
-        if(!html.includes(startup)) throw new Error('Could not find rental startup hook');
-        html = html.replace(startup, enhancement);
-
-        document.open();
-        document.write(html);
-        document.close();
-      } catch (error) {
-        console.error(error);
-        location.replace('./rentals-original.html');
-      }
-    })();
-  </script>
+try{
+ const r=await fetch('./rentals-original.html',{cache:'no-store'});
+ if(!r.ok)throw new Error('Rental source failed');
+ let html=await r.text();
+ html=html.replace('</head>',css+'\n</head>');
+ const hook='    renderProducts();\n    updateCartUI();';
+ const inject=`    const premiumProductImages=${JSON.stringify(imageMap)};
+    const fullCardPhotoIds=new Set(['monitor-samsung-144','monitor-aoc-240','ram-16gb']);
+    products.forEach(product=>{product.originalArtwork=product.image;if(premiumProductImages[product.id])product.image=premiumProductImages[product.id]});
+    document.addEventListener('error',event=>{const image=event.target;if(!(image instanceof HTMLImageElement)||image.dataset.aceFallbackUsed==='1')return;const product=products.find(item=>item.image===image.getAttribute('src'));if(product?.originalArtwork){image.dataset.aceFallbackUsed='1';image.src=product.originalArtwork}},true);
+    renderProducts();
+    updateCartUI();
+    requestAnimationFrame(()=>fullCardPhotoIds.forEach(id=>{const el=document.querySelector('.product-image[data-view-product="'+id+'"]');if(el)el.classList.add('full-card-photo')}));`;
+ if(!html.includes(hook))throw new Error('Rental startup hook missing');
+ html=html.replace(hook,inject);
+ document.open();document.write(html);document.close();
+}catch(e){console.error(e);location.replace('./rentals-original.html')}
+})();
+</script>
 </body>
 </html>
