@@ -1,24 +1,56 @@
 (()=>{
   document.documentElement.classList.add('ace-mobile');
 
-  const cleanBookingModal=()=>{
-    document.querySelectorAll('.booking-side').forEach(el=>el.remove());
-    document.querySelectorAll('.booking-shell').forEach(shell=>{
-      shell.style.gridTemplateColumns='1fr';
-      shell.style.minHeight='0';
+  const readBookingContext=()=>{
+    const hash=location.hash.toLowerCase();
+    let service='Gaming PC';
+    if(hash.includes('/ps5'))service='PlayStation 5';
+    else if(hash.includes('/sim'))service='Sim Racing';
+
+    let players='1 Player';
+    const setupText=document.querySelector('#summaryPc')?.textContent?.trim()||'';
+    if(/player/i.test(setupText))players=setupText;
+
+    const pack=document.querySelector('#summaryPack')?.textContent?.trim()||'';
+    const duration=document.querySelector('#summaryDuration')?.textContent?.trim()||'';
+    const details=[pack,duration,setupText].filter(Boolean).join(' • ');
+
+    return {service,players,details};
+  };
+
+  const buildBookingUrl=()=>{
+    const context=readBookingContext();
+    const url=new URL('/book-mobile.html',location.origin);
+    url.searchParams.set('service',context.service);
+    url.searchParams.set('players',context.players);
+    if(context.details)url.searchParams.set('details',context.details);
+    return url.pathname+url.search;
+  };
+
+  const installMobileBookingRouter=()=>{
+    const buttons=[...document.querySelectorAll('.open-book')];
+
+    buttons.forEach(original=>{
+      const clean=original.cloneNode(true);
+      original.replaceWith(clean);
+
+      if(clean.tagName==='A')clean.setAttribute('href','/book-mobile.html');
+
+      clean.addEventListener('click',event=>{
+        event.preventDefault();
+        document.body.classList.remove('lock');
+        location.assign(buildBookingUrl());
+      });
     });
-    document.querySelectorAll('.booking-main').forEach(main=>{
-      main.style.width='100%';
-      main.style.maxWidth='100%';
-    });
-    document.querySelectorAll('.booking-head p').forEach(p=>p.remove());
+
+    // The desktop booking modal is deliberately removed on mobile.
+    // This prevents its body-lock and nested overflow rules from ever running.
+    document.querySelector('#bookModal')?.remove();
+    document.body.classList.remove('lock');
   };
 
   const init=()=>{
-    cleanBookingModal();
-
-    const observer=new MutationObserver(()=>cleanBookingModal());
-    observer.observe(document.body,{childList:true,subtree:true});
+    installMobileBookingRouter();
 
     const header=document.querySelector('header');
     const menu=document.querySelector('.menu');
