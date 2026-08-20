@@ -14,7 +14,7 @@
   <script>
     (async()=>{
       try{
-        const response=await fetch('/index-source.html?v=12',{cache:'no-store'});
+        const response=await fetch('/index-source.html?v=13',{cache:'no-store'});
         if(!response.ok)throw new Error('Could not load homepage source');
 
         const source=await response.text();
@@ -40,18 +40,27 @@
 
           const mobileCss=parsed.createElement('link');
           mobileCss.rel='stylesheet';
-          mobileCss.href='/mobile.css?v=12';
+          mobileCss.href='/mobile.css?v=13';
           parsed.head.appendChild(mobileCss);
 
           const headerCss=parsed.createElement('link');
           headerCss.rel='stylesheet';
-          headerCss.href='/mobile-header.css?v=12';
+          headerCss.href='/mobile-header.css?v=13';
           parsed.head.appendChild(headerCss);
 
           const enhancer=parsed.createElement('script');
-          enhancer.src='/mobile-enhancer.js?v=12';
+          enhancer.src='/mobile-enhancer.js?v=13';
           parsed.body.appendChild(enhancer);
         }
+
+        const pricingCss=parsed.createElement('link');
+        pricingCss.rel='stylesheet';
+        pricingCss.href='/booking-pricing.css?v=1';
+        parsed.head.appendChild(pricingCss);
+
+        const pricingEnhancer=parsed.createElement('script');
+        pricingEnhancer.src='/booking-pricing.js?v=1';
+        parsed.body.appendChild(pricingEnhancer);
 
         document.open();
         document.write('<!doctype html>\n'+parsed.documentElement.outerHTML);
