@@ -1,7 +1,25 @@
 (()=>{
   document.documentElement.classList.add('ace-mobile');
 
+  const cleanBookingModal=()=>{
+    document.querySelectorAll('.booking-side').forEach(el=>el.remove());
+    document.querySelectorAll('.booking-shell').forEach(shell=>{
+      shell.style.gridTemplateColumns='1fr';
+      shell.style.minHeight='0';
+    });
+    document.querySelectorAll('.booking-main').forEach(main=>{
+      main.style.width='100%';
+      main.style.maxWidth='100%';
+    });
+    document.querySelectorAll('.booking-head p').forEach(p=>p.remove());
+  };
+
   const init=()=>{
+    cleanBookingModal();
+
+    const observer=new MutationObserver(()=>cleanBookingModal());
+    observer.observe(document.body,{childList:true,subtree:true});
+
     const header=document.querySelector('header');
     const menu=document.querySelector('.menu');
     const headerNav=header?.querySelector('nav');
