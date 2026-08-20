@@ -1,0 +1,1715 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#070711">
+  <meta name="description" content="Rent performance gaming PCs, monitors, RAM and gaming accessories from Ace Gaming.">
+  <title>Ace Gaming Rentals</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#070711;
+      --bg-soft:#0b0b18;
+      --panel:#10101f;
+      --panel-2:#151529;
+      --line:rgba(255,255,255,.10);
+      --line-hot:rgba(255,73,162,.46);
+      --pink:#ff3f9d;
+      --pink-2:#ff6db6;
+      --blue:#29c7ff;
+      --violet:#7657ff;
+      --green:#40dfa0;
+      --text:#f7f7fb;
+      --muted:#9b9caf;
+      --shadow:0 24px 80px rgba(0,0,0,.38);
+      --font-display:Orbitron,Inter,system-ui,sans-serif;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      min-height:100vh;
+      overflow-x:hidden;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 12% 10%,rgba(255,63,157,.14),transparent 26rem),
+        radial-gradient(circle at 88% 5%,rgba(41,199,255,.12),transparent 24rem),
+        linear-gradient(180deg,#070711 0%,#090914 55%,#070711 100%);
+      font-family:Inter,system-ui,sans-serif;
+      -webkit-font-smoothing:antialiased;
+    }
+    body.no-scroll{overflow:hidden}
+    button,input,select,textarea{font:inherit}
+    button{color:inherit}
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+    [hidden]{display:none!important}
+
+    .noise{
+      position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.18;
+      background-image:linear-gradient(rgba(255,255,255,.015) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.015) 1px,transparent 1px);
+      background-size:48px 48px;
+      mask-image:linear-gradient(to bottom,#000 0%,transparent 72%);
+    }
+    .shell{width:min(1240px,calc(100% - 32px));margin-inline:auto}
+    .eyebrow{
+      display:inline-flex;align-items:center;gap:9px;color:#aee9ff;font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+    }
+    .eyebrow::before{content:"";width:26px;height:1px;background:linear-gradient(90deg,var(--pink),var(--blue))}
+    .gradient-text{
+      color:transparent;
+      background:linear-gradient(100deg,#fff 8%,var(--pink-2) 48%,var(--blue) 92%);
+      -webkit-background-clip:text;background-clip:text;
+    }
+
+    .site-header{
+      position:sticky;top:12px;z-index:50;
+      display:flex;align-items:center;justify-content:space-between;gap:24px;
+      width:min(1240px,calc(100% - 24px));margin:12px auto 0;padding:12px 14px 12px 18px;
+      border:1px solid var(--line);border-radius:18px;background:rgba(8,8,18,.78);
+      box-shadow:0 16px 60px rgba(0,0,0,.32);backdrop-filter:blur(18px);
+    }
+    .brand{display:flex;align-items:center;gap:11px;font-family:var(--font-display);font-weight:900;letter-spacing:.08em}
+    .brand-logo{width:128px;height:46px;object-fit:contain;mix-blend-mode:screen;filter:saturate(1.08) contrast(1.06)}
+    .brand-mark{
+      position:relative;width:34px;height:34px;border-radius:10px;
+      background:linear-gradient(135deg,var(--pink),var(--violet) 48%,var(--blue));
+      box-shadow:0 0 28px rgba(255,63,157,.28);
+    }
+    .brand-mark::before,.brand-mark::after{content:"";position:absolute;inset:8px;border:3px solid white;transform:skew(-16deg)}
+    .brand-mark::after{inset:13px 8px 8px 13px;border-left:0;border-top:0}
+    .brand b{color:var(--pink)}
+    .desktop-nav{display:flex;align-items:center;gap:25px;color:var(--muted);font-size:13px;font-weight:700}
+    .desktop-nav a{transition:.25s ease}
+    .desktop-nav a:hover{color:#fff}
+    .header-actions{display:flex;align-items:center;gap:8px}
+    .whatsapp-booking{
+      display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:43px;padding:0 15px;
+      border:1px solid rgba(64,223,160,.38);border-radius:13px;color:#effff8;
+      background:linear-gradient(120deg,rgba(64,223,160,.18),rgba(41,199,255,.09));
+      box-shadow:0 10px 28px rgba(0,0,0,.18);font-size:11px;font-weight:900;letter-spacing:.035em;transition:.25s ease;
+    }
+    .whatsapp-booking:hover{transform:translateY(-2px);border-color:rgba(64,223,160,.66);background:linear-gradient(120deg,rgba(64,223,160,.25),rgba(41,199,255,.13));box-shadow:0 12px 30px rgba(64,223,160,.12)}
+    .whatsapp-booking svg{flex:0 0 auto}
+    .home-link{
+      display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:43px;padding:0 14px;
+      border:1px solid rgba(123,70,255,.44);border-radius:13px;color:#fff;
+      background:linear-gradient(110deg,rgba(255,63,157,.14),rgba(41,199,255,.1));
+      font-size:11px;font-weight:900;letter-spacing:.05em;transition:.25s ease;
+    }
+    .home-link:hover{transform:translateY(-2px);border-color:rgba(41,199,255,.55);box-shadow:0 10px 24px rgba(0,0,0,.24)}
+    .icon-button{
+      position:relative;display:grid;place-items:center;width:43px;height:43px;
+      border:1px solid var(--line);border-radius:13px;background:rgba(255,255,255,.045);cursor:pointer;transition:.25s ease;
+    }
+    .icon-button:hover{transform:translateY(-2px);border-color:rgba(41,199,255,.4);background:rgba(41,199,255,.08)}
+    .cart-count{
+      position:absolute;right:-5px;top:-6px;display:grid;place-items:center;min-width:20px;height:20px;padding-inline:5px;
+      border:2px solid #080812;border-radius:99px;background:var(--pink);font-size:10px;font-weight:900;
+      transform:scale(0);transition:.25s cubic-bezier(.2,1.5,.4,1);
+    }
+    .cart-count.visible{transform:scale(1)}
+    .cart-count.bump{animation:countBump .4s ease}
+    .menu-button{display:none}
+
+    .button{
+      position:relative;isolation:isolate;display:inline-flex;align-items:center;justify-content:center;gap:9px;
+      min-height:46px;padding:12px 18px;overflow:hidden;border:0;border-radius:13px;
+      background:linear-gradient(110deg,var(--pink),#8a48ff 52%,var(--blue));color:#fff;
+      box-shadow:0 10px 30px rgba(123,70,255,.2);font-size:13px;font-weight:800;cursor:pointer;
+      transition:transform .24s ease,box-shadow .24s ease,filter .24s ease;
+    }
+    .button::before{
+      content:"";position:absolute;inset:-3px;z-index:-1;
+      background:linear-gradient(100deg,transparent 15%,rgba(255,255,255,.45),transparent 60%);
+      transform:translateX(-130%);transition:transform .55s ease;
+    }
+    .button:hover{transform:translateY(-3px);box-shadow:0 16px 38px rgba(116,75,255,.32);filter:saturate(1.13)}
+    .button:hover::before{transform:translateX(130%)}
+    .button:active{transform:translateY(0) scale(.97)}
+    .button.secondary{border:1px solid var(--line);background:rgba(255,255,255,.055);box-shadow:none}
+    .button.secondary:hover{border-color:rgba(41,199,255,.42);background:rgba(41,199,255,.08)}
+    .button.wide{width:100%}
+    .button.added{animation:addedButton .52s ease}
+
+    .hero{
+      position:relative;display:flex;align-items:center;justify-content:center;
+      min-height:620px;padding:110px 0 76px;text-align:center;
+    }
+    .hero-copy{position:relative;z-index:2;width:min(900px,100%);margin-inline:auto}
+    .hero h1{
+      max-width:860px;margin:18px auto 20px;font-family:var(--font-display);font-size:clamp(46px,6.6vw,88px);line-height:.99;letter-spacing:-.055em;
+    }
+    .hero p{max-width:680px;margin:0 auto;color:var(--muted);font-size:16px;line-height:1.75}
+    .hero-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:30px}
+    .trust-row{display:flex;flex-wrap:wrap;justify-content:center;gap:18px;margin-top:34px;color:#cbccda;font-size:12px;font-weight:700}
+    .trust-row span{display:flex;align-items:center;gap:7px}
+    .trust-row span::before{content:"✓";display:grid;place-items:center;width:19px;height:19px;border-radius:50%;background:rgba(64,223,160,.12);color:var(--green)}
+
+    .benefits{
+      display:grid;grid-template-columns:repeat(4,1fr);gap:1px;overflow:hidden;margin:8px auto 0;border:1px solid var(--line);border-radius:20px;background:var(--line);
+    }
+    .benefit{display:flex;align-items:center;gap:13px;padding:21px;background:#0e0e1c}
+    .benefit-icon{display:grid;place-items:center;flex:0 0 38px;height:38px;border-radius:11px;background:linear-gradient(135deg,rgba(255,63,157,.16),rgba(41,199,255,.12));color:var(--blue)}
+    .benefit strong{display:block;font-size:13px}.benefit small{display:block;margin-top:3px;color:var(--muted);font-size:11px}
+
+    .store-section{padding:100px 0 88px}
+    .section-heading{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:34px}
+    .section-heading h2{margin:12px 0 0;font-family:var(--font-display);font-size:clamp(34px,5vw,62px);line-height:1;letter-spacing:-.045em}
+    .section-heading p{max-width:455px;margin:0;color:var(--muted);line-height:1.7}
+    .store-tools{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:24px}
+    .filter-row{display:flex;gap:8px;overflow-x:auto;padding:3px 2px 8px;scrollbar-width:none}
+    .filter-row::-webkit-scrollbar{display:none}
+    .filter{
+      flex:0 0 auto;padding:10px 14px;border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.035);
+      color:var(--muted);font-size:12px;font-weight:800;cursor:pointer;transition:.22s ease;
+    }
+    .filter:hover,.filter.active{color:#fff;border-color:rgba(255,63,157,.42);background:linear-gradient(120deg,rgba(255,63,157,.15),rgba(41,199,255,.09))}
+    .search-box{position:relative;flex:0 1 285px}
+    .search-box svg{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--muted)}
+    .search-box input{width:100%;height:42px;padding:0 14px 0 41px;border:1px solid var(--line);border-radius:12px;outline:0;background:rgba(255,255,255,.04);color:#fff;transition:.22s ease}
+    .search-box input:focus{border-color:rgba(41,199,255,.48);box-shadow:0 0 0 4px rgba(41,199,255,.06)}
+    .search-box input::placeholder{color:#77798c}
+
+    .product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .product-card{
+      position:relative;overflow:hidden;border:1px solid var(--line);border-radius:22px;background:linear-gradient(150deg,rgba(21,21,42,.96),rgba(12,12,25,.96));
+      opacity:0;transform:translateY(26px);box-shadow:0 16px 45px rgba(0,0,0,.18);
+      transition:opacity .5s ease,transform .5s ease,border-color .3s ease,box-shadow .3s ease;
+    }
+    .product-card.visible{opacity:1;transform:translateY(0)}
+    .product-card:hover{transform:translateY(-8px);border-color:var(--line-hot);box-shadow:0 25px 65px rgba(0,0,0,.34),0 0 40px rgba(255,63,157,.07)}
+    .product-card.hidden-card{display:none}
+    .product-image{position:relative;overflow:hidden;aspect-ratio:1.14/1;background:#0a0a15;cursor:pointer}
+    .product-image img{width:100%;height:100%;object-fit:cover;transition:transform .65s cubic-bezier(.2,.75,.2,1),filter .4s ease}
+    .product-card:hover .product-image img{transform:scale(1.055);filter:saturate(1.08)}
+    .product-image::after{content:"";position:absolute;inset:auto 0 0;height:40%;background:linear-gradient(transparent,rgba(8,8,17,.72));pointer-events:none}
+    .product-image.spec-only{display:block;padding:16px;background:radial-gradient(circle at 85% 10%,rgba(41,199,255,.11),transparent 45%),linear-gradient(145deg,#121226,#090914)}
+    .product-image.spec-only::after{display:none}
+    .spec-preview{height:100%;padding:16px;border:1px solid rgba(255,255,255,.1);border-radius:15px;background:rgba(5,5,14,.6);transition:.35s ease}
+    .product-card:hover .spec-preview{border-color:rgba(255,63,157,.36);transform:translateY(-2px)}
+    .spec-preview-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:11px;padding-bottom:10px;border-bottom:1px solid var(--line);color:var(--blue);font-size:8px;font-weight:900;letter-spacing:.13em}
+    .spec-preview-head b{color:var(--pink-2)}
+    .spec-preview-list{display:grid;gap:6px}
+    .spec-preview-row{display:grid;grid-template-columns:72px 1fr;gap:8px;padding:6px 7px;border-radius:7px;background:rgba(255,255,255,.026);font-size:8px;line-height:1.35}
+    .spec-preview-row span{color:var(--muted);font-weight:700}
+    .spec-preview-row strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .badge{
+      position:absolute;z-index:2;left:13px;top:13px;padding:7px 10px;border:1px solid rgba(255,255,255,.13);border-radius:9px;
+      background:rgba(7,7,17,.76);backdrop-filter:blur(10px);color:#dff7ff;font-size:9px;font-weight:900;letter-spacing:.11em;text-transform:uppercase;
+    }
+    .badge.hot{background:rgba(255,63,157,.82);color:#fff}
+    .quick-view{
+      position:absolute;z-index:2;right:13px;top:13px;display:grid;place-items:center;width:37px;height:37px;
+      border:1px solid rgba(255,255,255,.16);border-radius:11px;background:rgba(7,7,17,.73);backdrop-filter:blur(10px);cursor:pointer;
+      opacity:0;transform:translateY(-7px);transition:.25s ease;
+    }
+    .product-card:hover .quick-view{opacity:1;transform:translateY(0)}
+    .product-info{padding:18px}
+    .category-label{color:var(--blue);font-size:9px;font-weight:900;letter-spacing:.15em;text-transform:uppercase}
+    .product-info h3{min-height:47px;margin:9px 0 8px;font-family:var(--font-display);font-size:17px;line-height:1.35;letter-spacing:-.02em}
+    .product-info h3 a:hover{color:var(--pink-2)}
+    .mini-specs{display:flex;flex-wrap:wrap;gap:6px;min-height:54px;margin:0 0 15px;padding:0;list-style:none}
+    .mini-specs li{height:max-content;padding:6px 8px;border:1px solid var(--line);border-radius:7px;background:rgba(255,255,255,.025);color:#b7b8c8;font-size:9px;font-weight:700}
+    .price-line{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .price{font-family:var(--font-display);font-size:19px;font-weight:800}
+    .price.discounted,.detail-price.discounted{color:var(--green)}
+    .price-suffix{margin-left:4px;color:var(--muted);font-size:10px;font-weight:700}
+    .mrp{display:block;margin-top:3px;color:#6f7182;font-size:10px;text-decoration:line-through}
+    .stock{display:flex;align-items:center;gap:6px;color:var(--green);font-size:10px;font-weight:800}
+    .stock::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;box-shadow:0 0 10px currentColor}
+    .card-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px}
+    .card-actions .button{min-height:42px;padding:10px 8px;font-size:11px}
+    .no-products{grid-column:1/-1;padding:55px 20px;border:1px dashed var(--line);border-radius:20px;text-align:center;color:var(--muted)}
+    .rental-period-field{display:grid;gap:7px;margin-top:22px}
+    .rental-period-field label,.cart-period label{color:var(--muted);font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+    .rental-period-field select,.cart-period select{
+      width:100%;height:44px;padding:0 12px;border:1px solid var(--line);border-radius:11px;outline:0;
+      background:#121221;color:#fff;font-size:12px;font-weight:700;
+    }
+    .rental-period-field select:focus,.cart-period select:focus{border-color:rgba(41,199,255,.5)}
+    .cart-period{display:grid;gap:7px;margin-bottom:16px}
+
+    .detail-page{padding:72px 0 100px;animation:pageIn .45s ease}
+    .breadcrumbs{display:flex;align-items:center;gap:8px;margin-bottom:25px;color:var(--muted);font-size:12px}
+    .breadcrumbs button{padding:0;border:0;background:transparent;color:var(--blue);cursor:pointer}
+    .detail-layout{display:grid;grid-template-columns:minmax(0,1.03fr) minmax(360px,.97fr);gap:54px;align-items:start}
+    .detail-gallery{position:sticky;top:100px}
+    .detail-main-image{overflow:hidden;border:1px solid var(--line);border-radius:26px;background:#0d0d1b;box-shadow:var(--shadow)}
+    .detail-main-image img{width:100%;aspect-ratio:1.08/1;object-fit:cover}
+    .detail-spec-showcase{overflow:hidden;border:1px solid var(--line);border-radius:26px;background:radial-gradient(circle at 85% 8%,rgba(41,199,255,.1),transparent 38%),linear-gradient(145deg,#121226,#090914);box-shadow:var(--shadow)}
+    .detail-spec-top{display:flex;align-items:center;justify-content:space-between;padding:20px 22px;border-bottom:1px solid var(--line);color:var(--blue);font-size:9px;font-weight:900;letter-spacing:.14em}
+    .detail-spec-top b{color:var(--pink-2)}
+    .detail-spec-name{padding:24px 22px 10px;font-family:var(--font-display);font-size:23px;line-height:1.25}
+    .detail-spec-rows{display:grid;gap:8px;padding:14px 22px 24px}
+    .detail-spec-row{display:grid;grid-template-columns:118px 1fr;gap:16px;padding:12px;border:1px solid rgba(255,255,255,.08);border-radius:10px;background:rgba(255,255,255,.025);font-size:10px;line-height:1.4}
+    .detail-spec-row span{color:var(--muted);font-weight:700}
+    .detail-spec-row strong{text-align:right}
+    .detail-copy{padding:10px 0}
+    .detail-copy h1{margin:13px 0 12px;font-family:var(--font-display);font-size:clamp(35px,4.8vw,60px);line-height:1.05;letter-spacing:-.045em}
+    .detail-description{color:var(--muted);line-height:1.75}
+    .detail-rating{display:flex;align-items:center;gap:9px;margin:17px 0;color:#ffd45b;font-size:12px}
+    .detail-rating span{color:var(--muted)}
+    .detail-price{margin:24px 0;font-family:var(--font-display);font-size:30px;font-weight:900}
+    .detail-price del{display:block;width:max-content;margin:7px 0 0;color:#656678;font-family:Inter;font-size:13px;font-weight:500}
+    .detail-note{display:flex;align-items:center;gap:8px;color:var(--green);font-size:12px;font-weight:800}
+    .spec-panel{margin-top:27px;border:1px solid var(--line);border-radius:19px;background:rgba(255,255,255,.025)}
+    .spec-panel h3{margin:0;padding:17px 18px;border-bottom:1px solid var(--line);font-family:var(--font-display);font-size:13px}
+    .spec-list{margin:0;padding:5px 18px;list-style:none}
+    .spec-list li{display:flex;justify-content:space-between;gap:20px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:12px}
+    .spec-list li:last-child{border-bottom:0}
+    .spec-list span{color:var(--muted)}.spec-list strong{text-align:right}
+    .detail-services{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:22px}
+    .detail-service{
+      display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:center;padding:13px;
+      border:1px solid var(--line);border-radius:12px;background:linear-gradient(135deg,rgba(255,63,157,.06),rgba(41,199,255,.035));
+    }
+    .detail-service-icon{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:rgba(41,199,255,.09);color:var(--blue);font-weight:900}
+    .detail-service strong{display:block;font-size:10px}.detail-service small{display:block;margin-top:3px;color:var(--muted);font-size:8px;line-height:1.4}
+    .best-for{margin-top:18px;padding:17px 18px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.025)}
+    .best-for h3{margin:0 0 12px;font-family:var(--font-display);font-size:11px;letter-spacing:.08em}
+    .best-for-list{display:flex;flex-wrap:wrap;gap:7px}
+    .best-for-list span{padding:8px 10px;border:1px solid rgba(118,87,255,.22);border-radius:9px;background:rgba(118,87,255,.07);color:#d7d0ff;font-size:9px;font-weight:800}
+    .quantity-buy{display:grid;grid-template-columns:108px 1fr;gap:10px;margin-top:26px}
+    .quantity{
+      display:grid;grid-template-columns:34px 1fr 34px;align-items:center;border:1px solid var(--line);border-radius:13px;background:rgba(255,255,255,.035);
+    }
+    .quantity button{height:100%;border:0;background:transparent;cursor:pointer;color:var(--muted);font-size:18px}
+    .quantity strong{text-align:center;font-size:13px}
+    .rent-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+    .assurance{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:22px}
+    .assurance div{padding:12px;border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.025);color:var(--muted);font-size:9px;line-height:1.45;text-align:center}
+    .assurance strong{display:block;margin-bottom:3px;color:#fff;font-size:10px}
+
+    .builder-card-visual{
+      position:relative;display:grid;place-items:center;overflow:hidden;aspect-ratio:1.14/1;padding:24px;
+      background:radial-gradient(circle at 50% 45%,rgba(118,87,255,.28),transparent 38%),linear-gradient(145deg,#15132b,#090a16);
+    }
+    .builder-card-visual::before{
+      content:"";position:absolute;inset:0;opacity:.18;
+      background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.08) 1px,transparent 1px);
+      background-size:34px 34px;mask-image:linear-gradient(to bottom,#000,transparent 92%);
+    }
+    .builder-core{
+      position:relative;display:grid;place-items:center;width:128px;height:128px;border:1px solid rgba(255,255,255,.18);border-radius:32px;
+      background:linear-gradient(145deg,rgba(255,63,157,.17),rgba(41,199,255,.13));box-shadow:0 0 60px rgba(118,87,255,.28);
+      color:#fff;font-family:var(--font-display);font-size:47px;font-weight:900;transform:rotate(-4deg);transition:.45s cubic-bezier(.2,.8,.2,1);
+    }
+    .custom-build-card:hover .builder-core{transform:rotate(0) scale(1.05);box-shadow:0 0 75px rgba(41,199,255,.24)}
+    .builder-core::after{content:"BUILD";position:absolute;bottom:15px;color:var(--blue);font-family:Inter;font-size:8px;font-weight:900;letter-spacing:.22em}
+    .component-chip{
+      position:absolute;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:rgba(10,10,22,.86);backdrop-filter:blur(10px);
+      color:#d9daea;font-size:9px;font-weight:900;letter-spacing:.05em;transition:.4s ease;
+    }
+    .component-chip.cpu{left:22px;top:62px}.component-chip.gpu{right:20px;top:90px}.component-chip.ram{left:30px;bottom:50px}.component-chip.ssd{right:30px;bottom:42px}
+    .custom-build-card:hover .component-chip.cpu{transform:translate(-3px,-4px)}.custom-build-card:hover .component-chip.gpu{transform:translate(4px,-3px)}
+    .custom-build-card:hover .component-chip.ram{transform:translate(-3px,4px)}.custom-build-card:hover .component-chip.ssd{transform:translate(4px,4px)}
+    .builder-page{padding:126px 0 95px;animation:pageIn .42s ease}
+    .builder-top{display:flex;align-items:end;justify-content:space-between;gap:28px;margin:24px 0 35px}
+    .builder-top h1{max-width:790px;margin:13px 0 12px;font-family:var(--font-display);font-size:clamp(42px,6vw,75px);line-height:1;letter-spacing:-.05em}
+    .builder-top p{max-width:640px;margin:0;color:var(--muted);font-size:14px;line-height:1.75}
+    .builder-stage-pill{
+      flex:0 0 auto;padding:12px 15px;border:1px solid rgba(64,223,160,.25);border-radius:13px;background:rgba(64,223,160,.07);
+      color:var(--green);font-size:10px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;
+    }
+    .builder-layout{display:grid;grid-template-columns:minmax(0,1fr) 390px;align-items:start;gap:24px}
+    .builder-controls{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .builder-group{
+      position:relative;padding:18px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.025);transition:.25s ease;
+    }
+    .builder-group:hover{border-color:rgba(118,87,255,.36);background:rgba(118,87,255,.045)}
+    .builder-group.menu-open{z-index:30;border-color:rgba(41,199,255,.42);background:rgba(41,199,255,.035);box-shadow:0 16px 45px rgba(0,0,0,.2)}
+    .builder-group-head{display:flex;align-items:center;gap:11px;margin-bottom:13px}
+    .builder-step-number{
+      display:grid;place-items:center;flex:0 0 31px;height:31px;border:1px solid rgba(41,199,255,.25);border-radius:9px;
+      background:rgba(41,199,255,.08);color:var(--blue);font-family:var(--font-display);font-size:11px;
+    }
+    .builder-group-head strong{display:block;font-size:12px}.builder-group-head small{display:block;margin-top:3px;color:var(--muted);font-size:9px}
+    .builder-menu{position:relative}
+    .builder-choice{
+      display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:13px;width:100%;padding:12px 13px;
+      border:1px solid var(--line);border-radius:12px;background:linear-gradient(135deg,rgba(255,255,255,.055),rgba(255,255,255,.025));
+      cursor:pointer;color:#fff;text-align:left;transition:border-color .24s ease,background .24s ease,transform .24s ease,box-shadow .24s ease;
+    }
+    .builder-choice:hover{border-color:rgba(41,199,255,.42);background:linear-gradient(135deg,rgba(118,87,255,.11),rgba(41,199,255,.055));transform:translateY(-1px)}
+    .builder-choice:focus-visible{outline:0;border-color:var(--blue);box-shadow:0 0 0 3px rgba(41,199,255,.1)}
+    .builder-choice-copy{min-width:0}.builder-choice-copy strong{display:block;overflow:hidden;color:#fff;font-size:11px;text-overflow:ellipsis;white-space:nowrap}
+    .builder-choice-copy small{display:block;margin-top:5px;color:var(--pink-2);font-size:9px;font-weight:800}
+    .builder-chevron{display:grid;place-items:center;width:29px;height:29px;border-radius:8px;background:rgba(41,199,255,.08);color:var(--blue);transition:transform .28s ease,background .28s ease}
+    .builder-group.menu-open .builder-chevron{transform:rotate(180deg);background:rgba(255,63,157,.11);color:var(--pink-2)}
+    .builder-options{
+      position:absolute;top:calc(100% + 8px);left:0;right:0;z-index:40;max-height:0;overflow:hidden;padding:0;
+      border:1px solid transparent;border-radius:14px;background:rgba(10,10,23,.98);box-shadow:0 24px 65px rgba(0,0,0,.48);backdrop-filter:blur(18px);
+      opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-8px) scale(.985);transform-origin:top;
+      transition:max-height .34s cubic-bezier(.2,.8,.2,1),opacity .23s ease,transform .3s ease,visibility .3s,border-color .3s,padding .3s;
+    }
+    .builder-options.open{
+      max-height:290px;overflow:auto;padding:7px;border-color:rgba(255,255,255,.13);
+      opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0) scale(1);
+    }
+    .builder-option{
+      display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;width:100%;padding:11px 12px;
+      border:1px solid transparent;border-radius:10px;background:transparent;cursor:pointer;color:#dfe0ec;text-align:left;
+      opacity:0;transform:translateY(-5px);transition:border-color .2s ease,background .2s ease,color .2s ease,transform .2s ease;
+    }
+    .builder-options.open .builder-option{animation:builderOptionIn .3s ease forwards;animation-delay:var(--option-delay)}
+    .builder-option:hover{border-color:rgba(41,199,255,.23);background:linear-gradient(90deg,rgba(118,87,255,.11),rgba(41,199,255,.055));color:#fff;transform:translateX(2px)}
+    .builder-option.selected{border-color:rgba(255,63,157,.28);background:linear-gradient(90deg,rgba(255,63,157,.12),rgba(118,87,255,.08));color:#fff}
+    .builder-option-copy{min-width:0}.builder-option-copy strong{display:block;font-size:10px;line-height:1.35}.builder-option-copy small{display:block;margin-top:4px;color:var(--muted);font-size:8px}
+    .builder-option-state{display:flex;align-items:center;gap:8px;color:var(--pink-2);font-size:9px;font-weight:900;white-space:nowrap}
+    .builder-option-check{display:grid;place-items:center;width:19px;height:19px;border:1px solid rgba(255,255,255,.13);border-radius:6px;color:transparent;transition:.2s ease}
+    .builder-option.selected .builder-option-check{border-color:rgba(64,223,160,.3);background:rgba(64,223,160,.12);color:var(--green)}
+    .builder-card-action{grid-template-columns:1fr}
+    .starting-label{display:block;margin-top:3px;color:#6f7182;font-size:10px}
+    .builder-summary{
+      position:sticky;top:105px;overflow:hidden;border:1px solid rgba(255,255,255,.14);border-radius:23px;
+      background:linear-gradient(155deg,rgba(20,18,39,.98),rgba(10,10,21,.98));box-shadow:var(--shadow);
+    }
+    .builder-summary-head{padding:21px 21px 17px;border-bottom:1px solid var(--line)}
+    .builder-summary-head-row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .builder-summary-head h2{margin:0;font-family:var(--font-display);font-size:16px}
+    .compatibility-badge{display:inline-flex;align-items:center;gap:6px;color:var(--green);font-size:9px;font-weight:900}
+    .compatibility-badge::before{content:"✓";display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:rgba(64,223,160,.12)}
+    .builder-progress{height:4px;margin-top:15px;overflow:hidden;border-radius:5px;background:rgba(255,255,255,.07)}
+    .builder-progress span{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--pink),var(--purple),var(--blue));transition:width .35s ease}
+    .builder-summary-parts{display:grid;gap:0;max-height:330px;overflow:auto;padding:7px 20px}
+    .builder-summary-part{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:10px;line-height:1.4}
+    .builder-summary-part:last-child{border-bottom:0}.builder-summary-part span{color:var(--muted)}.builder-summary-part strong{max-width:210px;text-align:right}
+    .builder-summary-foot{padding:19px 20px 21px;border-top:1px solid var(--line);background:rgba(0,0,0,.11)}
+    .builder-tier{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;color:var(--muted);font-size:10px}
+    .builder-tier strong{padding:6px 8px;border-radius:8px;background:rgba(118,87,255,.12);color:#c9bfff;font-size:9px;text-transform:uppercase;letter-spacing:.08em}
+    .builder-total{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-bottom:15px}
+    .builder-total span{color:var(--muted);font-size:10px}.builder-total strong{font-family:var(--font-display);font-size:29px;line-height:1}
+    .builder-actions{display:grid;grid-template-columns:1fr 1.35fr;gap:9px}
+    .builder-actions .button{padding-inline:12px;font-size:10px}
+    .builder-disclaimer{margin:12px 0 0;color:#6f7183;font-size:8px;line-height:1.55;text-align:center}
+
+    .cart-overlay,.modal-overlay{
+      position:fixed;inset:0;z-index:70;visibility:hidden;opacity:0;background:rgba(1,1,7,.72);backdrop-filter:blur(5px);transition:.3s ease;
+    }
+    .cart-overlay.open,.modal-overlay.open{visibility:visible;opacity:1}
+    .cart-drawer{
+      position:absolute;right:0;top:0;display:flex;flex-direction:column;width:min(440px,100%);height:100%;
+      border-left:1px solid var(--line);background:#0d0d1a;box-shadow:-24px 0 70px rgba(0,0,0,.45);transform:translateX(100%);transition:.42s cubic-bezier(.2,.8,.2,1);
+    }
+    .cart-overlay.open .cart-drawer{transform:translateX(0)}
+    .cart-header{display:flex;align-items:center;justify-content:space-between;padding:22px;border-bottom:1px solid var(--line)}
+    .cart-header h2{margin:0;font-family:var(--font-display);font-size:20px}
+    .close-button{display:grid;place-items:center;width:38px;height:38px;border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.04);cursor:pointer}
+    .cart-items{flex:1;overflow:auto;padding:14px 20px}
+    .empty-cart{display:grid;place-items:center;height:100%;padding:50px 20px;text-align:center;color:var(--muted)}
+    .empty-cart svg{margin-bottom:16px;color:#55586b}.empty-cart strong{display:block;margin-bottom:7px;color:#fff}
+    .cart-item{display:grid;grid-template-columns:76px 1fr auto;gap:12px;padding:13px 0;border-bottom:1px solid var(--line);animation:itemIn .35s ease}
+    .cart-item img,.cart-item-visual{width:76px;height:76px;border-radius:12px;object-fit:cover;background:#131326}
+    .cart-item-visual{display:grid;place-items:center;padding:8px;border:1px solid var(--line);color:var(--blue);font-family:var(--font-display);font-size:8px;line-height:1.4;text-align:center}
+    .cart-item h4{margin:3px 0 7px;font-size:12px;line-height:1.35}
+    .cart-item-price{font-size:11px;color:#d4d5e2}
+    .cart-qty{display:flex;align-items:center;gap:8px;margin-top:8px}
+    .cart-qty button{display:grid;place-items:center;width:24px;height:24px;border:1px solid var(--line);border-radius:7px;background:rgba(255,255,255,.04);cursor:pointer}
+    .cart-qty span{font-size:11px;font-weight:800}
+    .remove-item{align-self:start;border:0;background:transparent;color:#77798c;cursor:pointer;transition:.2s ease}
+    .remove-item:hover{color:var(--pink)}
+    .cart-footer{padding:20px;border-top:1px solid var(--line);background:#0a0a15}
+    .cart-totals{display:grid;gap:10px;margin-bottom:16px}
+    .cart-total-row{display:flex;justify-content:space-between;color:var(--muted);font-size:12px}
+    .cart-total-row.grand{padding-top:10px;border-top:1px solid var(--line);color:#fff;font-size:16px;font-weight:800}
+    .cart-note{margin:10px 0 0;color:#6f7183;font-size:9px;line-height:1.5;text-align:center}
+
+    .modal-overlay{
+      display:grid;place-items:center;padding:24px;z-index:80;
+      background:rgba(3,4,11,.84);backdrop-filter:blur(18px) saturate(1.15);
+    }
+    .checkout-modal{
+      position:relative;width:min(1020px,100%);max-height:min(92vh,860px);overflow:auto;
+      border:1px solid rgba(255,255,255,.13);border-radius:30px;background:#090a12;
+      box-shadow:0 40px 120px rgba(0,0,0,.65),0 0 80px rgba(80,62,220,.08);
+      transform:translateY(24px) scale(.975);transition:.34s cubic-bezier(.2,.8,.2,1);
+      scrollbar-width:none;-ms-overflow-style:none;overscroll-behavior:contain;
+    }
+    .checkout-modal::-webkit-scrollbar,.checkout-summary-items::-webkit-scrollbar{display:none;width:0;height:0}
+    .checkout-modal::before{
+      content:"";position:absolute;inset:0 0 auto;height:2px;z-index:2;
+      background:linear-gradient(90deg,transparent 4%,var(--pink) 28%,#8a58ff 54%,var(--blue) 78%,transparent 96%);
+    }
+    .modal-overlay.open .checkout-modal{transform:translateY(0) scale(1)}
+    .checkout-head{
+      display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px 30px;
+      border-bottom:1px solid rgba(255,255,255,.09);background:rgba(255,255,255,.018);
+    }
+    .checkout-head-copy{display:grid;gap:7px}
+    .checkout-kicker{color:var(--pink-2);font-size:9px;font-weight:900;letter-spacing:.2em;text-transform:uppercase}
+    .checkout-head h2{margin:0;font-family:var(--font-display);font-size:25px;letter-spacing:-.02em}
+    .checkout-head p{margin:0;color:#7f8294;font-size:11px;line-height:1.55}
+    .checkout-head .close-button{
+      flex:0 0 auto;width:44px;height:44px;border-color:rgba(255,255,255,.12);border-radius:50%;
+      background:#12131d;color:#b7b9c8;font-size:17px;transition:.22s ease;
+    }
+    .checkout-head .close-button:hover{transform:rotate(90deg);border-color:rgba(255,63,157,.48);color:#fff;background:rgba(255,63,157,.1)}
+    .checkout-grid{display:grid;grid-template-columns:minmax(300px,.82fr) minmax(0,1.38fr)}
+    .checkout-form{
+      order:2;display:grid;grid-template-columns:1fr 1fr;align-content:start;gap:15px;padding:30px;
+      background:linear-gradient(145deg,rgba(255,255,255,.018),transparent 45%);
+    }
+    .form-intro{
+      display:flex!important;flex-direction:row!important;align-items:center;gap:13px!important;margin-bottom:5px;
+      color:inherit!important;text-transform:none!important;letter-spacing:0!important;
+    }
+    .form-step,.summary-step{
+      display:grid;place-items:center;flex:0 0 auto;width:38px;height:38px;border:1px solid rgba(255,255,255,.12);
+      border-radius:12px;background:#12131e;color:var(--blue);font-family:var(--font-display);font-size:10px;font-weight:900;
+    }
+    .form-intro span:not(.form-step),.summary-kicker{color:#777a8d;font-size:8px;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
+    .form-intro h3{margin:3px 0 0;color:#fff;font-size:16px;letter-spacing:-.01em}
+    .field{display:flex;flex-direction:column;gap:8px;color:#a8aabc;font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:.1em}
+    .field.full{grid-column:1/-1}
+    .field input,.field textarea,.field select{
+      width:100%;min-height:49px;padding:13px 14px;border:1px solid rgba(255,255,255,.105);border-radius:13px;outline:0;
+      background:#11121c;color:#fff;font-size:12px;font-weight:650;text-transform:none;letter-spacing:0;transition:.22s ease;
+    }
+    .field input::placeholder,.field textarea::placeholder{color:#626576}
+    .field textarea{min-height:88px;resize:vertical}
+    .field input:focus,.field textarea:focus,.field select:focus{
+      border-color:rgba(41,199,255,.55);background:#131521;box-shadow:0 0 0 4px rgba(41,199,255,.06);
+    }
+    .field.honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}
+    .form-status{
+      display:none;grid-column:1/-1;margin:0;padding:12px 13px;border:1px solid rgba(41,199,255,.25);border-radius:12px;
+      background:rgba(41,199,255,.07);color:#c9f2ff;font-size:11px;font-weight:700;line-height:1.5;text-transform:none;letter-spacing:0;
+    }
+    .form-status.show{display:block}
+    .form-status.error{border-color:rgba(255,82,125,.38);background:rgba(255,82,125,.08);color:#ffd3df}
+    .checkout-submit{
+      grid-column:1/-1;width:100%;justify-content:space-between;min-height:58px;margin-top:2px;padding:8px 9px 8px 19px;
+      border:1px solid rgba(255,255,255,.82);border-radius:16px;background:#f7f8fc;color:#090a12;
+      box-shadow:0 14px 34px rgba(0,0,0,.28);font-size:12px;font-weight:900;letter-spacing:.015em;
+    }
+    .checkout-submit::before{display:none}
+    .checkout-submit:hover{transform:translateY(-2px);background:#fff;box-shadow:0 18px 40px rgba(0,0,0,.38);filter:none}
+    .checkout-submit-icon{
+      display:grid;place-items:center;width:40px;height:40px;border-radius:12px;color:#fff;
+      background:linear-gradient(135deg,var(--pink),#8059ff 56%,var(--blue));
+      box-shadow:0 8px 20px rgba(108,75,255,.28);transition:.22s ease;
+    }
+    .checkout-submit:hover .checkout-submit-icon{transform:translateX(2px)}
+    .checkout-submit:disabled{justify-content:center}
+    .submit-note{grid-column:1/-1;margin:-3px 0 0;color:#707385;font-size:9px;line-height:1.55;text-align:left}
+    .button:disabled{cursor:wait;filter:saturate(.55);opacity:.72;transform:none;box-shadow:none}
+    .checkout-summary{
+      order:1;display:flex;flex-direction:column;min-width:0;padding:30px;border-right:1px solid rgba(255,255,255,.09);
+      background:
+        radial-gradient(circle at 10% 0%,rgba(255,63,157,.11),transparent 38%),
+        radial-gradient(circle at 100% 100%,rgba(41,199,255,.08),transparent 42%),
+        #0c0d16;
+    }
+    .summary-head{display:flex;align-items:center;gap:13px;margin-bottom:22px}
+    .summary-step{color:var(--pink-2)}
+    .summary-head h3{margin:3px 0 0;font-family:var(--font-display);font-size:16px}
+    .checkout-summary-items{display:grid;gap:10px;max-height:310px;overflow:auto;padding-right:3px;scrollbar-width:none;-ms-overflow-style:none}
+    .summary-item{
+      display:grid;grid-template-columns:50px minmax(0,1fr);gap:11px;padding:11px;
+      border:1px solid rgba(255,255,255,.09);border-radius:15px;background:rgba(255,255,255,.035);
+    }
+    .summary-thumb{width:50px;height:50px;border-radius:11px;object-fit:cover;background:#090a12}
+    .summary-item-copy{min-width:0;display:grid;align-content:center;gap:4px}
+    .summary-item-copy strong{overflow:hidden;color:#fff;font-size:10px;line-height:1.35;text-overflow:ellipsis;white-space:nowrap}
+    .summary-item-copy span{color:#777a8e;font-size:9px}
+    .summary-item-price{grid-column:1/-1;display:flex;justify-content:space-between;padding-top:9px;border-top:1px solid rgba(255,255,255,.07);color:#8b8ea0;font-size:9px}
+    .summary-item-price strong{color:#fff;font-size:10px}
+    .summary-total{
+      display:grid;grid-template-columns:1fr auto;align-items:end;gap:8px;margin-top:auto;padding:22px 0 17px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .summary-total span{color:#848798;font-size:10px}
+    .summary-total strong{font-family:var(--font-display);font-size:22px;letter-spacing:-.04em}
+    .summary-assurance{display:flex;gap:10px;padding-top:16px;color:#7d8091;font-size:9px;line-height:1.55}
+    .summary-assurance b{display:grid;place-items:center;flex:0 0 auto;width:22px;height:22px;border-radius:50%;background:rgba(64,223,160,.12);color:var(--green)}
+    .summary-assurance p{margin:0}
+    .success-state{padding:68px 25px;text-align:center;background:radial-gradient(circle at 50% 35%,rgba(64,223,160,.08),transparent 36%)}
+    .success-icon{display:grid;place-items:center;width:70px;height:70px;margin:0 auto 18px;border:1px solid rgba(64,223,160,.28);border-radius:22px;background:rgba(64,223,160,.09);color:var(--green);font-size:30px}
+    .success-state h2{font-family:var(--font-display);font-size:25px}
+    .success-state p{max-width:470px;margin:0 auto 22px;color:var(--muted);line-height:1.7}
+
+    .toast{
+      position:fixed;left:50%;bottom:25px;z-index:100;display:flex;align-items:center;gap:10px;max-width:calc(100% - 28px);
+      padding:12px 16px;border:1px solid rgba(64,223,160,.3);border-radius:13px;background:rgba(11,16,22,.93);box-shadow:0 15px 45px rgba(0,0,0,.4);
+      color:#e8fff5;font-size:12px;font-weight:800;opacity:0;pointer-events:none;transform:translate(-50%,18px);transition:.3s ease;
+    }
+    .toast.show{opacity:1;transform:translate(-50%,0)}
+    .toast-dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green)}
+
+    footer{border-top:1px solid var(--line);background:rgba(4,4,10,.5)}
+    .footer-inner{display:grid;grid-template-columns:1fr auto;gap:30px;padding:40px 0}
+    .footer-copy{max-width:390px;color:var(--muted);font-size:12px;line-height:1.7}
+    .footer-links{display:flex;flex-wrap:wrap;gap:18px;align-items:center;color:var(--muted);font-size:12px;font-weight:700}
+    .footer-links .main-site-footer{color:#fff}
+    .footer-links .main-site-footer::after{content:" ↗";color:var(--blue)}
+    .footer-links button:not(.button){padding:0;border:0;background:transparent;cursor:pointer;color:inherit;font-weight:inherit}
+    .footer-links button:not(.button):hover,.footer-links a:hover{color:#fff}
+    .copyright{grid-column:1/-1;display:flex;justify-content:space-between;gap:20px;padding-top:22px;border-top:1px solid var(--line);color:#65677a;font-size:10px}
+
+    @keyframes countBump{50%{transform:scale(1.35)}}
+    @keyframes addedButton{35%{transform:scale(.94);filter:brightness(1.25)}70%{transform:scale(1.03)}}
+    @keyframes pageIn{from{opacity:0;transform:translateY(15px)}}
+    @keyframes itemIn{from{opacity:0;transform:translateX(12px)}}
+    @keyframes builderOptionIn{to{opacity:1;transform:translateY(0)}}
+
+    @media (max-width:1000px){
+      .product-grid{grid-template-columns:repeat(2,1fr)}
+      .benefits{grid-template-columns:repeat(2,1fr)}
+      .detail-layout{gap:32px}
+      .builder-layout{grid-template-columns:minmax(0,1fr) 345px}
+    }
+    @media (max-width:780px){
+      .desktop-nav{display:none}.menu-button{display:grid}
+      .hero{padding-top:90px}
+      .section-heading{align-items:flex-start;flex-direction:column}
+      .store-tools{align-items:stretch;flex-direction:column}.search-box{flex-basis:auto;max-width:none}
+      .detail-layout{grid-template-columns:1fr}.detail-gallery{position:static}
+      .builder-top{align-items:flex-start;flex-direction:column}.builder-layout{grid-template-columns:1fr}.builder-summary{position:static}.builder-controls{grid-template-columns:1fr 1fr}
+      .checkout-grid{grid-template-columns:1fr}
+      .checkout-summary{min-height:auto;border-right:0;border-bottom:1px solid rgba(255,255,255,.09)}
+      .checkout-summary-items{max-height:210px}
+    }
+    @media (max-width:560px){
+      .shell{width:min(100% - 22px,1240px)}
+      .site-header{width:calc(100% - 16px);top:8px;margin-top:8px;padding:9px 10px 9px 13px}
+      .brand{font-size:12px}.brand-mark{width:31px;height:31px}.header-actions{gap:6px}.icon-button{width:39px;height:39px}
+      .whatsapp-booking{width:39px;min-height:39px;padding:0}.whatsapp-booking-label{display:none}
+      .home-link{width:39px;min-height:39px;padding:0}.home-link-label{display:none}
+      .hero{min-height:auto;padding:82px 0 58px}.hero h1{font-size:clamp(40px,13vw,63px)}.hero p{font-size:14px}
+      .benefits{grid-template-columns:1fr}.benefit{padding:17px}
+      .store-section{padding:75px 0}.section-heading{margin-bottom:24px}.section-heading h2{font-size:38px}
+      .product-grid{grid-template-columns:1fr;gap:14px}.product-info h3{min-height:auto}
+      .quick-view{opacity:1;transform:none}.card-actions{grid-template-columns:1fr 1fr}
+      .detail-page{padding-top:45px}.detail-copy h1{font-size:37px}.detail-price{font-size:25px}
+      .builder-page{padding-top:92px}.builder-controls{grid-template-columns:1fr}.builder-top h1{font-size:42px}.builder-stage-pill{display:none}
+      .builder-actions{grid-template-columns:1fr}
+      .quantity-buy{grid-template-columns:100px 1fr}.rent-actions{grid-template-columns:1fr}.assurance{grid-template-columns:1fr 1fr}.detail-services{grid-template-columns:1fr}
+      .modal-overlay{place-items:end center;padding:8px 8px 0}
+      .checkout-modal{max-height:95svh;border-radius:24px 24px 0 0}
+      .checkout-head{padding:21px 20px}.checkout-head h2{font-size:19px}.checkout-head p{display:none}.checkout-head .close-button{width:40px;height:40px}
+      .checkout-form{grid-template-columns:1fr;padding:20px}.field.full{grid-column:auto}.checkout-summary{padding:20px}
+      .checkout-submit{grid-column:auto}.submit-note,.form-status{grid-column:auto}
+      .summary-item{grid-template-columns:46px minmax(0,1fr)}.summary-thumb{width:46px;height:46px}
+      .footer-inner{grid-template-columns:1fr}.copyright{flex-direction:column}
+    }
+    @media (prefers-reduced-motion:reduce){
+      *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
+    }
+  </style>
+</head>
+<body>
+  <div class="noise"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#store" aria-label="Ace Gaming store home"><img class="brand-logo" src="data:image/jpeg;base64,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AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB//9k=" alt="Ace Gaming"></a>
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a href="#store">Rentals</a>
+      <a href="#products" data-filter-link="pc">Gaming PCs</a>
+      <a href="#products" data-filter-link="monitor">Monitors</a>
+      <a href="#products" data-filter-link="accessory">Add-ons</a>
+    </nav>
+    <div class="header-actions">
+      <a class="whatsapp-booking" id="topWhatsAppBooking" href="https://wa.me/919076060602?text=Hello%20Ace%20Gaming%2C%20I%20want%20to%20book%20a%20gaming%20rental.%20Please%20share%20availability%20and%20rental%20details." target="_blank" rel="noopener" aria-label="Book a rental on WhatsApp">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.5 9.4 9.4 0 0 1-4-1l-5 1 1-4.7a8.6 8.6 0 1 1 17-3.8Z"/><path d="M8.7 8.4c.2-.5.4-.5.7-.5h.5c.2 0 .4 0 .5.4l.8 1.9c.1.3 0 .5-.1.7l-.6.8c-.2.2-.1.4 0 .6.6 1 1.4 1.8 2.4 2.3.2.1.4.1.6-.1l.9-1.1c.2-.2.4-.2.7-.1l1.8.9c.3.1.5.2.5.4.1.2.1 1-.2 1.7-.3.7-1.5 1.3-2.1 1.4-.6.1-1.4.2-2.3-.1-.5-.2-1.2-.4-2-.8-3.5-1.5-5.8-5.1-6-5.3-.2-.3-1.4-1.9-1.4-3.6 0-1.7.9-2.5 1.2-2.9Z" transform="scale(.72) translate(5 5)"/></svg>
+        <span class="whatsapp-booking-label">WhatsApp Booking</span>
+      </a>
+      <a class="home-link" href="./index.html" aria-label="Back to Ace Gaming main site">
+        <span aria-hidden="true">←</span><span class="home-link-label">Main Site</span>
+      </a>
+      <button class="icon-button menu-button" type="button" aria-label="Go to products" onclick="document.querySelector('#products').scrollIntoView()">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <button class="icon-button" id="cartButton" type="button" aria-label="Open rental list">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h2l2.4 10.7a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L21 7H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="mainContent">
+    <div id="storeView">
+      <section class="hero shell" id="store">
+        <div class="hero-copy">
+          <span class="eyebrow">Ace Gaming Rentals</span>
+          <h1>Play more.<br><span class="gradient-text">Own less.</span></h1>
+          <p>Rent performance-tested gaming PCs by the month, then add the monitor, RAM and gaming gear you need for a complete setup.</p>
+          <div class="hero-actions">
+            <a class="button" href="#products">View all rentals
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6"/></svg>
+            </a>
+            <button class="button secondary" type="button" data-view-product="pc-4060">View featured PC</button>
+          </div>
+          <div class="trust-row">
+            <span>Performance tested</span>
+            <span>Monthly rental plans</span>
+            <span>Expert support</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="benefits shell" aria-label="Rental benefits">
+        <div class="benefit"><span class="benefit-icon">✓</span><span><strong>Tested Builds</strong><small>Stability checked before rental</small></span></div>
+        <div class="benefit"><span class="benefit-icon">⚡</span><span><strong>Flexible Plans</strong><small>Choose 1, 2 or 3 months</small></span></div>
+        <div class="benefit"><span class="benefit-icon">♢</span><span><strong>Setup Add-ons</strong><small>Monitors, RAM and gaming gear</small></span></div>
+        <div class="benefit"><span class="benefit-icon">⌁</span><span><strong>Pickup & Delivery</strong><small>Confirmed with your request</small></span></div>
+      </section>
+
+      <section class="store-section shell" id="products">
+        <div class="section-heading">
+          <div><span class="eyebrow">Rental collection</span><h2>Build your rented <span class="gradient-text">setup.</span></h2></div>
+          <p>Choose a gaming PC, monitor, RAM upgrade or gaming accessory and select the rental period that works for you.</p>
+        </div>
+        <div class="store-tools">
+          <div class="filter-row" aria-label="Product categories">
+            <button class="filter active" type="button" data-filter="all">All Rentals</button>
+            <button class="filter" type="button" data-filter="pc">Gaming PCs</button>
+            <button class="filter" type="button" data-filter="monitor">Monitors</button>
+            <button class="filter" type="button" data-filter="accessory">Gaming Add-ons</button>
+            <button class="filter" type="button" data-filter="upgrade">RAM Upgrades</button>
+          </div>
+          <label class="search-box">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <input id="searchInput" type="search" placeholder="Search rentals..." aria-label="Search rentals">
+          </label>
+        </div>
+        <div class="product-grid" id="productGrid"></div>
+      </section>
+    </div>
+
+    <section class="detail-page shell" id="detailView" hidden></section>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner shell">
+      <div>
+        <a class="brand" href="#store"><img class="brand-logo" src="data:image/jpeg;base64,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AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB//9k=" alt="Ace Gaming"></a>
+        <p class="footer-copy">Performance gaming PCs and setup add-ons available on flexible monthly rental plans.</p>
+      </div>
+      <div class="footer-links"><a class="main-site-footer" href="./index.html">Ace Gaming Main Site</a><a href="#products" data-filter-link="pc">Gaming PCs</a><a href="#products" data-filter-link="monitor">Monitors</a><a href="#products" data-filter-link="accessory">Add-ons</a><button class="button secondary" type="button" id="footerCart">View Rental List</button></div>
+      <div class="copyright"><span>© 2026 Ace Gaming. All rights reserved.</span><span>Availability and rental terms are confirmed with every request.</span></div>
+    </div>
+  </footer>
+
+  <div class="cart-overlay" id="cartOverlay" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+    <aside class="cart-drawer">
+      <div class="cart-header">
+        <h2 id="cartTitle">Your Rental List</h2>
+        <button class="close-button" type="button" data-close-cart aria-label="Close rental list">×</button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-footer" id="cartFooter"></div>
+    </aside>
+  </div>
+
+  <div class="modal-overlay" id="checkoutOverlay" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+    <div class="checkout-modal">
+      <div id="checkoutContent">
+        <div class="checkout-head">
+          <div class="checkout-head-copy">
+            <span class="checkout-kicker">Ace Gaming Rentals</span>
+            <h2 id="checkoutTitle">Finish your rental request</h2>
+            <p>Review your setup, add your details and continue securely to WhatsApp.</p>
+          </div>
+          <button class="close-button" type="button" data-close-checkout aria-label="Close rental request">×</button>
+        </div>
+        <div class="checkout-grid">
+          <form class="checkout-form" id="checkoutForm">
+            <div class="form-intro field full">
+              <span class="form-step">02</span>
+              <div><span>Your details</span><h3>Where should we reach you?</h3></div>
+            </div>
+            <label class="field">Full name<input name="name" autocomplete="name" required placeholder="Your name"></label>
+            <label class="field">Phone number<input name="phone" autocomplete="tel" inputmode="tel" required placeholder="+91 00000 00000"></label>
+            <label class="field full">Email address<input name="email" type="email" autocomplete="email" required placeholder="you@example.com"></label>
+            <label class="field full">Delivery address<textarea name="address" autocomplete="street-address" required placeholder="House, street, area, city and PIN code"></textarea></label>
+            <label class="field">Rental period<select name="duration" id="checkoutDuration"><option value="1">1 month</option><option value="2">2 months</option><option value="3">3 months</option></select></label>
+            <label class="field">Pickup or delivery<select name="method"><option>Home delivery</option><option>Store pickup</option></select></label>
+            <label class="field full">Notes (optional)<textarea name="notes" placeholder="Preferred delivery time or anything Ace Gaming should know"></textarea></label>
+            <label class="field honeypot" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
+            <p class="form-status" id="checkoutStatus" role="status" aria-live="polite"></p>
+            <button class="button checkout-submit" type="submit">
+              <span>Save &amp; open WhatsApp</span>
+              <span class="checkout-submit-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m9 18 6-6-6-6"/></svg></span>
+            </button>
+            <p class="submit-note">Your request is saved first. You will review and send the prepared message in WhatsApp.</p>
+          </form>
+          <aside class="checkout-summary">
+            <div class="summary-head">
+              <span class="summary-step">01</span>
+              <div><span class="summary-kicker">Order review</span><h3>Your rental setup</h3></div>
+            </div>
+            <div class="checkout-summary-items" id="checkoutSummaryItems"></div>
+            <div class="summary-total"><span id="checkoutTotalLabel">Estimated total</span><strong id="checkoutTotal">₹0</strong></div>
+            <div class="summary-assurance"><b>✓</b><p>Free request submission. Availability, deposit and delivery are confirmed by Ace Gaming.</p></div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status"><span class="toast-dot"></span><span id="toastText">Added to rental list</span></div>
+
+  <script>
+    const GOOGLE_SHEETS_WEB_APP_URL = 'PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE';
+    const ACE_WHATSAPP_NUMBER = '919076060602';
+    const SHEETS_MESSAGE_SOURCE = 'ace-gaming-rental-sheet';
+    const svgData = (svg) => 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg);
+    const pcFan = (cx,cy,r=48) => `
+      <g>
+        <circle cx="${cx}" cy="${cy}" r="${r+8}" fill="#090a13" stroke="url(#rgb)" stroke-width="6"/>
+        <circle cx="${cx}" cy="${cy}" r="${r}" fill="#111424" stroke="#ffffff18" stroke-width="3"/>
+        <g fill="url(#rgb)" opacity=".9">
+          <path d="M${cx} ${cy-8}c-10-31 7-44 24-35 14 7 8 28-8 42z"/>
+          <path d="M${cx+8} ${cy}c31-10 44 7 35 24-7 14-28 8-42-8z"/>
+          <path d="M${cx} ${cy+8}c10 31-7 44-24 35-14-7-8-28 8-42z"/>
+          <path d="M${cx-8} ${cy}c-31 10-44-7-35-24 7-14 28-8 42 8z"/>
+        </g>
+        <circle cx="${cx}" cy="${cy}" r="10" fill="#080912" stroke="#e9f8ff" stroke-width="3"/>
+      </g>`;
+    const pcArt = (label,primary,secondary,variant) => {
+      const coreParts = `
+        <rect x="290" y="230" width="190" height="190" rx="12" fill="#171a2a" stroke="#ffffff20" stroke-width="3"/>
+        <rect x="320" y="258" width="66" height="66" rx="8" fill="#20243a" stroke="url(#rgb)" stroke-width="4"/>
+        <circle cx="353" cy="291" r="21" fill="#0b0c16" stroke="${secondary}" stroke-width="4"/>
+        <rect x="411" y="247" width="14" height="125" rx="5" fill="url(#rgb)"/><rect x="435" y="247" width="14" height="125" rx="5" fill="url(#rgb)" opacity=".7"/>
+        <rect x="290" y="405" width="245" height="70" rx="9" fill="#181b2c" stroke="#ffffff26" stroke-width="3"/>
+        <rect x="310" y="421" width="194" height="18" rx="5" fill="#292e46"/><text x="407" y="435" text-anchor="middle" fill="#eef8ff" font-size="13" font-family="Arial" font-weight="700">GEFORCE RTX</text>
+        <path d="M353 326c0 48 70 34 70 84" fill="none" stroke="url(#rgb)" stroke-width="7" stroke-linecap="round" opacity=".8"/>`;
+      const body = variant === 1 ? `
+        <g transform="translate(70 18)">
+          <rect x="180" y="95" width="410" height="545" rx="22" fill="#11131f" stroke="#343851" stroke-width="7"/>
+          <rect x="205" y="126" width="330" height="438" rx="13" fill="url(#glass)" stroke="#ffffff25" stroke-width="4"/>
+          ${coreParts}
+          <path d="M535 126h55v438h-55z" fill="#0b0d17" stroke="#343851" stroke-width="4"/>
+          ${pcFan(563,230,43)}${pcFan(563,350,43)}${pcFan(563,470,43)}
+          <rect x="205" y="580" width="330" height="38" rx="8" fill="#0b0d17"/>
+          <text x="236" y="605" fill="url(#rgb)" font-size="17" font-family="Arial" font-weight="900" letter-spacing="3">ACE</text>
+          <path d="M192 642h26v23h-26zM552 642h26v23h-26z" fill="#1e2233"/>
+        </g>` : variant === 2 ? `
+        <g transform="translate(28 2)">
+          <path d="M210 94h430l45 55v492H210z" fill="#11131f" stroke="#363a55" stroke-width="7"/>
+          <rect x="236" y="124" width="332" height="440" rx="14" fill="url(#glass)" stroke="#ffffff28" stroke-width="4"/>
+          ${coreParts}
+          <path d="M568 124h72l45 32v408H568z" fill="#0b0d17" stroke="#343851" stroke-width="4"/>
+          ${pcFan(619,210,46)}${pcFan(619,342,46)}${pcFan(619,474,46)}
+          <rect x="270" y="148" width="238" height="47" rx="9" fill="#16192a" stroke="url(#rgb)" stroke-width="3"/>
+          <circle cx="304" cy="171" r="14" fill="#0a0b13" stroke="${primary}" stroke-width="4"/><circle cx="474" cy="171" r="14" fill="#0a0b13" stroke="${secondary}" stroke-width="4"/>
+          <path d="M304 185c7 45 44 46 49 73M474 185c-8 33-46 30-51 73" fill="none" stroke="#34394e" stroke-width="8" stroke-linecap="round"/>
+          <rect x="236" y="580" width="332" height="39" rx="8" fill="#0b0d17"/><text x="260" y="606" fill="url(#rgb)" font-size="18" font-family="Arial" font-weight="900" letter-spacing="4">ACE GAMING</text>
+          <path d="M226 642h28v23h-28zM596 642h28v23h-28z" fill="#1e2233"/>
+        </g>` : `
+        <g transform="translate(12 16)">
+          <path d="M135 130h605v490H135z" fill="#10121e" stroke="#383c57" stroke-width="7"/>
+          <path d="M160 154h425v380H160z" fill="url(#glass)" stroke="#ffffff2c" stroke-width="4"/>
+          <path d="M585 154h130v380H585z" fill="#0b0d17" stroke="#343851" stroke-width="4"/>
+          ${coreParts}
+          ${pcFan(650,225,43)}${pcFan(650,340,43)}${pcFan(650,455,43)}
+          ${pcFan(260,570,39)}${pcFan(365,570,39)}${pcFan(470,570,39)}
+          <rect x="240" y="174" width="270" height="44" rx="9" fill="#171a2b" stroke="url(#rgb)" stroke-width="3"/>
+          <circle cx="276" cy="196" r="13" fill="#090a12" stroke="${primary}" stroke-width="4"/><circle cx="473" cy="196" r="13" fill="#090a12" stroke="${secondary}" stroke-width="4"/>
+          <path d="M276 209c2 42 67 25 77 49M473 209c-3 42-61 26-70 49" fill="none" stroke="#3b4058" stroke-width="8" stroke-linecap="round"/>
+          <rect x="160" y="534" width="425" height="58" fill="#0a0c15" opacity=".86"/><text x="185" y="566" fill="url(#rgb)" font-size="21" font-family="Arial" font-weight="900" letter-spacing="5">ACE ELITE</text>
+          <path d="M170 620h32v26h-32zM680 620h32v26h-32z" fill="#1e2233"/>
+        </g>`;
+      return svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 760">
+        <defs>
+          <linearGradient id="rgb" x1="0" y1="0" x2="1" y2="1"><stop stop-color="${primary}"/><stop offset=".5" stop-color="#7657ff"/><stop offset="1" stop-color="${secondary}"/></linearGradient>
+          <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#171a2c" stop-opacity=".96"/><stop offset=".55" stop-color="#0e1020" stop-opacity=".9"/><stop offset="1" stop-color="${secondary}" stop-opacity=".08"/></linearGradient>
+          <radialGradient id="halo"><stop stop-color="${primary}" stop-opacity=".24"/><stop offset="1" stop-color="#080812" stop-opacity="0"/></radialGradient>
+          <filter id="glow"><feGaussianBlur stdDeviation="10"/></filter>
+        </defs>
+        <rect width="900" height="760" fill="#090914"/>
+        <circle cx="460" cy="350" r="350" fill="url(#halo)"/>
+        <ellipse cx="455" cy="688" rx="310" ry="36" fill="#000" opacity=".58"/>
+        <ellipse cx="455" cy="680" rx="250" ry="18" fill="url(#rgb)" opacity=".38" filter="url(#glow)"/>
+        ${body}
+        <text x="450" y="724" text-anchor="middle" fill="#f7f8ff" font-size="24" font-family="Arial" font-weight="800" letter-spacing="6">${label}</text>
+      </svg>`);
+    };
+    const gearArt = (title,subtitle,symbol,primary='#ff3f9d',secondary='#29c7ff') => svgData(`
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 760">
+        <defs>
+          <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="${primary}"/><stop offset="1" stop-color="${secondary}"/></linearGradient>
+          <radialGradient id="h"><stop stop-color="${primary}" stop-opacity=".32"/><stop offset="1" stop-color="#080812" stop-opacity="0"/></radialGradient>
+          <filter id="b"><feGaussianBlur stdDeviation="18"/></filter>
+        </defs>
+        <rect width="900" height="760" fill="#090914"/>
+        <circle cx="450" cy="335" r="330" fill="url(#h)"/>
+        <circle cx="450" cy="330" r="190" fill="none" stroke="url(#g)" stroke-width="5" opacity=".34"/>
+        <circle cx="450" cy="330" r="145" fill="#111426" stroke="url(#g)" stroke-width="4"/>
+        <circle cx="450" cy="330" r="122" fill="url(#g)" opacity=".12" filter="url(#b)"/>
+        <text x="450" y="380" text-anchor="middle" fill="white" font-family="Arial" font-size="142" font-weight="800">${symbol}</text>
+        <text x="450" y="625" text-anchor="middle" fill="white" font-family="Arial" font-size="29" font-weight="800" letter-spacing="5">${title}</text>
+        <text x="450" y="670" text-anchor="middle" fill="#9b9caf" font-family="Arial" font-size="19" font-weight="700" letter-spacing="3">${subtitle}</text>
+      </svg>`);
+    const productArt = {
+      pcCore: pcArt('ACE CORE · RTX 2060','#ff3f9d','#29c7ff',1),
+      pcPro: pcArt('ACE PRO · RTX 4060','#9c4dff','#29c7ff',2),
+      pcElite: pcArt('ACE ELITE · RX 7700 XT','#ff3f9d','#42e8ff',3),
+      pcRyzen: pcArt('ACE RYZEN · RX 7700 XT','#29c7ff','#ff3f9d',2),
+      monitor: gearArt('GAMING MONITOR','HIGH REFRESH DISPLAY','▭','#29c7ff','#7657ff'),
+      ram: gearArt('RAM UPGRADE','PERFORMANCE MEMORY','RAM','#7657ff','#40dfa0'),
+      ps5: svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 760"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff3f9d"/><stop offset=".55" stop-color="#7458ff"/><stop offset="1" stop-color="#29c7ff"/></linearGradient><radialGradient id="r"><stop stop-color="#7657ff" stop-opacity=".45"/><stop offset="1" stop-color="#080812" stop-opacity="0"/></radialGradient></defs><rect width="900" height="760" fill="#090914"/><circle cx="450" cy="380" r="330" fill="url(#r)"/><ellipse cx="450" cy="655" rx="260" ry="35" fill="#000" opacity=".55"/><path d="M376 102c-50 66-56 135-45 233l22 256c3 41 28 64 68 64h58l19-553z" fill="#f2f4f9"/><path d="M524 102c50 66 56 135 45 233l-22 256c-3 41-28 64-68 64h-58l-19-553z" fill="#e7e9f2"/><path d="M412 113h76l-17 523h-42z" fill="#111426"/><path d="M404 142h92l-8 44h-76z" fill="url(#g)" opacity=".9"/><circle cx="467" cy="214" r="8" fill="#29c7ff"/><text x="450" y="708" text-anchor="middle" fill="white" font-family="Arial" font-size="28" font-weight="700" letter-spacing="7">PLAYSTATION 5</text></svg>`),
+      controller: svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 760"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff3f9d"/><stop offset="1" stop-color="#29c7ff"/></linearGradient><radialGradient id="r"><stop stop-color="#7657ff" stop-opacity=".5"/><stop offset="1" stop-color="#080812" stop-opacity="0"/></radialGradient></defs><rect width="900" height="760" fill="#090914"/><circle cx="450" cy="370" r="330" fill="url(#r)"/><ellipse cx="450" cy="610" rx="280" ry="36" fill="#000" opacity=".5"/><path d="M237 292c-70 27-110 86-123 174-13 89 14 141 68 120 41-17 67-89 113-91h310c46 2 72 74 113 91 54 21 81-31 68-120-13-88-53-147-123-174-42-16-91-23-142-8-44 13-98 13-142 0-51-15-100-8-142 8z" fill="#f0f2f8"/><path d="M330 300h240c57 0 112 38 135 98l-54 29-53-63H302l-53 63-54-29c23-60 78-98 135-98z" fill="#171827"/><rect x="286" y="351" width="112" height="30" rx="8" fill="#343747"/><rect x="327" y="310" width="30" height="112" rx="8" fill="#343747"/><circle cx="606" cy="333" r="15" fill="#ff3f9d"/><circle cx="656" cy="376" r="15" fill="#29c7ff"/><circle cx="607" cy="419" r="15" fill="#7657ff"/><circle cx="557" cy="376" r="15" fill="#ff78bb"/><circle cx="450" cy="389" r="50" fill="#171827" stroke="url(#g)" stroke-width="5"/><circle cx="365" cy="472" r="45" fill="#202232"/><circle cx="535" cy="472" r="45" fill="#202232"/><text x="450" y="684" text-anchor="middle" fill="white" font-family="Arial" font-size="28" font-weight="700" letter-spacing="7">DUALSENSE</text></svg>`),
+      keyboard: svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 760"><defs><linearGradient id="g"><stop stop-color="#ff3f9d"/><stop offset=".5" stop-color="#7657ff"/><stop offset="1" stop-color="#29c7ff"/></linearGradient><radialGradient id="r"><stop stop-color="#7657ff" stop-opacity=".45"/><stop offset="1" stop-color="#080812" stop-opacity="0"/></radialGradient></defs><rect width="900" height="760" fill="#090914"/><circle cx="450" cy="350" r="340" fill="url(#r)"/><g transform="translate(108 210) skewX(-8)"><rect width="685" height="330" rx="30" fill="#161827" stroke="url(#g)" stroke-width="4"/><g fill="#2b2e40" stroke="url(#g)" stroke-opacity=".65" stroke-width="2">${Array.from({length:5},(_,r)=>Array.from({length:13},(_,c)=>`<rect x="${28+c*49}" y="${28+r*51}" width="39" height="38" rx="6"/>`).join('')).join('')}</g><rect x="210" y="283" width="260" height="24" rx="8" fill="url(#g)"/></g><text x="450" y="665" text-anchor="middle" fill="white" font-family="Arial" font-size="28" font-weight="700" letter-spacing="7">MECHANICAL KEYBOARD</text></svg>`),
+      mouse: svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 760"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ff3f9d"/><stop offset="1" stop-color="#29c7ff"/></linearGradient><radialGradient id="r"><stop stop-color="#7657ff" stop-opacity=".48"/><stop offset="1" stop-color="#080812" stop-opacity="0"/></radialGradient></defs><rect width="900" height="760" fill="#090914"/><circle cx="450" cy="355" r="335" fill="url(#r)"/><ellipse cx="450" cy="620" rx="180" ry="27" fill="#000" opacity=".55"/><path d="M450 115c-122 0-203 92-203 254v93c0 113 83 176 203 176s203-63 203-176v-93c0-162-81-254-203-254z" fill="#171927" stroke="url(#g)" stroke-width="6"/><path d="M450 118v212" stroke="url(#g)" stroke-width="5"/><rect x="426" y="215" width="48" height="84" rx="22" fill="#33364a" stroke="#29c7ff" stroke-width="3"/><path d="M284 430c95 55 237 55 332 0" fill="none" stroke="url(#g)" stroke-width="7" opacity=".8"/><path d="m423 390 27-17 27 17-10 34h-34z" fill="url(#g)"/><text x="450" y="700" text-anchor="middle" fill="white" font-family="Arial" font-size="28" font-weight="700" letter-spacing="7">GAMING MOUSE</text></svg>`),
+      headset: svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 760"><defs><linearGradient id="g"><stop stop-color="#ff3f9d"/><stop offset=".5" stop-color="#7657ff"/><stop offset="1" stop-color="#29c7ff"/></linearGradient><radialGradient id="r"><stop stop-color="#7657ff" stop-opacity=".45"/><stop offset="1" stop-color="#080812" stop-opacity="0"/></radialGradient></defs><rect width="900" height="760" fill="#090914"/><circle cx="450" cy="350" r="335" fill="url(#r)"/><path d="M235 410V335c0-137 91-232 215-232s215 95 215 232v75" fill="none" stroke="#282b3c" stroke-width="70" stroke-linecap="round"/><path d="M235 346c0-142 92-243 215-243s215 101 215 243" fill="none" stroke="url(#g)" stroke-width="7"/><rect x="175" y="340" width="135" height="235" rx="62" fill="#171927" stroke="url(#g)" stroke-width="5"/><rect x="590" y="340" width="135" height="235" rx="62" fill="#171927" stroke="url(#g)" stroke-width="5"/><path d="M640 550c-25 73-83 99-151 91" fill="none" stroke="#2c2f41" stroke-width="18" stroke-linecap="round"/><circle cx="482" cy="640" r="21" fill="#29c7ff"/><text x="450" y="704" text-anchor="middle" fill="white" font-family="Arial" font-size="28" font-weight="700" letter-spacing="7">GAMING HEADSET</text></svg>`),
+      mousepad: svgData(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 760"><defs><linearGradient id="g"><stop stop-color="#ff3f9d"/><stop offset=".5" stop-color="#7657ff"/><stop offset="1" stop-color="#29c7ff"/></linearGradient><radialGradient id="r"><stop stop-color="#7657ff" stop-opacity=".45"/><stop offset="1" stop-color="#080812" stop-opacity="0"/></radialGradient></defs><rect width="900" height="760" fill="#090914"/><circle cx="450" cy="350" r="340" fill="url(#r)"/><g transform="translate(83 230) skewX(-10)"><rect width="735" height="345" rx="32" fill="#131523" stroke="url(#g)" stroke-width="6"/><path d="M25 280C190 130 330 365 505 176 604 69 656 101 710 50" fill="none" stroke="url(#g)" stroke-width="10" opacity=".9"/><circle cx="583" cy="100" r="75" fill="none" stroke="#29c7ff" stroke-width="5" opacity=".65"/><path d="m563 105 25-16 25 16-10 31h-30z" fill="url(#g)"/></g><text x="450" y="680" text-anchor="middle" fill="white" font-family="Arial" font-size="28" font-weight="700" letter-spacing="7">RGB MOUSE PAD</text></svg>`)
+    };
+    const products = [
+      {
+        id:'pc-2060', category:'pc', categoryName:'Gaming PC Rental', badge:'Best value', image:productArt.pcCore,
+        name:'RTX 2060 Gaming PC', price:3999, plans:{1:3999,2:3699,3:3399}, rating:'4.8',
+        description:'A dependable Full HD gaming PC built for high-FPS gaming, competitive play, streaming, video editing and smooth multitasking.',
+        mini:['Ryzen 5 2600','RTX 2060 Super','16GB RAM'],
+        specs:[['Processor','AMD Ryzen 5 2600'],['Graphics Card','MSI GeForce RTX 2060 Super OC'],['Motherboard','MSI B450M PRO M2-V2'],['Memory','G.Skill Ripjaws 16GB (8GB × 2)'],['Storage','WD 1TB NVMe SSD'],['Power Supply','Deepcool 450W SMPS'],['Cabinet','Cooler Master'],['Case Fans','120mm RGB fans']],
+        bestFor:['AAA games','Competitive play','Streaming','Video editing']
+      },
+      {
+        id:'pc-4060', category:'pc', categoryName:'Gaming PC Rental', badge:'Most popular', hot:true, image:productArt.pcPro,
+        name:'RTX 4060 Gaming PC', price:8999, plans:{1:8999,2:8499,3:7999}, rating:'4.9',
+        description:'A modern high-performance gaming PC with fast storage, strong airflow and reliable power for smooth gameplay and creator work.',
+        mini:['Ryzen 7 5700','RTX 4060 8GB','16GB RAM'],
+        specs:[['Processor','AMD Ryzen 7 5700 — 8 cores / 16 threads, up to 4.6GHz'],['Graphics Card','Colorful GeForce RTX 4060 8GB'],['Motherboard','B450M'],['Memory','XPG 16GB (1 × 16GB) DDR4 3200MHz'],['Storage','WD 1TB NVMe SSD'],['Cabinet','Lian Li'],['Power Supply','Ant Esports 550W 80+ Bronze']],
+        bestFor:['Gaming','Streaming','Content creation','Esports']
+      },
+      {
+        id:'pc-7700xt-i5', category:'pc', categoryName:'Gaming PC Rental', badge:'Premium Intel', image:productArt.pcElite,
+        name:'RX 7700 XT Intel i5 Gaming PC', price:12999, plans:{1:12999,2:11999,3:10999}, rating:'5.0',
+        description:'A premium 1440p gaming and content-creation setup with powerful Intel processing, Radeon graphics and advanced liquid cooling.',
+        mini:['Intel Core i5-12600K','RX 7700 XT 12GB','32GB DDR5'],
+        specs:[['Processor','Intel Core i5-12600K'],['Graphics Card','Sapphire Radeon RX 7700 XT 12GB'],['Motherboard','MSI PRO Z790-A WIFI (DDR5)'],['Memory','Adata XPG 32GB DDR5 6000MHz CL30'],['Primary Storage','1TB Kingston Fury Renegade NVMe Gen4 SSD'],['Secondary Storage','Crucial 500GB SATA SSD'],['CPU Cooler','Thermaltake TH240 V2 ARGB 240mm AIO'],['Cabinet','Thermaltake S200 TG ARGB Mid Tower'],['Power Supply','Cooler Master 650W V3 Bronze']],
+        peripherals:[['Monitor','ViewSonic 27-inch 240Hz 2K IPS with monitor arm'],['Mouse','Razer Cobra / Kreo Pegasus wired gaming mouse'],['Headset','Razer BlackShark V2 X wired gaming headset'],['Keyboard','Kreo Hive75 gaming keyboard']],
+        bestFor:['1440p gaming','High-FPS esports','Streaming','Content creation']
+      },
+      {
+        id:'pc-7700xt-ryzen', category:'pc', categoryName:'Gaming PC Rental', badge:'Premium Ryzen', image:productArt.pcRyzen,
+        name:'RX 7700 XT Ryzen Gaming PC', price:12999, plans:{1:12999,2:11999,3:10999}, rating:'5.0',
+        description:'A high-end Ryzen gaming PC for premium 1440p performance, smooth multitasking and demanding modern games.',
+        mini:['Ryzen 5 7600','RX 7700 XT 12GB','16GB RAM'],
+        specs:[['Processor','AMD Ryzen 5 7600'],['Graphics Card','AMD Radeon RX 7700 XT 12GB'],['Motherboard','MSI B650M-P PRO'],['Memory','16GB RAM'],['CPU Cooler','Cooler Master Hyper H212'],['Power Supply','Cooler Master 650W V3 Bronze']],
+        bestFor:['1440p gaming','Competitive gaming','Streaming','Multitasking']
+      },
+      {
+        id:'keyboard-chgbk25', category:'accessory', categoryName:'Gaming Accessory', badge:'Mechanical', image:productArt.keyboard,
+        name:'CHGBK25 Mechanical Keyboard', price:199, rating:'4.7',
+        description:'Mechanical gaming keyboard available for monthly rental.',
+        mini:['Mechanical','Gaming accessory'],
+        specs:[['Model','CHGBK25'],['Type','Mechanical gaming keyboard']]
+      },
+      {
+        id:'mouse-razer-deathadder', category:'accessory', categoryName:'Gaming Accessory', badge:'Razer', image:productArt.mouse,
+        name:'Razer DeathAdder Mouse', price:199, rating:'4.8',
+        description:'Razer DeathAdder gaming mouse available for monthly rental.',
+        mini:['Razer','DeathAdder'],
+        specs:[['Brand','Razer'],['Model','DeathAdder']]
+      },
+      {
+        id:'mouse-logitech-g402', category:'accessory', categoryName:'Gaming Accessory', badge:'Logitech', image:productArt.mouse,
+        name:'Logitech G402 Gaming Mouse', price:349, rating:'4.8',
+        description:'Logitech G402 gaming mouse available for monthly rental.',
+        mini:['Logitech','G402'],
+        specs:[['Brand','Logitech'],['Model','G402']]
+      },
+      {
+        id:'headphones-ant-esports', category:'accessory', categoryName:'Gaming Accessory', badge:'Ant Esports', image:productArt.headset,
+        name:'Ant Esports Gaming Headphones', price:199, rating:'4.7',
+        description:'Ant Esports gaming headphones available for monthly rental.',
+        mini:['Ant Esports','Gaming audio'],
+        specs:[['Brand','Ant Esports'],['Type','Gaming headphones']]
+      },
+      {
+        id:'headset-logitech-g431', category:'accessory', categoryName:'Gaming Accessory', badge:'Logitech', image:productArt.headset,
+        name:'Logitech G431 Gaming Headset', price:499, rating:'4.9',
+        description:'Logitech G431 gaming headset available for monthly rental.',
+        mini:['Logitech','G431'],
+        specs:[['Brand','Logitech'],['Model','G431']]
+      },
+      {
+        id:'mousepad-cybeart-l', category:'accessory', categoryName:'Gaming Accessory', badge:'Cybeart', image:productArt.mousepad,
+        name:'Cybeart L Mousepad', price:129, rating:'4.7',
+        description:'Large Cybeart mousepad available for monthly rental.',
+        mini:['Cybeart','Large size'],
+        specs:[['Brand','Cybeart'],['Size','L']]
+      },
+      {
+        id:'mousepad-cybeart-xxl', category:'accessory', categoryName:'Gaming Accessory', badge:'Cybeart', image:productArt.mousepad,
+        name:'Cybeart XXL Mousepad', price:199, rating:'4.8',
+        description:'Extra-extra-large Cybeart mousepad available for monthly rental.',
+        mini:['Cybeart','XXL size'],
+        specs:[['Brand','Cybeart'],['Size','XXL']]
+      },
+      {
+        id:'monitor-samsung-144', category:'monitor', categoryName:'Monitor Rental', badge:'Curved 144Hz', image:productArt.monitor,
+        name:'Samsung 144Hz Curved 24-inch Monitor', price:1299, rating:'4.8',
+        description:'A curved 24-inch Samsung high-refresh monitor available for monthly rental.',
+        mini:['24 inch','144Hz','Curved'],
+        specs:[['Brand','Samsung'],['Size','24 inch'],['Refresh rate','144Hz']]
+      },
+      {
+        id:'monitor-aoc-240', category:'monitor', categoryName:'Monitor Rental', badge:'240Hz', image:productArt.monitor,
+        name:'AOC 240Hz 24-inch Monitor', price:1499, rating:'4.9',
+        description:'A fast 24-inch AOC 240Hz display designed for competitive gaming.',
+        mini:['24 inch','240Hz','Esports ready'],
+        specs:[['Brand','AOC'],['Size','24 inch'],['Refresh rate','240Hz']]
+      },
+      {
+        id:'monitor-viewsonic-240', category:'monitor', categoryName:'Monitor Rental', badge:'27-inch 240Hz', image:productArt.monitor,
+        name:'ViewSonic 240Hz 27-inch Monitor', price:1999, rating:'4.9',
+        description:'A spacious 27-inch ViewSonic 240Hz monitor for premium high-frame-rate gaming.',
+        mini:['27 inch','240Hz','Premium display'],
+        specs:[['Brand','ViewSonic'],['Size','27 inch'],['Refresh rate','240Hz']]
+      },
+      {
+        id:'monitor-gigabyte-165', category:'monitor', categoryName:'Monitor Rental', badge:'165Hz', image:productArt.monitor,
+        name:'Gigabyte 165Hz 27-inch Monitor', price:1499, rating:'4.8',
+        description:'A 27-inch Gigabyte 165Hz monitor that balances size, speed and value.',
+        mini:['27 inch','165Hz','Gaming display'],
+        specs:[['Brand','Gigabyte'],['Size','27 inch'],['Refresh rate','165Hz']]
+      },
+      {
+        id:'ram-16gb', category:'upgrade', categoryName:'RAM Rental', badge:'16GB', image:productArt.ram,
+        name:'16GB RAM Upgrade', price:1499, rating:'4.8',
+        description:'A 16GB RAM upgrade available for monthly rental.',
+        mini:['16GB','RAM upgrade'],
+        specs:[['Capacity','16GB']]
+      },
+      {
+        id:'ram-32gb', category:'upgrade', categoryName:'RAM Rental', badge:'32GB', image:productArt.ram,
+        name:'32GB RAM Upgrade', price:2999, rating:'4.9',
+        description:'A 32GB RAM upgrade available for monthly rental.',
+        mini:['32GB','RAM upgrade'],
+        specs:[['Capacity','32GB']]
+      }
+    ];
+
+    const builderCatalog = [
+      {
+        id:'cpu', label:'Processor', description:'The brain of your build',
+        options:[
+          {id:'r5-5600',name:'AMD Ryzen 5 5600',price:10999,platform:'AM4'},
+          {id:'r7-5700x',name:'AMD Ryzen 7 5700X',price:16999,platform:'AM4'},
+          {id:'i5-12400f',name:'Intel Core i5-12400F',price:12499,platform:'LGA1700'},
+          {id:'i5-14600kf',name:'Intel Core i5-14600KF',price:25999,platform:'LGA1700'}
+        ]
+      },
+      {
+        id:'board', label:'Motherboard', description:'Auto-matched to your CPU',
+        options:[
+          {id:'b550m',name:'MSI B550M PRO-VDH WiFi',price:9999,platform:'AM4',memory:'DDR4'},
+          {id:'b550-gaming',name:'ASUS TUF Gaming B550-Plus',price:14999,platform:'AM4',memory:'DDR4'},
+          {id:'b760m-d4',name:'MSI PRO B760M-A WiFi DDR4',price:13999,platform:'LGA1700',memory:'DDR4'},
+          {id:'b760m-d5',name:'Gigabyte B760M Aorus Elite DDR5',price:16999,platform:'LGA1700',memory:'DDR5'},
+          {id:'z790-d5',name:'MSI PRO Z790-P WiFi DDR5',price:23999,platform:'LGA1700',memory:'DDR5'}
+        ]
+      },
+      {
+        id:'gpu', label:'Graphics Card', description:'Gaming and visual performance',
+        options:[
+          {id:'rx-6600',name:'AMD Radeon RX 6600 8GB',price:20999,recommendedPsu:550},
+          {id:'rtx-3060',name:'NVIDIA GeForce RTX 3060 12GB',price:25999,recommendedPsu:550},
+          {id:'rtx-4060',name:'NVIDIA GeForce RTX 4060 8GB',price:29999,recommendedPsu:550},
+          {id:'rx-7700xt',name:'AMD Radeon RX 7700 XT 12GB',price:44999,recommendedPsu:650},
+          {id:'rtx-4070s',name:'NVIDIA GeForce RTX 4070 Super 12GB',price:64999,recommendedPsu:750}
+        ]
+      },
+      {
+        id:'ram', label:'Memory', description:'Auto-matched to your board',
+        options:[
+          {id:'16-ddr4',name:'16GB DDR4 3200MHz (8GB × 2)',price:3999,memory:'DDR4'},
+          {id:'32-ddr4',name:'32GB DDR4 3600MHz (16GB × 2)',price:6999,memory:'DDR4'},
+          {id:'32-ddr5',name:'32GB DDR5 6000MHz (16GB × 2)',price:9999,memory:'DDR5'},
+          {id:'64-ddr5',name:'64GB DDR5 6000MHz (32GB × 2)',price:17999,memory:'DDR5'}
+        ]
+      },
+      {
+        id:'storage', label:'Storage', description:'Fast space for games and files',
+        options:[
+          {id:'512-nvme',name:'512GB Gen4 NVMe SSD',price:3499},
+          {id:'1tb-nvme',name:'1TB Gen4 NVMe SSD',price:5999},
+          {id:'2tb-nvme',name:'2TB Gen4 NVMe SSD',price:10999}
+        ]
+      },
+      {
+        id:'cooler', label:'CPU Cooling', description:'Keep temperatures controlled',
+        options:[
+          {id:'tower-air',name:'120mm Tower Air Cooler',price:2499},
+          {id:'dual-air',name:'Dual-Tower ARGB Air Cooler',price:4499},
+          {id:'aio-240',name:'240mm ARGB Liquid Cooler',price:6999}
+        ]
+      },
+      {
+        id:'psu', label:'Power Supply', description:'Auto-sized for your graphics card',
+        options:[
+          {id:'550-bronze',name:'550W 80+ Bronze PSU',price:4299,watts:550},
+          {id:'650-bronze',name:'650W 80+ Bronze PSU',price:5499,watts:650},
+          {id:'750-gold',name:'750W 80+ Gold Modular PSU',price:8499,watts:750},
+          {id:'850-gold',name:'850W 80+ Gold Modular PSU',price:10999,watts:850}
+        ]
+      },
+      {
+        id:'case', label:'Cabinet', description:'Choose your setup style',
+        options:[
+          {id:'airflow',name:'Ace Airflow RGB Mid Tower',price:4499},
+          {id:'panoramic',name:'Panoramic Glass ARGB Case',price:6999},
+          {id:'premium',name:'Premium Dual-Chamber Case',price:9999}
+        ]
+      },
+      {
+        id:'software', label:'Operating System', description:'Optional software setup',
+        options:[
+          {id:'none',name:'No operating system',price:0},
+          {id:'windows-trial',name:'Windows installation (unactivated)',price:499},
+          {id:'windows-licensed',name:'Windows 11 Home licence',price:10999}
+        ]
+      }
+    ];
+    const builderDefaults = {
+      cpu:'r5-5600',board:'b550m',gpu:'rtx-4060',ram:'16-ddr4',storage:'1tb-nvme',
+      cooler:'tower-air',psu:'550-bronze',case:'airflow',software:'none'
+    };
+    const assemblyFee = 1499;
+
+    let cart = JSON.parse(localStorage.getItem('aceGamingCart') || '{}');
+    let activeFilter = 'all';
+    let toastTimer;
+    let detailQuantity = 1;
+    let rentalDuration = 1;
+    let rentalNowItems = null;
+    let currentCheckoutEntries = [];
+    let builderSelection = {...builderDefaults};
+    let openBuilderMenu = null;
+
+    const money = value => new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',maximumFractionDigits:0}).format(value);
+    const getProduct = id => products.find(product => product.id === id);
+    const cartEntries = () => Object.entries(cart).map(([id,quantity]) => ({product:getProduct(id),quantity})).filter(item => item.product && item.quantity > 0);
+    const discountedPrice = product => product.plans?.[1] || product.price;
+    const originalPrice = product => product.plans?.[1] || null;
+    const rentalRate = (product,months=rentalDuration) => product.plans?.[months] || product.price;
+    const rentalMonthlyTotal = (entries,months=rentalDuration) => entries.reduce((sum,item) => sum + rentalRate(item.product,months) * item.quantity,0);
+    const rentalTermTotal = (entries,months=rentalDuration) => rentalMonthlyTotal(entries,months) * months;
+    const productVisual = product => `<img src="${product.image}" alt="${product.name}" loading="lazy">`;
+    const cartVisual = product => `<img src="${product.image}" alt="">`;
+    const detailVisual = product => `<div class="detail-main-image"><img src="${product.image}" alt="${product.name}"></div>`;
+
+    function saveCart(){
+      localStorage.setItem('aceGamingCart',JSON.stringify(cart));
+      updateCartUI();
+    }
+
+    function productCard(product,index){
+      return `
+        <article class="product-card" data-category="${product.category}" data-name="${product.name.toLowerCase()}" style="transition-delay:${Math.min(index * 55,280)}ms">
+          <div class="product-image" data-view-product="${product.id}">
+            <span class="badge ${product.hot ? 'hot' : ''}">${product.badge}</span>
+            <button class="quick-view" type="button" data-view-product="${product.id}" aria-label="View ${product.name}">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1.5 12s3.8-7 10.5-7 10.5 7 10.5 7-3.8 7-10.5 7S1.5 12 1.5 12Z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+            ${productVisual(product)}
+          </div>
+          <div class="product-info">
+            <span class="category-label">${product.categoryName}</span>
+            <h3><a href="#product/${product.id}" data-view-product="${product.id}">${product.name}</a></h3>
+            <ul class="mini-specs">${product.mini.filter(spec => !spec.includes('₹')).map(spec => `<li>${spec}</li>`).join('')}</ul>
+            <div class="price-line">
+              <span><b class="price ${originalPrice(product) ? 'discounted' : ''}">${money(discountedPrice(product))}</b><small class="price-suffix">/ month</small>${product.plans ? `<small class="mrp" style="text-decoration:none;color:#9b9caf">2 mo: ${money(product.plans[2])}/mo · 3 mo: ${money(product.plans[3])}/mo</small>` : ''}</span>
+              <span class="stock">Available</span>
+            </div>
+            <div class="card-actions">
+              <button class="button secondary" type="button" data-view-product="${product.id}">View details</button>
+              <button class="button" type="button" data-add="${product.id}">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h2l2.4 10.7a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L21 7H6"/><path d="M12 9v5M9.5 11.5h5"/></svg>
+                Add to rental
+              </button>
+            </div>
+          </div>
+        </article>`;
+    }
+
+    const getBuilderSection = id => builderCatalog.find(section => section.id === id);
+    const getBuilderPart = (sectionId,partId) => getBuilderSection(sectionId)?.options.find(option => option.id === partId);
+
+    function availableBuilderOptions(sectionId){
+      const section = getBuilderSection(sectionId);
+      if(!section) return [];
+      if(sectionId === 'board'){
+        const cpu = getBuilderPart('cpu',builderSelection.cpu);
+        return section.options.filter(option => option.platform === cpu?.platform);
+      }
+      if(sectionId === 'ram'){
+        const board = getBuilderPart('board',builderSelection.board);
+        return section.options.filter(option => option.memory === board?.memory);
+      }
+      return section.options;
+    }
+
+    function reconcileBuilder(){
+      ['board','ram'].forEach(sectionId => {
+        const options = availableBuilderOptions(sectionId);
+        if(!options.some(option => option.id === builderSelection[sectionId])) builderSelection[sectionId] = options[0]?.id;
+      });
+      const gpu = getBuilderPart('gpu',builderSelection.gpu);
+      const psu = getBuilderPart('psu',builderSelection.psu);
+      if(gpu && psu && psu.watts < gpu.recommendedPsu){
+        const suitablePsu = getBuilderSection('psu').options.find(option => option.watts >= gpu.recommendedPsu);
+        if(suitablePsu) builderSelection.psu = suitablePsu.id;
+      }
+    }
+
+    function selectedBuilderParts(){
+      return builderCatalog.map(section => ({section,part:getBuilderPart(section.id,builderSelection[section.id])})).filter(item => item.part);
+    }
+
+    function builderEstimate(){
+      return selectedBuilderParts().reduce((sum,item) => sum + item.part.price,assemblyFee);
+    }
+
+    function renderBuilder(){
+      reconcileBuilder();
+      document.getElementById('builderControls').innerHTML = builderCatalog.map((section,index) => {
+        const options = availableBuilderOptions(section.id);
+        const selected = getBuilderPart(section.id,builderSelection[section.id]);
+        const isOpen = openBuilderMenu === section.id;
+        return `
+          <div class="builder-group ${isOpen ? 'menu-open' : ''}">
+            <span class="builder-group-head">
+              <span class="builder-step-number">${String(index + 1).padStart(2,'0')}</span>
+              <span><strong>${section.label}</strong><small>${section.description}</small></span>
+            </span>
+            <div class="builder-menu">
+              <button class="builder-choice" type="button" data-builder-toggle="${section.id}" aria-haspopup="listbox" aria-expanded="${isOpen}" aria-controls="builder-options-${section.id}">
+                <span class="builder-choice-copy"><strong>${selected?.name || `Choose ${section.label}`}</strong><small>${money(selected?.price || 0)}</small></span>
+                <span class="builder-chevron" aria-hidden="true">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3"><path d="m6 9 6 6 6-6"/></svg>
+                </span>
+              </button>
+              <div class="builder-options ${isOpen ? 'open' : ''}" id="builder-options-${section.id}" role="listbox" aria-label="${section.label} options">
+                ${options.map((option,optionIndex) => {
+                  const details = [
+                    option.platform,
+                    option.memory,
+                    option.watts ? `${option.watts}W` : '',
+                    option.recommendedPsu ? `${option.recommendedPsu}W PSU recommended` : ''
+                  ].filter(Boolean).join(' · ') || 'Ace Gaming component';
+                  const isSelected = option.id === builderSelection[section.id];
+                  return `<button class="builder-option ${isSelected ? 'selected' : ''}" type="button" role="option" aria-selected="${isSelected}" data-builder-option="${option.id}" data-builder-section="${section.id}" style="--option-delay:${optionIndex * 38}ms">
+                    <span class="builder-option-copy"><strong>${option.name}</strong><small>${details}</small></span>
+                    <span class="builder-option-state"><span>${money(option.price)}</span><span class="builder-option-check">✓</span></span>
+                  </button>`;
+                }).join('')}
+              </div>
+            </div>
+          </div>`;
+      }).join('');
+      updateBuilderSummary();
+    }
+
+    function updateBuilderSummary(){
+      const parts = selectedBuilderParts();
+      const total = builderEstimate();
+      document.getElementById('builderSummaryParts').innerHTML = parts.map(({section,part}) => `
+        <div class="builder-summary-part"><span>${section.label}</span><strong>${part.name}<br>${money(part.price)}</strong></div>
+      `).join('') + `<div class="builder-summary-part"><span>Assembly & testing</span><strong>${money(assemblyFee)}</strong></div>`;
+      document.getElementById('builderTotal').textContent = money(total);
+      document.getElementById('builderTier').textContent = total < 65000 ? 'Starter' : total < 110000 ? 'Performance' : 'Elite';
+      document.getElementById('builderProgress').style.width = `${Math.round(parts.length / builderCatalog.length * 100)}%`;
+    }
+
+    function renderProducts(){
+      const grid = document.getElementById('productGrid');
+      grid.innerHTML = products.map(productCard).join('') + '<div class="no-products" id="noProducts" hidden>No rentals match your search.</div>';
+      requestAnimationFrame(() => {
+        document.querySelectorAll('.product-card').forEach((card,index) => setTimeout(() => card.classList.add('visible'),35 + index * 40));
+      });
+      filterProducts();
+    }
+
+    function filterProducts(){
+      const query = document.getElementById('searchInput').value.trim().toLowerCase();
+      let found = 0;
+      document.querySelectorAll('.product-card').forEach(card => {
+        const matchesCategory = activeFilter === 'all' || card.dataset.category === activeFilter;
+        const matchesSearch = !query || card.dataset.name.includes(query);
+        const show = matchesCategory && matchesSearch;
+        card.classList.toggle('hidden-card',!show);
+        if(show) found++;
+      });
+      document.getElementById('noProducts').hidden = found > 0;
+    }
+
+    function showToast(message){
+      const toast = document.getElementById('toast');
+      document.getElementById('toastText').textContent = message;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'),2300);
+    }
+
+    function addToCart(id,quantity=1,button){
+      const product = getProduct(id);
+      if(!product) return;
+      cart[id] = (cart[id] || 0) + quantity;
+      saveCart();
+      showToast(`${product.name} added to rental list`);
+      if(button){
+        const original = button.innerHTML;
+        button.classList.add('added');
+        button.innerHTML = '✓ Added';
+        setTimeout(() => {button.classList.remove('added');button.innerHTML = original},900);
+      }
+    }
+
+    function setQuantity(id,quantity){
+      if(quantity <= 0) delete cart[id];
+      else cart[id] = quantity;
+      saveCart();
+    }
+
+    function updateCartUI(){
+      const entries = cartEntries();
+      const count = entries.reduce((sum,item) => sum + item.quantity,0);
+      const countEl = document.getElementById('cartCount');
+      countEl.textContent = count;
+      countEl.classList.toggle('visible',count > 0);
+      if(count > 0){
+        countEl.classList.remove('bump');
+        void countEl.offsetWidth;
+        countEl.classList.add('bump');
+      }
+      const itemsEl = document.getElementById('cartItems');
+      const footerEl = document.getElementById('cartFooter');
+      if(!entries.length){
+        itemsEl.innerHTML = `<div class="empty-cart"><div><svg width="55" height="55" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3h2l2.4 10.7a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L21 7H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg><strong>Your rental list is empty</strong><span>Start by adding a gaming PC.</span></div></div>`;
+        footerEl.innerHTML = `<button class="button secondary wide" type="button" data-close-cart>Continue browsing</button>`;
+        return;
+      }
+      itemsEl.innerHTML = entries.map(({product,quantity}) => `
+        <article class="cart-item">
+          ${cartVisual(product)}
+          <div>
+            <h4>${product.name}</h4>
+            <span class="cart-item-price">${money(rentalRate(product))}/month</span>
+            <div class="cart-qty">
+              <button type="button" data-cart-minus="${product.id}" aria-label="Decrease quantity">−</button>
+              <span>${quantity}</span>
+              <button type="button" data-cart-plus="${product.id}" aria-label="Increase quantity">+</button>
+            </div>
+          </div>
+          <button class="remove-item" type="button" data-remove="${product.id}" aria-label="Remove ${product.name}">×</button>
+        </article>`).join('');
+      const monthlyTotal = rentalMonthlyTotal(entries);
+      const termTotal = rentalTermTotal(entries);
+      footerEl.innerHTML = `
+        <div class="cart-period">
+          <label for="cartDuration">Rental period</label>
+          <select id="cartDuration">
+            <option value="1" ${rentalDuration === 1 ? 'selected' : ''}>1 month</option>
+            <option value="2" ${rentalDuration === 2 ? 'selected' : ''}>2 months</option>
+            <option value="3" ${rentalDuration === 3 ? 'selected' : ''}>3 months</option>
+          </select>
+        </div>
+        <div class="cart-totals">
+          <div class="cart-total-row"><span>Monthly rent</span><strong>${money(monthlyTotal)}</strong></div>
+          <div class="cart-total-row"><span>Pickup / delivery</span><strong>Confirmed by Ace Gaming</strong></div>
+          <div class="cart-total-row grand"><span>${rentalDuration}-month estimate</span><span>${money(termTotal)}</span></div>
+        </div>
+        <button class="button wide" type="button" data-checkout>Send rental request</button>
+        <p class="cart-note">This page sends a rental request only. Ace Gaming confirms availability, verification, deposit, pickup or delivery, and the final rental agreement.</p>`;
+    }
+
+    function openCart(){
+      updateCartUI();
+      document.getElementById('cartOverlay').classList.add('open');
+      document.body.classList.add('no-scroll');
+    }
+    function closeCart(){
+      document.getElementById('cartOverlay').classList.remove('open');
+      if(!document.getElementById('checkoutOverlay').classList.contains('open')) document.body.classList.remove('no-scroll');
+    }
+
+    function showProduct(id,push=true){
+      const product = getProduct(id);
+      if(!product) return;
+      detailQuantity = 1;
+      document.getElementById('storeView').hidden = true;
+      document.title = `${product.name} | Ace Gaming Rentals`;
+      const detail = document.getElementById('detailView');
+      detail.hidden = false;
+      detail.innerHTML = `
+        <div class="breadcrumbs"><button type="button" data-back-store>Rentals</button><span>/</span><span>${product.categoryName}</span><span>/</span><span>${product.name}</span></div>
+        <div class="detail-layout">
+          <div class="detail-gallery">${detailVisual(product)}</div>
+          <div class="detail-copy">
+            <span class="eyebrow">${product.categoryName}</span>
+            <h1>${product.name}</h1>
+            <div class="detail-rating">★★★★★ <span>${product.rating} rating · Performance checked</span></div>
+            <p class="detail-description">${product.description}</p>
+            <div class="detail-price ${originalPrice(product) ? 'discounted' : ''}">${money(discountedPrice(product))} <small class="price-suffix">/ month</small>${originalPrice(product) ? `<del>${money(originalPrice(product))}/month</del>` : ''}</div>
+            <div class="detail-note"><span class="stock">Available</span><span>·</span><span>Final availability confirmed with your request</span></div>
+            ${product.category === 'pc' ? `
+              <div class="detail-services">
+                <div class="detail-service"><span class="detail-service-icon">⌁</span><span><strong>Free home delivery</strong><small>1-hour delivery available</small></span></div>
+                <div class="detail-service"><span class="detail-service-icon">⚙</span><span><strong>Hassle-free service</strong><small>Support throughout the rental</small></span></div>
+                <div class="detail-service"><span class="detail-service-icon">✓</span><span><strong>No hidden costs</strong><small>Rental terms confirmed clearly</small></span></div>
+              </div>` : ''}
+            <div class="spec-panel">
+              <h3>${product.category === 'pc' ? 'COMPLETE PC SPECIFICATIONS' : 'RENTAL DETAILS'}</h3>
+              <ul class="spec-list">${product.specs.filter(([label]) => !/rate|monthly rent|requirement/i.test(label)).map(([label,value]) => `<li><span>${label}</span><strong>${value}</strong></li>`).join('')}</ul>
+            </div>
+            ${product.peripherals ? `
+              <div class="spec-panel">
+                <h3>INCLUDED SETUP & PERIPHERALS</h3>
+                <ul class="spec-list">${product.peripherals.map(([label,value]) => `<li><span>${label}</span><strong>${value}</strong></li>`).join('')}</ul>
+              </div>` : ''}
+            ${product.bestFor ? `
+              <div class="best-for">
+                <h3>PERFECT FOR</h3>
+                <div class="best-for-list">${product.bestFor.map(item => `<span>${item}</span>`).join('')}</div>
+              </div>` : ''}
+            <div class="rental-period-field">
+              <label for="detailRentalDuration">Rental period</label>
+              <select id="detailRentalDuration">
+                <option value="1" ${rentalDuration === 1 ? 'selected' : ''}>1 month</option>
+                <option value="2" ${rentalDuration === 2 ? 'selected' : ''}>2 months</option>
+                <option value="3" ${rentalDuration === 3 ? 'selected' : ''}>3 months</option>
+              </select>
+            </div>
+            <div class="quantity-buy">
+              <div class="quantity"><button type="button" data-detail-minus aria-label="Decrease quantity">−</button><strong id="detailQuantity">1</strong><button type="button" data-detail-plus aria-label="Increase quantity">+</button></div>
+              <button class="button" type="button" data-detail-add="${product.id}">Add to rental list</button>
+            </div>
+            <div class="rent-actions">
+              <button class="button secondary" type="button" data-back-store>Continue browsing</button>
+              <button class="button" type="button" data-rent-now="${product.id}">Rent now</button>
+            </div>
+            <div class="assurance"><div><strong>Performance tested</strong>Checked for stability</div><div><strong>Flexible period</strong>Choose 1, 2 or 3 months</div><div><strong>Rental confirmation</strong>Terms verified by Ace Gaming</div></div>
+          </div>
+        </div>`;
+      if(push) history.pushState({product:id},'',`#product/${id}`);
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
+
+    function showStore(push=true){
+      document.getElementById('detailView').hidden = true;
+      document.getElementById('storeView').hidden = false;
+      document.title = 'Ace Gaming Rentals';
+      if(push) history.pushState({},'','#products');
+      setTimeout(() => document.getElementById('products').scrollIntoView({behavior:'smooth'}),20);
+    }
+
+    function renderCheckoutSummary(){
+      const itemsEl = document.getElementById('checkoutSummaryItems');
+      const totalEl = document.getElementById('checkoutTotal');
+      const totalLabel = document.getElementById('checkoutTotalLabel');
+      if(!itemsEl || !totalEl || !totalLabel) return;
+      itemsEl.innerHTML = currentCheckoutEntries.map(item => `
+        <div class="summary-item">
+          <img class="summary-thumb" src="${item.product.image}" alt="">
+          <div class="summary-item-copy">
+            <strong>${item.product.name}</strong>
+            <span>Quantity ${item.quantity} · ${money(rentalRate(item.product))}/month each</span>
+          </div>
+          <div class="summary-item-price"><span>Monthly subtotal</span><strong>${money(rentalRate(item.product) * item.quantity)}</strong></div>
+        </div>`).join('');
+      totalLabel.textContent = `${rentalDuration}-month estimate`;
+      totalEl.textContent = money(rentalTermTotal(currentCheckoutEntries));
+    }
+
+    function openCheckout(singleProductId){
+      const singleProduct = singleProductId ? getProduct(singleProductId) : null;
+      const entries = singleProduct ? [{product:singleProduct,quantity:detailQuantity}] : cartEntries();
+      if(!entries.length){showToast('Your rental list is empty');return}
+      rentalNowItems = singleProduct ? entries : null;
+      currentCheckoutEntries = entries;
+      document.getElementById('checkoutTitle').textContent = 'Finish your rental request';
+      const durationSelect = document.getElementById('checkoutDuration');
+      if(durationSelect) durationSelect.value = String(rentalDuration);
+      renderCheckoutSummary();
+      const overlay = document.getElementById('checkoutOverlay');
+      overlay.classList.add('open');
+      document.body.classList.add('no-scroll');
+      closeCart();
+    }
+
+    function closeCheckout(){
+      document.getElementById('checkoutOverlay').classList.remove('open');
+      document.body.classList.remove('no-scroll');
+      setTimeout(resetCheckout,320);
+    }
+
+    function resetCheckout(){
+      document.getElementById('checkoutContent').innerHTML = `
+        <div class="checkout-head">
+          <div class="checkout-head-copy"><span class="checkout-kicker">Ace Gaming Rentals</span><h2 id="checkoutTitle">Finish your rental request</h2><p>Review your setup, add your details and continue securely to WhatsApp.</p></div>
+          <button class="close-button" type="button" data-close-checkout aria-label="Close rental request">×</button>
+        </div>
+        <div class="checkout-grid">
+          <form class="checkout-form" id="checkoutForm">
+            <div class="form-intro field full"><span class="form-step">02</span><div><span>Your details</span><h3>Where should we reach you?</h3></div></div>
+            <label class="field">Full name<input name="name" autocomplete="name" required placeholder="Your name"></label>
+            <label class="field">Phone number<input name="phone" autocomplete="tel" inputmode="tel" required placeholder="+91 00000 00000"></label>
+            <label class="field full">Email address<input name="email" type="email" autocomplete="email" required placeholder="you@example.com"></label>
+            <label class="field full">Delivery address<textarea name="address" autocomplete="street-address" required placeholder="House, street, area, city and PIN code"></textarea></label>
+            <label class="field">Rental period<select name="duration" id="checkoutDuration"><option value="1" ${rentalDuration === 1 ? 'selected' : ''}>1 month</option><option value="2" ${rentalDuration === 2 ? 'selected' : ''}>2 months</option><option value="3" ${rentalDuration === 3 ? 'selected' : ''}>3 months</option></select></label>
+            <label class="field">Pickup or delivery<select name="method"><option>Home delivery</option><option>Store pickup</option></select></label>
+            <label class="field full">Notes (optional)<textarea name="notes" placeholder="Preferred delivery time or anything Ace Gaming should know"></textarea></label>
+            <label class="field honeypot" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
+            <p class="form-status" id="checkoutStatus" role="status" aria-live="polite"></p>
+            <button class="button checkout-submit" type="submit"><span>Save &amp; open WhatsApp</span><span class="checkout-submit-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m9 18 6-6-6-6"/></svg></span></button>
+            <p class="submit-note">Your request is saved first. You will review and send the prepared message in WhatsApp.</p>
+          </form>
+          <aside class="checkout-summary">
+            <div class="summary-head"><span class="summary-step">01</span><div><span class="summary-kicker">Order review</span><h3>Your rental setup</h3></div></div>
+            <div class="checkout-summary-items" id="checkoutSummaryItems"></div>
+            <div class="summary-total"><span id="checkoutTotalLabel">Estimated total</span><strong id="checkoutTotal">₹0</strong></div>
+            <div class="summary-assurance"><b>✓</b><p>Free request submission. Availability, deposit and delivery are confirmed by Ace Gaming.</p></div>
+          </aside>
+        </div>`;
+    }
+
+    function createOrderId(){
+      const date = new Date().toISOString().slice(0,10).replaceAll('-','');
+      const random = Math.floor(1000 + Math.random() * 9000);
+      return `AG-${date}-${random}`;
+    }
+
+    function createRequestToken(){
+      if(window.crypto?.getRandomValues){
+        const values = new Uint32Array(4);
+        window.crypto.getRandomValues(values);
+        return Array.from(values,value => value.toString(16).padStart(8,'0')).join('');
+      }
+      return `${Date.now()}-${Math.random().toString(36).slice(2)}`;
+    }
+
+    function sheetsConnectionReady(){
+      return /^https:\/\/script\.google\.com\/macros\/s\/[^/]+\/exec(?:\?.*)?$/.test(GOOGLE_SHEETS_WEB_APP_URL);
+    }
+
+    function setCheckoutStatus(message,isError=false){
+      const status = document.getElementById('checkoutStatus');
+      if(!status) return;
+      status.textContent = message;
+      status.classList.add('show');
+      status.classList.toggle('error',isError);
+    }
+
+    function submitOrderToGoogleSheets(order){
+      return new Promise((resolve,reject) => {
+        if(!sheetsConnectionReady()){
+          reject(new Error('Google Sheets is not connected yet. Add the Apps Script web-app URL using the included setup guide.'));
+          return;
+        }
+
+        let frame = document.getElementById('aceGoogleSheetsFrame');
+        if(!frame){
+          frame = document.createElement('iframe');
+          frame.id = 'aceGoogleSheetsFrame';
+          frame.name = 'aceGoogleSheetsFrame';
+          frame.title = 'Google Sheets order submission';
+          frame.hidden = true;
+          document.body.appendChild(frame);
+        }
+
+        const requestToken = createRequestToken();
+        const timeout = window.setTimeout(() => {
+          window.removeEventListener('message',onMessage);
+          reject(new Error('Google Sheets did not confirm the save. Please check the connection and try again.'));
+        },20000);
+
+        function onMessage(event){
+          const data = event.data;
+          if(!data || data.source !== SHEETS_MESSAGE_SOURCE || data.requestToken !== requestToken) return;
+          window.clearTimeout(timeout);
+          window.removeEventListener('message',onMessage);
+          if(data.ok) resolve(data);
+          else reject(new Error(data.message || 'Google Sheets could not save this request.'));
+        }
+
+        window.addEventListener('message',onMessage);
+
+        const postForm = document.createElement('form');
+        postForm.method = 'POST';
+        postForm.action = GOOGLE_SHEETS_WEB_APP_URL;
+        postForm.target = frame.name;
+        postForm.hidden = true;
+
+        Object.entries({...order,requestToken}).forEach(([name,value]) => {
+          const input = document.createElement('input');
+          input.type = 'hidden';
+          input.name = name;
+          input.value = value == null ? '' : String(value);
+          postForm.appendChild(input);
+        });
+
+        document.body.appendChild(postForm);
+        postForm.submit();
+        window.setTimeout(() => postForm.remove(),1000);
+      });
+    }
+
+    function buildWhatsAppUrl(order){
+      const itemLines = order.itemsSummary.split(' | ').map(item => `• ${item}`).join('\n');
+      const message = [
+        'Hello Ace Gaming, I want to request a rental.',
+        '',
+        `Order ID: ${order.orderId}`,
+        `Name: ${order.customerName}`,
+        `Phone: ${order.phone}`,
+        `Email: ${order.email}`,
+        `Address: ${order.address}`,
+        `Pickup / delivery: ${order.deliveryMethod}`,
+        `Rental period: ${order.rentalMonths} month${order.rentalMonths === 1 ? '' : 's'}`,
+        '',
+        'Items:',
+        itemLines,
+        '',
+        `Monthly rent: ${money(order.monthlyTotal)}`,
+        `Estimated term total: ${money(order.termTotal)}`,
+        order.notes ? `Notes: ${order.notes}` : '',
+        '',
+        'Please confirm availability, verification, deposit, and final rental terms.'
+      ].filter(line => line !== '').join('\n');
+      return `https://wa.me/${ACE_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    }
+
+    async function handleOrderSubmit(form){
+      if(!form.reportValidity()) return;
+      const submitButton = form.querySelector('button[type="submit"]');
+      const data = new FormData(form);
+      const orderId = createOrderId();
+      const monthlyTotal = rentalMonthlyTotal(currentCheckoutEntries);
+      const termTotal = rentalTermTotal(currentCheckoutEntries);
+      const order = {
+        orderId,
+        status:'New rental request',
+        customerName:String(data.get('name') || '').trim(),
+        phone:String(data.get('phone') || '').trim(),
+        email:String(data.get('email') || '').trim(),
+        address:String(data.get('address') || '').trim(),
+        rentalMonths:Number(data.get('duration') || rentalDuration),
+        deliveryMethod:String(data.get('method') || ''),
+        itemsSummary:currentCheckoutEntries.map(item => `${item.product.name} × ${item.quantity} at ${money(rentalRate(item.product))}/month`).join(' | '),
+        monthlyTotal,
+        termTotal,
+        notes:String(data.get('notes') || '').trim(),
+        website:String(data.get('website') || ''),
+        pageUrl:location.href,
+        customerSubmittedAt:new Date().toISOString()
+      };
+      const whatsappUrl = buildWhatsAppUrl(order);
+      let savedToSheets = false;
+
+      submitButton.disabled = true;
+      submitButton.textContent = 'Preparing WhatsApp booking…';
+      setCheckoutStatus('Preparing your rental details for WhatsApp…');
+
+      if(sheetsConnectionReady()){
+        try{
+          await submitOrderToGoogleSheets(order);
+          savedToSheets = true;
+        }catch(error){
+          console.warn('Google Sheets save failed; continuing to WhatsApp.',error);
+        }
+      }
+
+      if(!rentalNowItems){cart={};saveCart()}
+      document.getElementById('checkoutContent').innerHTML = `
+        <div class="success-state">
+          <div class="success-icon">✓</div>
+          <span class="eyebrow">${savedToSheets ? 'Saved & ready' : 'WhatsApp booking ready'}</span>
+          <h2>Opening WhatsApp…</h2>
+          <p>Your request number is <strong>${orderId}</strong>. Your complete customer, rental-period, delivery and item details are prepared for <strong>+91 90760 60602</strong>.</p>
+          <a class="button" href="${whatsappUrl}">Open WhatsApp now</a>
+        </div>`;
+      rentalNowItems = null;
+      currentCheckoutEntries = [];
+      window.setTimeout(() => {window.location.href = whatsappUrl},500);
+    }
+
+    document.addEventListener('click',event => {
+      const target = event.target.closest('button,a,[data-view-product]');
+      if(!target) return;
+
+      if(target.matches('[data-view-product]')){
+        event.preventDefault();
+        showProduct(target.dataset.viewProduct);
+      }
+      if(target.matches('[data-add]')){
+        addToCart(target.dataset.add,1,target);
+      }
+      if(target.matches('[data-filter]')){
+        activeFilter = target.dataset.filter;
+        document.querySelectorAll('.filter').forEach(button => button.classList.toggle('active',button === target));
+        filterProducts();
+      }
+      if(target.matches('[data-filter-link]')){
+        activeFilter = target.dataset.filterLink;
+        document.querySelectorAll('.filter').forEach(button => button.classList.toggle('active',button.dataset.filter === activeFilter));
+        setTimeout(filterProducts,10);
+      }
+      if(target.matches('[data-close-cart]')) closeCart();
+      if(target.matches('[data-cart-minus]')) setQuantity(target.dataset.cartMinus,(cart[target.dataset.cartMinus] || 1)-1);
+      if(target.matches('[data-cart-plus]')) setQuantity(target.dataset.cartPlus,(cart[target.dataset.cartPlus] || 0)+1);
+      if(target.matches('[data-remove]')){const product=getProduct(target.dataset.remove);setQuantity(target.dataset.remove,0);showToast(`${product.name} removed`)}
+      if(target.matches('[data-checkout]')) openCheckout();
+      if(target.matches('[data-close-checkout]')) closeCheckout();
+      if(target.matches('[data-back-store]')) showStore();
+      if(target.matches('[data-detail-minus]')){detailQuantity=Math.max(1,detailQuantity-1);document.getElementById('detailQuantity').textContent=detailQuantity}
+      if(target.matches('[data-detail-plus]')){detailQuantity=Math.min(10,detailQuantity+1);document.getElementById('detailQuantity').textContent=detailQuantity}
+      if(target.matches('[data-detail-add]')) addToCart(target.dataset.detailAdd,detailQuantity,target);
+      if(target.matches('[data-rent-now]')) openCheckout(target.dataset.rentNow);
+    });
+
+    document.addEventListener('change',event => {
+      if(event.target.matches('#cartDuration')){
+        rentalDuration = Number(event.target.value);
+        updateCartUI();
+      }
+      if(event.target.matches('#detailRentalDuration')){
+        rentalDuration = Number(event.target.value);
+      }
+      if(event.target.matches('#checkoutDuration')){
+        rentalDuration = Number(event.target.value);
+        renderCheckoutSummary();
+      }
+    });
+
+    document.addEventListener('submit',event => {
+      if(event.target.id === 'checkoutForm'){event.preventDefault();handleOrderSubmit(event.target)}
+    });
+
+    document.getElementById('cartButton').addEventListener('click',openCart);
+    document.getElementById('footerCart').addEventListener('click',openCart);
+    document.getElementById('searchInput').addEventListener('input',filterProducts);
+    document.getElementById('cartOverlay').addEventListener('click',event => {if(event.target === event.currentTarget) closeCart()});
+    document.getElementById('checkoutOverlay').addEventListener('click',event => {if(event.target === event.currentTarget) closeCheckout()});
+    document.addEventListener('keydown',event => {
+      if(event.key === 'Escape'){
+        closeCart();
+        closeCheckout();
+      }
+    });
+
+    window.addEventListener('popstate',() => {
+      const match = location.hash.match(/^#product\/(.+)$/);
+      if(match) showProduct(match[1],false);
+      else{
+        document.getElementById('detailView').hidden = true;
+        document.getElementById('storeView').hidden = false;
+      }
+    });
+
+    renderProducts();
+    updateCartUI();
+    const initialProduct = location.hash.match(/^#product\/(.+)$/);
+    if(initialProduct) showProduct(initialProduct[1],false);
+  </script>
+</body>
+</html>
