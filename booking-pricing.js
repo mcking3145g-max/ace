@@ -150,4 +150,13 @@
   };
 
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+
+  // Keep Ace Store navigation in the current tab, even if a link has target="_blank".
+  document.addEventListener('click',event=>{
+    const link=event.target.closest('a.store-link, a[href$="/rentals.html"]');
+    if(!link)return;
+    event.preventDefault();
+    event.stopPropagation();
+    window.location.assign(link.href);
+  },true);
 })();
