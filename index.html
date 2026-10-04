@@ -68,23 +68,35 @@ img,video{display:block}
 .booking-head{display:grid;grid-template-columns:1fr 1fr;gap:7vw;align-items:end;margin-bottom:46px}
 .booking-head h2{margin:0;font-size:clamp(38px,5.4vw,78px);line-height:.88;letter-spacing:-.05em;text-transform:uppercase}
 .booking-head p{margin:0;max-width:520px;color:#959591;line-height:1.65;font-size:14px}
-.pack-portals{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-.pack-portal{position:relative;min-height:290px;padding:34px;overflow:hidden;color:#fff;text-align:left;border:1px solid rgba(255,255,255,.12);border-radius:28px 8px 28px 8px;background:linear-gradient(135deg,rgba(17,19,32,.97),rgba(9,10,19,.96));transition:transform .4s var(--ease),border-color .4s ease,box-shadow .4s ease}
-.pack-portal::before{content:"";position:absolute;width:260px;height:260px;right:-110px;top:-120px;border-radius:50%;border:1px solid rgba(50,172,201,.25);box-shadow:0 0 0 35px rgba(90,70,255,.04),0 0 0 70px rgba(239,47,130,.03);transition:transform .6s ease,border-color .6s ease}
-.pack-portal::after{content:"";position:absolute;inset:auto 0 0;height:3px;background:linear-gradient(90deg,var(--pink),#7657ff,var(--cyan));transform:scaleX(0);transform-origin:left;transition:transform .4s ease}
-.pack-portal:hover{transform:translateY(-8px);border-color:rgba(118,87,255,.7);box-shadow:0 28px 60px rgba(0,0,0,.34)}
-.pack-portal:hover::before{transform:translate(-22px,25px) rotate(24deg);border-color:var(--cyan)}
-.pack-portal:hover::after{transform:scaleX(1)}
-.pack-portal.featured{background:radial-gradient(circle at 86% 18%,rgba(118,87,255,.28),transparent 28%),linear-gradient(135deg,rgba(35,21,49,.98),rgba(11,16,31,.98))}
-.pack-portal.ps5{background:radial-gradient(circle at 86% 18%,rgba(50,172,201,.22),transparent 28%),linear-gradient(135deg,rgba(18,27,48,.98),rgba(10,11,20,.98))}
-.pack-portal.ps5::after{transform:scaleX(1);opacity:.5}
-.pack-index{display:block;color:var(--pink);font-size:11px;font-weight:700;letter-spacing:.14em}
-.pack-portal small{display:block;margin-top:46px;color:#91ddff;font-size:9px;font-weight:800;letter-spacing:.18em}
-.pack-portal h3{margin:10px 0 0;font-size:clamp(30px,3.5vw,48px);line-height:.95;letter-spacing:-.04em}
-.pack-portal p{margin:12px 0 0;color:#898995;font-size:12px;letter-spacing:.1em}
-.pack-portal b{display:flex;justify-content:space-between;align-items:center;margin-top:36px;font-size:10px;letter-spacing:.14em}
-.pack-portal b i{color:var(--cyan);font-style:normal;font-size:22px;transition:transform .3s ease}
-.pack-portal:hover b i{transform:translateX(6px)}
+.pack-portals{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.pack-portal{
+  position:relative;min-height:248px;padding:28px;overflow:hidden;color:#fff;text-align:left;
+  border:1px solid rgba(255,255,255,.10);border-radius:8px;
+  background:linear-gradient(180deg,#0d0d0d 0%,#090909 100%);
+  transition:transform .35s var(--ease),border-color .35s ease,background .35s ease;
+}
+.pack-portal::before{
+  content:"";position:absolute;left:0;right:0;top:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.16),transparent);
+}
+.pack-portal::after{
+  content:"";position:absolute;left:28px;right:28px;bottom:0;height:2px;
+  background:linear-gradient(90deg,var(--pink),var(--cyan));opacity:.28;
+  transform:scaleX(.18);transform-origin:left;transition:transform .4s var(--ease),opacity .35s ease;
+}
+.pack-portal:hover{
+  transform:translateY(-4px);border-color:rgba(255,255,255,.18);
+  background:linear-gradient(180deg,#111 0%,#0a0a0a 100%);
+}
+.pack-portal:hover::after{opacity:1;transform:scaleX(1)}
+.pack-portal.featured,.pack-portal.ps5{background:linear-gradient(180deg,#0d0d0d 0%,#090909 100%)}
+.pack-index{display:block;color:rgba(255,255,255,.34);font-size:9px;font-weight:800;letter-spacing:.14em}
+.pack-portal small{display:block;margin-top:30px;color:rgba(255,255,255,.48);font-size:8px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}
+.pack-portal h3{margin:10px 0 0;font-size:clamp(30px,3.15vw,46px);line-height:.94;letter-spacing:-.045em;text-transform:uppercase}
+.pack-portal p{margin:14px 0 0;color:rgba(255,255,255,.52);font-size:10px;letter-spacing:.09em;text-transform:uppercase}
+.pack-portal b{display:flex;justify-content:space-between;align-items:center;margin-top:38px;color:#fff;font-size:9px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.pack-portal b i{color:rgba(255,255,255,.66);font-style:normal;font-size:16px;transition:transform .3s var(--ease),color .3s ease}
+.pack-portal:hover b i{transform:translateX(4px);color:#fff}
 .ace-footer{position:relative;overflow:hidden;padding:82px 4vw 0;background:#0a0a0a;border-top:1px solid rgba(255,255,255,.12)}
 .ace-footer-top{display:flex;align-items:flex-start;justify-content:space-between;gap:40px;padding-bottom:62px}
 .ace-footer-brand{display:flex;align-items:center;gap:14px;font-size:10px;font-weight:800;letter-spacing:.16em}
@@ -117,7 +129,7 @@ img,video{display:block}
  .site-head{height:62px}.head-brand{font-size:8px;padding:0 12px}.head-brand img{width:19px;height:19px}.head-left,.head-right{gap:8px}.head-left::before,.head-right::after{width:12px}.hero{min-height:620px}.hero-logo{width:72vw}
  .section-title{font-size:24px}.cinema{height:72svh;min-height:560px}.cinema-center h2{font-size:44px}
  .model-card{min-height:130vw}.model-label{left:16px;right:16px;bottom:16px}
- .booking-head h2{font-size:46px}.pack-portals{grid-template-columns:1fr}.pack-portal{min-height:250px;padding:26px}.pack-portal small{margin-top:34px}
+ .booking-head h2{font-size:46px}.pack-portals{grid-template-columns:1fr}.pack-portal{min-height:220px;padding:24px}.pack-portal small{margin-top:24px}.pack-portal h3{font-size:34px}.pack-portal b{margin-top:32px}
  .ace-footer{padding-left:18px;padding-right:18px}.ace-footer-top{padding-bottom:42px}.ace-footer-brand img{width:74px}.ace-footer-cta{padding:42px 0}.ace-footer-cta h2{font-size:58px}.ace-footer-links{grid-template-columns:1fr 1fr;gap:36px 20px;padding:44px 0 52px}.ace-footer-word{font-size:48vw;margin-top:32px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.mask{clip-path:none;transition:none}.hero>video,.cinema video{transform:none!important}}
@@ -176,7 +188,7 @@ img,video{display:block}
         <span class="section-kicker">CHOOSE YOUR PLAY WINDOW</span>
         <h2>Book your<br>session.</h2>
       </div>
-      <p>Pick the kind of session you want. These are the original Ace booking cards brought back into the new site.</p>
+      <p>Choose the session that fits how you want to play.</p>
     </div>
 
     <div class="pack-portals">
