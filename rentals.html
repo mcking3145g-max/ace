@@ -1636,15 +1636,7 @@ body.store-menu-open{overflow:auto!important}
 
       
 
-      <section class="ace-collections">
-  <div class="ace-collections-head"><div><span class="eyebrow">ACE STORE</span><h2>Shop collections</h2></div><p>Start with the setup you need, then build around it with displays, memory and gaming gear.</p></div>
-  <div class="ace-collection-grid">
-    <button class="ace-collection-card" type="button" data-collection-filter="pc"><img src="https://theacegaming.com/wp-content/uploads/2025/11/PC-Gaming-1.png" alt=""><span><strong>Gaming PCs</strong><small>View collection ↗</small></span></button>
-    <button class="ace-collection-card" type="button" data-collection-filter="monitor"><img src="https://theacegaming.com/wp-content/uploads/2025/11/Gaming-Setup-1.png" alt=""><span><strong>Monitors</strong><small>View collection ↗</small></span></button>
-    <button class="ace-collection-card" type="button" data-collection-filter="accessory"><img src="https://theacegaming.com/wp-content/uploads/2025/11/PC-Gaming-2.png" alt=""><span><strong>Add-ons</strong><small>View collection ↗</small></span></button>
-    <button class="ace-collection-card" type="button" data-collection-filter="upgrade"><img src="./assets/products/kingston-fury-16gb-ram-exact.svg" alt=""><span><strong>RAM</strong><small>View collection ↗</small></span></button>
-  </div>
-</section><section class="store-section shell" id="products">
+      <section class="store-section shell" id="products">
         <div class="section-heading">
           <div><span class="eyebrow">THE COLLECTION</span><h2>RENT THE<br><span class="gradient-text">PERFORMANCE.</span></h2></div>
           <p>Choose the machine first. Then add the display, memory and gear you need. Every request goes directly to Ace for availability and confirmation.</p>
@@ -2756,12 +2748,6 @@ body.store-menu-open{overflow:auto!important}
     },true);
     renderProducts();
     updateCartUI();
-    requestAnimationFrame(()=>{
-      document.querySelectorAll('[data-collection-filter]').forEach(btn=>btn.addEventListener('click',()=>{
-        const f=document.querySelector('.filter[data-filter="'+btn.dataset.collectionFilter+'"]');
-        if(f){f.click();document.getElementById('products').scrollIntoView({behavior:'smooth',block:'start'})}
-      }));
-    });
     const initialProduct = location.hash.match(/^#product\/(.+)$/);
     if(initialProduct) showProduct(initialProduct[1],false);
   </script>
@@ -2770,7 +2756,7 @@ body.store-menu-open{overflow:auto!important}
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   const mobile=matchMedia('(max-width: 768px)').matches;
   const selector=[
-    '.ace-collections-head','.ace-collection-card','.section-heading','.store-tools',
+    '.section-heading','.store-tools',
     '.product-card','.ace-campaign-copy','.store-footer-top','.store-footer-cta',
     '.store-footer-group','.detail-copy','.detail-gallery'
   ].join(',');
