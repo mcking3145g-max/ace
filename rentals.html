@@ -986,6 +986,104 @@ footer{border-top:1px solid var(--ace-line)!important;background:#101010!importa
   .clean-store-hero-copy p{max-width:92%!important;font-size:13px!important}
 }
 </style>
+<style id="ace-store-responsive-motion-v1">
+/* Store motion, responsiveness and performance */
+html{overflow-x:hidden}
+body{min-width:320px}
+img{max-width:100%}
+button,a,input,select,textarea{-webkit-tap-highlight-color:transparent}
+.ace-collections,.store-section,.ace-campaign-v2,.ace-store-footer,.detail-page{content-visibility:auto;contain-intrinsic-size:1px 820px}
+.hero{content-visibility:visible}
+.store-motion{opacity:0;transform:translate3d(0,22px,0);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .88s var(--ace-ease);transition-delay:var(--store-delay,0ms)}
+.store-motion.motion-scale{transform:scale(.985)}
+.store-motion.is-visible{opacity:1;transform:none}
+.product-card,.ace-collection-card,.store-footer-link,.store-line-link{backface-visibility:hidden;transform:translateZ(0)}
+.section-heading h2,.store-footer-cta h2,.ace-campaign-copy h2{text-wrap:balance}
+
+@media(max-width:1280px){
+  .product-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+  .ace-collection-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:1024px){
+  .hero{min-height:78svh!important}
+  .section-heading{gap:28px!important}
+  .product-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .detail-layout{grid-template-columns:1fr!important}
+  .detail-gallery{position:static!important}
+  .detail-main-image{min-height:480px!important}
+  .store-footer-cta{grid-template-columns:1fr!important}
+  .store-footer-actions{max-width:460px}
+}
+@media(max-width:768px){
+  .site-header{padding:11px 16px!important}
+  .brand-logo{height:28px!important}
+  .hero{min-height:72svh!important;padding:96px 16px 50px!important}
+  .store-hero-video{inset:0!important;width:100%!important;height:100%!important;transform:scale(1.03)!important}
+  .hero-copy{width:100%!important}
+  .hero h1{font-size:clamp(48px,13vw,76px)!important}
+  .hero p{max-width:92%!important;font-size:12px!important}
+  .ace-collections{padding:58px 16px 64px}
+  .ace-collections-head{align-items:flex-start;flex-direction:column;gap:16px}
+  .ace-collection-grid{grid-template-columns:1fr}
+  .ace-collection-card{min-height:300px}
+  .store-section{width:min(100% - 32px,1500px)!important;padding:62px 0 70px!important}
+  .section-heading{align-items:flex-start!important;flex-direction:column!important;margin-bottom:24px!important}
+  .store-tools{align-items:stretch!important;flex-direction:column!important;gap:18px!important}
+  .filter-row{overflow-x:auto;flex-wrap:nowrap!important;padding-bottom:4px!important;scrollbar-width:none}
+  .filter-row::-webkit-scrollbar{display:none}
+  .filter{flex:0 0 auto}
+  .search-box{max-width:none!important;flex-basis:auto!important}
+  .product-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:6px!important}
+  .product-info{padding:0 14px 15px!important}
+  .product-info h3{font-size:13px!important}
+  .card-actions{grid-template-columns:1fr!important;gap:4px!important}
+  .ace-campaign-v2{height:68svh;min-height:520px}
+  .ace-campaign-v2 video{inset:0;width:100%;height:100%}
+  .ace-campaign-copy{left:16px!important;right:16px!important;bottom:52px!important}
+  .ace-campaign-copy h2{font-size:clamp(46px,12vw,72px)!important}
+  .ace-store-footer{padding:64px 16px 0}
+  .store-footer-top{padding-bottom:38px}
+  .store-footer-links{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .store-footer-bottom{grid-template-columns:1fr auto}
+  .store-footer-bottom span:nth-child(2){display:none}
+  .store-motion{transform:translate3d(0,15px,0);transition-duration:.56s,.7s}
+}
+@media(max-width:520px){
+  .site-header{padding:10px 12px!important}
+  .brand-logo{height:26px!important}
+  .hero{min-height:68svh!important;padding:88px 12px 42px!important}
+  .hero h1{font-size:46px!important}
+  .hero p{font-size:12px!important}
+  .ace-collections{padding-left:12px;padding-right:12px}
+  .ace-collection-card{min-height:280px}
+  .store-section{width:min(100% - 24px,1500px)!important}
+  .section-heading h2{font-size:42px!important}
+  .product-grid{grid-template-columns:1fr!important}
+  .product-image{aspect-ratio:1.15/1!important}
+  .product-info{padding:0 16px 18px!important}
+  .product-info h3{font-size:16px!important}
+  .price{font-size:16px!important}
+  .ace-campaign-v2{height:64svh;min-height:500px}
+  .ace-campaign-copy{left:12px!important;right:12px!important}
+  .ace-campaign-copy h2{font-size:44px!important}
+  .ace-store-footer{padding-left:12px;padding-right:12px}
+  .store-footer-brand img{width:72px}
+  .store-footer-statement{font-size:18px}
+  .store-footer-cta h2{font-size:48px}
+  .store-footer-links{grid-template-columns:1fr 1fr;gap:28px 14px}
+  .store-footer-group a,.store-footer-group span{font-size:10px}
+}
+@media(hover:none),(pointer:coarse){
+  .product-card:hover,.ace-collection-card:hover{transform:none!important}
+  .product-card:hover .product-image img,.ace-collection-card:hover img{transform:scale(.98)!important}
+  .store-footer-link:hover,.store-line-link:hover{padding-left:0;padding-right:0}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .store-motion{opacity:1!important;transform:none!important}
+  .store-hero-video{transform:scale(1.02)!important}
+}
+</style>
 </head>
 <body>
   <div class="noise"></div>
@@ -2171,5 +2269,81 @@ footer{border-top:1px solid var(--ace-line)!important;background:#101010!importa
     const initialProduct = location.hash.match(/^#product\/(.+)$/);
     if(initialProduct) showProduct(initialProduct[1],false);
   </script>
+<script id="ace-store-responsive-motion-js">
+(()=>{
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const mobile=matchMedia('(max-width: 768px)').matches;
+  const selector=[
+    '.ace-collections-head','.ace-collection-card','.section-heading','.store-tools',
+    '.product-card','.ace-campaign-copy','.store-footer-top','.store-footer-cta',
+    '.store-footer-group','.detail-copy','.detail-gallery'
+  ].join(',');
+
+  const seen=new WeakSet();
+  const observer=reduce?null:new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  },{threshold:mobile?.06:.1,rootMargin:'0px 0px -5% 0px'});
+
+  function prepare(root=document){
+    const nodes=[];
+    if(root.matches?.(selector)) nodes.push(root);
+    root.querySelectorAll?.(selector).forEach(n=>nodes.push(n));
+    nodes.forEach((el,i)=>{
+      if(seen.has(el)) return;
+      seen.add(el);
+      el.classList.add('store-motion');
+      el.style.setProperty('--store-delay',Math.min((i%6)*45,225)+'ms');
+      if(reduce) el.classList.add('is-visible'); else observer.observe(el);
+    });
+
+    root.querySelectorAll?.('img').forEach(img=>{
+      if(!img.closest('.brand')&&!img.closest('.brand-logo')&&!img.closest('.store-footer-brand')){
+        img.loading='lazy';
+        img.decoding='async';
+      }
+    });
+  }
+
+  prepare(document);
+
+  const mutations=new MutationObserver(records=>{
+    records.forEach(record=>{
+      record.addedNodes.forEach(node=>{
+        if(node.nodeType===1) prepare(node);
+      });
+    });
+  });
+  mutations.observe(document.body,{childList:true,subtree:true});
+
+  const videos=[...document.querySelectorAll('video')];
+  videos.forEach((video,i)=>{
+    video.playsInline=true;
+    if(i>0) video.setAttribute('preload','metadata');
+  });
+
+  const secondaryVideos=videos.filter(v=>!v.classList.contains('store-hero-video'));
+  if(!reduce && 'IntersectionObserver' in window){
+    const videoObserver=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        const v=entry.target;
+        if(entry.isIntersecting) v.play().catch(()=>{});
+        else v.pause();
+      });
+    },{threshold:.08,rootMargin:'100px 0px 100px 0px'});
+    secondaryVideos.forEach(v=>videoObserver.observe(v));
+  }else if(reduce){
+    secondaryVideos.forEach(v=>v.pause());
+  }
+
+  if(navigator.connection?.saveData){
+    secondaryVideos.forEach(v=>{v.pause();v.preload='none';});
+  }
+})();
+</script>
 </body>
 </html>
