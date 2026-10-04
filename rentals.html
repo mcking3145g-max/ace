@@ -859,6 +859,101 @@ footer{border-top:1px solid var(--ace-line)!important;background:#101010!importa
  .store-footer-word{font-size:48vw;margin-top:32px}
 }
 </style>
+<style id="ace-store-hero-clean-v3">
+.store-hero-v2{
+  min-height:84svh!important;
+  padding:112px 4vw 34px!important;
+}
+.store-hero-v2 .store-hero-shade{
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.86) 0%,rgba(0,0,0,.62) 30%,rgba(0,0,0,.22) 61%,rgba(0,0,0,.36) 100%),
+    linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.16) 55%,rgba(0,0,0,.72))!important;
+}
+.clean-store-hero-copy{
+  width:min(690px,58vw)!important;
+  margin:0 0 112px!important;
+}
+.clean-store-hero-copy .eyebrow{
+  color:rgba(255,255,255,.64)!important;
+  font-size:8px!important;
+  letter-spacing:.16em!important;
+}
+.clean-store-hero-copy h1{
+  max-width:680px!important;
+  margin:16px 0 18px!important;
+  font-size:clamp(52px,6.3vw,98px)!important;
+  line-height:.84!important;
+  letter-spacing:-.06em!important;
+  color:#fff!important;
+}
+.clean-store-hero-copy h1 span{
+  color:inherit!important;
+  -webkit-text-stroke:0!important;
+}
+.clean-store-hero-copy p{
+  max-width:520px!important;
+  color:rgba(255,255,255,.66)!important;
+  font-size:13px!important;
+  line-height:1.65!important;
+}
+.clean-store-hero-copy .hero-links{
+  margin-top:28px!important;
+  gap:28px!important;
+}
+.clean-store-hero-copy .store-line-link{
+  min-width:190px;
+  padding:12px 0;
+  border-bottom-color:rgba(255,255,255,.46);
+  color:rgba(255,255,255,.92);
+}
+.clean-store-hero-copy .secondary-clean{
+  color:rgba(255,255,255,.66);
+  border-bottom-color:rgba(255,255,255,.22);
+}
+.clean-store-hero-copy .store-line-link:hover{
+  color:#fff;
+  border-bottom-color:#fff;
+}
+.clean-meta{
+  left:4vw!important;
+  right:4vw!important;
+  grid-template-columns:repeat(3,1fr)!important;
+  background:rgba(0,0,0,.08);
+}
+.clean-meta div{
+  padding:15px 20px 14px 0!important;
+}
+.clean-meta div+div{
+  padding-left:20px!important;
+}
+.clean-meta small{
+  margin-bottom:5px!important;
+  color:rgba(255,255,255,.34)!important;
+  font-size:7px!important;
+  letter-spacing:.15em!important;
+}
+.clean-meta strong{
+  color:rgba(255,255,255,.84)!important;
+  font-size:9px!important;
+  letter-spacing:.08em!important;
+}
+@media(max-width:900px){
+  .store-hero-v2{min-height:78svh!important;padding:98px 20px 30px!important}
+  .clean-store-hero-copy{width:100%!important;margin-bottom:118px!important}
+  .clean-store-hero-copy h1{font-size:clamp(50px,12vw,82px)!important}
+  .clean-meta{left:20px!important;right:20px!important}
+}
+@media(max-width:560px){
+  .store-hero-v2{padding-left:14px!important;padding-right:14px!important}
+  .clean-store-hero-copy{margin-bottom:112px!important}
+  .clean-store-hero-copy h1{font-size:50px!important}
+  .clean-store-hero-copy p{font-size:12px!important;max-width:92%!important}
+  .clean-store-hero-copy .hero-links{gap:16px!important}
+  .clean-store-hero-copy .store-line-link{min-width:170px}
+  .clean-meta{left:14px!important;right:14px!important}
+  .clean-meta div{padding-top:12px!important;padding-bottom:12px!important}
+}
+</style>
 </head>
 <body>
   <div class="noise"></div>
@@ -896,19 +991,22 @@ footer{border-top:1px solid var(--ace-line)!important;background:#101010!importa
           <source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/4d34805d-8ff3-4634-9148-e2607a487a87.mp4" type="video/mp4">
         </video>
         <div class="store-hero-shade"></div>
-        <div class="hero-copy">
-          <span class="eyebrow">ACE STORE / PERFORMANCE RENTALS</span>
-          <h1>YOUR SETUP.<br><span>ON YOUR TERMS.</span></h1>
-          <p>Rent performance gaming PCs, monitors and gear for 1, 2 or 3 months — without buying the whole setup.</p>
+
+        <div class="hero-copy clean-store-hero-copy">
+          <span class="eyebrow">ACE STORE / GAMING RENTALS</span>
+          <h1>YOUR SETUP.<br>YOUR TERMS.</h1>
+          <p>High-performance gaming PCs, monitors and gear on flexible 1, 2 or 3 month rental plans.</p>
+
           <div class="hero-actions hero-links">
-            <a class="store-line-link" href="#products">Explore collection <span>↘</span></a>
-            <button class="store-line-link as-button" type="button" data-view-product="pc-4060">Featured RTX 4060 <span>↗</span></button>
+            <a class="store-line-link primary-clean" href="#products">EXPLORE RENTALS <span>↘</span></a>
+            <button class="store-line-link as-button secondary-clean" type="button" data-view-product="pc-4060">RTX 4060 BUILD <span>↗</span></button>
           </div>
         </div>
-        <div class="store-hero-meta" aria-label="Ace rental highlights">
-          <div><small>STARTING FROM</small><strong>₹7,500 / MONTH</strong></div>
-          <div><small>RENTAL TERM</small><strong>1 / 2 / 3 MONTHS</strong></div>
-          <div><small>CONFIRMATION</small><strong>DIRECT WITH ACE</strong></div>
+
+        <div class="store-hero-meta clean-meta" aria-label="Ace rental highlights">
+          <div><small>FROM</small><strong>₹7,500 / MONTH</strong></div>
+          <div><small>TERM</small><strong>1 / 2 / 3 MONTHS</strong></div>
+          <div><small>SUPPORT</small><strong>DIRECT WITH ACE</strong></div>
         </div>
       </section>
 
