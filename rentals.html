@@ -600,7 +600,161 @@
     @media (prefers-reduced-motion:reduce){
       *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}
     }
-  </style>
+  <style id="ace-store-sections-v2">
+/* Refined store hero + campaign + rental flow */
+.store-hero-v2{
+  width:100%!important;max-width:none!important;
+  min-height:88svh!important;
+  padding:120px 4vw 40px!important;
+  align-items:flex-end!important;
+  justify-content:flex-start!important;
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+.store-hero-v2 .store-hero-video{
+  inset:0!important;width:100%!important;height:100%!important;
+  filter:brightness(.52) contrast(1.08) saturate(.9)!important;
+  transform:scale(var(--store-hero-scale,1.015)) translate3d(0,var(--store-hero-y,0),0)!important;
+}
+.store-hero-v2 .store-hero-shade{
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.84) 0%,rgba(0,0,0,.48) 34%,rgba(0,0,0,.08) 70%,rgba(0,0,0,.34) 100%),
+    linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.15) 52%,rgba(0,0,0,.72))!important;
+}
+.store-hero-v2 .hero-copy{width:min(820px,70vw)!important;margin:0 0 115px!important}
+.store-hero-v2 .hero-copy .eyebrow{color:#d7d7d3!important}
+.store-hero-v2 .hero-copy h1{
+  margin:18px 0 22px!important;
+  font-size:clamp(58px,7.8vw,122px)!important;
+  line-height:.8!important;letter-spacing:-.064em!important;
+  max-width:none!important;
+}
+.store-hero-v2 .hero-copy h1 span{
+  color:transparent;
+  -webkit-text-stroke:1px rgba(255,255,255,.72);
+}
+.store-hero-v2 .hero-copy p{
+  max-width:560px!important;margin:0!important;
+  color:rgba(255,255,255,.72)!important;font-size:14px!important;line-height:1.7!important;
+}
+.hero-links{margin-top:32px!important;gap:34px!important}
+.store-line-link{
+  display:inline-flex;align-items:center;justify-content:space-between;gap:28px;
+  min-width:210px;padding:13px 0;border:0;border-bottom:1px solid rgba(255,255,255,.62);
+  border-radius:0;background:transparent;color:#fff;
+  font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+  cursor:pointer;transition:padding .35s var(--ace-ease),border-color .3s ease;
+}
+.store-line-link span{font-size:16px;transition:transform .35s var(--ace-ease)}
+.store-line-link:hover{padding-left:8px;padding-right:8px;border-color:#fff}
+.store-line-link:hover span{transform:translate(4px,-4px)}
+.store-line-link.as-button{font-family:inherit}
+.store-hero-meta{
+  position:absolute;left:4vw;right:4vw;bottom:0;z-index:3;
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border-top:1px solid rgba(255,255,255,.2);
+}
+.store-hero-meta div{padding:18px 24px 18px 0}
+.store-hero-meta div+div{padding-left:24px;border-left:1px solid rgba(255,255,255,.16)}
+.store-hero-meta small{display:block;margin-bottom:6px;color:rgba(255,255,255,.46);font-size:8px;letter-spacing:.14em}
+.store-hero-meta strong{font-size:10px;letter-spacing:.08em}
+
+.ace-campaign-v2{
+  position:relative;height:86svh;min-height:650px;overflow:hidden;background:#050505;
+  border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.1);
+}
+.ace-campaign-v2 video{position:absolute;inset:-3%;width:106%;height:106%;object-fit:cover;filter:brightness(.46) contrast(1.1) saturate(.88)}
+.ace-campaign-v2 .campaign-shade{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(90deg,rgba(0,0,0,.82) 0%,rgba(0,0,0,.46) 38%,rgba(0,0,0,.08) 74%,rgba(0,0,0,.3) 100%),linear-gradient(180deg,rgba(0,0,0,.08),rgba(0,0,0,.58));
+}
+.campaign-index{position:absolute;z-index:2;left:4vw;top:40px;color:rgba(255,255,255,.42);font-size:8px;letter-spacing:.16em}
+.ace-campaign-v2 .ace-campaign-copy{left:4vw;bottom:90px;max-width:720px}
+.ace-campaign-v2 .ace-campaign-copy>span{color:rgba(255,255,255,.62);font-size:9px;letter-spacing:.16em}
+.ace-campaign-v2 .ace-campaign-copy h2{
+  margin:14px 0 22px;
+  font-size:clamp(54px,7.1vw,112px);
+  line-height:.79;letter-spacing:-.064em;
+}
+.ace-campaign-v2 .ace-campaign-copy p{max-width:500px;margin:0 0 28px;color:rgba(255,255,255,.66);font-size:13px;line-height:1.72}
+.store-line-link.light{min-width:180px}
+.ace-campaign-v2 .campaign-foot{
+  position:absolute;z-index:2;right:4vw;bottom:32px;
+  display:flex;gap:28px;color:rgba(255,255,255,.44);
+  font-size:8px;font-weight:700;letter-spacing:.12em;
+}
+
+.ace-how-v2{padding:105px 4vw 110px;background:#050505}
+.ace-how-v2 .how-head{
+  display:grid;grid-template-columns:1.15fr .85fr;gap:8vw;align-items:end;
+  margin-bottom:64px;
+}
+.ace-how-v2 .how-head h2{
+  margin:14px 0 0;
+  font-size:clamp(52px,6.2vw,96px);
+  line-height:.84;letter-spacing:-.055em;text-transform:uppercase;
+}
+.ace-how-v2 .how-head>p{
+  margin:0;max-width:560px;color:#92928f;font-size:13px;line-height:1.75;
+}
+.ace-how-list{border-top:1px solid rgba(255,255,255,.17)}
+.how-row{
+  position:relative;display:grid;
+  grid-template-columns:70px minmax(220px,.8fr) minmax(280px,1.2fr) auto;
+  gap:32px;align-items:center;
+  min-height:145px;padding:28px 0;
+  border-bottom:1px solid rgba(255,255,255,.14);
+  overflow:hidden;
+  transition:padding .35s var(--ace-ease),background .35s ease;
+}
+.how-row::before{
+  content:"";position:absolute;inset:0 auto 0 0;width:2px;
+  background:linear-gradient(var(--pink),var(--cyan));
+  transform:scaleY(0);transform-origin:bottom;
+  transition:transform .35s var(--ace-ease);
+}
+.how-row:hover{padding-left:18px;background:rgba(255,255,255,.02)}
+.how-row:hover::before{transform:scaleY(1)}
+.how-row b{color:#666;font-size:9px;letter-spacing:.1em}
+.how-row strong{font-size:clamp(21px,2.3vw,34px);letter-spacing:-.035em}
+.how-row p{margin:0;max-width:560px;color:#8d8d89;font-size:12px;line-height:1.7}
+.how-row>span{justify-self:end;color:#777;font-size:8px;font-weight:700;letter-spacing:.1em;white-space:nowrap}
+.how-row:hover>span{color:#fff}
+
+@media(max-width:900px){
+ .store-hero-v2{min-height:82svh!important;padding:105px 20px 30px!important}
+ .store-hero-v2 .hero-copy{width:100%!important;margin-bottom:125px!important}
+ .store-hero-v2 .hero-copy h1{font-size:clamp(54px,13vw,90px)!important}
+ .store-hero-meta{left:20px;right:20px;grid-template-columns:1fr 1fr}
+ .store-hero-meta div:nth-child(3){display:none}
+ .ace-campaign-v2{height:76svh;min-height:600px}
+ .ace-campaign-v2 .ace-campaign-copy{left:20px;right:20px;bottom:70px}
+ .ace-campaign-v2 .ace-campaign-copy h2{font-size:clamp(52px,12vw,84px)}
+ .ace-campaign-v2 .campaign-foot{display:none}
+ .campaign-index{left:20px}
+ .ace-how-v2{padding:85px 20px 90px}
+ .ace-how-v2 .how-head{grid-template-columns:1fr;gap:28px;margin-bottom:45px}
+ .how-row{grid-template-columns:42px 1fr;gap:12px 20px;min-height:auto;padding:30px 0}
+ .how-row p{grid-column:2}.how-row>span{grid-column:2;justify-self:start}
+}
+@media(max-width:560px){
+ .store-hero-v2{padding-left:14px!important;padding-right:14px!important}
+ .store-hero-v2 .hero-copy{margin-bottom:118px!important}
+ .store-hero-v2 .hero-copy h1{font-size:52px!important}
+ .store-hero-v2 .hero-copy p{font-size:13px!important}
+ .hero-links{gap:18px!important;flex-direction:column!important;align-items:flex-start!important}
+ .store-line-link{min-width:190px}
+ .store-hero-meta{left:14px;right:14px}
+ .store-hero-meta div{padding:14px 12px 14px 0}.store-hero-meta div+div{padding-left:12px}
+ .store-hero-meta strong{font-size:9px}
+ .ace-campaign-v2 .ace-campaign-copy{left:14px;right:14px}
+ .ace-campaign-v2 .ace-campaign-copy h2{font-size:50px}
+ .campaign-index{left:14px}
+ .ace-how-v2{padding-left:14px;padding-right:14px}
+ .ace-how-v2 .how-head h2{font-size:50px}
+ .how-row strong{font-size:24px}
+}
+</style>
+</style>
 <style id="ace-store-live-fix">
 :root{--ace-bg:#050505;--ace-fg:#f5f5f1;--ace-muted:#888884;--ace-line:rgba(255,255,255,.14);--ace-ease:cubic-bezier(.16,1,.3,1)}
 html{background:var(--ace-bg)!important;scroll-behavior:smooth!important}
@@ -734,19 +888,24 @@ footer{border-top:1px solid var(--ace-line)!important;background:#101010!importa
 
   <main id="mainContent">
     <div id="storeView">
-      <section class="hero shell" id="store">
+      <section class="hero shell store-hero-v2" id="store">
         <video class="store-hero-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
           <source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/4d34805d-8ff3-4634-9148-e2607a487a87.mp4" type="video/mp4">
         </video>
         <div class="store-hero-shade"></div>
         <div class="hero-copy">
-          <span class="eyebrow">ACE STORE / MONTHLY RENTALS</span>
-          <h1>BUILD THE<br><span class="gradient-text">SETUP.</span></h1>
-          <p>Gaming PCs, high-refresh monitors, RAM and gaming gear — available on flexible monthly rental plans from Ace Gaming.</p>
-          <div class="hero-actions">
-            <a class="button" href="#products">Explore collection <span aria-hidden="true">↘</span></a>
-            <button class="button secondary" type="button" data-view-product="pc-4060">Featured RTX 4060 <span aria-hidden="true">↗</span></button>
+          <span class="eyebrow">ACE STORE / PERFORMANCE RENTALS</span>
+          <h1>YOUR SETUP.<br><span>ON YOUR TERMS.</span></h1>
+          <p>Rent performance gaming PCs, monitors and gear for 1, 2 or 3 months — without buying the whole setup.</p>
+          <div class="hero-actions hero-links">
+            <a class="store-line-link" href="#products">Explore collection <span>↘</span></a>
+            <button class="store-line-link as-button" type="button" data-view-product="pc-4060">Featured RTX 4060 <span>↗</span></button>
           </div>
+        </div>
+        <div class="store-hero-meta" aria-label="Ace rental highlights">
+          <div><small>STARTING FROM</small><strong>₹7,500 / MONTH</strong></div>
+          <div><small>RENTAL TERM</small><strong>1 / 2 / 3 MONTHS</strong></div>
+          <div><small>CONFIRMATION</small><strong>DIRECT WITH ACE</strong></div>
         </div>
       </section>
 
@@ -782,16 +941,45 @@ footer{border-top:1px solid var(--ace-line)!important;background:#101010!importa
       </section>
     </div>
 
-    <section class="detail-page shell" id="detailView" hidden></section><section class="ace-campaign">
-  <video autoplay muted loop playsinline preload="metadata"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/4d34805d-8ff3-4634-9148-e2607a487a87.mp4" type="video/mp4"></video>
-  <div class="ace-campaign-copy"><span>ACE GAMING RENTALS</span><h2>THE SETUP<br>DOESN'T HAVE<br>TO BE YOURS.</h2><a href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20I%20want%20help%20choosing%20a%20rental%20setup." target="_blank" rel="noopener">Talk to Ace</a></div>
+    <section class="detail-page shell" id="detailView" hidden></section><section class="ace-campaign ace-campaign-v2">
+  <video autoplay muted loop playsinline preload="metadata" aria-hidden="true"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/4d34805d-8ff3-4634-9148-e2607a487a87.mp4" type="video/mp4"></video>
+  <div class="campaign-shade"></div>
+  <div class="campaign-index">ACE / 01</div>
+  <div class="ace-campaign-copy">
+    <span>ACE GAMING RENTALS</span>
+    <h2>PERFORMANCE<br>WITHOUT<br>OWNERSHIP.</h2>
+    <p>Build a serious setup for the time you actually need it. Upgrade the PC, display and gear around the way you play.</p>
+    <a class="store-line-link light" href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20I%20want%20help%20choosing%20a%20rental%20setup." target="_blank" rel="noopener">Talk to Ace <span>↗</span></a>
+  </div>
+  <div class="campaign-foot"><span>PC RENTALS</span><span>MONITORS</span><span>RAM</span><span>GAMING GEAR</span></div>
 </section>
-<section class="ace-how">
-  <h2>How rentals work</h2>
-  <div class="ace-how-grid">
-    <div><b>01</b><strong>Choose</strong><p>Pick the gaming PC, monitor and accessories you want.</p></div>
-    <div><b>02</b><strong>Select the term</strong><p>Choose 1, 2 or 3 months and review the monthly estimate.</p></div>
-    <div><b>03</b><strong>Confirm</strong><p>Send the request to Ace on WhatsApp for availability, deposit and delivery.</p></div>
+<section class="ace-how ace-how-v2">
+  <div class="how-head">
+    <div>
+      <span class="eyebrow">THE RENTAL PROCESS</span>
+      <h2>THREE STEPS.<br>THEN YOU PLAY.</h2>
+    </div>
+    <p>No complicated checkout. Build your rental list, choose the term and send it to Ace. We confirm the final availability, deposit and delivery with you directly.</p>
+  </div>
+  <div class="ace-how-list">
+    <div class="how-row">
+      <b>01</b>
+      <strong>CHOOSE THE SETUP</strong>
+      <p>Start with a gaming PC, then add a monitor, RAM or the gear you need.</p>
+      <span>BUILD →</span>
+    </div>
+    <div class="how-row">
+      <b>02</b>
+      <strong>PICK THE TERM</strong>
+      <p>Choose 1, 2 or 3 months and see the rental estimate before you send it.</p>
+      <span>1 / 2 / 3 MONTHS</span>
+    </div>
+    <div class="how-row">
+      <b>03</b>
+      <strong>CONFIRM WITH ACE</strong>
+      <p>Send the prepared request on WhatsApp. We confirm availability, deposit and delivery.</p>
+      <span>WHATSAPP ↗</span>
+    </div>
   </div>
 </section>
 
