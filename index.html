@@ -577,49 +577,170 @@ body{background:#050505!important}
   .ace-footer-cta h2{font-size:54px!important}
 }
 </style>
+<style id="ace-nav-hero-photo-v3">
+.ace-nav-v3{
+  grid-template-columns:1fr auto 1fr!important;
+  height:68px!important;
+  padding:0 clamp(18px,3vw,48px)!important;
+  background:linear-gradient(180deg,rgba(0,0,0,.76),rgba(0,0,0,.16) 75%,transparent)!important;
+  border:0!important;
+}
+.ace-nav-v3::after{opacity:.45!important}
+.ace-menu-trigger{
+  justify-self:start;display:flex;flex-direction:column;justify-content:center;gap:4px;
+  width:38px;height:38px;padding:0;border:0;background:transparent;cursor:pointer;
+}
+.ace-menu-trigger span{display:block;width:19px;height:1px;background:rgba(255,255,255,.9);transition:transform .32s var(--ease),width .32s var(--ease)}
+.ace-menu-trigger span:nth-child(2){width:13px}
+.ace-menu-trigger:hover span:nth-child(2){width:19px}
+.ace-nav-brand{padding:0!important}
+.ace-nav-brand::before,.ace-nav-brand::after{display:none!important}
+.ace-nav-brand img{width:74px!important;height:auto!important;max-height:34px;object-fit:contain}
+.ace-nav-actions{justify-self:end;display:flex;align-items:center;gap:18px}
+.ace-store-link{font-size:8px;font-weight:800;letter-spacing:.14em;color:rgba(255,255,255,.84);transition:color .25s ease}
+.ace-store-link:hover{color:#fff}
+.ace-cart-link{position:relative;display:grid;place-items:center;width:34px;height:38px;color:#fff}
+.ace-cart-link svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.55;stroke-linecap:round;stroke-linejoin:round}
+.ace-home-cart-count{
+  position:absolute;right:-3px;top:5px;display:grid;place-items:center;min-width:14px;height:14px;padding:0 3px;
+  border-radius:999px;background:#fff;color:#050505;font-size:7px;font-weight:900;
+}
+.ace-menu-panel{
+  position:fixed;z-index:300;inset:0;display:grid;grid-template-rows:auto 1fr auto;
+  padding:24px clamp(20px,5vw,82px) 30px;background:#060606;color:#fff;
+  opacity:0;visibility:hidden;transform:translateY(-12px);
+  transition:opacity .35s ease,visibility .35s ease,transform .5s var(--ease);
+}
+.ace-menu-panel.open{opacity:1;visibility:visible;transform:none}
+.ace-menu-panel-top,.ace-menu-panel-bottom{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.ace-menu-panel-top{padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.12);font-size:8px;font-weight:800;letter-spacing:.15em}
+.ace-menu-panel-top button{border:0;background:transparent;color:rgba(255,255,255,.62);font:inherit;letter-spacing:.13em;cursor:pointer}
+.ace-menu-links{display:flex;flex-direction:column;justify-content:center;width:min(860px,100%);padding:46px 0}
+.ace-menu-links a{
+  display:grid;grid-template-columns:44px 1fr;align-items:center;padding:16px 0;
+  border-bottom:1px solid rgba(255,255,255,.11);
+  font-size:clamp(38px,6vw,86px);line-height:.9;font-weight:750;letter-spacing:-.055em;text-transform:uppercase;
+  transition:padding-left .4s var(--ease),color .25s ease;
+}
+.ace-menu-links a span{font-size:8px;letter-spacing:.14em;color:rgba(255,255,255,.32);font-weight:800}
+.ace-menu-links a:hover{padding-left:8px}
+.ace-menu-panel-bottom{padding-top:18px;border-top:1px solid rgba(255,255,255,.12);font-size:8px;font-weight:800;letter-spacing:.13em;color:rgba(255,255,255,.44)}
+.ace-menu-panel-bottom a{color:rgba(255,255,255,.82)}
+body.ace-menu-open{overflow:hidden}
+
+.ace-hero-v3 .hero-shade{
+  background:
+    linear-gradient(180deg,rgba(0,0,0,.28),rgba(0,0,0,.03) 42%,rgba(0,0,0,.68)),
+    linear-gradient(90deg,rgba(0,0,0,.22),transparent 38%,transparent 62%,rgba(0,0,0,.22))!important;
+}
+.ace-hero-v3 .hero-logo{width:min(300px,54vw)!important}
+.ace-hero-meta{
+  position:absolute;z-index:3;left:clamp(18px,4vw,64px);right:clamp(18px,4vw,64px);bottom:26px;
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+  padding-top:16px;border-top:1px solid rgba(255,255,255,.22);
+  color:rgba(255,255,255,.56);font-size:8px;font-weight:800;letter-spacing:.15em;
+}
+.ace-hero-meta a{display:flex;align-items:center;gap:24px;color:#fff}
+.ace-hero-meta b{font-size:15px;font-weight:400;transition:transform .3s var(--ease)}
+.ace-hero-meta a:hover b{transform:translate(3px,3px)}
+
+.world .media-window,.duo .media-window{background:#0a0a0a}
+.world .media-window img,.duo .media-window img{
+  object-position:center;filter:brightness(.82) contrast(1.04) saturate(.86)!important;
+}
+.models .model-card img{filter:brightness(.78) contrast(1.04) saturate(.88)!important}
+.media-card:hover .media-window img{filter:brightness(.92) contrast(1.04) saturate(.92)!important}
+.models .model-card:hover img{filter:brightness(.9) contrast(1.04) saturate(.92)!important}
+
+@media(max-width:700px){
+  .ace-nav-v3{height:60px!important;padding:0 14px!important}
+  .ace-nav-brand img{width:60px!important}
+  .ace-nav-actions{gap:12px}
+  .ace-store-link{display:none}
+  .ace-menu-panel{padding:18px 16px 22px}
+  .ace-menu-links a{grid-template-columns:32px 1fr;padding:14px 0;font-size:clamp(34px,11vw,52px)}
+  .ace-menu-panel-bottom{align-items:flex-end;flex-direction:column-reverse}
+  .ace-hero-meta{left:14px;right:14px;bottom:18px;font-size:7px}
+  .ace-hero-meta span{max-width:150px;line-height:1.5}
+  .ace-hero-meta a{gap:12px}
+}
+</style>
 </head>
 <body>
-<header class="site-head" id="siteHead">
-  <a class="head-left" href="#world">Explore</a>
-  <a class="head-brand" href="#top"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/b412bae1-d3a6-4abd-9cb0-8f19a4333e05.png" alt=""><span>Ace Gaming</span></a>
-  <a class="head-right" href="/rentals.html">Store</a>
+<header class="site-head ace-nav-v3" id="siteHead">
+  <button class="ace-menu-trigger" id="aceMenuTrigger" type="button" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+
+  <a class="head-brand ace-nav-brand" href="#top" aria-label="Ace Gaming home">
+    <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/b412bae1-d3a6-4abd-9cb0-8f19a4333e05.png" alt="Ace Gaming">
+  </a>
+
+  <div class="ace-nav-actions">
+    <a class="ace-store-link" href="/rentals.html">STORE</a>
+    <a class="ace-cart-link" href="/rentals.html#cart" aria-label="Open Ace Store rental cart">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.1 10.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L21 8H6.1"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+      <span class="ace-home-cart-count" id="aceHomeCartCount">0</span>
+    </a>
+  </div>
 </header>
 
+<div class="ace-menu-panel" id="aceMenuPanel" aria-hidden="true">
+  <div class="ace-menu-panel-top">
+    <span>ACE GAMING</span>
+    <button type="button" id="aceMenuClose" aria-label="Close menu">CLOSE ×</button>
+  </div>
+  <nav class="ace-menu-links" aria-label="Ace Gaming menu">
+    <a href="#world"><span>01</span>Inside Ace</a>
+    <a href="#gaming"><span>02</span>Play at Ace</a>
+    <a href="#booking"><span>03</span>Book a Session</a>
+    <a href="/rentals.html"><span>04</span>Ace Store</a>
+  </nav>
+  <div class="ace-menu-panel-bottom">
+    <a href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20I%20want%20to%20book%20a%20session." target="_blank" rel="noopener">WHATSAPP ↗</a>
+    <span>PIMPLE SAUDAGAR · PUNE</span>
+  </div>
+</div>
+
 <main id="top">
-  <section class="hero">
-    <video autoplay muted loop playsinline preload="auto"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/4d34805d-8ff3-4634-9148-e2607a487a87.mp4" type="video/mp4"></video>
+  <section class="hero ace-hero-v3">
+    <video autoplay muted loop playsinline preload="metadata"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/4d34805d-8ff3-4634-9148-e2607a487a87.mp4" type="video/mp4"></video>
     <div class="hero-shade"></div>
     <div class="hero-logo"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/b412bae1-d3a6-4abd-9cb0-8f19a4333e05.png" alt="Ace Gaming"></div>
+    <div class="ace-hero-meta">
+      <span>GAMING · RENTALS · FOOD</span>
+      <a href="#booking">BOOK A SESSION <b>↘</b></a>
+    </div>
   </section>
 
   <section class="section world" id="world">
     <span class="section-kicker reveal">ACE GAMING</span>
     <h2 class="section-title reveal">Inside Ace</h2>
     <div class="world-grid">
-      <a class="media-card" href="#gaming"><div class="media-window mask"><img class="still-image" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/cb757994-dc15-4008-867f-6ed5c69f62b5.jpg" alt="" loading="lazy"></div><div class="media-copy reveal"><strong>Gaming at Ace</strong><span>PC + Console</span></div></a>
-      <a class="media-card" href="/rentals.html"><div class="media-window mask"><img class="still-image" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/d22495ea-a7b4-4877-a6d9-603303eb7148.jpg" alt="" loading="lazy"></div><div class="media-copy reveal"><strong>Ace Rentals</strong><span>Take it home</span></div></a>
-      <a class="media-card" href="#gaming"><div class="media-window mask"><img class="still-image" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/ef21c282-c36d-4e28-98ef-cab19016e541.jpg" alt="" loading="lazy"></div><div class="media-copy reveal"><strong>Performance</strong><span>Built to play</span></div></a>
+      <a class="media-card" href="#gaming"><div class="media-window mask"><img class="still-image" src="https://theacegaming.com/wp-content/uploads/2025/11/PC-Gaming-1.png" alt="Ace Gaming experience" loading="lazy"></div><div class="media-copy reveal"><strong>Gaming at Ace</strong><span>PC + Console</span></div></a>
+      <a class="media-card" href="/rentals.html"><div class="media-window mask"><img class="still-image" src="https://theacegaming.com/wp-content/uploads/2025/11/Gaming-Setup-1.png" alt="Ace Gaming experience" loading="lazy"></div><div class="media-copy reveal"><strong>Ace Rentals</strong><span>Take it home</span></div></a>
+      <a class="media-card" href="#gaming"><div class="media-window mask"><img class="still-image" src="https://theacegaming.com/wp-content/uploads/2025/11/PC-Gaming-2.png" alt="Ace Gaming experience" loading="lazy"></div><div class="media-copy reveal"><strong>Performance</strong><span>Built to play</span></div></a>
     </div>
   </section>
 
   <section class="cinema">
-    <img class="cinema-image" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/ef21c282-c36d-4e28-98ef-cab19016e541.jpg" alt="" loading="lazy">
+    <img class="cinema-image" src="https://theacegaming.com/wp-content/uploads/2025/11/BG-2-scaled.jpg" alt="Ace Gaming arena" loading="lazy" decoding="async">
     <div class="cinema-center reveal"><div><h2>Built for<br>the game.</h2><p>Gaming · Racing · Rentals · Food</p></div></div>
   </section>
 
   <section class="duo">
-    <a class="media-card" href="#gaming"><div class="media-window mask"><img class="still-image" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/7c9308b2-6122-402d-a2a3-858856a3a462.jpg" alt="" loading="lazy"></div><div class="media-copy reveal"><strong>Gaming Nights</strong><span>Play together</span></div></a>
-    <a class="media-card" href="/rentals.html"><div class="media-window mask"><img class="still-image" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/d22495ea-a7b4-4877-a6d9-603303eb7148.jpg" alt="" loading="lazy"></div><div class="media-copy reveal"><strong>PS5 + PC Rentals</strong><span>Monthly setups</span></div></a>
+    <a class="media-card" href="#gaming"><div class="media-window mask"><img class="still-image" src="https://theacegaming.com/wp-content/uploads/2025/11/PS-5-Gaming.png" alt="Ace Gaming experience" loading="lazy"></div><div class="media-copy reveal"><strong>Gaming Nights</strong><span>Play together</span></div></a>
+    <a class="media-card" href="/rentals.html"><div class="media-window mask"><img class="still-image" src="https://theacegaming.com/wp-content/uploads/2025/11/Sim-Racing-1-scaled.png" alt="Ace Gaming experience" loading="lazy"></div><div class="media-copy reveal"><strong>PS5 + PC Rentals</strong><span>Monthly setups</span></div></a>
   </section>
 
   <section class="models" id="gaming">
     <span class="section-kicker reveal">CHOOSE THE EXPERIENCE</span>
     <h2 class="section-title reveal">Play at Ace</h2>
     <div class="models-grid">
-      <a class="model-card mask" href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20I%20want%20to%20book%20PC%20gaming." target="_blank" rel="noopener"><img class="still-image" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/cb757994-dc15-4008-867f-6ed5c69f62b5.jpg" alt="" loading="lazy"><div class="model-shade"></div><div class="model-label"><strong>PC Gaming</strong><span>↗</span></div></a>
-      <a class="model-card mask" href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20I%20want%20to%20book%20PS5." target="_blank" rel="noopener"><img class="still-image" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/dc7f61b5-0025-4028-b1b5-6face5d99fc6.jpg" alt="" loading="lazy"><div class="model-shade"></div><div class="model-label"><strong>PlayStation 5</strong><span>↗</span></div></a>
-      <a class="model-card mask" href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20I%20want%20to%20book%20sim%20racing." target="_blank" rel="noopener"><img class="still-image" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/36b0eb50-caf4-4879-bd41-9b94dd280032.jpg" alt="" loading="lazy"><div class="model-shade"></div><div class="model-label"><strong>Sim Racing</strong><span>↗</span></div></a>
-      <a class="model-card mask" href="/rentals.html"><img class="still-image" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/ef21c282-c36d-4e28-98ef-cab19016e541.jpg" alt="" loading="lazy"><div class="model-shade"></div><div class="model-label"><strong>Ace Store</strong><span>↗</span></div></a>
+      <a class="model-card mask" href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20I%20want%20to%20book%20PC%20gaming." target="_blank" rel="noopener"><img class="still-image" src="https://theacegaming.com/wp-content/uploads/2025/11/PC-Gaming-1.png" alt="Ace Gaming experience" loading="lazy"><div class="model-shade"></div><div class="model-label"><strong>PC Gaming</strong><span>↗</span></div></a>
+      <a class="model-card mask" href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20I%20want%20to%20book%20PS5." target="_blank" rel="noopener"><img class="still-image" src="https://theacegaming.com/wp-content/uploads/2025/11/PS-5-Gaming.png" alt="Ace Gaming experience" loading="lazy"><div class="model-shade"></div><div class="model-label"><strong>PlayStation 5</strong><span>↗</span></div></a>
+      <a class="model-card mask" href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20I%20want%20to%20book%20sim%20racing." target="_blank" rel="noopener"><img class="still-image" src="https://theacegaming.com/wp-content/uploads/2025/11/Sim-Racing-2.png" alt="Ace Gaming experience" loading="lazy"><div class="model-shade"></div><div class="model-label"><strong>Sim Racing</strong><span>↗</span></div></a>
+      <a class="model-card mask" href="/rentals.html"><img class="still-image" src="https://theacegaming.com/wp-content/uploads/2025/11/PC-Gaming-2.png" alt="Ace Gaming experience" loading="lazy"><div class="model-shade"></div><div class="model-label"><strong>Ace Store</strong><span>↗</span></div></a>
     </div>
   </section>
 
@@ -979,6 +1100,39 @@ routeSession();
     });
     mo.observe(sessionPage,{attributes:true,attributeFilter:['hidden']});
   }
+})();
+</script>
+<script id="ace-nav-v3-js">
+(()=>{
+  const trigger=document.getElementById('aceMenuTrigger');
+  const panel=document.getElementById('aceMenuPanel');
+  const close=document.getElementById('aceMenuClose');
+  const setMenu=open=>{
+    panel.classList.toggle('open',open);
+    panel.setAttribute('aria-hidden',String(!open));
+    trigger.setAttribute('aria-expanded',String(open));
+    document.body.classList.toggle('ace-menu-open',open);
+  };
+  trigger?.addEventListener('click',()=>setMenu(true));
+  close?.addEventListener('click',()=>setMenu(false));
+  panel?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+  addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false)});
+
+  const countEl=document.getElementById('aceHomeCartCount');
+  const updateHomeCart=()=>{
+    let count=0;
+    try{
+      const cart=JSON.parse(localStorage.getItem('aceGamingCart')||'{}');
+      count=Object.values(cart).reduce((sum,n)=>sum+(Number(n)||0),0);
+    }catch{}
+    if(countEl){
+      countEl.textContent=String(count);
+      countEl.hidden=count<1;
+    }
+  };
+  updateHomeCart();
+  addEventListener('storage',updateHomeCart);
+  addEventListener('pageshow',updateHomeCart);
 })();
 </script>
 </body>
