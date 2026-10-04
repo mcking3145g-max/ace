@@ -1165,6 +1165,239 @@ body{font-family:var(--store-font)!important;font-feature-settings:"kern" 1,"lig
   .store-footer-cta h2{font-size:46px}
 }
 </style>
+<style id="ace-store-visible-polish-v2">
+/* Stronger visible store refinement — same structure, clearer premium treatment */
+body{background:#050505!important}
+.site-header{
+  padding:12px clamp(16px,3.2vw,48px)!important;
+  background:rgba(5,5,5,.94)!important;
+  border-bottom:1px solid rgba(255,255,255,.08)!important;
+  backdrop-filter:blur(18px) saturate(125%)!important;
+}
+.brand-logo{height:28px!important}
+.desktop-nav a,.whatsapp-booking,.home-link{
+  font-size:8px!important;
+  letter-spacing:.13em!important;
+}
+
+.store-hero-v2{
+  min-height:80svh!important;
+  padding:102px clamp(18px,5vw,82px) 58px!important;
+}
+.store-hero-v2 .store-hero-video{
+  filter:brightness(.48) contrast(1.08) saturate(.84)!important;
+}
+.store-hero-v2 .store-hero-shade{
+  background:
+    linear-gradient(180deg,rgba(0,0,0,.2),rgba(0,0,0,.04) 40%,rgba(0,0,0,.58)),
+    linear-gradient(90deg,rgba(0,0,0,.32),rgba(0,0,0,.08) 55%,rgba(0,0,0,.32))!important;
+}
+.clean-store-hero-copy{
+  width:min(820px,88vw)!important;
+  text-align:center!important;
+}
+.clean-store-hero-copy .eyebrow{
+  color:rgba(255,255,255,.42)!important;
+  font-size:8px!important;
+  letter-spacing:.18em!important;
+}
+.clean-store-hero-copy h1{
+  margin:18px auto 0!important;
+  font-size:clamp(58px,7vw,108px)!important;
+  line-height:.8!important;
+  letter-spacing:-.072em!important;
+}
+
+.ace-collections{
+  padding:clamp(84px,7vw,120px) clamp(20px,5vw,82px)!important;
+}
+.ace-collections-head{
+  margin-bottom:40px!important;
+}
+.ace-collections-head h2{
+  font-size:clamp(38px,4.2vw,64px)!important;
+  line-height:.92!important;
+  letter-spacing:-.055em!important;
+}
+.ace-collections-head p{
+  max-width:430px!important;
+  font-size:13px!important;
+  line-height:1.72!important;
+  color:rgba(255,255,255,.48)!important;
+}
+.ace-collection-grid{gap:12px!important}
+.ace-collection-card{
+  min-height:390px!important;
+  border-radius:2px!important;
+  overflow:hidden!important;
+  background:#e9e9e6!important;
+}
+.ace-collection-card img{
+  filter:saturate(.88) contrast(1.03)!important;
+  transition:transform .9s var(--ace-ease),filter .4s ease!important;
+}
+.ace-collection-card:hover img{
+  transform:scale(1.035)!important;
+  filter:saturate(.95) contrast(1.05)!important;
+}
+.ace-collection-card span{
+  left:18px!important;right:18px!important;bottom:18px!important;
+}
+.ace-collection-card strong{
+  font-size:14px!important;
+  letter-spacing:-.02em!important;
+}
+.ace-collection-card small{
+  font-size:8px!important;
+  letter-spacing:.12em!important;
+}
+
+.store-section{
+  width:min(calc(100% - 10vw),1500px)!important;
+  padding:clamp(84px,7vw,118px) 0 clamp(96px,8vw,132px)!important;
+}
+.section-heading{
+  margin-bottom:38px!important;
+}
+.section-heading h2{
+  font-size:clamp(48px,5.8vw,88px)!important;
+  line-height:.82!important;
+  letter-spacing:-.067em!important;
+}
+.section-heading p{
+  max-width:450px!important;
+  color:rgba(255,255,255,.48)!important;
+  font-size:13px!important;
+  line-height:1.72!important;
+}
+.store-tools{
+  margin-bottom:30px!important;
+  padding:14px 0!important;
+  border-top:1px solid rgba(255,255,255,.1)!important;
+  border-bottom:1px solid rgba(255,255,255,.1)!important;
+}
+.filter{
+  padding:8px 0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:rgba(255,255,255,.36)!important;
+  font-size:8px!important;
+  letter-spacing:.12em!important;
+}
+.filter.active{
+  color:#fff!important;
+  border-bottom:1px solid rgba(255,255,255,.65)!important;
+}
+.search-box{
+  border-radius:0!important;
+  background:transparent!important;
+}
+
+.product-grid{gap:10px!important}
+.product-card{
+  border-radius:2px!important;
+  overflow:hidden!important;
+  background:#ecece9!important;
+  box-shadow:none!important;
+}
+.product-image{
+  background:#ecece9!important;
+}
+.product-info{
+  padding:4px 16px 18px!important;
+}
+.product-info h3{
+  font-size:14px!important;
+  line-height:1.15!important;
+  letter-spacing:-.025em!important;
+}
+.price{
+  font-size:15px!important;
+}
+.card-actions{
+  margin-top:12px!important;
+}
+.card-actions button,
+.card-actions a{
+  border-radius:0!important;
+}
+
+.ace-campaign-v2{
+  height:80svh!important;
+  min-height:600px!important;
+}
+.ace-campaign-v2 video{
+  filter:brightness(.42) contrast(1.09) saturate(.84)!important;
+}
+.ace-campaign-v2 .ace-campaign-copy{
+  left:clamp(20px,5vw,82px)!important;
+  bottom:72px!important;
+  max-width:760px!important;
+}
+.ace-campaign-v2 .ace-campaign-copy h2{
+  font-size:clamp(60px,7vw,108px)!important;
+  line-height:.78!important;
+  letter-spacing:-.075em!important;
+}
+.ace-campaign-v2 .ace-campaign-copy p{
+  max-width:430px!important;
+  color:rgba(255,255,255,.54)!important;
+}
+
+.ace-store-footer{
+  padding:86px clamp(20px,5vw,82px) 0!important;
+  background:#080808!important;
+}
+.store-footer-cta{
+  padding:58px 0!important;
+}
+.store-footer-cta h2{
+  font-size:clamp(64px,8vw,124px)!important;
+  line-height:.78!important;
+  letter-spacing:-.075em!important;
+}
+.store-footer-links{
+  padding:52px 0 62px!important;
+}
+.store-footer-word{color:#131313!important}
+
+@media(max-width:1100px){
+  .ace-collection-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .product-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(max-width:768px){
+  .site-header{padding:10px 16px!important}
+  .store-hero-v2{min-height:70svh!important;padding:90px 16px 44px!important}
+  .clean-store-hero-copy{width:100%!important}
+  .clean-store-hero-copy h1{font-size:clamp(48px,13vw,72px)!important}
+  .ace-collections{padding:68px 16px!important}
+  .ace-collections-head{margin-bottom:26px!important}
+  .ace-collection-grid{grid-template-columns:1fr!important}
+  .ace-collection-card{min-height:320px!important}
+  .store-section{width:calc(100% - 32px)!important;padding:72px 0 84px!important}
+  .section-heading h2{font-size:52px!important}
+  .product-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px!important}
+  .ace-campaign-v2{height:68svh!important;min-height:520px!important}
+  .ace-campaign-v2 .ace-campaign-copy{left:16px!important;right:16px!important;bottom:48px!important}
+  .ace-campaign-v2 .ace-campaign-copy h2{font-size:54px!important}
+  .ace-store-footer{padding:66px 16px 0!important}
+}
+@media(max-width:520px){
+  .site-header{padding:10px 12px!important}
+  .brand-logo{height:26px!important}
+  .store-hero-v2{min-height:66svh!important;padding:82px 12px 38px!important}
+  .clean-store-hero-copy h1{font-size:44px!important}
+  .ace-collections{padding:58px 12px!important}
+  .ace-collection-card{min-height:286px!important}
+  .store-section{width:calc(100% - 24px)!important;padding:62px 0 74px!important}
+  .section-heading h2{font-size:44px!important}
+  .product-grid{grid-template-columns:1fr!important}
+  .product-info h3{font-size:16px!important}
+  .ace-campaign-v2 .ace-campaign-copy h2{font-size:44px!important}
+  .ace-store-footer{padding:58px 12px 0!important}
+  .store-footer-cta h2{font-size:48px!important}
+}
+</style>
 </head>
 <body>
   <div class="noise"></div>
