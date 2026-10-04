@@ -614,7 +614,7 @@
       <a href="#products" data-filter-link="accessory">Add-ons</a>
     </nav>
     <div class="header-actions">
-      <a class="whatsapp-booking" id="topWhatsAppBooking" href="https://wa.me/919076060602?text=Hello%20Ace%20Gaming%2C%20I%20want%20to%20book%20a%20gaming%20rental.%20Please%20share%20availability%20and%20rental%20details." target="_blank" rel="noopener" aria-label="Book a rental on WhatsApp">
+      <a class="whatsapp-booking" id="topWhatsAppBooking" href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20I%20want%20to%20book%20a%20gaming%20rental.%20Please%20share%20availability%20and%20rental%20details." target="_blank" rel="noopener" aria-label="Book a rental on WhatsApp">
         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.5 9.4 9.4 0 0 1-4-1l-5 1 1-4.7a8.6 8.6 0 1 1 17-3.8Z"/><path d="M8.7 8.4c.2-.5.4-.5.7-.5h.5c.2 0 .4 0 .5.4l.8 1.9c.1.3 0 .5-.1.7l-.6.8c-.2.2-.1.4 0 .6.6 1 1.4 1.8 2.4 2.3.2.1.4.1.6-.1l.9-1.1c.2-.2.4-.2.7-.1l1.8.9c.3.1.5.2.5.4.1.2.1 1-.2 1.7-.3.7-1.5 1.3-2.1 1.4-.6.1-1.4.2-2.3-.1-.5-.2-1.2-.4-2-.8-3.5-1.5-5.8-5.1-6-5.3-.2-.3-1.4-1.9-1.4-3.6 0-1.7.9-2.5 1.2-2.9Z" transform="scale(.72) translate(5 5)"/></svg>
         <span class="whatsapp-booking-label">WhatsApp Booking</span>
       </a>
@@ -757,7 +757,7 @@
 
   <script>
     const GOOGLE_SHEETS_WEB_APP_URL = 'PASTE_YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE';
-    const ACE_WHATSAPP_NUMBER = '919076060602';
+    const ACE_WHATSAPP_NUMBER = '919076060603';
     const SHEETS_MESSAGE_SOURCE = 'ace-gaming-rental-sheet';
     const svgData = (svg) => 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg);
     const pcFan = (cx,cy,r=48) => `
@@ -864,20 +864,20 @@
     };
     const products = [
       {
-        id:'pc-2060', category:'pc', categoryName:'Gaming PC Rental', badge:'Best value', image:productArt.pcCore,
-        name:'RTX 2060 Gaming PC', price:3999, plans:{1:3999,2:3699,3:3399}, rating:'4.8',
-        description:'A dependable Full HD gaming PC built for high-FPS gaming, competitive play, streaming, video editing and smooth multitasking.',
-        mini:['Ryzen 5 2600','RTX 2060 Super','16GB RAM'],
-        specs:[['Processor','AMD Ryzen 5 2600'],['Graphics Card','MSI GeForce RTX 2060 Super OC'],['Motherboard','MSI B450M PRO M2-V2'],['Memory','G.Skill Ripjaws 16GB (8GB × 2)'],['Storage','WD 1TB NVMe SSD'],['Power Supply','Deepcool 450W SMPS'],['Cabinet','Cooler Master'],['Case Fans','120mm RGB fans']],
-        bestFor:['AAA games','Competitive play','Streaming','Video editing']
-      },
-      {
         id:'pc-4060', category:'pc', categoryName:'Gaming PC Rental', badge:'Most popular', hot:true, image:productArt.pcPro,
-        name:'RTX 4060 Gaming PC', price:8999, plans:{1:8999,2:8499,3:7999}, rating:'4.9',
+        name:'RTX 4060 Gaming PC', price:7500, plans:{1:7500,2:7500,3:7500}, rating:'4.9',
         description:'A modern high-performance gaming PC with fast storage, strong airflow and reliable power for smooth gameplay and creator work.',
         mini:['Ryzen 7 5700','RTX 4060 8GB','16GB RAM'],
         specs:[['Processor','AMD Ryzen 7 5700 — 8 cores / 16 threads, up to 4.6GHz'],['Graphics Card','Colorful GeForce RTX 4060 8GB'],['Motherboard','B450M'],['Memory','XPG 16GB (1 × 16GB) DDR4 3200MHz'],['Storage','WD 1TB NVMe SSD'],['Cabinet','Lian Li'],['Power Supply','Ant Esports 550W 80+ Bronze']],
         bestFor:['Gaming','Streaming','Content creation','Esports']
+      },
+      {
+        id:'pc-4060-7600', category:'pc', categoryName:'Gaming PC Rental', badge:'New', hot:true, image:productArt.pcPro,
+        name:'RTX 4060 + Ryzen 5 7600 Gaming PC', price:8999, plans:{1:8999,2:8999,3:8999}, rating:'4.9',
+        description:'A fast modern gaming build pairing RTX 4060 graphics with Ryzen 5 7600 performance and 16GB memory.',
+        mini:['Ryzen 5 7600','RTX 4060 8GB','16GB RAM'],
+        specs:[['Processor','AMD Ryzen 5 7600'],['Graphics Card','GeForce RTX 4060 8GB'],['Memory','16GB RAM']],
+        bestFor:['High-FPS gaming','Competitive play','Streaming','Everyday creator work']
       },
       {
         id:'pc-7700xt-i5', category:'pc', categoryName:'Gaming PC Rental', badge:'Premium Intel', image:productArt.pcElite,
@@ -1625,7 +1625,7 @@
           <div class="success-icon">✓</div>
           <span class="eyebrow">${savedToSheets ? 'Saved & ready' : 'WhatsApp booking ready'}</span>
           <h2>Opening WhatsApp…</h2>
-          <p>Your request number is <strong>${orderId}</strong>. Your complete customer, rental-period, delivery and item details are prepared for <strong>+91 90760 60602</strong>.</p>
+          <p>Your request number is <strong>${orderId}</strong>. Your complete customer, rental-period, delivery and item details are prepared for <strong>+91 90760 60603</strong>.</p>
           <a class="button" href="${whatsappUrl}">Open WhatsApp now</a>
         </div>`;
       rentalNowItems = null;
