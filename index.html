@@ -3,361 +3,208 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#050507">
-<meta name="description" content="Ace Gaming — premium gaming, rentals, racing, events and food.">
+<meta name="theme-color" content="#050505">
 <title>Ace Gaming</title>
-<link rel="icon" type="image/png" href="/favicon.png">
 <style>
-:root{
-  --bg:#050507;--ink:#f7f7f5;--muted:#9a9aa3;--line:rgba(255,255,255,.16);
-  --pink:#ef2f82;--cyan:#32acc9;--ease:cubic-bezier(.16,1,.3,1);
-}
+:root{--bg:#050505;--fg:#f4f4f1;--muted:#8b8b88;--line:rgba(255,255,255,.17);--cyan:#32acc9;--pink:#ef2f82;--ease:cubic-bezier(.16,1,.3,1)}
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;background:var(--bg)}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+html{background:var(--bg);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
-button{font:inherit}
-::selection{background:var(--pink);color:#fff}
-.site-header{position:fixed;inset:0 0 auto;z-index:50;height:72px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 32px;color:#fff;transition:background .45s ease,border-color .45s ease}
-.site-header.scrolled{background:rgba(5,5,7,.92);border-bottom:1px solid rgba(255,255,255,.08);backdrop-filter:blur(18px)}
-.header-wordmark{font-size:12px;font-weight:800;letter-spacing:.18em}
-.header-nav{display:flex;gap:28px;align-items:center}
-.header-nav a{position:relative;font-size:11px;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:rgba(255,255,255,.8)}
-.header-nav a:after{content:"";position:absolute;left:0;right:100%;bottom:-7px;height:1px;background:#fff;transition:right .35s var(--ease)}
-.header-nav a:hover:after{right:0}
-.hero{position:relative;height:100svh;min-height:640px;display:grid;place-items:center;overflow:hidden;background:#030305}
-.hero-video{position:absolute;inset:-5%;width:110%;height:110%;object-fit:cover;filter:saturate(1.08) contrast(1.08);transform:scale(var(--hero-scale,1.04)) translate3d(0,var(--hero-y,0px),0);will-change:transform}
-.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.34),rgba(0,0,0,.08) 42%,rgba(0,0,0,.55)),radial-gradient(circle at 50% 48%,transparent 0 28%,rgba(0,0,0,.28) 72%,rgba(0,0,0,.7) 100%)}
-.hero-logo-wrap{position:relative;z-index:3;width:min(390px,70vw);display:grid;place-items:center;transform:translateY(var(--logo-y,0px)) scale(var(--logo-scale,1));opacity:var(--logo-opacity,1);will-change:transform,opacity}
-.hero-logo{width:100%;height:auto;display:block;mix-blend-mode:screen}
-.section{position:relative;padding:120px 5vw}
-.intro{min-height:86vh;display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,420px);gap:8vw;align-items:end;background:#050507}
-.kicker{display:block;margin-bottom:22px;color:#a8a8b0;font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
-.display{margin:0;font-size:clamp(54px,9.6vw,150px);line-height:.84;letter-spacing:-.066em;font-weight:800;text-transform:uppercase}
-.display .accent{color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.72)}
-.intro-copy{align-self:end;padding-bottom:10px}
-.intro-copy p{margin:0 0 32px;color:#b2b2ba;font-size:clamp(15px,1.4vw,20px);line-height:1.65}
-.text-link{display:inline-flex;align-items:center;gap:18px;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.5);font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
-.text-link span{transition:transform .3s var(--ease)}
-.text-link:hover span{transform:translateX(7px)}
-.chapters{padding:0;background:#050507}
-.chapter{position:relative;min-height:86vh;display:flex;align-items:flex-end;overflow:hidden;border-top:1px solid rgba(255,255,255,.09)}
-.chapter-bg{position:absolute;inset:-8%;transform:scale(var(--media-scale,1.08)) translate3d(0,var(--media-y,0px),0);will-change:transform}
-.chapter:nth-child(1) .chapter-bg{background:radial-gradient(circle at 20% 28%,rgba(50,172,201,.42),transparent 30%),radial-gradient(circle at 78% 62%,rgba(239,47,130,.22),transparent 34%),linear-gradient(115deg,#050507 12%,#0b1920 52%,#08050a 100%)}
-.chapter:nth-child(2) .chapter-bg{background:radial-gradient(circle at 72% 35%,rgba(239,47,130,.36),transparent 30%),linear-gradient(125deg,#040405,#1c0812 48%,#050507)}
-.chapter:nth-child(3) .chapter-bg{background:radial-gradient(circle at 30% 55%,rgba(50,172,201,.30),transparent 34%),radial-gradient(circle at 80% 44%,rgba(92,52,139,.30),transparent 28%),#050507}
-.chapter-bg:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent 0 10vw,rgba(255,255,255,.018) 10vw calc(10vw + 1px)),linear-gradient(180deg,rgba(0,0,0,.02),rgba(0,0,0,.65))}
-.chapter-content{position:relative;z-index:2;width:100%;padding:7vw 5vw;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:end}
-.chapter-index{font-size:11px;font-weight:800;letter-spacing:.18em;color:#bebec5}
-.chapter h2{margin:12px 0 14px;max-width:980px;font-size:clamp(58px,9vw,138px);line-height:.84;letter-spacing:-.06em;text-transform:uppercase}
-.chapter p{max-width:600px;margin:0;color:#bbbcc3;font-size:15px;line-height:1.65}
-.chapter-cta{align-self:end;display:grid;place-items:center;width:74px;height:74px;border:1px solid rgba(255,255,255,.55);font-size:26px;transition:background .3s,color .3s,transform .3s var(--ease)}
-.chapter-cta:hover{background:#fff;color:#050507;transform:translateX(5px)}
-.pricing{padding:150px 5vw 120px;background:#f2f1ee;color:#08080a}
-.pricing-head{display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:70px}
-.pricing-head h2{margin:0;font-size:clamp(64px,9vw,140px);line-height:.82;letter-spacing:-.06em;text-transform:uppercase}
-.pricing-head p{max-width:420px;margin:0 0 8px;color:#57575f;line-height:1.6}
-.price-list{border-top:1px solid rgba(0,0,0,.34)}
-.price-row{display:grid;grid-template-columns:90px 1fr auto;gap:28px;align-items:center;padding:30px 0;border-bottom:1px solid rgba(0,0,0,.24);transition:padding .35s var(--ease)}
-.price-row:hover{padding-left:14px}
-.price-row .num{font-size:11px;font-weight:800;letter-spacing:.16em}
-.price-row h3{margin:0;font-size:clamp(26px,4vw,54px);letter-spacing:-.04em;text-transform:uppercase}
-.price-row .price{font-size:clamp(18px,2.3vw,34px);font-weight:700}
-.food{padding:130px 5vw;background:#050507}
-.food-head{display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:end;margin-bottom:70px}
-.food-head h2{margin:0;font-size:clamp(60px,8vw,124px);line-height:.84;letter-spacing:-.06em;text-transform:uppercase}
-.food-head p{max-width:520px;color:#aaaab2;line-height:1.7}
-.menu-list{border-top:1px solid rgba(255,255,255,.2)}
-.menu-line{display:grid;grid-template-columns:1fr auto;gap:20px;padding:24px 0;border-bottom:1px solid rgba(255,255,255,.14);align-items:center}
-.menu-line strong{font-size:clamp(22px,3vw,40px);letter-spacing:-.035em;text-transform:uppercase}
-.menu-line span{color:#a7a7ae;font-size:13px}
-.footer{position:relative;padding:95px 5vw 34px;background:#050507;overflow:hidden}
-.footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px;border-top:1px solid rgba(255,255,255,.14);padding-top:28px}
-.footer-col{display:grid;gap:12px;align-content:start}
-.footer-col h4{margin:0 0 6px;color:#777781;font-size:10px;letter-spacing:.16em;text-transform:uppercase}
-.footer-col a,.footer-col span{font-size:12px;color:#d3d3d8}
-.footer-big{margin-top:70px;font-size:clamp(150px,31vw,520px);font-weight:900;line-height:.62;letter-spacing:-.09em;color:rgba(255,255,255,.045);white-space:nowrap;user-select:none;pointer-events:none}
-.reveal{opacity:0;transform:translateY(56px);clip-path:inset(0 0 18% 0);transition:opacity .95s var(--ease),transform 1.15s var(--ease),clip-path 1.1s var(--ease)}
-.reveal.visible{opacity:1;transform:none;clip-path:inset(0)}
-.menu-overlay.open @media(max-width:900px){
-  .site-header{height:64px;padding:0 18px;grid-template-columns:1fr auto 1fr}.header-nav{display:none}.header-wordmark{font-size:10px}
-  .hero{min-height:620px}.hero-bottom>span:last-child{display:none}
-  .section{padding:90px 20px}.intro{min-height:auto;grid-template-columns:1fr;gap:60px;padding-top:120px;padding-bottom:120px}
-  .chapter{min-height:74vh}.chapter-content{padding:52px 20px;grid-template-columns:1fr}.chapter-cta{width:58px;height:58px}
-  .pricing{padding:110px 20px 90px}.pricing-head{display:grid}.price-row{grid-template-columns:48px 1fr auto;gap:14px}.price-row h3{font-size:25px}
-    .food{padding:110px 20px}.food-head{grid-template-columns:1fr;gap:22px}
-    .footer{padding:80px 20px 28px}.footer-grid{grid-template-columns:1fr 1fr;row-gap:42px}
-  }
-@media(max-width:560px){
-  .hero-logo-wrap{width:min(310px,78vw)}.display{font-size:52px}.chapter h2{font-size:54px}.chapter p{font-size:14px}
-  .pricing-head h2{font-size:60px}.price-row{grid-template-columns:36px 1fr}.price-row .price{grid-column:2;font-size:17px}
-  .food-head h2{font-size:56px}  .footer-grid{grid-template-columns:1fr}.footer-big{font-size:48vw}
-}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;clip-path:none;transition:none}.hero-video,.hero-logo-wrap,.chapter-bg{transform:none!important}.menu-overlay,}
-
-/* ACE 2026 cinematic system */
-.ace-label{display:block;font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#9b9ba4}
-.ace-manifesto{min-height:100svh;padding:13vw 5vw 7vw;display:flex;align-items:flex-end;background:#050507}
-.manifesto-inner{width:100%}
-.manifesto-title{margin:0;font-size:clamp(70px,12vw,190px);line-height:.76;letter-spacing:-.072em;font-weight:800;text-transform:uppercase}
-.manifesto-title em{font-style:normal;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.82)}
-.manifesto-bottom{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,520px);gap:8vw;align-items:end;margin-top:7vw;padding-top:28px;border-top:1px solid rgba(255,255,255,.18)}
-.manifesto-bottom p{grid-column:2;margin:0;color:#a7a7ae;font-size:16px;line-height:1.75}
-.line-link{display:inline-flex;align-items:center;justify-content:space-between;gap:34px;min-width:230px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.5);font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
-.manifesto-bottom .line-link{grid-column:2;margin-top:8px}
-.line-link span{font-size:16px;transition:transform .35s var(--ease)}
-.line-link:hover span{transform:translate(4px,-4px)}
-.ace-film{position:relative;height:100svh;min-height:700px;overflow:hidden;background:#030305}
-.ace-film video{position:absolute;inset:-8%;width:116%;height:116%;object-fit:cover;transform:scale(var(--film-scale,1.02)) translate3d(0,var(--film-y,0px),0);will-change:transform;filter:saturate(.88) contrast(1.05) brightness(.74)}
-.ace-film-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,3,5,.78) 0%,rgba(3,3,5,.16) 52%,rgba(3,3,5,.48) 100%),linear-gradient(180deg,rgba(0,0,0,.06),rgba(0,0,0,.55))}
-.ace-film-copy{position:absolute;left:5vw;bottom:7vw;z-index:2}
-.ace-film-copy h2{margin:20px 0 0;font-size:clamp(56px,8vw,128px);line-height:.82;letter-spacing:-.06em;text-transform:uppercase}
-.ace-sequence{background:#f0efec;color:#08080a}
-.sequence-row{display:grid;grid-template-columns:70px minmax(0,1.2fr) minmax(260px,.55fr) 90px;gap:28px;align-items:end;min-height:70vh;padding:7vw 5vw;border-bottom:1px solid rgba(0,0,0,.22);transition:background .45s var(--ease),color .45s var(--ease)}
-.sequence-row:hover{background:#08080a;color:#f7f7f5}
-.sequence-row:hover .ace-label,.sequence-row:hover p{color:#a7a7ae}
-.sequence-index{align-self:start;font-size:11px;font-weight:800;letter-spacing:.14em}
-.sequence-row h2{margin:16px 0 0;font-size:clamp(54px,7.5vw,120px);line-height:.82;letter-spacing:-.06em;text-transform:uppercase}
-.sequence-row p{margin:0;color:#55555d;line-height:1.7}
-.sequence-row>a{align-self:end;justify-self:end;font-size:11px;font-weight:800;letter-spacing:.12em}
-.sequence-row>a span{font-size:19px;margin-left:8px}
-.ace-store-gateway{padding:9vw 5vw 7vw;background:linear-gradient(135deg,#060709 0%,#0b0f12 48%,#12070d 100%);overflow:hidden}
-.store-gateway-top{display:grid;grid-template-columns:1fr minmax(280px,500px);gap:5vw;align-items:start}
-.store-gateway-top p{margin:0;color:#aaaab1;line-height:1.7}
-.store-gateway-link{display:flex;align-items:flex-end;justify-content:space-between;margin:7vw 0 5vw;padding:2vw 0 3vw;border-top:1px solid rgba(255,255,255,.18);border-bottom:1px solid rgba(255,255,255,.18);overflow:hidden}
-.store-word{font-size:clamp(82px,17vw,260px);line-height:.72;font-weight:800;letter-spacing:-.085em;white-space:nowrap;transition:transform .7s var(--ease)}
-.store-arrow{font-size:clamp(50px,8vw,110px);line-height:.8;transition:transform .55s var(--ease)}
-.store-gateway-link:hover .store-word{transform:translateX(1.2vw)}
-.store-gateway-link:hover .store-arrow{transform:translate(8px,-8px)}
-.store-gateway-foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:#777781;font-size:10px;font-weight:800;letter-spacing:.14em}
-.ace-pricing{padding:11vw 5vw;background:#050507}
-.ace-pricing-head{display:grid;grid-template-columns:1fr 1fr;gap:6vw;align-items:end;margin-bottom:5vw}
-.ace-pricing-head h2{grid-column:2;margin:0;font-size:clamp(64px,9vw,140px);line-height:.8;letter-spacing:-.06em;text-transform:uppercase}
-.ace-price-lines{border-top:1px solid rgba(255,255,255,.18)}
-.ace-price-line{display:grid;grid-template-columns:70px minmax(0,1fr) auto 40px;gap:28px;align-items:center;padding:28px 0;border-bottom:1px solid rgba(255,255,255,.16);transition:padding .35s var(--ease),background .35s ease}
-.ace-price-line:hover{padding-left:14px;padding-right:14px;background:rgba(255,255,255,.025)}
-.ace-price-line>span{font-size:10px;color:#777781;font-weight:800}
-.ace-price-line strong{font-size:clamp(26px,4vw,58px);letter-spacing:-.045em}
-.ace-price-line small{font-size:10px;color:#888892;letter-spacing:.12em}
-.ace-price-line b{font-size:22px;font-weight:400}
-.ace-food{padding:11vw 5vw;background:#efeeeb;color:#08080a}
-.ace-food-title h2{margin:22px 0 7vw;font-size:clamp(60px,9vw,142px);line-height:.8;letter-spacing:-.06em;text-transform:uppercase}
-.ace-food-grid{display:grid;grid-template-columns:minmax(260px,.65fr) 1.35fr;gap:8vw;padding-top:30px;border-top:1px solid rgba(0,0,0,.25)}
-.food-copy p{margin:0 0 34px;max-width:460px;color:#55555d;line-height:1.75}
-.ace-food .line-link{border-color:rgba(0,0,0,.48)}
-.food-lines{border-top:1px solid rgba(0,0,0,.22)}
-.food-lines div{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;padding:28px 0;border-bottom:1px solid rgba(0,0,0,.22)}
-.food-lines strong{font-size:clamp(28px,4vw,56px);letter-spacing:-.04em}
-.food-lines span{font-size:12px;color:#66666e;text-align:right}
-.ace-final{position:relative;padding:9vw 0 5vw;background:#050507;overflow:hidden}
-.ace-final-track{display:flex;width:max-content;animation:aceMarquee 20s linear infinite;color:rgba(255,255,255,.05);font-size:clamp(95px,16vw,240px);line-height:.76;font-weight:800;letter-spacing:-.07em;white-space:nowrap}
-.ace-final-track span{padding-right:4vw}
-.ace-final-inner{display:flex;justify-content:space-between;align-items:end;gap:30px;margin:7vw 5vw 0;padding-top:28px;border-top:1px solid rgba(255,255,255,.18)}
-.ace-final-inner a{font-size:clamp(42px,7vw,100px);font-weight:800;letter-spacing:-.055em;text-transform:uppercase}
-.ace-final-inner a span{font-size:.6em}
-@keyframes aceMarquee{to{transform:translateX(-50%)}}
-.reveal{opacity:0;transform:translateY(48px);clip-path:inset(0 0 14% 0);transition:opacity .85s var(--ease),transform 1s var(--ease),clip-path 1s var(--ease)}
-.reveal.visible{opacity:1;transform:none;clip-path:inset(0)}
+button{font:inherit;color:inherit}
+img,video{display:block}
+.site-head{position:fixed;z-index:100;top:0;left:0;right:0;height:64px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 28px;color:#fff;mix-blend-mode:difference;transition:background .35s ease,border-color .35s ease}
+.site-head.solid{mix-blend-mode:normal;background:rgba(5,5,5,.94);border-bottom:1px solid rgba(255,255,255,.1);backdrop-filter:blur(16px)}
+.head-left,.head-right,.head-brand{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.head-left{justify-self:start}.head-brand{justify-self:center}.head-right{justify-self:end}
+.head-left,.head-right{padding:10px 0;border-bottom:1px solid transparent;transition:border .25s ease}
+.head-left:hover,.head-right:hover{border-color:#fff}
+.hero{position:relative;height:100svh;min-height:640px;overflow:hidden;background:#000}
+.hero>video{position:absolute;inset:-4%;width:108%;height:108%;object-fit:cover;filter:brightness(.72) contrast(1.03) saturate(.92);transform:scale(var(--hero-scale,1.02)) translate3d(0,var(--hero-y,0),0);will-change:transform}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.18),rgba(0,0,0,.02) 50%,rgba(0,0,0,.48))}
+.hero-logo{position:absolute;z-index:2;left:50%;top:50%;width:min(360px,64vw);transform:translate(-50%,calc(-50% + var(--logo-y,0px))) scale(var(--logo-scale,1));opacity:var(--logo-opacity,1);will-change:transform,opacity}
+.hero-logo img{width:100%;height:auto}
+.section{padding:86px 4vw}
+.section-title{margin:0 0 34px;font-size:clamp(23px,2.2vw,34px);line-height:1;font-weight:700;letter-spacing:-.035em;text-transform:uppercase}
+.section-kicker{display:block;margin-bottom:9px;color:#8d8d89;font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+.world{background:#050505}
+.world-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.media-card{display:block}
+.media-window{position:relative;aspect-ratio:1.53/1;overflow:hidden;background:#101010}
+.media-window video{width:100%;height:100%;object-fit:cover;filter:brightness(.8) saturate(.9);transform:scale(1.035);transition:transform .8s var(--ease),filter .45s ease}
+.media-card:hover .media-window video{transform:scale(1.085);filter:brightness(.92) saturate(1)}
+.media-copy{display:flex;justify-content:space-between;gap:16px;align-items:start;padding-top:12px}
+.media-copy strong{font-size:11px;text-transform:uppercase;letter-spacing:.03em}
+.media-copy span{color:#787875;font-size:9px;text-transform:uppercase;letter-spacing:.08em}
+.cinema{position:relative;height:86svh;min-height:620px;overflow:hidden;background:#090909}
+.cinema video{position:absolute;inset:-4%;width:108%;height:108%;object-fit:cover;filter:brightness(.58) contrast(1.05) saturate(.9);transform:scale(var(--cinema-scale,1.02)) translate3d(0,var(--cinema-y,0),0);will-change:transform}
+.cinema:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.16),rgba(0,0,0,.5))}
+.cinema-center{position:absolute;z-index:2;inset:0;display:grid;place-items:center;text-align:center;padding:30px}
+.cinema-center h2{margin:0;font-size:clamp(44px,6vw,90px);line-height:.88;letter-spacing:-.055em;text-transform:uppercase}
+.cinema-center p{margin:14px 0 0;color:#c4c4c0;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+.duo{padding:12px 4vw 86px;display:grid;grid-template-columns:1fr 1fr;gap:12px;background:#050505}
+.duo .media-window{aspect-ratio:1.56/1}
+.models{padding:0 4vw 86px;background:#050505}
+.models-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.model-card{position:relative;min-height:58vw;max-height:820px;overflow:hidden;background:#0c0c0c}
+.model-card video{width:100%;height:100%;object-fit:cover;filter:brightness(.72) contrast(1.04);transform:scale(1.035);transition:transform .85s var(--ease),filter .5s ease}
+.model-card:hover video{transform:scale(1.08);filter:brightness(.86)}
+.model-shade{position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(0,0,0,.66))}
+.model-label{position:absolute;z-index:2;left:24px;right:24px;bottom:22px;display:flex;align-items:end;justify-content:space-between;gap:18px}
+.model-label strong{font-size:clamp(25px,3vw,45px);line-height:.92;letter-spacing:-.045em;text-transform:uppercase}
+.model-label span{font-size:22px}
+.life{padding:86px 0;background:#050505}
+.life-head{padding:0 4vw;display:flex;justify-content:space-between;align-items:end;gap:30px}
+.life-controls{display:flex;gap:8px}
+.life-controls button{width:38px;height:38px;border:1px solid rgba(255,255,255,.2);background:transparent;cursor:pointer}
+.life-controls button:hover{background:#fff;color:#000}
+.life-track{display:flex;gap:12px;overflow-x:auto;scrollbar-width:none;padding:0 4vw 18px;scroll-snap-type:x mandatory}
+.life-track::-webkit-scrollbar{display:none}
+.life-item{flex:0 0 min(42vw,570px);scroll-snap-align:start}
+.life-item .media-window{aspect-ratio:1.45/1}
+.booking{padding:90px 4vw;background:#0a0a0a;border-top:1px solid rgba(255,255,255,.12)}
+.booking-head{display:grid;grid-template-columns:1fr 1fr;gap:7vw;align-items:end;margin-bottom:46px}
+.booking-head h2{margin:0;font-size:clamp(38px,5.4vw,78px);line-height:.88;letter-spacing:-.05em;text-transform:uppercase}
+.booking-head p{margin:0;max-width:520px;color:#959591;line-height:1.65;font-size:14px}
+.book-lines{border-top:1px solid rgba(255,255,255,.18)}
+.book-line{display:grid;grid-template-columns:45px 1fr auto 24px;gap:20px;align-items:center;padding:22px 0;border-bottom:1px solid rgba(255,255,255,.14);transition:padding .35s var(--ease)}
+.book-line:hover{padding-left:10px}
+.book-line i{font-style:normal;color:#666;font-size:9px}.book-line strong{font-size:clamp(18px,2vw,28px);letter-spacing:-.02em;text-transform:uppercase}.book-line small{color:#777;font-size:9px;letter-spacing:.09em;text-transform:uppercase}.book-line b{font-weight:400}
+footer{position:relative;overflow:hidden;padding:58px 4vw 0;background:#101010}
+.footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;padding-bottom:70px}
+.footer-col{display:grid;gap:9px;align-content:start}
+.footer-col h4{margin:0 0 8px;color:#73736f;font-size:9px;letter-spacing:.12em;text-transform:uppercase}
+.footer-col a,.footer-col span{font-size:10px;color:#dadad6}
+.footer-bottom{display:flex;justify-content:space-between;gap:20px;align-items:center;padding:18px 0;border-top:1px solid rgba(255,255,255,.13);font-size:9px;color:#777}
+.footer-giant{margin:24px 0 -3.5vw;font-size:clamp(140px,31vw,520px);line-height:.6;font-weight:800;letter-spacing:-.095em;color:#252525;white-space:nowrap;user-select:none}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .75s ease,transform .95s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.mask{clip-path:inset(0 0 100% 0);transition:clip-path 1.05s var(--ease)}
+.mask.in{clip-path:inset(0)}
 @media(max-width:900px){
- .ace-manifesto{padding:130px 20px 80px;min-height:90svh}
- .manifesto-title{font-size:clamp(62px,15vw,110px)}
- .manifesto-bottom,.store-gateway-top,.ace-pricing-head,.ace-food-grid{grid-template-columns:1fr}
- .manifesto-bottom p,.manifesto-bottom .line-link,.ace-pricing-head h2{grid-column:1}
- .ace-film-copy{left:20px;bottom:55px}
- .sequence-row{grid-template-columns:44px 1fr;gap:18px;min-height:auto;padding:85px 20px}
- .sequence-row p,.sequence-row>a{grid-column:2;justify-self:start}
- .ace-store-gateway,.ace-pricing,.ace-food{padding:100px 20px}
- .store-gateway-link{margin:70px 0 45px;padding:20px 0 28px}
- .ace-pricing-head{margin-bottom:55px}
- .ace-price-line{grid-template-columns:44px 1fr 28px}.ace-price-line small{display:none}
- .ace-final-inner{margin:70px 20px 0;align-items:flex-start;flex-direction:column}
+ .section{padding:70px 18px}.world-grid{grid-template-columns:1fr;gap:34px}.duo{padding:10px 18px 70px;grid-template-columns:1fr;gap:34px}.models{padding:0 18px 70px}.models-grid{grid-template-columns:1fr}.model-card{min-height:118vw}.life-head{padding:0 18px}.life-track{padding-left:18px;padding-right:18px}.life-item{flex-basis:78vw}.booking{padding:74px 18px}.booking-head{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}.site-head{padding:0 18px}
 }
 @media(max-width:560px){
- .manifesto-title{font-size:58px}
- .ace-film{min-height:620px}
- .ace-film-copy h2{font-size:52px}
- .sequence-row h2{font-size:50px}
- .store-word{font-size:25vw}
- .store-gateway-foot{display:grid;grid-template-columns:1fr 1fr}
- .ace-pricing-head h2,.ace-food-title h2{font-size:56px}
- .ace-price-line strong{font-size:25px}
- .food-lines div{grid-template-columns:1fr}.food-lines span{text-align:left}
- .ace-final-inner a{font-size:52px}
+ .site-head{height:58px}.head-brand{font-size:9px}.hero{min-height:620px}.hero-logo{width:72vw}
+ .section-title{font-size:24px}.cinema{height:72svh;min-height:560px}.cinema-center h2{font-size:44px}
+ .model-card{min-height:130vw}.model-label{left:16px;right:16px;bottom:16px}
+ .booking-head h2{font-size:46px}.book-line{grid-template-columns:30px 1fr 20px}.book-line small{display:none}
+ .footer-grid{grid-template-columns:1fr 1fr;gap:34px 20px}.footer-giant{font-size:45vw}
 }
-@media(prefers-reduced-motion:reduce){.ace-final-track{animation:none}.ace-film video{transform:none!important}}
-
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.mask{clip-path:none;transition:none}.hero>video,.cinema video{transform:none!important}}
 </style>
 </head>
 <body>
-<header class="site-header" id="header">
-  <a href="#top" class="header-wordmark">ACE GAMING</a>
-  <nav class="header-nav" aria-label="Primary">
-    <a href="#experience">Experience</a>
-    <a href="#pricing">Pricing</a>
-    <a href="/rentals.html">Store</a>
-    <a href="#food">Food</a>
-  </nav></header><main id="top">
-  <section class="hero" aria-label="Ace Gaming">
-    <video class="hero-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
-      <source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/4d34805d-8ff3-4634-9148-e2607a487a87.mp4" type="video/mp4">
-    </video>
-    <div class="hero-logo-wrap"><img class="hero-logo" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/b412bae1-d3a6-4abd-9cb0-8f19a4333e05.png" alt="Ace Gaming"></div></section>
+<header class="site-head" id="siteHead">
+  <a class="head-left" href="#world">Explore</a>
+  <a class="head-brand" href="#top">Ace Gaming</a>
+  <a class="head-right" href="/rentals.html">Store</a>
+</header>
 
-  
-  <section class="ace-manifesto" id="experience">
-    <div class="manifesto-inner">
-      <span class="ace-label reveal">ACE GAMING / EXPERIENCE</span>
-      <h1 class="manifesto-title reveal">NOT JUST<br>A PLACE TO <em>PLAY.</em></h1>
-      <div class="manifesto-bottom reveal">
-        <p>Ace is built around high-performance gaming, competition, racing, food and the feeling of a proper gaming night — without the clutter of a typical gaming café website.</p>
-        <a class="line-link" href="#play">Explore Ace <span>↘</span></a>
-      </div>
+<main id="top">
+  <section class="hero">
+    <video autoplay muted loop playsinline preload="auto"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/4d34805d-8ff3-4634-9148-e2607a487a87.mp4" type="video/mp4"></video>
+    <div class="hero-shade"></div>
+    <div class="hero-logo"><img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/b412bae1-d3a6-4abd-9cb0-8f19a4333e05.png" alt="Ace Gaming"></div>
+  </section>
+
+  <section class="section world" id="world">
+    <span class="section-kicker reveal">ACE GAMING</span>
+    <h2 class="section-title reveal">Inside Ace</h2>
+    <div class="world-grid">
+      <a class="media-card" href="#gaming"><div class="media-window mask"><video class="still-video" data-time="1" muted playsinline preload="metadata"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/4d34805d-8ff3-4634-9148-e2607a487a87.mp4" type="video/mp4"></video></div><div class="media-copy reveal"><strong>Gaming at Ace</strong><span>PC + Console</span></div></a>
+      <a class="media-card" href="/rentals.html"><div class="media-window mask"><video class="still-video" data-time="14" muted playsinline preload="metadata"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/4d34805d-8ff3-4634-9148-e2607a487a87.mp4" type="video/mp4"></video></div><div class="media-copy reveal"><strong>Ace Rentals</strong><span>Take it home</span></div></a>
+      <a class="media-card" href="#gaming"><div class="media-window mask"><video class="still-video" data-time="27" muted playsinline preload="metadata"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/4d34805d-8ff3-4634-9148-e2607a487a87.mp4" type="video/mp4"></video></div><div class="media-copy reveal"><strong>Performance</strong><span>Built to play</span></div></a>
     </div>
   </section>
 
-  <section class="ace-film" aria-label="Ace Gaming atmosphere">
-    <video autoplay muted loop playsinline preload="metadata" aria-hidden="true">
-      <source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/4d34805d-8ff3-4634-9148-e2607a487a87.mp4" type="video/mp4">
-    </video>
-    <div class="ace-film-shade"></div>
-    <div class="ace-film-copy reveal">
-      <span class="ace-label">PERFORMANCE / ATMOSPHERE / COMPETITION</span>
-      <h2>THE ROOM<br>CHANGES WHEN<br>THE GAME STARTS.</h2>
+  <section class="cinema">
+    <video id="cinemaVideo" muted loop playsinline preload="metadata"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/4d34805d-8ff3-4634-9148-e2607a487a87.mp4" type="video/mp4"></video>
+    <div class="cinema-center reveal"><div><h2>Built for<br>the game.</h2><p>Gaming · Racing · Rentals · Food</p></div></div>
+  </section>
+
+  <section class="duo">
+    <a class="media-card" href="#gaming"><div class="media-window mask"><video class="still-video" data-time="33" muted playsinline preload="metadata"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/4d34805d-8ff3-4634-9148-e2607a487a87.mp4" type="video/mp4"></video></div><div class="media-copy reveal"><strong>Gaming Nights</strong><span>Play together</span></div></a>
+    <a class="media-card" href="/rentals.html"><div class="media-window mask"><video class="still-video" data-time="16" muted playsinline preload="metadata"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/4d34805d-8ff3-4634-9148-e2607a487a87.mp4" type="video/mp4"></video></div><div class="media-copy reveal"><strong>PS5 + PC Rentals</strong><span>Monthly setups</span></div></a>
+  </section>
+
+  <section class="models" id="gaming">
+    <span class="section-kicker reveal">CHOOSE THE EXPERIENCE</span>
+    <h2 class="section-title reveal">Play at Ace</h2>
+    <div class="models-grid">
+      <a class="model-card mask" href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20I%20want%20to%20book%20PC%20gaming." target="_blank" rel="noopener"><video class="still-video" data-time="3" muted playsinline preload="metadata"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/4d34805d-8ff3-4634-9148-e2607a487a87.mp4" type="video/mp4"></video><div class="model-shade"></div><div class="model-label"><strong>PC Gaming</strong><span>↗</span></div></a>
+      <a class="model-card mask" href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20I%20want%20to%20book%20PS5." target="_blank" rel="noopener"><video class="still-video" data-time="9" muted playsinline preload="metadata"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/4d34805d-8ff3-4634-9148-e2607a487a87.mp4" type="video/mp4"></video><div class="model-shade"></div><div class="model-label"><strong>PlayStation 5</strong><span>↗</span></div></a>
+      <a class="model-card mask" href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20I%20want%20to%20book%20sim%20racing." target="_blank" rel="noopener"><video class="still-video" data-time="35" muted playsinline preload="metadata"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/4d34805d-8ff3-4634-9148-e2607a487a87.mp4" type="video/mp4"></video><div class="model-shade"></div><div class="model-label"><strong>Sim Racing</strong><span>↗</span></div></a>
+      <a class="model-card mask" href="/rentals.html"><video class="still-video" data-time="29" muted playsinline preload="metadata"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/4d34805d-8ff3-4634-9148-e2607a487a87.mp4" type="video/mp4"></video><div class="model-shade"></div><div class="model-label"><strong>Ace Store</strong><span>↗</span></div></a>
     </div>
   </section>
 
-  <section class="ace-sequence" id="play">
-    <article class="sequence-row reveal">
-      <span class="sequence-index">01</span>
-      <div>
-        <span class="ace-label">PC GAMING</span>
-        <h2>HIGH FPS.<br>LOW EXCUSES.</h2>
-      </div>
-      <p>High-performance gaming PCs for competitive sessions, squads and long gaming nights.</p>
-      <a href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20I%20want%20to%20book%20a%20PC%20gaming%20session." target="_blank" rel="noopener">BOOK <span>↗</span></a>
-    </article>
-    <article class="sequence-row reveal">
-      <span class="sequence-index">02</span>
-      <div>
-        <span class="ace-label">PLAYSTATION 5</span>
-        <h2>COUCH.<br>CONTROLLER.<br>CHAOS.</h2>
-      </div>
-      <p>Console sessions built for quick matches, long battles and groups that want to play together.</p>
-      <a href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20I%20want%20to%20book%20a%20PS5%20session." target="_blank" rel="noopener">BOOK <span>↗</span></a>
-    </article>
-    <article class="sequence-row reveal">
-      <span class="sequence-index">03</span>
-      <div>
-        <span class="ace-label">SIM RACING</span>
-        <h2>DRIVE IT<br>LIKE YOU MEAN IT.</h2>
-      </div>
-      <p>Get on the racing setup and turn a casual session into a proper leaderboard fight.</p>
-      <a href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20I%20want%20to%20book%20Sim%20Racing." target="_blank" rel="noopener">BOOK <span>↗</span></a>
-    </article>
-  </section>
-
-  <section class="ace-store-gateway" id="store">
-    <div class="store-gateway-top reveal">
-      <span class="ace-label">ACE STORE / MONTHLY RENTALS</span>
-      <p>Bring the setup home. Gaming PCs, monitors, RAM and gaming gear on flexible rental plans.</p>
+  <section class="life">
+    <div class="life-head">
+      <div><span class="section-kicker reveal">ACE LIFE</span><h2 class="section-title reveal">More than one game</h2></div>
+      <div class="life-controls reveal"><button id="lifePrev" aria-label="Previous">←</button><button id="lifeNext" aria-label="Next">→</button></div>
     </div>
-    <a class="store-gateway-link" href="/rentals.html" aria-label="Open Ace Store">
-      <span class="store-word">ACE STORE</span>
-      <span class="store-arrow">↗</span>
-    </a>
-    <div class="store-gateway-foot reveal">
-      <span>RTX 4060 BUILDS</span><span>RX 7700 XT BUILDS</span><span>MONITORS</span><span>ADD-ONS</span>
+    <div class="life-track" id="lifeTrack">
+      <div class="life-item media-card"><div class="media-window mask"><video class="still-video" data-time="5" muted playsinline preload="metadata"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/4d34805d-8ff3-4634-9148-e2607a487a87.mp4" type="video/mp4"></video></div><div class="media-copy reveal"><strong>Squad Sessions</strong><span>PC Gaming</span></div></div>
+      <div class="life-item media-card"><div class="media-window mask"><video class="still-video" data-time="12" muted playsinline preload="metadata"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/4d34805d-8ff3-4634-9148-e2607a487a87.mp4" type="video/mp4"></video></div><div class="media-copy reveal"><strong>Inside Ace</strong><span>The space</span></div></div>
+      <div class="life-item media-card"><div class="media-window mask"><video class="still-video" data-time="26" muted playsinline preload="metadata"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/4d34805d-8ff3-4634-9148-e2607a487a87.mp4" type="video/mp4"></video></div><div class="media-copy reveal"><strong>Performance Builds</strong><span>RGB + power</span></div></div>
+      <div class="life-item media-card"><div class="media-window mask"><video class="still-video" data-time="34" muted playsinline preload="metadata"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/4d34805d-8ff3-4634-9148-e2607a487a87.mp4" type="video/mp4"></video></div><div class="media-copy reveal"><strong>Racing</strong><span>Push the lap</span></div></div>
     </div>
   </section>
 
-  <section class="ace-pricing" id="pricing">
-    <div class="ace-pricing-head reveal">
-      <span class="ace-label">CHOOSE YOUR SESSION</span>
-      <h2>PLAY IT<br>YOUR WAY.</h2>
-    </div>
-    <div class="ace-price-lines">
-      <a class="ace-price-line reveal" href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20I%20want%20PC%20gaming%20pricing." target="_blank" rel="noopener"><span>01</span><strong>GAMING PC</strong><small>GET PRICING</small><b>↗</b></a>
-      <a class="ace-price-line reveal" href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20I%20want%20PS5%20pricing." target="_blank" rel="noopener"><span>02</span><strong>PLAYSTATION 5</strong><small>GET PRICING</small><b>↗</b></a>
-      <a class="ace-price-line reveal" href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20I%20want%20Sim%20Racing%20pricing." target="_blank" rel="noopener"><span>03</span><strong>SIM RACING</strong><small>GET PRICING</small><b>↗</b></a>
-      <a class="ace-price-line reveal" href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20I%20want%20to%20plan%20a%20private%20gaming%20event." target="_blank" rel="noopener"><span>04</span><strong>PRIVATE EVENTS</strong><small>CUSTOM BOOKING</small><b>↗</b></a>
-    </div>
-  </section>
-
-  <section class="ace-food" id="food">
-    <div class="ace-food-title reveal">
-      <span class="ace-label">FOOD / BETWEEN ROUNDS</span>
-      <h2>PAUSE THE GAME.<br>NOT THE NIGHT.</h2>
-    </div>
-    <div class="ace-food-grid">
-      <div class="food-copy reveal">
-        <p>Fast food for gaming sessions. Clean, simple and easy to order without turning the experience into a restaurant website.</p>
-        <a class="line-link" href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20please%20send%20me%20the%20food%20menu." target="_blank" rel="noopener">Get today's menu <span>↗</span></a>
-      </div>
-      <div class="food-lines reveal">
-        <div><strong>FRIES</strong><span>Salted / Peri Peri / Cheesy</span></div>
-        <div><strong>QUICK BITES</strong><span>Made for gaming sessions</span></div>
-        <div><strong>DRINKS</strong><span>Cold drinks / Water</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="ace-final">
-    <div class="ace-final-track" aria-hidden="true">
-      <span>PLAY / RENT / RACE / EAT / REPEAT /</span>
-      <span>PLAY / RENT / RACE / EAT / REPEAT /</span>
-    </div>
-    <div class="ace-final-inner reveal">
-      <span class="ace-label">READY WHEN YOU ARE</span>
-      <a href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20I%20want%20to%20book." target="_blank" rel="noopener">BOOK ACE <span>↗</span></a>
+  <section class="booking" id="booking">
+    <div class="booking-head reveal"><h2>Book the<br>next session.</h2><p>No complicated booking flow. Pick what you want and message Ace directly. For rentals, open the full Ace Store.</p></div>
+    <div class="book-lines">
+      <a class="book-line reveal" href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20I%20want%20to%20book%20a%20gaming%20session." target="_blank" rel="noopener"><i>01</i><strong>Gaming Session</strong><small>WhatsApp booking</small><b>↗</b></a>
+      <a class="book-line reveal" href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20I%20want%20to%20book%20sim%20racing." target="_blank" rel="noopener"><i>02</i><strong>Sim Racing</strong><small>WhatsApp booking</small><b>↗</b></a>
+      <a class="book-line reveal" href="/rentals.html"><i>03</i><strong>Gaming Rentals</strong><small>Open Ace Store</small><b>↗</b></a>
+      <a class="book-line reveal" href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20please%20send%20me%20the%20food%20menu." target="_blank" rel="noopener"><i>04</i><strong>Food Menu</strong><small>Ask Ace</small><b>↗</b></a>
     </div>
   </section>
 </main>
 
-<footer class="footer">
+<footer>
   <div class="footer-grid">
-    <div class="footer-col"><h4>Explore</h4><a href="#experience">Experience</a><a href="#pricing">Gaming</a><a href="#food">Food</a></div>
-    <div class="footer-col"><h4>Rentals</h4><a href="/rentals.html">Ace Store</a><a href="/rentals.html#products">Gaming PCs</a></div>
+    <div class="footer-col"><h4>Ace Gaming</h4><a href="#world">Inside Ace</a><a href="#gaming">Gaming</a><a href="#booking">Book</a></div>
+    <div class="footer-col"><h4>Store</h4><a href="/rentals.html">Ace Store</a><a href="/rentals.html#products">Gaming PCs</a><a href="/rentals.html#products">Monitors + Add-ons</a></div>
     <div class="footer-col"><h4>Contact</h4><a href="tel:+919076060603">90760 60603</a><a href="https://wa.me/919076060603" target="_blank" rel="noopener">WhatsApp</a></div>
+    <div class="footer-col"><h4>Experience</h4><span>PC Gaming</span><span>PlayStation 5</span><span>Sim Racing</span><span>Food</span></div>
   </div>
-  <div class="footer-big">ACE</div>
+  <div class="footer-bottom"><span>© 2026 Ace Gaming</span><span>Play · Rent · Race · Repeat</span></div>
+  <div class="footer-giant">ACE</div>
 </footer>
 
 <script>
-const header=document.getElementById('header');
-const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.14,rootMargin:'0px 0px -5% 0px'});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
+const head=document.getElementById('siteHead');
+const reveals=[...document.querySelectorAll('.reveal,.mask')];
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -5% 0px'});
+reveals.forEach(el=>io.observe(el));
+document.querySelectorAll('.still-video').forEach(v=>{
+  const seek=()=>{try{v.currentTime=Math.min(Number(v.dataset.time||0),Math.max(0,(v.duration||0)-.2));v.pause()}catch(e){}};
+  v.addEventListener('loadedmetadata',seek,{once:true});
+  v.addEventListener('seeked',()=>v.pause());
+});
+const cinema=document.getElementById('cinemaVideo');
+cinema.addEventListener('loadedmetadata',()=>{cinema.currentTime=24;cinema.play().catch(()=>{})},{once:true});
 let ticking=false;
-function onScroll(){
-  if(ticking)return;ticking=true;
-  requestAnimationFrame(()=>{
-    const y=scrollY;
-    header.classList.toggle('scrolled',y>48);
-    const vh=innerHeight||800;
-    const p=Math.min(1,y/vh);
-    document.documentElement.style.setProperty('--hero-y',(y*.12)+'px');
-    document.documentElement.style.setProperty('--hero-scale',(1.04+p*.08).toFixed(3));
-    document.documentElement.style.setProperty('--logo-y',(y*.16)+'px');
-    document.documentElement.style.setProperty('--logo-scale',(1-p*.12).toFixed(3));
-    document.documentElement.style.setProperty('--logo-opacity',Math.max(0,1-p*1.35).toFixed(3));
-    const film=document.querySelector('.ace-film');
-    if(film){
-      const fr=film.getBoundingClientRect();
-      const fp=Math.max(-1,Math.min(1,(fr.top+fr.height/2-vh/2)/vh));
-      film.style.setProperty('--film-y',(fp*-24)+'px');
-      film.style.setProperty('--film-scale',(1.035+Math.abs(fp)*.025).toFixed(3));
-    }
-    document.querySelectorAll('[data-parallax]').forEach(section=>{
-      const r=section.getBoundingClientRect();
-      const center=r.top+r.height/2-vh/2;
-      const np=Math.max(-1,Math.min(1,center/vh));
-      const bg=section.querySelector('.chapter-bg');
-      if(bg){bg.style.setProperty('--media-y',(np*-22)+'px');bg.style.setProperty('--media-scale',(1.07+Math.abs(np)*.025).toFixed(3))}
-    });
-    ticking=false;
-  });
+function scrollFX(){
+ if(ticking)return;ticking=true;
+ requestAnimationFrame(()=>{
+   const y=scrollY,vh=innerHeight||800,p=Math.min(1,y/vh);
+   head.classList.toggle('solid',y>vh*.85);
+   document.documentElement.style.setProperty('--hero-y',(y*.11)+'px');
+   document.documentElement.style.setProperty('--hero-scale',(1.02+p*.07).toFixed(3));
+   document.documentElement.style.setProperty('--logo-y',(y*.13)+'px');
+   document.documentElement.style.setProperty('--logo-scale',(1-p*.12).toFixed(3));
+   document.documentElement.style.setProperty('--logo-opacity',Math.max(0,1-p*1.3).toFixed(3));
+   const c=document.querySelector('.cinema');if(c){const r=c.getBoundingClientRect(),q=Math.max(-1,Math.min(1,(r.top+r.height/2-vh/2)/vh));document.documentElement.style.setProperty('--cinema-y',(q*-20)+'px');document.documentElement.style.setProperty('--cinema-scale',(1.02+Math.abs(q)*.025).toFixed(3))}
+   ticking=false;
+ });
 }
-addEventListener('scroll',onScroll,{passive:true});onScroll();
+addEventListener('scroll',scrollFX,{passive:true});scrollFX();
+const track=document.getElementById('lifeTrack');
+document.getElementById('lifeNext').onclick=()=>track.scrollBy({left:track.clientWidth*.7,behavior:'smooth'});
+document.getElementById('lifePrev').onclick=()=>track.scrollBy({left:-track.clientWidth*.7,behavior:'smooth'});
 </script>
 </body>
 </html>
