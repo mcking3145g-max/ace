@@ -194,6 +194,109 @@ body.session-mode .site-head{background:rgba(5,5,5,.94);mix-blend-mode:normal;bo
 }
 
 </style>
+<style id="ace-responsive-motion-v1">
+/* Smooth motion + device optimization */
+html{overflow-x:hidden}
+body{min-width:320px}
+img{max-width:100%}
+button,a{-webkit-tap-highlight-color:transparent}
+.section,.duo,.models,.booking,.ace-footer,.session-page{content-visibility:auto;contain-intrinsic-size:1px 780px}
+.hero{content-visibility:visible}
+.ace-motion{opacity:0;transform:translate3d(0,24px,0);transition:opacity .72s cubic-bezier(.2,.7,.2,1),transform .9s var(--ease);transition-delay:var(--motion-delay,0ms)}
+.ace-motion.motion-left{transform:translate3d(-24px,0,0)}
+.ace-motion.motion-scale{transform:scale(.985)}
+.ace-motion.is-visible{opacity:1;transform:none}
+.pack-portal,.model-card,.media-card,.duration-option,.setup-option{transform:translateZ(0);backface-visibility:hidden}
+.booking-head h2,.session-page-head h1,.ace-footer-cta h2{text-wrap:balance}
+.session-page{overflow-x:hidden}
+.session-summary{will-change:auto}
+
+@media(max-width:1200px){
+  .session-builder{grid-template-columns:minmax(0,1fr) 340px;gap:30px}
+  .duration-options,.setup-options{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ace-footer-cta h2{font-size:clamp(52px,8vw,94px)}
+}
+@media(max-width:1024px){
+  .world-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .world-grid .media-card:last-child{grid-column:1/-1}
+  .models-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .model-card{min-height:62vw}
+  .pack-portals{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .session-builder{grid-template-columns:1fr}
+  .session-summary{position:static}
+}
+@media(max-width:768px){
+  .site-head{height:60px;padding:0 16px}
+  .head-brand span{display:none}
+  .head-brand{padding:0 10px}
+  .head-brand::before,.head-brand::after{display:none}
+  .head-left,.head-right{font-size:8px;letter-spacing:.13em}
+  .hero{height:88svh;min-height:560px}
+  .hero>video{inset:0;width:100%;height:100%;transform:scale(1.03)!important}
+  .hero-logo{width:min(310px,72vw);transform:translate(-50%,-50%)!important;opacity:1!important}
+  .section{padding:62px 16px}
+  .world-grid,.models-grid,.duo,.pack-portals{grid-template-columns:1fr}
+  .world-grid .media-card:last-child{grid-column:auto}
+  .media-window,.duo .media-window{aspect-ratio:1.28/1}
+  .cinema{height:68svh;min-height:500px}
+  .cinema img{inset:0;width:100%;height:100%;transform:scale(1.02)!important}
+  .models{padding:0 16px 64px}
+  .model-card{min-height:112vw;max-height:none}
+  .booking{padding:68px 16px}
+  .booking-head{gap:22px;margin-bottom:34px}
+  .pack-portal{min-height:205px;padding:22px}
+  .pack-portal small{margin-top:22px}
+  .pack-portal b{margin-top:28px}
+  .session-page{padding:88px 16px 64px}
+  .session-page-head{margin:34px 0 44px;padding-bottom:34px}
+  .session-page-head h1{font-size:clamp(48px,15vw,72px)}
+  .session-step{padding:32px 0 38px}
+  .duration-options,.setup-options,.session-date-time{margin-left:0}
+  .duration-options,.setup-options{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .session-step-head{grid-template-columns:38px 1fr;margin-bottom:24px}
+  .session-summary{padding:22px}
+  .ace-footer{padding-top:64px}
+  .ace-footer-top{padding-bottom:38px}
+  .ace-footer-cta{padding:42px 0}
+  .ace-footer-links{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ace-motion{transform:translate3d(0,16px,0);transition-duration:.58s,.7s}
+}
+@media(max-width:480px){
+  .site-head{padding:0 12px}
+  .head-left::before,.head-right::after{display:none}
+  .hero{min-height:520px}
+  .hero-logo{width:76vw}
+  .section-title{font-size:22px}
+  .cinema-center h2{font-size:40px}
+  .model-card{min-height:128vw}
+  .model-label{left:14px;right:14px;bottom:14px}
+  .booking{padding-left:12px;padding-right:12px}
+  .booking-head h2{font-size:42px}
+  .pack-portal{min-height:190px;padding:20px}
+  .pack-portal h3{font-size:31px}
+  .duration-options,.setup-options{grid-template-columns:1fr}
+  .session-date-time{grid-template-columns:1fr}
+  .session-page{padding-left:12px;padding-right:12px}
+  .session-page-head h1{font-size:48px}
+  .session-summary-line{gap:12px}
+  .ace-footer{padding-left:14px;padding-right:14px}
+  .ace-footer-top{gap:20px}
+  .ace-footer-statement{font-size:18px}
+  .ace-footer-links{grid-template-columns:1fr 1fr;gap:30px 14px}
+  .footer-group a,.footer-group span{font-size:10px}
+}
+@media(hover:none),(pointer:coarse){
+  .media-card:hover .media-window img,.model-card:hover img{transform:scale(1.035);filter:inherit}
+  .pack-portal:hover,.duration-option:hover,.setup-option:hover{transform:none}
+  .head-left:hover::before,.head-right:hover::after{width:18px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .ace-motion{opacity:1!important;transform:none!important}
+  .hero>video{transform:scale(1.02)!important}
+  .hero-logo{transform:translate(-50%,-50%)!important;opacity:1!important}
+}
+</style>
 </head>
 <body>
 <header class="site-head" id="siteHead">
@@ -540,6 +643,63 @@ window.addEventListener('popstate',routeSession);
 window.addEventListener('hashchange',routeSession);
 routeSession();
 
+</script>
+<script id="ace-responsive-motion-js">
+(()=>{
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const mobile=matchMedia('(max-width: 768px)').matches;
+  const targets=[
+    '.section-kicker','.section-title','.media-card','.cinema-center','.model-card',
+    '.booking-head','.pack-portal','.ace-footer-top','.ace-footer-cta','.footer-group',
+    '.session-page-head','.session-step','.session-summary'
+  ];
+  const nodes=[...document.querySelectorAll(targets.join(','))];
+  nodes.forEach((el,i)=>{
+    el.classList.add('ace-motion');
+    el.style.setProperty('--motion-delay',Math.min((i%6)*55,275)+'ms');
+  });
+  if(reduce){
+    nodes.forEach(el=>el.classList.add('is-visible'));
+  }else{
+    const observer=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },{threshold:mobile?.08:.12,rootMargin:'0px 0px -6% 0px'});
+    nodes.forEach(el=>observer.observe(el));
+  }
+
+  document.querySelectorAll('img').forEach(img=>{
+    if(!img.closest('.hero-logo')&&!img.closest('.ace-footer-brand')){
+      img.loading='lazy';
+      img.decoding='async';
+    }
+  });
+
+  const heroVideo=document.querySelector('.hero>video');
+  if(heroVideo){
+    heroVideo.playsInline=true;
+    if(mobile) heroVideo.setAttribute('preload','metadata');
+  }
+
+  const sessionPage=document.getElementById('sessionPage');
+  if(sessionPage){
+    const mo=new MutationObserver(()=>{
+      if(!sessionPage.hidden){
+        requestAnimationFrame(()=>{
+          sessionPage.querySelectorAll('.ace-motion').forEach((el,i)=>{
+            el.style.setProperty('--motion-delay',(i*70)+'ms');
+            el.classList.add('is-visible');
+          });
+        });
+      }
+    });
+    mo.observe(sessionPage,{attributes:true,attributeFilter:['hidden']});
+  }
+})();
 </script>
 </body>
 </html>
