@@ -654,7 +654,7 @@ body{background:var(--ace-bg)!important;color:var(--ace-fg)!important;font-famil
 .product-card.visible{opacity:1!important;transform:none!important}
 .product-card:hover{transform:translateY(-4px)!important;background:#ececea!important;box-shadow:none!important}
 .product-image{position:relative!important;display:flex!important;align-items:center!important;justify-content:center!important;aspect-ratio:1/1!important;padding:11%!important;overflow:hidden!important;background:#ececea!important;border:0!important;border-radius:0!important}
-.product-image img{width:100%!important;height:100%!important;object-fit:contain!important;border-radius:0!important;background:transparent!important;mix-blend-mode:multiply!important;filter:contrast(1.02)!important;transform:scale(.98)!important;transition:transform .7s var(--ace-ease)!important}
+.product-image img{width:100%!important;height:100%!important;object-fit:contain!important;border-radius:0!important;background:transparent!important;mix-blend-mode:normal!important;filter:contrast(1.02)!important;transform:scale(.98)!important;transition:transform .7s var(--ace-ease)!important}
 .product-card:hover .product-image img{transform:scale(1.04)!important}
 .product-image::after{display:none!important}
 .badge{left:14px!important;top:14px!important;padding:0!important;border:0!important;border-radius:0!important;background:none!important;color:#4f4f4c!important;font-size:8px!important;letter-spacing:.1em!important}
@@ -1819,7 +1819,19 @@ footer{border-top:1px solid var(--ace-line)!important;background:#101010!importa
     });
 
     const premiumProductImages={"pc-4060":"https://www.adorama.com/images/Large/MSIARS2F7820.jpg","pc-4060-7600":"https://www.adorama.com/images/Large/MSIARS2F7820.jpg","pc-7700xt-i5":"https://www.memorypc.de/media/6c/e2/fa/1778677808/562708_1778677806_0_1778677807.png","pc-7700xt-ryzen":"https://pisces.bbystatic.com/image2/BestBuy_US/images/products/fed70360-a222-4439-ae61-eb402ba04e29.jpg","keyboard-chgbk25":"https://tlggaming.b-cdn.net/image/cache/catalog/products/Gaming%20Keyboards/cosmic%20byte/gk-25%20blue%20switch/gk%2025%2026-1200x1200.jpg","mouse-razer-deathadder":"https://xoticpc.com/cdn/shop/files/RazerDeathAdderEssentialMAIN.png?v=1721942918","mouse-logitech-g402":"https://www.gameshop.my/cdn/shop/products/logitech_g402_hyperion_fury_fps_gaming_mouse.jpg?v=1591178194","headphones-ant-esports":"https://5.imimg.com/data5/SELLER/Default/2022/4/PC/KV/WJ/9432891/ant-esports-h1000-wired-gaming-headset-with-mic-rgb-light.jpg","headset-logitech-g431":"https://logitech.onlinesalestore.pk/cdn/shop/files/logitechg4317.1surroundsoundgamingheadsetspecs01.jpg?v=1700746557","mousepad-cybeart-l":"https://cybeart.in/cdn/shop/products/MP-RA45-CYB01_1.jpg?v=1699555864","mousepad-cybeart-xxl":"https://cybeart.in/cdn/shop/products/MP-RA90-CYB01.jpg?v=1699555863","monitor-samsung-144":"https://www.promotech.com/wp-content/uploads/2023/11/3487a4f7-32ec-46ed-a2e1-c52f89dfaca6.jpg","monitor-aoc-240":"./assets/products/aoc-240hz-monitor-exact.svg","monitor-viewsonic-240":"https://www.viewsonic.com/vsAssetFile/ap/img/slides/_lcd_display_%28new%29/XG2709A/GPG-24-MON-VX2779AJ-HD-PRO-Product%20Photo_LF02_pc.jpg","monitor-gigabyte-165":"https://ddtech.mx/assets/uploads/f45103209bedfb58f790ed2b34912e61.jpg","ram-16gb":"./assets/products/kingston-fury-16gb-ram-exact.svg","ram-32gb":"https://cdn.atacadoconnect.com/produtos/1311747/memoria-ram-kingston-fury-renegade-rgb-32gb-ddr5-6400mhz-kf564c32rsa-32-1311747-14680.webp"};
-    products.forEach(product=>{product.originalArtwork=product.image;if(premiumProductImages[product.id])product.image=premiumProductImages[product.id]});
+    products.forEach(product=>{
+      product.originalArtwork=product.image;
+      if(premiumProductImages[product.id]) product.image=premiumProductImages[product.id];
+    });
+    document.addEventListener('error',event=>{
+      const img=event.target;
+      if(!(img instanceof HTMLImageElement) || img.dataset.aceFallback==='1') return;
+      const product=products.find(p=>p.image===img.getAttribute('src'));
+      if(product?.originalArtwork){
+        img.dataset.aceFallback='1';
+        img.src=product.originalArtwork;
+      }
+    },true);
     renderProducts();
     updateCartUI();
     requestAnimationFrame(()=>{
