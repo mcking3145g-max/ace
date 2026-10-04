@@ -133,6 +133,66 @@ img,video{display:block}
  .ace-footer{padding-left:18px;padding-right:18px}.ace-footer-top{padding-bottom:42px}.ace-footer-brand img{width:74px}.ace-footer-cta{padding:42px 0}.ace-footer-cta h2{font-size:58px}.ace-footer-links{grid-template-columns:1fr 1fr;gap:36px 20px;padding:44px 0 52px}.ace-footer-word{font-size:48vw;margin-top:32px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.mask{clip-path:none;transition:none}.hero>video,.cinema video{transform:none!important}}
+
+/* Session builder — restored internal page, redesigned for the new Ace theme */
+.session-page{min-height:100svh;padding:116px 4vw 90px;background:#070707;color:#f4f4f1}
+.session-page[hidden]{display:none!important}
+.session-page-inner{width:min(100%,1500px);margin:0 auto}
+.session-back{padding:10px 0;border:0;border-bottom:1px solid rgba(255,255,255,.22);background:transparent;color:#8a8a87;font-size:9px;font-weight:800;letter-spacing:.12em;cursor:pointer;transition:color .25s ease,border-color .25s ease}
+.session-back:hover{color:#fff;border-color:#fff}
+.session-page-head{display:grid;grid-template-columns:1.15fr .85fr;gap:8vw;align-items:end;margin:55px 0 70px;padding-bottom:48px;border-bottom:1px solid rgba(255,255,255,.14)}
+.session-kicker{display:block;color:#777;font-size:9px;font-weight:800;letter-spacing:.15em;text-transform:uppercase}
+.session-page-head h1{margin:12px 0 0;font-size:clamp(62px,8vw,128px);line-height:.79;letter-spacing:-.066em;text-transform:uppercase}
+.session-page-head p{margin:0;max-width:540px;color:#91918e;font-size:14px;line-height:1.75}
+.session-builder{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(300px,.55fr);gap:50px;align-items:start}
+.session-builder-main{border-top:1px solid rgba(255,255,255,.15)}
+.session-step{padding:40px 0 48px;border-bottom:1px solid rgba(255,255,255,.14)}
+.session-step-head{display:grid;grid-template-columns:55px 1fr;gap:18px;align-items:start;margin-bottom:30px}
+.session-step-head>span{color:#666;font-size:9px;font-weight:800;letter-spacing:.12em}
+.session-step-head small{display:block;margin-bottom:7px;color:#777;font-size:8px;font-weight:800;letter-spacing:.14em}
+.session-step-head h2{margin:0;font-size:clamp(24px,2.7vw,40px);line-height:1;letter-spacing:-.04em;text-transform:uppercase}
+.duration-options,.setup-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-left:73px}
+.duration-option,.setup-option{
+  position:relative;min-height:88px;padding:18px;border:1px solid rgba(255,255,255,.11);border-radius:5px;
+  background:#0c0c0c;color:#ddd;text-align:left;cursor:pointer;
+  transition:border-color .3s ease,background .3s ease,transform .3s var(--ease);
+}
+.duration-option:hover,.setup-option:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.24);background:#101010}
+.duration-option.active,.setup-option.active{border-color:#fff;background:#121212;color:#fff}
+.duration-option.active::after,.setup-option.active::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:linear-gradient(90deg,var(--pink),var(--cyan))}
+.duration-option strong,.setup-option strong{display:block;font-size:13px;letter-spacing:-.01em;text-transform:uppercase}
+.setup-option small{display:block;margin-top:8px;color:#767673;font-size:9px;line-height:1.5;text-transform:none;letter-spacing:0}
+.session-date-time{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-left:73px}
+.session-date-time label{display:grid;gap:9px;color:#747471;font-size:8px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.session-date-time input{height:52px;padding:0 14px;border:1px solid rgba(255,255,255,.12);border-radius:4px;background:#0c0c0c;color:#fff;font:inherit;outline:none;color-scheme:dark}
+.session-date-time input:focus{border-color:#fff}
+.session-summary{position:sticky;top:96px;padding:30px;border:1px solid rgba(255,255,255,.13);background:#0b0b0b}
+.session-summary-line{display:flex;justify-content:space-between;gap:24px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.11)}
+.session-summary-line:first-of-type{margin-top:20px;border-top:1px solid rgba(255,255,255,.11)}
+.session-summary-line small{color:#666;font-size:8px;letter-spacing:.13em}
+.session-summary-line strong{text-align:right;font-size:11px;letter-spacing:.03em}
+.session-price-note{margin:24px 0;color:#777;font-size:11px;line-height:1.65}
+.session-confirm{display:flex;align-items:center;justify-content:space-between;gap:28px;width:100%;padding:16px 0;border:0;border-bottom:1px solid rgba(255,255,255,.55);background:transparent;color:#fff;font-size:9px;font-weight:800;letter-spacing:.12em;text-align:left;cursor:pointer}
+.session-confirm span{font-size:17px;transition:transform .3s var(--ease)}
+.session-confirm:hover span{transform:translate(4px,-4px)}
+body.session-mode>main,body.session-mode>.ace-footer{display:none}
+body.session-mode .site-head{background:rgba(5,5,5,.94);mix-blend-mode:normal;border-bottom:1px solid rgba(255,255,255,.08);backdrop-filter:blur(16px)}
+@media(max-width:900px){
+ .session-page{padding:96px 20px 70px}
+ .session-page-head{grid-template-columns:1fr;gap:24px;margin:42px 0 50px}
+ .session-builder{grid-template-columns:1fr}
+ .session-summary{position:static}
+ .duration-options,.setup-options,.session-date-time{margin-left:0}
+}
+@media(max-width:560px){
+ .session-page{padding-left:14px;padding-right:14px}
+ .session-page-head h1{font-size:54px}
+ .session-step-head{grid-template-columns:38px 1fr}
+ .duration-options,.setup-options{grid-template-columns:1fr 1fr}
+ .session-date-time{grid-template-columns:1fr}
+ .session-summary{padding:22px}
+}
+
 </style>
 </head>
 <body>
@@ -192,56 +252,110 @@ img,video{display:block}
     </div>
 
     <div class="pack-portals">
-      <a class="pack-portal featured reveal" href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20I%20want%20to%20book%20an%20Hours%20Pack." target="_blank" rel="noopener">
+      <button class="pack-portal featured reveal" type="button" data-open-pack="hours">
         <span class="pack-index">01</span>
         <small>QUICK TO EXTENDED</small>
         <h3>Hours Pack</h3>
         <p>1 • 3 • 5 • 8 • 10 HOURS</p>
-        <b>BOOK PACK <i>→</i></b>
-      </a>
+        <b>OPEN PACK <i>→</i></b>
+      </button>
 
-      <a class="pack-portal reveal" href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20I%20want%20to%20book%20a%20Day%20Pack." target="_blank" rel="noopener">
+      <button class="pack-portal reveal" type="button" data-open-pack="days">
         <span class="pack-index">02</span>
         <small>FULL-DAY ENERGY</small>
         <h3>Day Packs</h3>
         <p>HALF DAY • 1 DAY • 2 DAYS</p>
-        <b>BOOK PACK <i>→</i></b>
-      </a>
+        <b>OPEN PACK <i>→</i></b>
+      </button>
 
-      <a class="pack-portal reveal" href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20I%20want%20to%20book%20a%20Month%20Pack." target="_blank" rel="noopener">
+      <button class="pack-portal reveal" type="button" data-open-pack="months">
         <span class="pack-index">03</span>
         <small>FOR REGULAR PLAYERS</small>
         <h3>Month Packs</h3>
         <p>HALF MONTH • 1 • 2 • 3 MONTHS</p>
-        <b>BOOK PACK <i>→</i></b>
-      </a>
+        <b>OPEN PACK <i>→</i></b>
+      </button>
 
-      <a class="pack-portal ps5 reveal" href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20I%20want%20to%20book%20a%20PS5%20Pack." target="_blank" rel="noopener">
+      <button class="pack-portal ps5 reveal" type="button" data-open-pack="ps5">
         <span class="pack-index">04</span>
         <small>PLAY TOGETHER</small>
         <h3>PS5 Packs</h3>
         <p>1 • 2 • 3 HOURS • MAX 4 PLAYERS</p>
-        <b>BOOK PACK <i>→</i></b>
-      </a>
+        <b>OPEN PACK <i>→</i></b>
+      </button>
 
-      <a class="pack-portal reveal" href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20I%20want%20to%20book%20Sim%20Racing." target="_blank" rel="noopener">
+      <button class="pack-portal reveal" type="button" data-open-pack="sim">
         <span class="pack-index">05</span>
         <small>RACE AT FULL SPEED</small>
         <h3>Sim Racing</h3>
         <p>30 MIN • 1 HOUR • 2 HOURS</p>
-        <b>BOOK PACK <i>→</i></b>
-      </a>
+        <b>OPEN PACK <i>→</i></b>
+      </button>
 
-      <a class="pack-portal reveal" href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20I%20want%20to%20book%20a%20private%20gaming%20event." target="_blank" rel="noopener">
+      <button class="pack-portal reveal" type="button" data-open-pack="events">
         <span class="pack-index">06</span>
         <small>GROUP SESSIONS</small>
         <h3>Private Events</h3>
         <p>BIRTHDAYS • TOURNAMENTS • GROUP PLAY</p>
-        <b>BOOK EVENT <i>→</i></b>
-      </a>
+        <b>OPEN EVENT <i>→</i></b>
+      </button>
     </div>
   </section>
 </main>
+
+<section class="session-page" id="sessionPage" hidden>
+  <div class="session-page-inner">
+    <button class="session-back" type="button" data-session-back>← BACK TO PACKS</button>
+
+    <header class="session-page-head">
+      <span class="session-kicker">ACE SESSION BUILDER</span>
+      <h1 id="sessionPageTitle">Hours Pack</h1>
+      <p id="sessionPageDescription">Choose your time, setup and preferred booking window.</p>
+    </header>
+
+    <div class="session-builder">
+      <div class="session-builder-main">
+        <section class="session-step">
+          <div class="session-step-head">
+            <span>01</span>
+            <div><small>SELECT YOUR TIME</small><h2 id="durationHeading">Choose a duration</h2></div>
+          </div>
+          <div class="duration-options" id="durationOptions"></div>
+        </section>
+
+        <section class="session-step">
+          <div class="session-step-head">
+            <span>02</span>
+            <div><small id="setupKicker">CHOOSE YOUR SETUP</small><h2 id="setupHeading">Pick how you want to play</h2></div>
+          </div>
+          <div class="setup-options" id="setupOptions"></div>
+        </section>
+
+        <section class="session-step">
+          <div class="session-step-head">
+            <span>03</span>
+            <div><small>PREFERRED TIME</small><h2>When do you want to play?</h2></div>
+          </div>
+          <div class="session-date-time">
+            <label><span>Date</span><input id="sessionDate" type="date"></label>
+            <label><span>Time</span><input id="sessionTime" type="time"></label>
+          </div>
+        </section>
+      </div>
+
+      <aside class="session-summary">
+        <span class="session-kicker">YOUR SESSION</span>
+        <div class="session-summary-line"><small>PACK</small><strong id="summaryPack">Hours Pack</strong></div>
+        <div class="session-summary-line"><small>DURATION</small><strong id="summaryDuration">1 Hour</strong></div>
+        <div class="session-summary-line"><small id="summarySetupLabel">SETUP</small><strong id="summarySetup">Super PC</strong></div>
+        <div class="session-summary-line"><small>DATE</small><strong id="summaryDate">Choose date</strong></div>
+        <div class="session-summary-line"><small>TIME</small><strong id="summaryTime">Choose time</strong></div>
+        <p class="session-price-note">Final price and availability are confirmed directly by Ace Gaming.</p>
+        <button class="session-confirm" id="sessionConfirm" type="button">CONTINUE ON WHATSAPP <span>↗</span></button>
+      </aside>
+    </div>
+  </div>
+</section>
 
 <footer class="ace-footer">
   <div class="ace-footer-top">
@@ -318,6 +432,114 @@ function scrollFX(){
  });
 }
 addEventListener('scroll',scrollFX,{passive:true});scrollFX();
+
+// Internal booking pack page
+const packData={
+  hours:{title:'Hours Pack',description:'Choose a focused gaming session from one hour to a full ten-hour run.',options:['1 Hour','3 Hours','5 Hours','8 Hours','10 Hours'],setup:'pc'},
+  days:{title:'Day Packs',description:'Settle in for a half day, full day or a two-day gaming stretch.',options:['Half Day','1 Day','2 Days'],setup:'pc'},
+  months:{title:'Month Packs',description:'Built for regular players, practice routines and longer gaming plans.',options:['Half Month','1 Month','2 Months','3 Months'],setup:'pc'},
+  ps5:{title:'PS5 Packs',description:'Choose your play time and the number of players for your PlayStation session.',options:['1 Hour','2 Hours','3 Hours'],setup:'players'},
+  sim:{title:'Sim Racing',description:'Pick your race duration and lock in a focused simulator session.',options:['30 Minutes','1 Hour','2 Hours'],setup:'sim'},
+  events:{title:'Private Events',description:'Plan a birthday, tournament or private group gaming session with Ace.',options:['Birthday','Tournament','Group Session'],setup:'event'}
+};
+const sessionPage=document.getElementById('sessionPage');
+const mainPage=document.querySelector('main#top');
+const mainFooter=document.querySelector('.ace-footer');
+const durationOptions=document.getElementById('durationOptions');
+const setupOptions=document.getElementById('setupOptions');
+const pageTitle=document.getElementById('sessionPageTitle');
+const pageDescription=document.getElementById('sessionPageDescription');
+const setupKicker=document.getElementById('setupKicker');
+const setupHeading=document.getElementById('setupHeading');
+const summaryPack=document.getElementById('summaryPack');
+const summaryDuration=document.getElementById('summaryDuration');
+const summarySetup=document.getElementById('summarySetup');
+const summarySetupLabel=document.getElementById('summarySetupLabel');
+const summaryDate=document.getElementById('summaryDate');
+const summaryTime=document.getElementById('summaryTime');
+const sessionDate=document.getElementById('sessionDate');
+const sessionTime=document.getElementById('sessionTime');
+let activePack='hours',activeDuration='1 Hour',activeSetup='Super PC';
+
+function setupChoices(type){
+  if(type==='players'){
+    setupKicker.textContent='CHOOSE PLAYERS';setupHeading.textContent='How many players?';summarySetupLabel.textContent='PLAYERS';
+    return [
+      ['1 Player','Solo PlayStation session'],['2 Players','Two controllers'],['3 Players','Three controllers'],['4 Players','Four controllers']
+    ];
+  }
+  if(type==='sim'){
+    setupKicker.textContent='RACING SETUP';setupHeading.textContent='Choose your racing session';summarySetupLabel.textContent='SETUP';
+    return [['Sim Racing','Full racing setup']];
+  }
+  if(type==='event'){
+    setupKicker.textContent='EVENT SETUP';setupHeading.textContent='Choose the gaming format';summarySetupLabel.textContent='FORMAT';
+    return [['PC Zone','PC-focused group setup'],['PlayStation','Console-focused session'],['Mixed Setup','PC + PlayStation mix']];
+  }
+  setupKicker.textContent='CHOOSE YOUR SETUP';setupHeading.textContent='Pick how you want to play';summarySetupLabel.textContent='SETUP';
+  return [['Super PC','High-FPS competitive setup'],['Premium PC','Higher-end visual experience']];
+}
+function updateSessionSummary(){
+  summaryPack.textContent=packData[activePack].title;
+  summaryDuration.textContent=activeDuration;
+  summarySetup.textContent=activeSetup;
+  summaryDate.textContent=sessionDate.value||'Choose date';
+  summaryTime.textContent=sessionTime.value||'Choose time';
+}
+function renderSessionPage(){
+  const data=packData[activePack];
+  pageTitle.textContent=data.title;
+  pageDescription.textContent=data.description;
+  activeDuration=data.options[0];
+  durationOptions.innerHTML=data.options.map((x,i)=>'<button class="duration-option'+(i===0?' active':'')+'" type="button" data-duration="'+x+'"><strong>'+x+'</strong></button>').join('');
+  const setups=setupChoices(data.setup);
+  activeSetup=setups[0][0];
+  setupOptions.innerHTML=setups.map((x,i)=>'<button class="setup-option'+(i===0?' active':'')+'" type="button" data-setup="'+x[0]+'"><strong>'+x[0]+'</strong><small>'+x[1]+'</small></button>').join('');
+  updateSessionSummary();
+}
+function openSessionPage(type,push=true){
+  activePack=packData[type]?type:'hours';
+  renderSessionPage();
+  mainPage.hidden=true;mainFooter.hidden=true;sessionPage.hidden=false;
+  document.body.classList.add('session-mode');
+  if(push) history.pushState({pack:activePack},'', '#booking/'+activePack);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function closeSessionPage(push=true){
+  sessionPage.hidden=true;mainPage.hidden=false;mainFooter.hidden=false;
+  document.body.classList.remove('session-mode');
+  if(push) history.pushState({},'', '#booking');
+  requestAnimationFrame(()=>document.getElementById('booking')?.scrollIntoView({behavior:'smooth'}));
+}
+document.querySelectorAll('[data-open-pack]').forEach(btn=>btn.addEventListener('click',()=>openSessionPage(btn.dataset.openPack,true)));
+document.querySelector('[data-session-back]').addEventListener('click',()=>closeSessionPage(true));
+durationOptions.addEventListener('click',e=>{
+  const b=e.target.closest('[data-duration]');if(!b)return;
+  durationOptions.querySelectorAll('.duration-option').forEach(x=>x.classList.toggle('active',x===b));
+  activeDuration=b.dataset.duration;updateSessionSummary();
+});
+setupOptions.addEventListener('click',e=>{
+  const b=e.target.closest('[data-setup]');if(!b)return;
+  setupOptions.querySelectorAll('.setup-option').forEach(x=>x.classList.toggle('active',x===b));
+  activeSetup=b.dataset.setup;updateSessionSummary();
+});
+sessionDate.addEventListener('change',updateSessionSummary);
+sessionTime.addEventListener('change',updateSessionSummary);
+document.getElementById('sessionConfirm').addEventListener('click',()=>{
+  const date=sessionDate.value||'Not selected';
+  const time=sessionTime.value||'Not selected';
+  const message=['ACE GAMING — BOOKING REQUEST','', 'Pack: '+packData[activePack].title,'Duration / Type: '+activeDuration,summarySetupLabel.textContent+': '+activeSetup,'Preferred date: '+date,'Preferred time: '+time,'','Please confirm availability and the final price.'].join('\n');
+  window.open('https://wa.me/919076060603?text='+encodeURIComponent(message),'_blank','noopener,noreferrer');
+});
+function routeSession(){
+  const match=location.hash.match(/^#booking\/(hours|days|months|ps5|sim|events)$/);
+  if(match){if(sessionPage.hidden||activePack!==match[1])openSessionPage(match[1],false)}
+  else if(!sessionPage.hidden)closeSessionPage(false);
+}
+window.addEventListener('popstate',routeSession);
+window.addEventListener('hashchange',routeSession);
+routeSession();
+
 </script>
 </body>
 </html>
