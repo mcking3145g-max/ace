@@ -1398,35 +1398,111 @@ body{background:#050505!important}
   .store-footer-cta h2{font-size:48px!important}
 }
 </style>
+<style id="ace-store-nav-v3">
+.ace-store-nav-v3{
+  position:fixed!important;z-index:210!important;top:0;left:0;right:0;
+  display:grid!important;grid-template-columns:1fr auto 1fr!important;align-items:center!important;
+  min-height:66px!important;padding:0 clamp(18px,3vw,48px)!important;
+  background:linear-gradient(180deg,rgba(0,0,0,.8),rgba(0,0,0,.28) 74%,transparent)!important;
+  border:0!important;box-shadow:none!important;
+}
+.store-menu-trigger{
+  justify-self:start;display:flex;flex-direction:column;justify-content:center;gap:4px;
+  width:38px;height:38px;border:0;background:transparent;padding:0;cursor:pointer;
+}
+.store-menu-trigger span{display:block;width:19px;height:1px;background:rgba(255,255,255,.92);transition:width .3s var(--ace-ease)}
+.store-menu-trigger span:nth-child(2){width:13px}
+.store-menu-trigger:hover span:nth-child(2){width:19px}
+.store-nav-brand{justify-self:center!important;padding:0!important}
+.store-nav-brand .brand-logo{width:74px!important;height:auto!important;max-height:34px!important}
+.store-nav-actions{justify-self:end;display:flex;align-items:center;gap:18px}
+.store-main-site-link{font-size:8px;font-weight:800;letter-spacing:.14em;color:rgba(255,255,255,.8);transition:color .25s ease}
+.store-main-site-link:hover{color:#fff}
+.store-cart-button{
+  position:relative;display:grid;place-items:center;width:36px;height:38px;border:0;background:transparent;color:#fff;cursor:pointer;
+}
+.store-cart-button svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.55;stroke-linecap:round;stroke-linejoin:round}
+.store-cart-button .cart-count{
+  position:absolute;right:-3px;top:4px;display:grid;place-items:center;min-width:14px;height:14px;padding:0 3px;
+  border-radius:999px;background:#fff;color:#050505;font-size:7px;font-weight:900;
+}
+.store-menu-panel{
+  position:fixed;z-index:320;inset:0;display:grid;grid-template-rows:auto 1fr auto;
+  padding:24px clamp(20px,5vw,82px) 30px;background:#060606;color:#fff;
+  opacity:0;visibility:hidden;transform:translateY(-12px);
+  transition:opacity .35s ease,visibility .35s ease,transform .5s var(--ace-ease);
+}
+.store-menu-panel.open{opacity:1;visibility:visible;transform:none}
+.store-menu-top,.store-menu-bottom{display:flex;align-items:center;justify-content:space-between;gap:24px}
+.store-menu-top{padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.12);font-size:8px;font-weight:800;letter-spacing:.15em}
+.store-menu-top button{border:0;background:transparent;color:rgba(255,255,255,.6);font:inherit;letter-spacing:.13em;cursor:pointer}
+.store-menu-links{display:flex;flex-direction:column;justify-content:center;width:min(900px,100%);padding:42px 0}
+.store-menu-links a{
+  display:grid;grid-template-columns:44px 1fr;align-items:center;padding:14px 0;
+  border-bottom:1px solid rgba(255,255,255,.11);
+  font-size:clamp(34px,5.4vw,76px);line-height:.92;font-weight:750;letter-spacing:-.055em;text-transform:uppercase;
+  transition:padding-left .35s var(--ace-ease);
+}
+.store-menu-links a span{font-size:8px;letter-spacing:.14em;color:rgba(255,255,255,.3);font-weight:800}
+.store-menu-links a:hover{padding-left:8px}
+.store-menu-bottom{padding-top:18px;border-top:1px solid rgba(255,255,255,.12);font-size:8px;font-weight:800;letter-spacing:.13em}
+.store-menu-bottom a{color:rgba(255,255,255,.7)}
+body.store-menu-open{overflow:hidden}
+
+.ace-collection-card img{filter:brightness(.88) saturate(.9) contrast(1.04)!important}
+.ace-collection-card::after{background:linear-gradient(180deg,transparent 48%,rgba(0,0,0,.55))!important}
+.ace-collection-card span{color:#fff!important;text-shadow:0 1px 10px rgba(0,0,0,.35)}
+.ace-collection-card small{color:rgba(255,255,255,.62)!important}
+
+@media(max-width:700px){
+  .ace-store-nav-v3{min-height:60px!important;padding:0 14px!important}
+  .store-nav-brand .brand-logo{width:60px!important}
+  .store-main-site-link{display:none}
+  .store-nav-actions{gap:10px}
+  .store-menu-panel{padding:18px 16px 22px}
+  .store-menu-links a{grid-template-columns:32px 1fr;padding:13px 0;font-size:clamp(32px,10vw,48px)}
+  .store-menu-bottom{align-items:flex-end;flex-direction:column}
+}
+</style>
 </head>
 <body>
   <div class="noise"></div>
 
-  <header class="site-header">
-    <a class="brand" href="#store" aria-label="Ace Gaming store home"><img class="brand-logo" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/b412bae1-d3a6-4abd-9cb0-8f19a4333e05.png" alt="Ace Gaming"></a>
-    <nav class="desktop-nav" aria-label="Main navigation">
-      <a href="#store">Rentals</a>
-      <a href="#products" data-filter-link="pc">Gaming PCs</a>
-      <a href="#products" data-filter-link="monitor">Monitors</a>
-      <a href="#products" data-filter-link="accessory">Add-ons</a>
-    </nav>
-    <div class="header-actions">
-      <a class="whatsapp-booking" id="topWhatsAppBooking" href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20I%20want%20to%20book%20a%20gaming%20rental.%20Please%20share%20availability%20and%20rental%20details." target="_blank" rel="noopener" aria-label="Book a rental on WhatsApp">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.5 9.4 9.4 0 0 1-4-1l-5 1 1-4.7a8.6 8.6 0 1 1 17-3.8Z"/><path d="M8.7 8.4c.2-.5.4-.5.7-.5h.5c.2 0 .4 0 .5.4l.8 1.9c.1.3 0 .5-.1.7l-.6.8c-.2.2-.1.4 0 .6.6 1 1.4 1.8 2.4 2.3.2.1.4.1.6-.1l.9-1.1c.2-.2.4-.2.7-.1l1.8.9c.3.1.5.2.5.4.1.2.1 1-.2 1.7-.3.7-1.5 1.3-2.1 1.4-.6.1-1.4.2-2.3-.1-.5-.2-1.2-.4-2-.8-3.5-1.5-5.8-5.1-6-5.3-.2-.3-1.4-1.9-1.4-3.6 0-1.7.9-2.5 1.2-2.9Z" transform="scale(.72) translate(5 5)"/></svg>
-        <span class="whatsapp-booking-label">WhatsApp Booking</span>
-      </a>
-      <a class="home-link" href="./index.html" aria-label="Back to Ace Gaming main site">
-        <span aria-hidden="true">←</span><span class="home-link-label">Main Site</span>
-      </a>
-      <button class="icon-button menu-button" type="button" aria-label="Go to products" onclick="document.querySelector('#products').scrollIntoView()">
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-      </button>
-      <button class="icon-button" id="cartButton" type="button" aria-label="Open rental list">
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h2l2.4 10.7a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L21 7H6"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+  <header class="site-header ace-store-nav-v3">
+    <button class="store-menu-trigger" id="storeMenuTrigger" type="button" aria-label="Open store menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <a class="brand store-nav-brand" href="#store" aria-label="Ace Gaming store home">
+      <img class="brand-logo" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/b412bae1-d3a6-4abd-9cb0-8f19a4333e05.png" alt="Ace Gaming">
+    </a>
+
+    <div class="store-nav-actions">
+      <a class="store-main-site-link" href="./index.html">MAIN SITE</a>
+      <button class="store-cart-button" id="cartButton" type="button" aria-label="Open rental cart">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.1 10.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L21 8H6.1"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
         <span class="cart-count" id="cartCount">0</span>
       </button>
     </div>
   </header>
+
+  <div class="store-menu-panel" id="storeMenuPanel" aria-hidden="true">
+    <div class="store-menu-top">
+      <span>ACE STORE</span>
+      <button type="button" id="storeMenuClose" aria-label="Close store menu">CLOSE ×</button>
+    </div>
+    <nav class="store-menu-links" aria-label="Ace Store menu">
+      <a href="#store"><span>01</span>Store Home</a>
+      <a href="#products" data-filter-link="pc"><span>02</span>Gaming PCs</a>
+      <a href="#products" data-filter-link="monitor"><span>03</span>Monitors</a>
+      <a href="#products" data-filter-link="accessory"><span>04</span>Add-ons</a>
+      <a href="#products" data-filter-link="upgrade"><span>05</span>RAM</a>
+    </nav>
+    <div class="store-menu-bottom">
+      <a href="./index.html">ACE GAMING ↗</a>
+      <a href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20I%20want%20to%20know%20more%20about%20rentals." target="_blank" rel="noopener">WHATSAPP ↗</a>
+    </div>
+  </div>
 
   <main id="mainContent">
     <div id="storeView">
@@ -1446,9 +1522,9 @@ body{background:#050505!important}
       <section class="ace-collections">
   <div class="ace-collections-head"><div><span class="eyebrow">ACE STORE</span><h2>Shop collections</h2></div><p>Start with the setup you need, then build around it with displays, memory and gaming gear.</p></div>
   <div class="ace-collection-grid">
-    <button class="ace-collection-card" type="button" data-collection-filter="pc"><img src="https://www.adorama.com/images/Large/MSIARS2F7820.jpg" alt=""><span><strong>Gaming PCs</strong><small>View collection ↗</small></span></button>
-    <button class="ace-collection-card" type="button" data-collection-filter="monitor"><img src="https://www.promotech.com/wp-content/uploads/2023/11/3487a4f7-32ec-46ed-a2e1-c52f89dfaca6.jpg" alt=""><span><strong>Monitors</strong><small>View collection ↗</small></span></button>
-    <button class="ace-collection-card" type="button" data-collection-filter="accessory"><img src="https://www.gameshop.my/cdn/shop/products/logitech_g402_hyperion_fury_fps_gaming_mouse.jpg?v=1591178194" alt=""><span><strong>Add-ons</strong><small>View collection ↗</small></span></button>
+    <button class="ace-collection-card" type="button" data-collection-filter="pc"><img src="https://theacegaming.com/wp-content/uploads/2025/11/PC-Gaming-1.png" alt=""><span><strong>Gaming PCs</strong><small>View collection ↗</small></span></button>
+    <button class="ace-collection-card" type="button" data-collection-filter="monitor"><img src="https://theacegaming.com/wp-content/uploads/2025/11/Gaming-Setup-1.png" alt=""><span><strong>Monitors</strong><small>View collection ↗</small></span></button>
+    <button class="ace-collection-card" type="button" data-collection-filter="accessory"><img src="https://theacegaming.com/wp-content/uploads/2025/11/PC-Gaming-2.png" alt=""><span><strong>Add-ons</strong><small>View collection ↗</small></span></button>
     <button class="ace-collection-card" type="button" data-collection-filter="upgrade"><img src="./assets/products/kingston-fury-16gb-ram-exact.svg" alt=""><span><strong>RAM</strong><small>View collection ↗</small></span></button>
   </div>
 </section><section class="store-section shell" id="products">
@@ -2656,6 +2732,30 @@ body{background:#050505!important}
 
   if(navigator.connection?.saveData){
     secondaryVideos.forEach(v=>{v.pause();v.preload='none';});
+  }
+})();
+</script>
+<script id="ace-store-nav-v3-js">
+(()=>{
+  const trigger=document.getElementById('storeMenuTrigger');
+  const panel=document.getElementById('storeMenuPanel');
+  const close=document.getElementById('storeMenuClose');
+  const setOpen=open=>{
+    panel?.classList.toggle('open',open);
+    panel?.setAttribute('aria-hidden',String(!open));
+    trigger?.setAttribute('aria-expanded',String(open));
+    document.body.classList.toggle('store-menu-open',open);
+  };
+  trigger?.addEventListener('click',()=>setOpen(true));
+  close?.addEventListener('click',()=>setOpen(false));
+  panel?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setOpen(false)));
+  addEventListener('keydown',e=>{if(e.key==='Escape')setOpen(false)});
+
+  if(location.hash==='#cart'){
+    requestAnimationFrame(()=>{
+      const btn=document.getElementById('cartButton');
+      btn?.click();
+    });
   }
 })();
 </script>
