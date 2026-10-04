@@ -1581,18 +1581,34 @@ body.store-menu-open{overflow:auto!important}
   .store-menu-links a{font-size:19px!important;padding:9px 0!important}
 }
 </style>
-<style id="ace-rx7700-photo-fit-v1">
-.product-card[data-name*="rx 7700 xt"] .product-image img{
+
+<style id="ace-pc-photo-variety-v2">
+/* Make each PC card visually distinct instead of four near-identical tower shots */
+.product-card[data-product-id="pc-4060"] .product-image img,
+.product-card[data-product-id="pc-7700xt-i5"] .product-image img{
   width:100%!important;
   height:100%!important;
   object-fit:contain!important;
   object-position:center!important;
+  padding:16px!important;
   mix-blend-mode:normal!important;
-  padding:18px!important;
-  background:#f1f1ee!important;
+}
+.product-card[data-product-id="pc-4060-7600"] .product-image img,
+.product-card[data-product-id="pc-7700xt-ryzen"] .product-image img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  padding:0!important;
+  mix-blend-mode:normal!important;
+}
+.product-card[data-product-id="pc-4060-7600"] .product-image,
+.product-card[data-product-id="pc-7700xt-ryzen"] .product-image{
+  background:#111!important;
 }
 @media(max-width:520px){
-  .product-card[data-name*="rx 7700 xt"] .product-image img{padding:12px!important}
+  .product-card[data-product-id="pc-4060"] .product-image img,
+  .product-card[data-product-id="pc-7700xt-i5"] .product-image img{padding:10px!important}
 }
 </style>
 </head>
@@ -2145,7 +2161,7 @@ body.store-menu-open{overflow:auto!important}
 
     function productCard(product,index){
       return `
-        <article class="product-card" data-category="${product.category}" data-name="${product.name.toLowerCase()}" style="transition-delay:${Math.min(index * 55,280)}ms">
+        <article class="product-card" data-product-id="${product.id}" data-category="${product.category}" data-name="${product.name.toLowerCase()}" style="transition-delay:${Math.min(index * 55,280)}ms">
           <div class="product-image" data-view-product="${product.id}">
             <span class="badge ${product.hot ? 'hot' : ''}">${product.badge}</span>
             <button class="quick-view" type="button" data-view-product="${product.id}" aria-label="View ${product.name}">
@@ -2746,7 +2762,7 @@ body.store-menu-open{overflow:auto!important}
       }
     });
 
-    const premiumProductImages={"pc-4060":"https://www.adorama.com/images/Large/MSIARS2F7820.jpg","pc-4060-7600":"https://www.adorama.com/images/Large/MSIARS2F7820.jpg","pc-7700xt-i5":"https://thermaltakeusa.com/cdn/shop/files/ca-1x2-00m1wn-00_01_1.jpg?v=1694476288&width=1946","pc-7700xt-ryzen":"https://thermaltakeusa.com/cdn/shop/files/S200TGCaseHero.jpg?v=1694476288&width=1946","keyboard-chgbk25":"https://tlggaming.b-cdn.net/image/cache/catalog/products/Gaming%20Keyboards/cosmic%20byte/gk-25%20blue%20switch/gk%2025%2026-1200x1200.jpg","mouse-razer-deathadder":"https://xoticpc.com/cdn/shop/files/RazerDeathAdderEssentialMAIN.png?v=1721942918","mouse-logitech-g402":"https://www.gameshop.my/cdn/shop/products/logitech_g402_hyperion_fury_fps_gaming_mouse.jpg?v=1591178194","headphones-ant-esports":"https://5.imimg.com/data5/SELLER/Default/2022/4/PC/KV/WJ/9432891/ant-esports-h1000-wired-gaming-headset-with-mic-rgb-light.jpg","headset-logitech-g431":"https://logitech.onlinesalestore.pk/cdn/shop/files/logitechg4317.1surroundsoundgamingheadsetspecs01.jpg?v=1700746557","mousepad-cybeart-l":"https://cybeart.in/cdn/shop/products/MP-RA45-CYB01_1.jpg?v=1699555864","mousepad-cybeart-xxl":"https://cybeart.in/cdn/shop/products/MP-RA90-CYB01.jpg?v=1699555863","monitor-samsung-144":"https://www.promotech.com/wp-content/uploads/2023/11/3487a4f7-32ec-46ed-a2e1-c52f89dfaca6.jpg","monitor-aoc-240":"./assets/products/aoc-240hz-monitor-exact.svg","monitor-viewsonic-240":"https://www.viewsonic.com/vsAssetFile/ap/img/slides/_lcd_display_%28new%29/XG2709A/GPG-24-MON-VX2779AJ-HD-PRO-Product%20Photo_LF02_pc.jpg","monitor-gigabyte-165":"https://ddtech.mx/assets/uploads/f45103209bedfb58f790ed2b34912e61.jpg","ram-16gb":"./assets/products/kingston-fury-16gb-ram-exact.svg","ram-32gb":"https://cdn.atacadoconnect.com/produtos/1311747/memoria-ram-kingston-fury-renegade-rgb-32gb-ddr5-6400mhz-kf564c32rsa-32-1311747-14680.webp"};
+    const premiumProductImages={"pc-4060":"https://www.adorama.com/images/Large/MSIARS2F7820.jpg","pc-4060-7600":"https://theacegaming.com/wp-content/uploads/2025/11/PC-Gaming-1.png","pc-7700xt-i5":"https://thermaltakeusa.com/cdn/shop/files/ca-1x2-00m1wn-00_01_1.jpg?v=1694476288&width=1946","pc-7700xt-ryzen":"https://theacegaming.com/wp-content/uploads/2025/11/Gaming-Setup-1.png","keyboard-chgbk25":"https://tlggaming.b-cdn.net/image/cache/catalog/products/Gaming%20Keyboards/cosmic%20byte/gk-25%20blue%20switch/gk%2025%2026-1200x1200.jpg","mouse-razer-deathadder":"https://xoticpc.com/cdn/shop/files/RazerDeathAdderEssentialMAIN.png?v=1721942918","mouse-logitech-g402":"https://www.gameshop.my/cdn/shop/products/logitech_g402_hyperion_fury_fps_gaming_mouse.jpg?v=1591178194","headphones-ant-esports":"https://5.imimg.com/data5/SELLER/Default/2022/4/PC/KV/WJ/9432891/ant-esports-h1000-wired-gaming-headset-with-mic-rgb-light.jpg","headset-logitech-g431":"https://logitech.onlinesalestore.pk/cdn/shop/files/logitechg4317.1surroundsoundgamingheadsetspecs01.jpg?v=1700746557","mousepad-cybeart-l":"https://cybeart.in/cdn/shop/products/MP-RA45-CYB01_1.jpg?v=1699555864","mousepad-cybeart-xxl":"https://cybeart.in/cdn/shop/products/MP-RA90-CYB01.jpg?v=1699555863","monitor-samsung-144":"https://www.promotech.com/wp-content/uploads/2023/11/3487a4f7-32ec-46ed-a2e1-c52f89dfaca6.jpg","monitor-aoc-240":"./assets/products/aoc-240hz-monitor-exact.svg","monitor-viewsonic-240":"https://www.viewsonic.com/vsAssetFile/ap/img/slides/_lcd_display_%28new%29/XG2709A/GPG-24-MON-VX2779AJ-HD-PRO-Product%20Photo_LF02_pc.jpg","monitor-gigabyte-165":"https://ddtech.mx/assets/uploads/f45103209bedfb58f790ed2b34912e61.jpg","ram-16gb":"./assets/products/kingston-fury-16gb-ram-exact.svg","ram-32gb":"https://cdn.atacadoconnect.com/produtos/1311747/memoria-ram-kingston-fury-renegade-rgb-32gb-ddr5-6400mhz-kf564c32rsa-32-1311747-14680.webp"};
     products.forEach(product=>{
       product.originalArtwork=product.image;
       if(premiumProductImages[product.id]) product.image=premiumProductImages[product.id];
