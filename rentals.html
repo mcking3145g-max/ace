@@ -1464,6 +1464,54 @@ body.store-menu-open{overflow:hidden}
   .store-menu-bottom{align-items:flex-end;flex-direction:column}
 }
 </style>
+<style id="ace-store-compact-footer-v1">
+.compact-store-footer{
+  padding:46px clamp(18px,4vw,64px) 18px!important;
+  background:#080808!important;
+  border-top:1px solid rgba(255,255,255,.1)!important;
+}
+.compact-store-main{
+  display:flex;align-items:center;justify-content:space-between;gap:36px;
+  padding-bottom:34px;border-bottom:1px solid rgba(255,255,255,.11);
+}
+.compact-store-brand{display:flex;align-items:center;gap:14px}
+.compact-store-brand img{width:70px;height:auto;object-fit:contain}
+.compact-store-brand div{display:grid;gap:5px}
+.compact-store-brand strong{font-size:10px;letter-spacing:.15em}
+.compact-store-brand span{color:rgba(255,255,255,.38);font-size:8px;font-weight:700;letter-spacing:.13em}
+.compact-store-actions{display:flex;align-items:center;gap:24px}
+.compact-store-action{
+  display:flex;align-items:center;justify-content:space-between;gap:30px;
+  min-width:190px;padding:12px 0;border:0;border-bottom:1px solid rgba(255,255,255,.48);
+  border-radius:0;background:transparent;color:#fff;font-size:8px;font-weight:800;letter-spacing:.11em;
+  text-transform:uppercase;text-align:left;cursor:pointer;
+}
+.compact-store-action.secondary{color:rgba(255,255,255,.62);border-bottom-color:rgba(255,255,255,.22)}
+.compact-store-action span{font-size:14px}
+.compact-store-links{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:28px;
+  padding:34px 0 38px;
+}
+.compact-store-links>div{display:grid;align-content:start;gap:9px}
+.compact-store-links h4{margin:0 0 7px;color:rgba(255,255,255,.34);font-size:8px;letter-spacing:.14em}
+.compact-store-links a,.compact-store-links span{width:max-content;max-width:100%;color:rgba(255,255,255,.7);font-size:10px}
+.compact-store-links a:hover{color:#fff}
+.compact-store-bottom{
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  padding-top:16px;border-top:1px solid rgba(255,255,255,.09);
+  color:rgba(255,255,255,.3);font-size:7px;font-weight:700;letter-spacing:.1em;
+}
+.compact-store-bottom a{color:rgba(255,255,255,.45)}
+.compact-store-footer .store-footer-word,.compact-store-footer .store-footer-top,.compact-store-footer .store-footer-cta,.compact-store-footer .store-footer-links,.compact-store-footer .store-footer-bottom{display:none!important}
+@media(max-width:800px){
+  .compact-store-footer{padding:36px 14px 16px!important}
+  .compact-store-main{align-items:flex-start;flex-direction:column;padding-bottom:28px}
+  .compact-store-actions{width:100%;flex-direction:column;align-items:flex-start;gap:12px}
+  .compact-store-action{width:min(100%,330px);min-width:0}
+  .compact-store-links{grid-template-columns:1fr 1fr;gap:26px 18px;padding:30px 0 32px}
+  .compact-store-brand img{width:58px}
+}
+</style>
 </head>
 <body>
   <div class="noise"></div>
@@ -1565,63 +1613,52 @@ body.store-menu-open{overflow:hidden}
 
   </main>
 
-  <footer class="ace-store-footer">
-  <div class="store-footer-top">
-    <div class="store-footer-brand">
+  <footer class="ace-store-footer compact-store-footer">
+  <div class="compact-store-main">
+    <div class="compact-store-brand">
       <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/b412bae1-d3a6-4abd-9cb0-8f19a4333e05.png" alt="Ace Gaming">
       <div>
-        <span>ACE STORE</span>
-        <small>PERFORMANCE RENTALS</small>
+        <strong>ACE STORE</strong>
+        <span>PERFORMANCE RENTALS</span>
       </div>
     </div>
-    <div class="store-footer-statement">BUILD LESS.<br>PLAY MORE.</div>
+
+    <div class="compact-store-actions">
+      <button class="compact-store-action" type="button" id="footerCart">VIEW RENTAL LIST <span>↗</span></button>
+      <a class="compact-store-action secondary" href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20I%20want%20help%20with%20a%20gaming%20rental." target="_blank" rel="noopener">TALK TO ACE <span>↗</span></a>
+    </div>
   </div>
 
-  <div class="store-footer-cta">
+  <div class="compact-store-links">
     <div>
-      <span class="store-footer-kicker">YOUR RENTAL SETUP</span>
-      <h2>READY TO<br>TAKE IT HOME?</h2>
-    </div>
-    <div class="store-footer-actions">
-      <button class="store-footer-link as-button" type="button" id="footerCart">VIEW RENTAL LIST <span>↗</span></button>
-      <a class="store-footer-link" href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20I%20want%20help%20with%20a%20gaming%20rental." target="_blank" rel="noopener">TALK TO ACE <span>↗</span></a>
-    </div>
-  </div>
-
-  <div class="store-footer-links">
-    <div class="store-footer-group">
       <h4>STORE</h4>
       <a href="#products" data-filter-link="pc">Gaming PCs</a>
       <a href="#products" data-filter-link="monitor">Monitors</a>
-      <a href="#products" data-filter-link="accessory">Gaming Add-ons</a>
-      <a href="#products" data-filter-link="upgrade">RAM Upgrades</a>
+      <a href="#products" data-filter-link="accessory">Add-ons</a>
+      <a href="#products" data-filter-link="upgrade">RAM</a>
     </div>
-    <div class="store-footer-group">
+    <div>
       <h4>ACE GAMING</h4>
       <a href="./index.html">Main Website</a>
       <a href="./index.html#gaming">Play at Ace</a>
       <a href="./index.html#booking">Book a Session</a>
     </div>
-    <div class="store-footer-group">
+    <div>
       <h4>CONTACT</h4>
       <a href="tel:+919076060603">90760 60603</a>
       <a href="https://wa.me/919076060603" target="_blank" rel="noopener">WhatsApp</a>
     </div>
-    <div class="store-footer-group">
-      <h4>RENTAL TERMS</h4>
+    <div>
+      <h4>RENTALS</h4>
       <span>1 / 2 / 3 Months</span>
-      <span>Availability Confirmed</span>
       <span>Pickup or Delivery</span>
     </div>
   </div>
 
-  <div class="store-footer-bottom">
+  <div class="compact-store-bottom">
     <span>© 2026 ACE GAMING</span>
-    <span>AVAILABILITY, DEPOSIT & DELIVERY CONFIRMED WITH EVERY REQUEST</span>
     <a href="#store">BACK TO TOP ↑</a>
   </div>
-
-  <div class="store-footer-word" aria-hidden="true">ACE</div>
 </footer>
 
   <div class="cart-overlay" id="cartOverlay" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
