@@ -297,6 +297,108 @@ button,a{-webkit-tap-highlight-color:transparent}
   .hero-logo{transform:translate(-50%,-50%)!important;opacity:1!important}
 }
 </style>
+<style id="ace-art-direction-polish-v1">
+/* Final art-direction polish: preserve structure, refine spacing/type/motion */
+:root{
+  --ace-font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Inter,Arial,sans-serif;
+  --ace-text:#f5f5f3;
+  --ace-subtle:rgba(245,245,243,.58);
+  --ace-hairline:rgba(255,255,255,.11);
+}
+body{font-family:var(--ace-font);font-feature-settings:"kern" 1,"liga" 1;text-rendering:optimizeLegibility}
+.site-head{height:70px;padding-inline:clamp(18px,3vw,46px)}
+.site-head::after{left:clamp(18px,3vw,46px);right:clamp(18px,3vw,46px);opacity:.72}
+.head-left,.head-right,.head-brand{letter-spacing:.135em}
+.hero>video{filter:brightness(.68) contrast(1.04) saturate(.9)}
+.hero-shade{background:linear-gradient(180deg,rgba(0,0,0,.24),rgba(0,0,0,.03) 48%,rgba(0,0,0,.54))}
+.hero-logo{width:min(350px,62vw)}
+.section{padding:clamp(76px,7vw,118px) clamp(20px,4vw,64px)}
+.section-kicker{margin-bottom:11px;color:rgba(255,255,255,.45);font-size:8px;letter-spacing:.17em}
+.section-title{margin-bottom:32px;font-size:clamp(25px,2.4vw,38px);letter-spacing:-.042em}
+.world-grid,.duo,.models-grid{gap:10px}
+.media-copy{padding-top:14px}
+.media-copy strong{font-size:10px;letter-spacing:.045em}
+.media-copy span{font-size:8px;color:rgba(255,255,255,.38)}
+.media-window img,.model-card img{transition-duration:1s,.45s}
+.cinema-center h2{font-size:clamp(46px,6.4vw,96px);letter-spacing:-.062em}
+.cinema-center p{color:rgba(255,255,255,.65);font-size:9px}
+.models{padding-inline:clamp(20px,4vw,64px);padding-bottom:clamp(78px,7vw,118px)}
+.model-label{left:22px;right:22px;bottom:20px}
+.model-label strong{letter-spacing:-.05em}
+.booking{padding:clamp(82px,7vw,116px) clamp(20px,4vw,64px);background:#090909}
+.booking-head{gap:8vw;margin-bottom:42px}
+.booking-head h2{font-size:clamp(44px,5.8vw,84px);letter-spacing:-.058em}
+.booking-head p{max-width:460px;color:var(--ace-subtle);font-size:13px;line-height:1.72}
+.pack-portals{gap:10px}
+.pack-portal{
+  min-height:236px;padding:26px;
+  border-color:rgba(255,255,255,.085);
+  border-radius:6px;
+  background:#0c0c0c;
+}
+.pack-portal::before{opacity:.65}
+.pack-portal::after{left:26px;right:26px;opacity:.22}
+.pack-portal:hover{transform:translateY(-3px);border-color:rgba(255,255,255,.16);background:#101010}
+.pack-index{color:rgba(255,255,255,.28)}
+.pack-portal small{margin-top:28px;color:rgba(255,255,255,.42)}
+.pack-portal h3{font-size:clamp(29px,3vw,44px);letter-spacing:-.05em}
+.pack-portal p{color:rgba(255,255,255,.44)}
+.pack-portal b{margin-top:34px}
+.session-page{padding:108px clamp(20px,4vw,64px) 90px}
+.session-page-head{margin:50px 0 60px;padding-bottom:42px}
+.session-page-head h1{font-size:clamp(58px,7.6vw,118px);letter-spacing:-.07em}
+.session-page-head p{max-width:500px;color:var(--ace-subtle);font-size:13px}
+.session-builder{gap:44px}
+.session-step{padding:36px 0 44px}
+.duration-option,.setup-option{
+  min-height:82px;
+  border-color:rgba(255,255,255,.09);
+  background:#0b0b0b;
+}
+.duration-option.active,.setup-option.active{background:#101010;border-color:rgba(255,255,255,.7)}
+.session-summary{padding:28px;background:#0a0a0a;border-color:rgba(255,255,255,.1)}
+.session-summary-line{border-color:rgba(255,255,255,.09)}
+.session-confirm{border-bottom-color:rgba(255,255,255,.45)}
+.ace-footer{padding-top:76px;background:#090909}
+.ace-footer-top{padding-bottom:54px}
+.ace-footer-cta{padding:52px 0;border-color:rgba(255,255,255,.12)}
+.ace-footer-cta h2{letter-spacing:-.07em}
+.ace-footer-links{padding:50px 0 58px}
+.footer-group h4{color:rgba(255,255,255,.34)}
+.footer-group a,.footer-group span{color:rgba(255,255,255,.72)}
+.footer-group a:hover{transform:translateX(3px)}
+.ace-footer-word{color:#151515}
+:focus-visible{outline:1px solid rgba(255,255,255,.75);outline-offset:4px}
+
+@media(max-width:900px){
+  .site-head{height:62px}
+  .section{padding:70px 18px}
+  .booking{padding:72px 18px}
+  .models{padding-inline:18px}
+  .pack-portals{gap:9px}
+  .session-page{padding:92px 18px 72px}
+  .session-page-head{margin:38px 0 46px}
+}
+@media(max-width:560px){
+  .section{padding:60px 14px}
+  .section-title{margin-bottom:24px}
+  .media-window,.duo .media-window{aspect-ratio:1.22/1}
+  .cinema{min-height:500px}
+  .booking{padding:64px 14px}
+  .booking-head{margin-bottom:30px}
+  .booking-head h2{font-size:42px}
+  .pack-portal{min-height:188px;padding:20px}
+  .pack-portal small{margin-top:20px}
+  .pack-portal h3{font-size:30px}
+  .pack-portal b{margin-top:28px}
+  .session-page{padding:82px 14px 60px}
+  .session-page-head h1{font-size:46px}
+  .session-step{padding:28px 0 34px}
+  .session-summary{padding:20px}
+  .ace-footer{padding-top:58px}
+  .ace-footer-cta{padding:38px 0}
+}
+</style>
 </head>
 <body>
 <header class="site-head" id="siteHead">
