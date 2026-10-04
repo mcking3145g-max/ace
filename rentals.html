@@ -198,17 +198,6 @@
     .spec-preview-row{display:grid;grid-template-columns:72px 1fr;gap:8px;padding:6px 7px;border-radius:7px;background:rgba(255,255,255,.026);font-size:8px;line-height:1.35}
     .spec-preview-row span{color:var(--muted);font-weight:700}
     .spec-preview-row strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-    .badge{
-      position:absolute;z-index:2;left:13px;top:13px;padding:7px 10px;border:1px solid rgba(255,255,255,.13);border-radius:9px;
-      background:rgba(7,7,17,.76);backdrop-filter:blur(10px);color:#dff7ff;font-size:9px;font-weight:900;letter-spacing:.11em;text-transform:uppercase;
-    }
-    .badge.hot{background:rgba(255,63,157,.82);color:#fff}
-    .quick-view{
-      position:absolute;z-index:2;right:13px;top:13px;display:grid;place-items:center;width:37px;height:37px;
-      border:1px solid rgba(255,255,255,.16);border-radius:11px;background:rgba(7,7,17,.73);backdrop-filter:blur(10px);cursor:pointer;
-      opacity:0;transform:translateY(-7px);transition:.25s ease;
-    }
-    .product-card:hover .quick-view{opacity:1;transform:translateY(0)}
     .product-info{padding:18px}
     .category-label{color:var(--blue);font-size:9px;font-weight:900;letter-spacing:.15em;text-transform:uppercase}
     .product-info h3{min-height:47px;margin:9px 0 8px;font-family:var(--font-display);font-size:17px;line-height:1.35;letter-spacing:-.02em}
@@ -2163,10 +2152,6 @@ body.store-menu-open{overflow:auto!important}
       return `
         <article class="product-card" data-product-id="${product.id}" data-category="${product.category}" data-name="${product.name.toLowerCase()}" style="transition-delay:${Math.min(index * 55,280)}ms">
           <div class="product-image" data-view-product="${product.id}">
-            <span class="badge ${product.hot ? 'hot' : ''}">${product.badge}</span>
-            <button class="quick-view" type="button" data-view-product="${product.id}" aria-label="View ${product.name}">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1.5 12s3.8-7 10.5-7 10.5 7 10.5 7-3.8 7-10.5 7S1.5 12 1.5 12Z"/><circle cx="12" cy="12" r="3"/></svg>
-            </button>
             ${productVisual(product)}
           </div>
           <div class="product-info">
