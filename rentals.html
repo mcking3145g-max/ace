@@ -813,6 +813,52 @@ footer{border-top:1px solid var(--ace-line)!important;background:#101010!importa
 }
 @media(max-width:540px){.product-grid{grid-template-columns:1fr!important}.ace-collection-grid{grid-template-columns:1fr}.ace-collection-card{min-height:340px}.hero h1{font-size:48px!important}}
 </style>
+<style id="ace-store-footer-v2">
+.ace-store-footer{position:relative;overflow:hidden;padding:82px 4vw 0;background:#0a0a0a;border-top:1px solid rgba(255,255,255,.12)!important}
+.store-footer-top{display:flex;align-items:flex-start;justify-content:space-between;gap:40px;padding-bottom:62px}
+.store-footer-brand{display:flex;align-items:center;gap:16px}
+.store-footer-brand img{width:96px;height:auto;object-fit:contain}
+.store-footer-brand div{display:grid;gap:4px}
+.store-footer-brand span{font-size:10px;font-weight:800;letter-spacing:.16em}
+.store-footer-brand small{color:#666;font-size:8px;font-weight:700;letter-spacing:.14em}
+.store-footer-statement{text-align:right;font-size:clamp(20px,2.4vw,36px);line-height:.9;font-weight:800;letter-spacing:-.04em;color:#3e3e3e}
+.store-footer-cta{display:grid;grid-template-columns:1fr auto;gap:50px;align-items:end;padding:58px 0;border-top:1px solid rgba(255,255,255,.16);border-bottom:1px solid rgba(255,255,255,.16)}
+.store-footer-kicker{display:block;margin-bottom:14px;color:#777;font-size:9px;font-weight:800;letter-spacing:.15em}
+.store-footer-cta h2{margin:0;font-size:clamp(54px,7.6vw,116px);line-height:.79;letter-spacing:-.064em;text-transform:uppercase}
+.store-footer-actions{display:grid;gap:18px;min-width:300px}
+.store-footer-link{display:flex;align-items:center;justify-content:space-between;gap:34px;width:100%;padding:16px 0;border:0;border-bottom:1px solid rgba(255,255,255,.55);border-radius:0;background:transparent;color:#fff;font-size:9px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;text-align:left;cursor:pointer;transition:padding .35s var(--ace-ease),border-color .3s ease}
+.store-footer-link span{font-size:17px;transition:transform .35s var(--ace-ease)}
+.store-footer-link:hover{padding-left:8px;padding-right:8px;border-color:#fff}
+.store-footer-link:hover span{transform:translate(4px,-4px)}
+.store-footer-links{display:grid;grid-template-columns:repeat(4,1fr);gap:36px;padding:55px 0 65px}
+.store-footer-group{display:grid;align-content:start;gap:11px}
+.store-footer-group h4{margin:0 0 8px;color:#676767;font-size:9px;font-weight:800;letter-spacing:.14em}
+.store-footer-group a,.store-footer-group span{width:max-content;max-width:100%;color:#d0d0cd;font-size:11px}
+.store-footer-group a{transition:color .25s ease,transform .25s ease}
+.store-footer-group a:hover{color:#fff;transform:translateX(4px)}
+.store-footer-bottom{display:grid;grid-template-columns:auto 1fr auto;gap:28px;align-items:center;padding:18px 0;border-top:1px solid rgba(255,255,255,.13);color:#666;font-size:8px;font-weight:700;letter-spacing:.09em}
+.store-footer-bottom span:nth-child(2){text-align:center}
+.store-footer-bottom a{color:#888;transition:color .25s ease}.store-footer-bottom a:hover{color:#fff}
+.store-footer-word{margin:45px 0 -4vw;font-size:clamp(170px,34vw,560px);line-height:.57;font-weight:900;letter-spacing:-.095em;color:#171717;white-space:nowrap;user-select:none;pointer-events:none}
+@media(max-width:900px){
+ .ace-store-footer{padding:72px 20px 0}
+ .store-footer-cta{grid-template-columns:1fr}
+ .store-footer-actions{min-width:0;max-width:430px}
+ .store-footer-links{grid-template-columns:1fr 1fr}
+ .store-footer-bottom{grid-template-columns:1fr auto}
+ .store-footer-bottom span:nth-child(2){display:none}
+}
+@media(max-width:560px){
+ .ace-store-footer{padding-left:14px;padding-right:14px}
+ .store-footer-top{padding-bottom:42px}
+ .store-footer-brand img{width:76px}
+ .store-footer-statement{font-size:20px}
+ .store-footer-cta{padding:42px 0}
+ .store-footer-cta h2{font-size:54px}
+ .store-footer-links{gap:36px 20px;padding:44px 0 52px}
+ .store-footer-word{font-size:48vw;margin-top:32px}
+}
+</style>
 </head>
 <body>
   <div class="noise"></div>
@@ -914,16 +960,64 @@ footer{border-top:1px solid var(--ace-line)!important;background:#101010!importa
 
   </main>
 
-  <footer>
-    <div class="footer-inner shell">
+  <footer class="ace-store-footer">
+  <div class="store-footer-top">
+    <div class="store-footer-brand">
+      <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/b412bae1-d3a6-4abd-9cb0-8f19a4333e05.png" alt="Ace Gaming">
       <div>
-        <a class="brand" href="#store"><img class="brand-logo" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/b412bae1-d3a6-4abd-9cb0-8f19a4333e05.png" alt="Ace Gaming"></a>
-        <p class="footer-copy">Performance gaming PCs and setup add-ons available on flexible monthly rental plans.</p>
+        <span>ACE STORE</span>
+        <small>PERFORMANCE RENTALS</small>
       </div>
-      <div class="footer-links"><a class="main-site-footer" href="./index.html">Ace Gaming Main Site</a><a href="#products" data-filter-link="pc">Gaming PCs</a><a href="#products" data-filter-link="monitor">Monitors</a><a href="#products" data-filter-link="accessory">Add-ons</a><button class="button secondary" type="button" id="footerCart">View Rental List</button></div>
-      <div class="copyright"><span>© 2026 Ace Gaming. All rights reserved.</span><span>Availability and rental terms are confirmed with every request.</span></div>
     </div>
-  </footer>
+    <div class="store-footer-statement">BUILD LESS.<br>PLAY MORE.</div>
+  </div>
+
+  <div class="store-footer-cta">
+    <div>
+      <span class="store-footer-kicker">YOUR RENTAL SETUP</span>
+      <h2>READY TO<br>TAKE IT HOME?</h2>
+    </div>
+    <div class="store-footer-actions">
+      <button class="store-footer-link as-button" type="button" id="footerCart">VIEW RENTAL LIST <span>↗</span></button>
+      <a class="store-footer-link" href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20I%20want%20help%20with%20a%20gaming%20rental." target="_blank" rel="noopener">TALK TO ACE <span>↗</span></a>
+    </div>
+  </div>
+
+  <div class="store-footer-links">
+    <div class="store-footer-group">
+      <h4>STORE</h4>
+      <a href="#products" data-filter-link="pc">Gaming PCs</a>
+      <a href="#products" data-filter-link="monitor">Monitors</a>
+      <a href="#products" data-filter-link="accessory">Gaming Add-ons</a>
+      <a href="#products" data-filter-link="upgrade">RAM Upgrades</a>
+    </div>
+    <div class="store-footer-group">
+      <h4>ACE GAMING</h4>
+      <a href="./index.html">Main Website</a>
+      <a href="./index.html#gaming">Play at Ace</a>
+      <a href="./index.html#booking">Book a Session</a>
+    </div>
+    <div class="store-footer-group">
+      <h4>CONTACT</h4>
+      <a href="tel:+919076060603">90760 60603</a>
+      <a href="https://wa.me/919076060603" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+    <div class="store-footer-group">
+      <h4>RENTAL TERMS</h4>
+      <span>1 / 2 / 3 Months</span>
+      <span>Availability Confirmed</span>
+      <span>Pickup or Delivery</span>
+    </div>
+  </div>
+
+  <div class="store-footer-bottom">
+    <span>© 2026 ACE GAMING</span>
+    <span>AVAILABILITY, DEPOSIT & DELIVERY CONFIRMED WITH EVERY REQUEST</span>
+    <a href="#store">BACK TO TOP ↑</a>
+  </div>
+
+  <div class="store-footer-word" aria-hidden="true">ACE</div>
+</footer>
 
   <div class="cart-overlay" id="cartOverlay" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
     <aside class="cart-drawer">
