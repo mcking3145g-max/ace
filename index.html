@@ -93,26 +93,40 @@ img,video{display:block}
 .pack-portal b{display:flex;justify-content:space-between;align-items:center;margin-top:36px;font-size:10px;letter-spacing:.14em}
 .pack-portal b i{color:var(--cyan);font-style:normal;font-size:22px;transition:transform .3s ease}
 .pack-portal:hover b i{transform:translateX(6px)}
-footer{position:relative;overflow:hidden;padding:58px 4vw 0;background:#101010}
-.footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;padding-bottom:70px}
-.footer-col{display:grid;gap:9px;align-content:start}
-.footer-col h4{margin:0 0 8px;color:#73736f;font-size:9px;letter-spacing:.12em;text-transform:uppercase}
-.footer-col a,.footer-col span{font-size:10px;color:#dadad6}
-.footer-bottom{display:flex;justify-content:space-between;gap:20px;align-items:center;padding:18px 0;border-top:1px solid rgba(255,255,255,.13);font-size:9px;color:#777}
-.footer-giant{margin:24px 0 -3.5vw;font-size:clamp(140px,31vw,520px);line-height:.6;font-weight:800;letter-spacing:-.095em;color:#252525;white-space:nowrap;user-select:none}
+.ace-footer{position:relative;overflow:hidden;padding:82px 4vw 0;background:#0a0a0a;border-top:1px solid rgba(255,255,255,.12)}
+.ace-footer-top{display:flex;align-items:flex-start;justify-content:space-between;gap:40px;padding-bottom:62px}
+.ace-footer-brand{display:flex;align-items:center;gap:14px;font-size:10px;font-weight:800;letter-spacing:.16em}
+.ace-footer-brand img{width:92px;height:auto;object-fit:contain}
+.ace-footer-statement{text-align:right;font-size:clamp(20px,2.4vw,36px);line-height:.9;font-weight:800;letter-spacing:-.04em;color:#3f3f3f}
+.ace-footer-cta{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end;padding:58px 0;border-top:1px solid rgba(255,255,255,.16);border-bottom:1px solid rgba(255,255,255,.16)}
+.footer-kicker{display:block;margin-bottom:14px;color:#777;font-size:9px;font-weight:800;letter-spacing:.15em}
+.ace-footer-cta h2{margin:0;font-size:clamp(54px,8vw,120px);line-height:.79;letter-spacing:-.065em;text-transform:uppercase}
+.footer-main-link{display:flex;align-items:center;justify-content:space-between;gap:38px;min-width:290px;padding:17px 0;border-bottom:1px solid rgba(255,255,255,.62);font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;transition:padding .35s var(--ease),border-color .3s ease}
+.footer-main-link span{font-size:18px;transition:transform .35s var(--ease)}
+.footer-main-link:hover{padding-left:8px;padding-right:8px;border-color:#fff}
+.footer-main-link:hover span{transform:translate(4px,-4px)}
+.ace-footer-links{display:grid;grid-template-columns:repeat(4,1fr);gap:34px;padding:55px 0 65px}
+.footer-group{display:grid;align-content:start;gap:11px}
+.footer-group h4{margin:0 0 8px;color:#676767;font-size:9px;font-weight:800;letter-spacing:.14em}
+.footer-group a,.footer-group span{width:max-content;max-width:100%;color:#d0d0cd;font-size:11px}
+.footer-group a{transition:color .25s ease,transform .25s ease}
+.footer-group a:hover{color:#fff;transform:translateX(4px)}
+.ace-footer-bottom{display:flex;justify-content:space-between;gap:20px;align-items:center;padding:18px 0;border-top:1px solid rgba(255,255,255,.13);color:#666;font-size:8px;font-weight:700;letter-spacing:.1em}
+.ace-footer-bottom a{color:#888;transition:color .25s ease}.ace-footer-bottom a:hover{color:#fff}
+.ace-footer-word{margin:45px 0 -4vw;font-size:clamp(170px,34vw,560px);line-height:.57;font-weight:900;letter-spacing:-.095em;color:#171717;white-space:nowrap;user-select:none;pointer-events:none}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .75s ease,transform .95s var(--ease)}
 .reveal.in{opacity:1;transform:none}
 .mask{clip-path:none;opacity:1;transform:none}
 .mask.in{clip-path:none;opacity:1;transform:none}
 @media(max-width:900px){
- .section{padding:70px 18px}.world-grid{grid-template-columns:1fr;gap:34px}.duo{padding:10px 18px 70px;grid-template-columns:1fr;gap:34px}.models{padding:0 18px 70px}.models-grid{grid-template-columns:1fr}.model-card{min-height:118vw}.life-head{padding:0 18px}.life-track{padding-left:18px;padding-right:18px}.life-item{flex-basis:78vw}.booking{padding:74px 18px}.booking-head{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}.site-head{padding:0 18px}
+ .section{padding:70px 18px}.world-grid{grid-template-columns:1fr;gap:34px}.duo{padding:10px 18px 70px;grid-template-columns:1fr;gap:34px}.models{padding:0 18px 70px}.models-grid{grid-template-columns:1fr}.model-card{min-height:118vw}.life-head{padding:0 18px}.life-track{padding-left:18px;padding-right:18px}.life-item{flex-basis:78vw}.booking{padding:74px 18px}.booking-head{grid-template-columns:1fr}.ace-footer-links{grid-template-columns:1fr 1fr}.ace-footer-cta{grid-template-columns:1fr}.footer-main-link{min-width:0;max-width:420px}.site-head{padding:0 18px}
 }
 @media(max-width:560px){
  .site-head{height:62px}.head-brand{font-size:8px;padding:0 12px}.head-brand img{width:19px;height:19px}.head-left,.head-right{gap:8px}.head-left::before,.head-right::after{width:12px}.hero{min-height:620px}.hero-logo{width:72vw}
  .section-title{font-size:24px}.cinema{height:72svh;min-height:560px}.cinema-center h2{font-size:44px}
  .model-card{min-height:130vw}.model-label{left:16px;right:16px;bottom:16px}
  .booking-head h2{font-size:46px}.pack-portals{grid-template-columns:1fr}.pack-portal{min-height:250px;padding:26px}.pack-portal small{margin-top:34px}
- .footer-grid{grid-template-columns:1fr 1fr;gap:34px 20px}.footer-giant{font-size:45vw}
+ .ace-footer{padding-left:18px;padding-right:18px}.ace-footer-top{padding-bottom:42px}.ace-footer-brand img{width:74px}.ace-footer-cta{padding:42px 0}.ace-footer-cta h2{font-size:58px}.ace-footer-links{grid-template-columns:1fr 1fr;gap:36px 20px;padding:44px 0 52px}.ace-footer-word{font-size:48vw;margin-top:32px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.mask{clip-path:none;transition:none}.hero>video,.cinema video{transform:none!important}}
 </style>
@@ -236,15 +250,58 @@ footer{position:relative;overflow:hidden;padding:58px 4vw 0;background:#101010}
   </section>
 </main>
 
-<footer>
-  <div class="footer-grid">
-    <div class="footer-col"><h4>Ace Gaming</h4><a href="#world">Inside Ace</a><a href="#gaming">Gaming</a><a href="#booking">Book</a></div>
-    <div class="footer-col"><h4>Store</h4><a href="/rentals.html">Ace Store</a><a href="/rentals.html#products">Gaming PCs</a><a href="/rentals.html#products">Monitors + Add-ons</a></div>
-    <div class="footer-col"><h4>Contact</h4><a href="tel:+919076060603">90760 60603</a><a href="https://wa.me/919076060603" target="_blank" rel="noopener">WhatsApp</a></div>
-    <div class="footer-col"><h4>Experience</h4><span>PC Gaming</span><span>PlayStation 5</span><span>Sim Racing</span><span>Food</span></div>
+<footer class="ace-footer">
+  <div class="ace-footer-top">
+    <div class="ace-footer-brand">
+      <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/b412bae1-d3a6-4abd-9cb0-8f19a4333e05.png" alt="Ace Gaming">
+      <span>ACE GAMING</span>
+    </div>
+    <div class="ace-footer-statement">PLAY.<br>RENT.<br>REPEAT.</div>
   </div>
-  <div class="footer-bottom"><span>© 2026 Ace Gaming</span><span>Play · Rent · Race · Repeat</span></div>
-  <div class="footer-giant">ACE</div>
+
+  <div class="ace-footer-cta">
+    <div>
+      <span class="footer-kicker">YOUR NEXT SESSION</span>
+      <h2>READY TO<br>PLAY?</h2>
+    </div>
+    <a class="footer-main-link" href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20I%20want%20to%20book%20a%20session." target="_blank" rel="noopener">
+      BOOK ON WHATSAPP <span>↗</span>
+    </a>
+  </div>
+
+  <div class="ace-footer-links">
+    <div class="footer-group">
+      <h4>EXPLORE</h4>
+      <a href="#world">Inside Ace</a>
+      <a href="#gaming">Play at Ace</a>
+      <a href="#booking">Booking</a>
+    </div>
+    <div class="footer-group">
+      <h4>ACE STORE</h4>
+      <a href="/rentals.html">Store Home</a>
+      <a href="/rentals.html#products">Gaming PCs</a>
+      <a href="/rentals.html#products">Monitors + Gear</a>
+    </div>
+    <div class="footer-group">
+      <h4>CONTACT</h4>
+      <a href="tel:+919076060603">90760 60603</a>
+      <a href="https://wa.me/919076060603" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+    <div class="footer-group">
+      <h4>AT ACE</h4>
+      <span>PC Gaming</span>
+      <span>PlayStation 5</span>
+      <span>Sim Racing</span>
+      <span>Food</span>
+    </div>
+  </div>
+
+  <div class="ace-footer-bottom">
+    <span>© 2026 ACE GAMING</span>
+    <a href="#top">BACK TO TOP ↑</a>
+  </div>
+
+  <div class="ace-footer-word" aria-hidden="true">ACE</div>
 </footer>
 
 <script>
