@@ -41,13 +41,13 @@ img,video{display:block}
 .world-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .media-card{display:block}
 .media-window{position:relative;aspect-ratio:1.53/1;overflow:hidden;background:#101010}
-.media-window video{width:100%;height:100%;object-fit:cover;filter:brightness(.88) saturate(.95) contrast(1.03);transform:scale(1.035);transition:transform .8s var(--ease),filter .45s ease}
-.media-card:hover .media-window video{transform:scale(1.085);filter:brightness(.92) saturate(1)}
+.media-window img{width:100%;height:100%;object-fit:cover;filter:brightness(.9) saturate(.96) contrast(1.03);transform:scale(1.035);transition:transform .8s var(--ease),filter .45s ease}
+.media-card:hover .media-window img{transform:scale(1.085);filter:brightness(1) saturate(1)}
 .media-copy{display:flex;justify-content:space-between;gap:16px;align-items:start;padding-top:12px}
 .media-copy strong{font-size:11px;text-transform:uppercase;letter-spacing:.03em}
 .media-copy span{color:#787875;font-size:9px;text-transform:uppercase;letter-spacing:.08em}
 .cinema{position:relative;height:86svh;min-height:620px;overflow:hidden;background:#090909}
-.cinema video{position:absolute;inset:-4%;width:108%;height:108%;object-fit:cover;filter:brightness(.58) contrast(1.05) saturate(.9);transform:scale(var(--cinema-scale,1.02)) translate3d(0,var(--cinema-y,0),0);will-change:transform}
+.cinema img{position:absolute;inset:-4%;width:108%;height:108%;object-fit:cover;filter:brightness(.62) contrast(1.05) saturate(.92);transform:scale(var(--cinema-scale,1.02)) translate3d(0,var(--cinema-y,0),0);will-change:transform}
 .cinema:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.16),rgba(0,0,0,.5))}
 .cinema-center{position:absolute;z-index:2;inset:0;display:grid;place-items:center;text-align:center;padding:30px}
 .cinema-center h2{margin:0;font-size:clamp(44px,6vw,90px);line-height:.88;letter-spacing:-.055em;text-transform:uppercase}
@@ -57,8 +57,8 @@ img,video{display:block}
 .models{padding:0 4vw 86px;background:#050505}
 .models-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .model-card{position:relative;min-height:58vw;max-height:820px;overflow:hidden;background:#0c0c0c}
-.model-card video{width:100%;height:100%;object-fit:cover;filter:brightness(.8) contrast(1.04) saturate(.95);transform:scale(1.035);transition:transform .85s var(--ease),filter .5s ease}
-.model-card:hover video{transform:scale(1.08);filter:brightness(.86)}
+.model-card img{width:100%;height:100%;object-fit:cover;filter:brightness(.82) contrast(1.04) saturate(.96);transform:scale(1.035);transition:transform .85s var(--ease),filter .5s ease}
+.model-card:hover img{transform:scale(1.08);filter:brightness(.94)}
 .model-shade{position:absolute;inset:0;background:linear-gradient(180deg,transparent 42%,rgba(0,0,0,.66))}
 .model-label{position:absolute;z-index:2;left:24px;right:24px;bottom:22px;display:flex;align-items:end;justify-content:space-between;gap:18px}
 .model-label strong{font-size:clamp(25px,3vw,45px);line-height:.92;letter-spacing:-.045em;text-transform:uppercase}
@@ -89,8 +89,8 @@ footer{position:relative;overflow:hidden;padding:58px 4vw 0;background:#101010}
 .footer-giant{margin:24px 0 -3.5vw;font-size:clamp(140px,31vw,520px);line-height:.6;font-weight:800;letter-spacing:-.095em;color:#252525;white-space:nowrap;user-select:none}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .75s ease,transform .95s var(--ease)}
 .reveal.in{opacity:1;transform:none}
-.mask{clip-path:inset(0 0 100% 0);transition:clip-path 1.05s var(--ease)}
-.mask.in{clip-path:inset(0)}
+.mask{clip-path:none;opacity:1;transform:none}
+.mask.in{clip-path:none;opacity:1;transform:none}
 @media(max-width:900px){
  .section{padding:70px 18px}.world-grid{grid-template-columns:1fr;gap:34px}.duo{padding:10px 18px 70px;grid-template-columns:1fr;gap:34px}.models{padding:0 18px 70px}.models-grid{grid-template-columns:1fr}.model-card{min-height:118vw}.life-head{padding:0 18px}.life-track{padding-left:18px;padding-right:18px}.life-item{flex-basis:78vw}.booking{padding:74px 18px}.booking-head{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}.site-head{padding:0 18px}
 }
@@ -122,30 +122,30 @@ footer{position:relative;overflow:hidden;padding:58px 4vw 0;background:#101010}
     <span class="section-kicker reveal">ACE GAMING</span>
     <h2 class="section-title reveal">Inside Ace</h2>
     <div class="world-grid">
-      <a class="media-card" href="#gaming"><div class="media-window mask"><video class="still-video" data-time="1" muted loop playsinline preload="auto"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/4d34805d-8ff3-4634-9148-e2607a487a87.mp4" type="video/mp4"></video></div><div class="media-copy reveal"><strong>Gaming at Ace</strong><span>PC + Console</span></div></a>
-      <a class="media-card" href="/rentals.html"><div class="media-window mask"><video class="still-video" data-time="14" muted loop playsinline preload="auto"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/4d34805d-8ff3-4634-9148-e2607a487a87.mp4" type="video/mp4"></video></div><div class="media-copy reveal"><strong>Ace Rentals</strong><span>Take it home</span></div></a>
-      <a class="media-card" href="#gaming"><div class="media-window mask"><video class="still-video" data-time="27" muted loop playsinline preload="auto"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/4d34805d-8ff3-4634-9148-e2607a487a87.mp4" type="video/mp4"></video></div><div class="media-copy reveal"><strong>Performance</strong><span>Built to play</span></div></a>
+      <a class="media-card" href="#gaming"><div class="media-window mask"><img class="still-image" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/cb757994-dc15-4008-867f-6ed5c69f62b5.jpg" alt="" loading="lazy"></div><div class="media-copy reveal"><strong>Gaming at Ace</strong><span>PC + Console</span></div></a>
+      <a class="media-card" href="/rentals.html"><div class="media-window mask"><img class="still-image" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/d22495ea-a7b4-4877-a6d9-603303eb7148.jpg" alt="" loading="lazy"></div><div class="media-copy reveal"><strong>Ace Rentals</strong><span>Take it home</span></div></a>
+      <a class="media-card" href="#gaming"><div class="media-window mask"><img class="still-image" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/ef21c282-c36d-4e28-98ef-cab19016e541.jpg" alt="" loading="lazy"></div><div class="media-copy reveal"><strong>Performance</strong><span>Built to play</span></div></a>
     </div>
   </section>
 
   <section class="cinema">
-    <video id="cinemaVideo" muted loop playsinline preload="metadata"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/4d34805d-8ff3-4634-9148-e2607a487a87.mp4" type="video/mp4"></video>
+    <img class="cinema-image" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/ef21c282-c36d-4e28-98ef-cab19016e541.jpg" alt="" loading="lazy">
     <div class="cinema-center reveal"><div><h2>Built for<br>the game.</h2><p>Gaming · Racing · Rentals · Food</p></div></div>
   </section>
 
   <section class="duo">
-    <a class="media-card" href="#gaming"><div class="media-window mask"><video class="still-video" data-time="33" muted loop playsinline preload="auto"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/4d34805d-8ff3-4634-9148-e2607a487a87.mp4" type="video/mp4"></video></div><div class="media-copy reveal"><strong>Gaming Nights</strong><span>Play together</span></div></a>
-    <a class="media-card" href="/rentals.html"><div class="media-window mask"><video class="still-video" data-time="16" muted loop playsinline preload="auto"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/4d34805d-8ff3-4634-9148-e2607a487a87.mp4" type="video/mp4"></video></div><div class="media-copy reveal"><strong>PS5 + PC Rentals</strong><span>Monthly setups</span></div></a>
+    <a class="media-card" href="#gaming"><div class="media-window mask"><img class="still-image" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/7c9308b2-6122-402d-a2a3-858856a3a462.jpg" alt="" loading="lazy"></div><div class="media-copy reveal"><strong>Gaming Nights</strong><span>Play together</span></div></a>
+    <a class="media-card" href="/rentals.html"><div class="media-window mask"><img class="still-image" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/d22495ea-a7b4-4877-a6d9-603303eb7148.jpg" alt="" loading="lazy"></div><div class="media-copy reveal"><strong>PS5 + PC Rentals</strong><span>Monthly setups</span></div></a>
   </section>
 
   <section class="models" id="gaming">
     <span class="section-kicker reveal">CHOOSE THE EXPERIENCE</span>
     <h2 class="section-title reveal">Play at Ace</h2>
     <div class="models-grid">
-      <a class="model-card mask" href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20I%20want%20to%20book%20PC%20gaming." target="_blank" rel="noopener"><video class="still-video" data-time="3" muted loop playsinline preload="auto"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/4d34805d-8ff3-4634-9148-e2607a487a87.mp4" type="video/mp4"></video><div class="model-shade"></div><div class="model-label"><strong>PC Gaming</strong><span>↗</span></div></a>
-      <a class="model-card mask" href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20I%20want%20to%20book%20PS5." target="_blank" rel="noopener"><video class="still-video" data-time="9" muted loop playsinline preload="auto"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/4d34805d-8ff3-4634-9148-e2607a487a87.mp4" type="video/mp4"></video><div class="model-shade"></div><div class="model-label"><strong>PlayStation 5</strong><span>↗</span></div></a>
-      <a class="model-card mask" href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20I%20want%20to%20book%20sim%20racing." target="_blank" rel="noopener"><video class="still-video" data-time="35" muted loop playsinline preload="auto"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/4d34805d-8ff3-4634-9148-e2607a487a87.mp4" type="video/mp4"></video><div class="model-shade"></div><div class="model-label"><strong>Sim Racing</strong><span>↗</span></div></a>
-      <a class="model-card mask" href="/rentals.html"><video class="still-video" data-time="29" muted loop playsinline preload="auto"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/4d34805d-8ff3-4634-9148-e2607a487a87.mp4" type="video/mp4"></video><div class="model-shade"></div><div class="model-label"><strong>Ace Store</strong><span>↗</span></div></a>
+      <a class="model-card mask" href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20I%20want%20to%20book%20PC%20gaming." target="_blank" rel="noopener"><img class="still-image" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/cb757994-dc15-4008-867f-6ed5c69f62b5.jpg" alt="" loading="lazy"><div class="model-shade"></div><div class="model-label"><strong>PC Gaming</strong><span>↗</span></div></a>
+      <a class="model-card mask" href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20I%20want%20to%20book%20PS5." target="_blank" rel="noopener"><img class="still-image" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/dc7f61b5-0025-4028-b1b5-6face5d99fc6.jpg" alt="" loading="lazy"><div class="model-shade"></div><div class="model-label"><strong>PlayStation 5</strong><span>↗</span></div></a>
+      <a class="model-card mask" href="https://wa.me/919076060603?text=Hello%20Ace%20Gaming%2C%20I%20want%20to%20book%20sim%20racing." target="_blank" rel="noopener"><img class="still-image" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/36b0eb50-caf4-4879-bd41-9b94dd280032.jpg" alt="" loading="lazy"><div class="model-shade"></div><div class="model-label"><strong>Sim Racing</strong><span>↗</span></div></a>
+      <a class="model-card mask" href="/rentals.html"><img class="still-image" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/ef21c282-c36d-4e28-98ef-cab19016e541.jpg" alt="" loading="lazy"><div class="model-shade"></div><div class="model-label"><strong>Ace Store</strong><span>↗</span></div></a>
     </div>
   </section>
 
@@ -155,10 +155,10 @@ footer{position:relative;overflow:hidden;padding:58px 4vw 0;background:#101010}
       <div class="life-controls reveal"><button id="lifePrev" aria-label="Previous">←</button><button id="lifeNext" aria-label="Next">→</button></div>
     </div>
     <div class="life-track" id="lifeTrack">
-      <div class="life-item media-card"><div class="media-window mask"><video class="still-video" data-time="5" muted loop playsinline preload="auto"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/4d34805d-8ff3-4634-9148-e2607a487a87.mp4" type="video/mp4"></video></div><div class="media-copy reveal"><strong>Squad Sessions</strong><span>PC Gaming</span></div></div>
-      <div class="life-item media-card"><div class="media-window mask"><video class="still-video" data-time="12" muted loop playsinline preload="auto"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/4d34805d-8ff3-4634-9148-e2607a487a87.mp4" type="video/mp4"></video></div><div class="media-copy reveal"><strong>Inside Ace</strong><span>The space</span></div></div>
-      <div class="life-item media-card"><div class="media-window mask"><video class="still-video" data-time="26" muted loop playsinline preload="auto"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/4d34805d-8ff3-4634-9148-e2607a487a87.mp4" type="video/mp4"></video></div><div class="media-copy reveal"><strong>Performance Builds</strong><span>RGB + power</span></div></div>
-      <div class="life-item media-card"><div class="media-window mask"><video class="still-video" data-time="34" muted loop playsinline preload="auto"><source src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/4d34805d-8ff3-4634-9148-e2607a487a87.mp4" type="video/mp4"></video></div><div class="media-copy reveal"><strong>Racing</strong><span>Push the lap</span></div></div>
+      <div class="life-item media-card"><div class="media-window mask"><img class="still-image" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/cb757994-dc15-4008-867f-6ed5c69f62b5.jpg" alt="" loading="lazy"></div><div class="media-copy reveal"><strong>Squad Sessions</strong><span>PC Gaming</span></div></div>
+      <div class="life-item media-card"><div class="media-window mask"><img class="still-image" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/d22495ea-a7b4-4877-a6d9-603303eb7148.jpg" alt="" loading="lazy"></div><div class="media-copy reveal"><strong>Inside Ace</strong><span>The space</span></div></div>
+      <div class="life-item media-card"><div class="media-window mask"><img class="still-image" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/ef21c282-c36d-4e28-98ef-cab19016e541.jpg" alt="" loading="lazy"></div><div class="media-copy reveal"><strong>Performance Builds</strong><span>RGB + power</span></div></div>
+      <div class="life-item media-card"><div class="media-window mask"><img class="still-image" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/7c9308b2-6122-402d-a2a3-858856a3a462.jpg" alt="" loading="lazy"></div><div class="media-copy reveal"><strong>Racing</strong><span>Push the lap</span></div></div>
     </div>
   </section>
 
@@ -189,29 +189,6 @@ const head=document.getElementById('siteHead');
 const reveals=[...document.querySelectorAll('.reveal,.mask')];
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -5% 0px'});
 reveals.forEach(el=>io.observe(el));
-const tileVideos=[...document.querySelectorAll('.still-video')];
-tileVideos.forEach(v=>{
-  const setStart=()=>{
-    try{
-      const start=Number(v.dataset.time||0);
-      if(Number.isFinite(v.duration)&&v.duration>0) v.currentTime=Math.min(start,Math.max(0,v.duration-.35));
-    }catch(e){}
-  };
-  if(v.readyState>=1) setStart(); else v.addEventListener('loadedmetadata',setStart,{once:true});
-});
-const videoObserver=new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    const v=entry.target;
-    if(entry.isIntersecting){
-      v.play().catch(()=>{});
-    }else{
-      v.pause();
-    }
-  });
-},{threshold:.08,rootMargin:'160px 0px 160px 0px'});
-tileVideos.forEach(v=>videoObserver.observe(v));
-const cinema=document.getElementById('cinemaVideo');
-cinema.addEventListener('loadedmetadata',()=>{cinema.currentTime=24;cinema.play().catch(()=>{})},{once:true});
 let ticking=false;
 function scrollFX(){
  if(ticking)return;ticking=true;
@@ -223,7 +200,7 @@ function scrollFX(){
    document.documentElement.style.setProperty('--logo-y',(y*.13)+'px');
    document.documentElement.style.setProperty('--logo-scale',(1-p*.12).toFixed(3));
    document.documentElement.style.setProperty('--logo-opacity',Math.max(0,1-p*1.3).toFixed(3));
-   const c=document.querySelector('.cinema');if(c){const r=c.getBoundingClientRect(),q=Math.max(-1,Math.min(1,(r.top+r.height/2-vh/2)/vh));document.documentElement.style.setProperty('--cinema-y',(q*-20)+'px');document.documentElement.style.setProperty('--cinema-scale',(1.02+Math.abs(q)*.025).toFixed(3))}
+   const c=document.querySelector('.cinema');if(c){const r=c.getBoundingClientRect(),q=Math.max(-1,Math.min(1,(r.top+r.height/2-vh/2)/vh));document.documentElement.style.setProperty('--cinema-y',(q*-16)+'px');document.documentElement.style.setProperty('--cinema-scale',(1.02+Math.abs(q)*.02).toFixed(3))}
    ticking=false;
  });
 }
