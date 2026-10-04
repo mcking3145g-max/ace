@@ -63,14 +63,6 @@ img,video{display:block}
 .model-label{position:absolute;z-index:2;left:24px;right:24px;bottom:22px;display:flex;align-items:end;justify-content:space-between;gap:18px}
 .model-label strong{font-size:clamp(25px,3vw,45px);line-height:.92;letter-spacing:-.045em;text-transform:uppercase}
 .model-label span{font-size:22px}
-.life{padding:86px 0;background:#050505}
-.life-head{padding:0 4vw;display:flex;justify-content:space-between;align-items:end;gap:30px}
-.life-controls{display:flex;gap:8px}
-.life-controls button{width:38px;height:38px;border:1px solid rgba(255,255,255,.2);background:transparent;cursor:pointer}
-.life-controls button:hover{background:#fff;color:#000}
-.life-track{display:flex;gap:12px;overflow-x:auto;scrollbar-width:none;padding:0 4vw 18px;scroll-snap-type:x mandatory}
-.life-track::-webkit-scrollbar{display:none}
-.life-item{flex:0 0 min(42vw,570px);scroll-snap-align:start}
 .life-item .media-window{aspect-ratio:1.45/1}
 .booking{padding:90px 4vw;background:#0a0a0a;border-top:1px solid rgba(255,255,255,.12)}
 .booking-head{display:grid;grid-template-columns:1fr 1fr;gap:7vw;align-items:end;margin-bottom:46px}
@@ -119,7 +111,7 @@ img,video{display:block}
 .mask{clip-path:none;opacity:1;transform:none}
 .mask.in{clip-path:none;opacity:1;transform:none}
 @media(max-width:900px){
- .section{padding:70px 18px}.world-grid{grid-template-columns:1fr;gap:34px}.duo{padding:10px 18px 70px;grid-template-columns:1fr;gap:34px}.models{padding:0 18px 70px}.models-grid{grid-template-columns:1fr}.model-card{min-height:118vw}.life-head{padding:0 18px}.life-track{padding-left:18px;padding-right:18px}.life-item{flex-basis:78vw}.booking{padding:74px 18px}.booking-head{grid-template-columns:1fr}.ace-footer-links{grid-template-columns:1fr 1fr}.ace-footer-cta{grid-template-columns:1fr}.footer-main-link{min-width:0;max-width:420px}.site-head{padding:0 18px}
+ .section{padding:70px 18px}.world-grid{grid-template-columns:1fr;gap:34px}.duo{padding:10px 18px 70px;grid-template-columns:1fr;gap:34px}.models{padding:0 18px 70px}.models-grid{grid-template-columns:1fr}.model-card{min-height:118vw}.booking{padding:74px 18px}.booking-head{grid-template-columns:1fr}.ace-footer-links{grid-template-columns:1fr 1fr}.ace-footer-cta{grid-template-columns:1fr}.footer-main-link{min-width:0;max-width:420px}.site-head{padding:0 18px}
 }
 @media(max-width:560px){
  .site-head{height:62px}.head-brand{font-size:8px;padding:0 12px}.head-brand img{width:19px;height:19px}.head-left,.head-right{gap:8px}.head-left::before,.head-right::after{width:12px}.hero{min-height:620px}.hero-logo{width:72vw}
@@ -176,18 +168,7 @@ img,video{display:block}
     </div>
   </section>
 
-  <section class="life">
-    <div class="life-head">
-      <div><span class="section-kicker reveal">ACE LIFE</span><h2 class="section-title reveal">More than one game</h2></div>
-      <div class="life-controls reveal"><button id="lifePrev" aria-label="Previous">←</button><button id="lifeNext" aria-label="Next">→</button></div>
-    </div>
-    <div class="life-track" id="lifeTrack">
-      <div class="life-item media-card"><div class="media-window mask"><img class="still-image" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/cb757994-dc15-4008-867f-6ed5c69f62b5.jpg" alt="" loading="lazy"></div><div class="media-copy reveal"><strong>Squad Sessions</strong><span>PC Gaming</span></div></div>
-      <div class="life-item media-card"><div class="media-window mask"><img class="still-image" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/d22495ea-a7b4-4877-a6d9-603303eb7148.jpg" alt="" loading="lazy"></div><div class="media-copy reveal"><strong>Inside Ace</strong><span>The space</span></div></div>
-      <div class="life-item media-card"><div class="media-window mask"><img class="still-image" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/ef21c282-c36d-4e28-98ef-cab19016e541.jpg" alt="" loading="lazy"></div><div class="media-copy reveal"><strong>Performance Builds</strong><span>RGB + power</span></div></div>
-      <div class="life-item media-card"><div class="media-window mask"><img class="still-image" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/7c9308b2-6122-402d-a2a3-858856a3a462.jpg" alt="" loading="lazy"></div><div class="media-copy reveal"><strong>Racing</strong><span>Push the lap</span></div></div>
-    </div>
-  </section>
+  
 
   <section class="booking" id="booking">
     <div class="booking-head reveal">
@@ -325,9 +306,6 @@ function scrollFX(){
  });
 }
 addEventListener('scroll',scrollFX,{passive:true});scrollFX();
-const track=document.getElementById('lifeTrack');
-document.getElementById('lifeNext').onclick=()=>track.scrollBy({left:track.clientWidth*.7,behavior:'smooth'});
-document.getElementById('lifePrev').onclick=()=>track.scrollBy({left:-track.clientWidth*.7,behavior:'smooth'});
 </script>
 </body>
 </html>
