@@ -1832,132 +1832,13 @@ body.store-menu-open{overflow:auto!important}
   .cart-footer{padding:18px 14px!important}
 }
 </style>
-<style id="ace-store-nav-premium-v5">
-.ace-store-nav-v3{
-  position:fixed!important;
-  top:14px!important;
-  left:50%!important;
-  right:auto!important;
-  width:min(1280px,calc(100% - 36px))!important;
-  min-height:62px!important;
-  padding:0 18px!important;
-  transform:translateX(-50%)!important;
-  grid-template-columns:1fr auto 1fr!important;
-  background:rgba(8,8,8,.72)!important;
-  border:1px solid rgba(255,255,255,.11)!important;
-  border-radius:12px!important;
-  box-shadow:0 14px 40px rgba(0,0,0,.2)!important;
-  backdrop-filter:blur(22px) saturate(135%)!important;
-  -webkit-backdrop-filter:blur(22px) saturate(135%)!important;
-}
-.store-menu-trigger{
-  justify-self:start!important;
-  display:flex!important;
-  align-items:center!important;
-  gap:11px!important;
-  width:auto!important;
-  height:40px!important;
-  padding:0!important;
-}
-.store-menu-icon{
-  display:flex!important;
-  flex-direction:column!important;
-  justify-content:center!important;
-  gap:4px!important;
-  width:20px!important;
-  height:20px!important;
-}
-.store-menu-icon i{
-  display:block!important;
-  width:18px!important;
-  height:1px!important;
-  background:rgba(255,255,255,.88)!important;
-  transition:width .25s ease!important;
-}
-.store-menu-icon i:nth-child(2){width:12px!important}
-.store-menu-trigger:hover .store-menu-icon i:nth-child(2){width:18px!important}
-.store-menu-trigger em{
-  font-style:normal!important;
-  color:rgba(255,255,255,.58)!important;
-  font-size:8px!important;
-  font-weight:800!important;
-  letter-spacing:.16em!important;
-}
-.store-nav-brand .brand-logo{
-  width:94px!important;
-  height:34px!important;
-  max-height:none!important;
-  object-fit:contain!important;
-}
-.store-nav-actions{gap:15px!important}
-.store-main-site-link{
-  display:flex!important;
-  gap:5px!important;
-  font-size:9px!important;
-  font-weight:800!important;
-  letter-spacing:.13em!important;
-  color:rgba(255,255,255,.9)!important;
-}
-.store-main-site-link span{color:rgba(255,255,255,.38)!important}
-.store-nav-divider{
-  width:1px!important;
-  height:18px!important;
-  background:rgba(255,255,255,.14)!important;
-}
-.store-cart-button{
-  width:34px!important;
-  height:38px!important;
-}
-.store-cart-button svg{width:19px!important;height:19px!important;stroke-width:1.45!important}
-.store-cart-button .cart-count{
-  right:-2px!important;
-  top:2px!important;
-  min-width:15px!important;
-  height:15px!important;
-  padding:0 3px!important;
-  border:2px solid #090909!important;
-}
-.store-menu-panel{
-  top:86px!important;
-  left:max(18px,calc((100vw - min(1280px,calc(100vw - 36px)))/2))!important;
-  width:min(350px,calc(100vw - 36px))!important;
-  padding:15px 16px!important;
-  border-radius:10px!important;
-  background:rgba(8,8,8,.97)!important;
-  border:1px solid rgba(255,255,255,.11)!important;
-}
-.store-menu-links a{font-size:18px!important;padding:9px 0!important;font-weight:620!important}
-
-@media(max-width:700px){
-  .ace-store-nav-v3{
-    top:8px!important;
-    width:calc(100% - 16px)!important;
-    min-height:56px!important;
-    padding:0 12px!important;
-    border-radius:10px!important;
-  }
-  .store-menu-trigger em{display:none!important}
-  .store-nav-brand .brand-logo{width:76px!important;height:30px!important}
-  .store-main-site-link span{display:none!important}
-  .store-main-site-link{font-size:8px!important}
-  .store-nav-actions{gap:10px!important}
-  .store-nav-divider{height:16px!important}
-  .store-menu-panel{
-    top:72px!important;
-    left:8px!important;
-    width:calc(100vw - 16px)!important;
-    padding:15px!important;
-  }
-}
-</style>
 </head>
 <body>
   <div class="noise"></div>
 
   <header class="site-header ace-store-nav-v3">
     <button class="store-menu-trigger" id="storeMenuTrigger" type="button" aria-label="Open store menu" aria-expanded="false">
-      <span class="store-menu-icon" aria-hidden="true"><i></i><i></i><i></i></span>
-      <em>MENU</em>
+      <span></span><span></span><span></span>
     </button>
 
     <a class="brand store-nav-brand" href="#store" aria-label="Ace Gaming store home">
@@ -1965,8 +1846,7 @@ body.store-menu-open{overflow:auto!important}
     </a>
 
     <div class="store-nav-actions">
-      <a class="store-main-site-link" href="./index.html"><span>ACE</span> GAMING</a>
-      <span class="store-nav-divider" aria-hidden="true"></span>
+      <a class="store-main-site-link" href="./index.html">MAIN SITE</a>
       <button class="store-cart-button" id="cartButton" type="button" aria-label="Open rental cart">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.1 10.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L21 8H6.1"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
         <span class="cart-count" id="cartCount">0</span>
