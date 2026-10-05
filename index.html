@@ -1312,6 +1312,251 @@ body.ace-menu-open{overflow:auto!important}
   }
 }
 </style>
+<style id="ace-session-premium-v3">
+/* Premium curved session builder — shared by every pack */
+.session-page{
+  background:
+    radial-gradient(circle at 12% 8%,rgba(0,210,255,.035),transparent 24%),
+    radial-gradient(circle at 88% 22%,rgba(255,47,143,.035),transparent 22%),
+    #070707!important;
+}
+.session-page-head{
+  position:relative!important;
+  border-top:0!important;
+  border-bottom:0!important;
+  padding:30px 32px 32px!important;
+  border-radius:18px!important;
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.035),rgba(255,255,255,.012))!important;
+  border:1px solid rgba(255,255,255,.09)!important;
+  overflow:hidden!important;
+}
+.session-page-head::before{
+  content:""!important;
+  position:absolute!important;
+  inset:0 auto 0 0!important;
+  width:3px!important;
+  background:linear-gradient(180deg,var(--cyan),var(--pink))!important;
+}
+.session-page-head::after{
+  content:""!important;
+  position:absolute!important;
+  top:-70px!important;
+  right:-40px!important;
+  width:220px!important;
+  height:220px!important;
+  border-radius:50%!important;
+  background:radial-gradient(circle,rgba(0,217,255,.08),transparent 68%)!important;
+  pointer-events:none!important;
+}
+.session-page-head .session-kicker{
+  color:rgba(255,255,255,.44)!important;
+}
+.session-page-head h1{
+  color:#f7f7f4!important;
+}
+.session-page-head p{
+  color:rgba(255,255,255,.56)!important;
+}
+
+.session-step{
+  position:relative!important;
+  margin-bottom:18px!important;
+  padding:30px!important;
+  border:1px solid rgba(255,255,255,.085)!important;
+  border-radius:18px!important;
+  background:linear-gradient(180deg,#0b0b0b 0%,#090909 100%)!important;
+  overflow:visible!important;
+}
+.session-builder-main{
+  border-top:0!important;
+}
+.session-step-head{
+  margin-bottom:24px!important;
+}
+.session-step-head>span{
+  width:30px!important;
+  height:30px!important;
+  display:grid!important;
+  place-items:center!important;
+  border-radius:50%!important;
+  border:1px solid rgba(255,255,255,.13)!important;
+  color:rgba(255,255,255,.54)!important;
+  background:#0e0e0e!important;
+}
+.session-step-head small{
+  color:rgba(255,255,255,.38)!important;
+}
+.session-step-head h2{
+  color:#f4f4f1!important;
+}
+
+.duration-options,.setup-options{
+  gap:12px!important;
+}
+.duration-option,.setup-option{
+  min-height:96px!important;
+  padding:20px!important;
+  border-radius:14px!important;
+  border:1px solid rgba(255,255,255,.09)!important;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.018),rgba(255,255,255,.006)),
+    #0d0d0d!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.02)!important;
+  transition:transform .22s ease,border-color .22s ease,background .22s ease,box-shadow .22s ease!important;
+}
+.duration-option:hover,.setup-option:hover{
+  transform:translateY(-2px)!important;
+  border-color:rgba(0,217,255,.28)!important;
+  background:#101010!important;
+}
+.duration-option.active,.setup-option.active{
+  border-color:rgba(255,255,255,.24)!important;
+  background:
+    linear-gradient(135deg,rgba(0,217,255,.09),rgba(255,47,143,.07)),
+    #101010!important;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.025)!important;
+}
+.duration-option.active::after,.setup-option.active::after{
+  left:16px!important;
+  right:16px!important;
+  bottom:0!important;
+  height:2px!important;
+  border-radius:99px!important;
+  background:linear-gradient(90deg,var(--cyan),var(--pink))!important;
+}
+.duration-option strong,.setup-option strong{
+  font-size:13px!important;
+  letter-spacing:-.015em!important;
+}
+.setup-option small{
+  color:rgba(255,255,255,.42)!important;
+}
+
+.session-summary{
+  top:92px!important;
+  padding:28px!important;
+  border-radius:18px!important;
+  border:1px solid rgba(255,255,255,.10)!important;
+  background:
+    linear-gradient(145deg,rgba(0,217,255,.035),rgba(255,47,143,.025) 58%,rgba(255,255,255,.015)),
+    #0b0b0b!important;
+  box-shadow:0 18px 50px rgba(0,0,0,.22)!important;
+  overflow:hidden!important;
+}
+.session-summary::before{
+  content:""!important;
+  position:absolute!important;
+  inset:0 0 auto 0!important;
+  height:2px!important;
+  background:linear-gradient(90deg,var(--cyan),var(--pink))!important;
+  opacity:.72!important;
+}
+.session-summary .session-kicker{
+  color:rgba(255,255,255,.48)!important;
+}
+.session-summary-line{
+  padding:17px 0!important;
+  border-bottom:1px solid rgba(255,255,255,.085)!important;
+}
+.session-summary-line:first-of-type{
+  border-top:1px solid rgba(255,255,255,.085)!important;
+}
+.session-summary-line small{
+  color:rgba(255,255,255,.34)!important;
+}
+.session-summary-line strong{
+  color:#f4f4f1!important;
+}
+.session-summary-line:nth-of-type(2) strong{
+  color:#7cecff!important;
+}
+.session-price-note{
+  color:rgba(255,255,255,.42)!important;
+}
+.session-confirm{
+  min-height:50px!important;
+  padding:0 16px!important;
+  border:1px solid rgba(255,255,255,.14)!important;
+  border-radius:12px!important;
+  background:linear-gradient(90deg,rgba(0,217,255,.08),rgba(255,47,143,.07))!important;
+  transition:background .22s ease,border-color .22s ease,transform .22s ease!important;
+}
+.session-confirm:hover{
+  transform:translateY(-1px)!important;
+  border-color:rgba(255,255,255,.26)!important;
+  background:linear-gradient(90deg,rgba(0,217,255,.13),rgba(255,47,143,.11))!important;
+}
+
+/* Date/time controls inherit the same curves */
+.ace-picker-trigger{
+  height:58px!important;
+  border-radius:12px!important;
+  border-color:rgba(255,255,255,.10)!important;
+  background:#0e0e0e!important;
+}
+.ace-picker-trigger:hover,
+.ace-picker-trigger[aria-expanded="true"]{
+  border-color:rgba(0,217,255,.28)!important;
+  background:#111!important;
+}
+.ace-picker-popover{
+  border-radius:16px!important;
+  border-color:rgba(255,255,255,.10)!important;
+  background:
+    linear-gradient(145deg,rgba(0,217,255,.028),rgba(255,47,143,.022)),
+    rgba(10,10,10,.985)!important;
+}
+.ace-calendar-day,
+.ace-time-grid button,
+.ace-period-grid button{
+  border-radius:9px!important;
+}
+.ace-calendar-day.selected,
+.ace-time-grid button.active,
+.ace-period-grid button.active{
+  border-color:transparent!important;
+  background:linear-gradient(135deg,#f3f4f2,#dfeef0)!important;
+  color:#050505!important;
+}
+.ace-time-apply{
+  min-height:44px!important;
+  padding:0 12px!important;
+  border:1px solid rgba(255,255,255,.10)!important;
+  border-radius:10px!important;
+  background:linear-gradient(90deg,rgba(0,217,255,.08),rgba(255,47,143,.06))!important;
+}
+
+/* Back button becomes a cleaner rounded control */
+.session-back{
+  display:inline-flex!important;
+  align-items:center!important;
+  gap:8px!important;
+  padding:9px 12px!important;
+  border:1px solid rgba(255,255,255,.10)!important;
+  border-radius:999px!important;
+  background:#0d0d0d!important;
+  color:rgba(255,255,255,.62)!important;
+}
+.session-back:hover{
+  color:#fff!important;
+  border-color:rgba(255,255,255,.22)!important;
+  background:#111!important;
+}
+
+@media(max-width:900px){
+  .session-page-head{padding:26px!important;border-radius:16px!important}
+  .session-step{padding:24px!important;border-radius:16px!important}
+  .session-summary{border-radius:16px!important}
+}
+@media(max-width:560px){
+  .session-page-head{padding:20px!important;border-radius:14px!important}
+  .session-step{padding:20px!important;border-radius:14px!important}
+  .duration-option,.setup-option{border-radius:12px!important;min-height:82px!important}
+  .session-summary{padding:22px!important;border-radius:14px!important}
+  .ace-picker-trigger{border-radius:11px!important}
+}
+</style>
 </head>
 <body>
 <header class="site-head ace-nav-v3" id="siteHead">
