@@ -2263,6 +2263,88 @@ select:focus{
   }
 }
 </style>
+<style id="ace-product-curves-v1">
+/* Softer premium product cards */
+.product-card{
+  border-radius:18px!important;
+  overflow:hidden!important;
+  border:1px solid rgba(255,255,255,.08)!important;
+  background:#ecece9!important;
+  box-shadow:0 12px 34px rgba(0,0,0,.08)!important;
+  transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease!important;
+}
+.product-card:hover{
+  transform:translateY(-4px)!important;
+  border-color:rgba(98,217,234,.18)!important;
+  box-shadow:0 20px 46px rgba(0,0,0,.14)!important;
+}
+.product-image{
+  margin:10px 10px 0!important;
+  border-radius:14px!important;
+  overflow:hidden!important;
+  background:#f2f2ef!important;
+}
+.product-image img{
+  border-radius:12px!important;
+}
+.product-info{
+  padding:14px 16px 16px!important;
+}
+.price-line{
+  margin-top:6px!important;
+  padding-top:12px!important;
+  border-top:1px solid rgba(0,0,0,.10)!important;
+}
+.product-card .card-actions{
+  gap:8px!important;
+  margin-top:14px!important;
+}
+.product-card .card-actions .card-rental-cta{
+  min-height:56px!important;
+  border-radius:14px!important;
+  padding:0 13px 0 15px!important;
+  background:
+    linear-gradient(135deg,rgba(98,217,234,.08),rgba(217,90,152,.06)),
+    #0b0c0d!important;
+  border:1px solid rgba(0,0,0,.06)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05)!important;
+}
+.product-card .card-actions .card-rental-cta::after{
+  display:none!important;
+}
+.product-card .card-actions .card-rental-cta:hover{
+  transform:translateY(-2px)!important;
+  background:
+    linear-gradient(135deg,rgba(98,217,234,.12),rgba(217,90,152,.09)),
+    #101214!important;
+}
+.card-rental-icon{
+  border-radius:10px!important;
+  background:rgba(255,255,255,.09)!important;
+}
+.product-card .card-actions .card-details-link{
+  min-height:34px!important;
+  padding:7px 10px!important;
+  border-radius:10px!important;
+  background:rgba(0,0,0,.035)!important;
+  color:#484846!important;
+}
+.product-card .card-actions .card-details-link:hover{
+  background:rgba(0,0,0,.065)!important;
+  color:#0a0a0a!important;
+}
+.product-card .eye-button,
+.product-card [data-view-product].product-eye{
+  border-radius:12px!important;
+}
+@media(max-width:768px){
+  .product-card{border-radius:15px!important}
+  .product-image{margin:8px 8px 0!important;border-radius:12px!important}
+  .product-info{padding:12px 13px 14px!important}
+  .product-card .card-actions .card-rental-cta{border-radius:12px!important}
+  .product-card .card-actions .card-details-link{border-radius:9px!important}
+}
+</style>
 </head>
 <body>
   <div class="noise"></div>
