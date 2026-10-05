@@ -1762,6 +1762,189 @@ body.ace-menu-open{overflow:auto!important}
   }
 }
 </style>
+<style id="ace-premium-color-v1">
+/* Premium Ace color system — restrained cyan + magenta, never neon-heavy */
+:root{
+  --ace-cyan:#62d9ea;
+  --ace-cyan-soft:#9de8f1;
+  --ace-pink:#d95a98;
+  --ace-pink-soft:#efa5c6;
+  --ace-ink:#070809;
+  --ace-surface:#0b0d0f;
+  --ace-surface-2:#101316;
+  --ace-line:rgba(255,255,255,.10);
+  --ace-muted:rgba(255,255,255,.48);
+}
+
+/* Global atmosphere */
+body{
+  background:
+    radial-gradient(circle at 12% 6%,rgba(98,217,234,.045),transparent 24%),
+    radial-gradient(circle at 92% 16%,rgba(217,90,152,.04),transparent 22%),
+    var(--ace-ink)!important;
+}
+::selection{background:rgba(98,217,234,.28);color:#fff}
+
+/* Section labels and quiet brand accents */
+.section-kicker,
+.session-kicker,
+.pack-front small,
+.pack-index,
+.footer-kicker{
+  color:var(--ace-cyan-soft)!important;
+}
+.section-kicker::before{
+  background:linear-gradient(90deg,var(--ace-cyan),var(--ace-pink))!important;
+}
+
+/* Media sections: subtle color framing instead of extra cards */
+.world,
+.duo,
+.booking{
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.008),transparent 18%),
+    transparent!important;
+}
+.media-card,
+.duo-card{
+  border-color:rgba(255,255,255,.08)!important;
+}
+.media-card:hover,
+.duo-card:hover{
+  border-color:rgba(98,217,234,.20)!important;
+}
+.media-meta b,
+.duo-meta b{
+  color:#f6f6f3!important;
+}
+.media-meta span,
+.duo-meta span{
+  color:rgba(255,255,255,.42)!important;
+}
+
+/* Cinematic strip */
+.cinema::after{
+  content:""!important;
+  position:absolute!important;
+  left:0!important;
+  right:0!important;
+  bottom:0!important;
+  height:1px!important;
+  background:linear-gradient(90deg,transparent,rgba(98,217,234,.35),rgba(217,90,152,.28),transparent)!important;
+  opacity:.7!important;
+}
+
+/* Booking pack cards */
+.pack-face{
+  background:
+    linear-gradient(145deg,rgba(98,217,234,.025),rgba(217,90,152,.018) 58%,transparent),
+    #0b0c0e!important;
+}
+.pack-front{
+  background:
+    radial-gradient(circle at 92% 12%,rgba(98,217,234,.045),transparent 30%),
+    #0b0c0e!important;
+}
+.pack-back{
+  background:
+    radial-gradient(circle at 88% 14%,rgba(98,217,234,.075),transparent 34%),
+    radial-gradient(circle at 10% 92%,rgba(217,90,152,.065),transparent 34%),
+    #0b0c0e!important;
+}
+.pack-portal:hover .pack-face{
+  border-color:rgba(98,217,234,.20)!important;
+}
+.pack-back-action{
+  color:var(--ace-cyan-soft)!important;
+}
+
+/* Session builder */
+.session-page{
+  background:
+    radial-gradient(circle at 10% 8%,rgba(98,217,234,.05),transparent 24%),
+    radial-gradient(circle at 92% 20%,rgba(217,90,152,.042),transparent 22%),
+    #070809!important;
+}
+.session-page-head{
+  background:
+    linear-gradient(135deg,rgba(98,217,234,.04),rgba(217,90,152,.025) 60%,rgba(255,255,255,.01)),
+    #0b0d0f!important;
+}
+.session-step{
+  background:
+    linear-gradient(180deg,rgba(98,217,234,.015),rgba(217,90,152,.01)),
+    #0b0d0f!important;
+}
+.duration-option.active,
+.setup-option.active{
+  background:
+    linear-gradient(135deg,rgba(98,217,234,.11),rgba(217,90,152,.075)),
+    #111315!important;
+  border-color:rgba(98,217,234,.22)!important;
+}
+.session-summary{
+  background:
+    linear-gradient(145deg,rgba(98,217,234,.055),rgba(217,90,152,.035) 64%,rgba(255,255,255,.012)),
+    #0b0d0f!important;
+}
+.session-summary-line:nth-of-type(2) strong{
+  color:var(--ace-cyan-soft)!important;
+}
+.session-confirm,
+.ace-time-apply{
+  background:
+    linear-gradient(90deg,rgba(98,217,234,.11),rgba(217,90,152,.075))!important;
+}
+.session-confirm:hover,
+.ace-time-apply:hover{
+  background:
+    linear-gradient(90deg,rgba(98,217,234,.16),rgba(217,90,152,.11))!important;
+  border-color:rgba(98,217,234,.28)!important;
+}
+
+/* Custom pickers */
+.ace-picker-trigger[aria-expanded="true"],
+.ace-picker-trigger:hover{
+  border-color:rgba(98,217,234,.24)!important;
+}
+.ace-calendar-day.selected,
+.ace-time-grid button.active,
+.ace-period-grid button.active{
+  background:linear-gradient(135deg,#dff7fa,#f3dbe7)!important;
+  color:#070809!important;
+}
+
+/* Navbar + footer: subtle brand tint */
+.ace-nav-v3{
+  background:
+    linear-gradient(180deg,rgba(5,7,8,.82),rgba(5,7,8,.30) 72%,transparent)!important;
+}
+.ace-store-link:hover,
+.compact-footer-links a:hover,
+.compact-footer-cta:hover{
+  color:var(--ace-cyan-soft)!important;
+}
+.compact-footer{
+  background:
+    radial-gradient(circle at 7% 12%,rgba(98,217,234,.035),transparent 24%),
+    radial-gradient(circle at 92% 20%,rgba(217,90,152,.03),transparent 22%),
+    #08090a!important;
+}
+.compact-footer-cta{
+  border-color:rgba(98,217,234,.22)!important;
+}
+.compact-footer-cta:hover{
+  border-color:rgba(217,90,152,.34)!important;
+}
+
+@media(max-width:700px){
+  body{
+    background:
+      radial-gradient(circle at 20% 3%,rgba(98,217,234,.035),transparent 20%),
+      #070809!important;
+  }
+}
+</style>
 </head>
 <body>
 <header class="site-head ace-nav-v3" id="siteHead">
