@@ -67,16 +67,24 @@
   ],
   "rewrites": [
     {
-      "source": "/",
-      "destination": "/rentals.html"
-    },
-    {
       "source": "/bookings",
-      "destination": "/index.html"
+      "destination": "/bookings.html"
     },
     {
       "source": "/bookings/",
-      "destination": "/index.html"
+      "destination": "/bookings.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/rentals.html",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": false
     }
   ]
 }
