@@ -2345,6 +2345,148 @@ select:focus{
   .product-card .card-actions .card-details-link{border-radius:9px!important}
 }
 </style>
+<style id="ace-store-global-curves-v1">
+/* Consistent premium radius system across Ace Store */
+:root{
+  --ace-r-sm:10px;
+  --ace-r-md:14px;
+  --ace-r-lg:18px;
+  --ace-r-xl:24px;
+}
+
+/* Store navigation + menu */
+.store-menu-panel{
+  border-radius:var(--ace-r-lg)!important;
+  overflow:hidden!important;
+}
+.store-menu-links a{border-radius:var(--ace-r-sm)!important}
+
+/* Hero / campaign */
+.store-hero-v2{
+  border-radius:0 0 var(--ace-r-xl) var(--ace-r-xl)!important;
+  overflow:hidden!important;
+}
+.ace-campaign-v2{
+  border-radius:var(--ace-r-xl)!important;
+  overflow:hidden!important;
+  margin-left:clamp(12px,2.5vw,34px)!important;
+  margin-right:clamp(12px,2.5vw,34px)!important;
+}
+
+/* Catalogue */
+.product-card{
+  border-radius:var(--ace-r-lg)!important;
+}
+.product-image{
+  border-radius:var(--ace-r-md)!important;
+  overflow:hidden!important;
+}
+.product-image img{
+  border-radius:12px!important;
+}
+.card-rental-cta{
+  border-radius:var(--ace-r-md)!important;
+}
+.card-details-link{
+  border-radius:var(--ace-r-sm)!important;
+}
+
+/* Filters/search — curved, but not pill-heavy */
+.store-tools{
+  border-radius:var(--ace-r-md)!important;
+  padding-left:12px!important;
+  padding-right:12px!important;
+  background:rgba(255,255,255,.018)!important;
+}
+.filter{
+  border-radius:9px!important;
+  padding:8px 10px!important;
+}
+.search-box,
+.search-box input{
+  border-radius:10px!important;
+}
+
+/* Product detail / cart / checkout */
+.detail-main-image,
+.detail-copy,
+.modal-panel,
+.product-modal,
+.checkout-panel,
+.checkout-modal,
+.cart-drawer{
+  border-radius:var(--ace-r-lg)!important;
+}
+.detail-main-image{overflow:hidden!important}
+
+.button,
+.add-to-cart,
+.checkout-button,
+.cart-footer .button,
+.full-cart-browse{
+  border-radius:var(--ace-r-md)!important;
+}
+.cart-item{
+  border-radius:var(--ace-r-md)!important;
+  padding-left:12px!important;
+  padding-right:12px!important;
+  background:rgba(255,255,255,.018)!important;
+}
+.cart-item img,
+.cart-item-visual{
+  border-radius:12px!important;
+}
+.full-cart-empty-inner{
+  border-radius:var(--ace-r-xl)!important;
+}
+.toast{
+  border-radius:var(--ace-r-md)!important;
+}
+
+/* Builder / forms */
+.builder-group,
+.builder-choice,
+.builder-options,
+.builder-option,
+.checkout-field input,
+.checkout-field textarea,
+.checkout-field select,
+select,
+input,
+textarea{
+  border-radius:var(--ace-r-sm)!important;
+}
+
+/* Footer */
+.ace-store-footer{
+  border-radius:var(--ace-r-xl) var(--ace-r-xl) 0 0!important;
+  overflow:hidden!important;
+}
+
+@media(max-width:768px){
+  .store-hero-v2{
+    border-radius:0 0 18px 18px!important;
+  }
+  .ace-campaign-v2{
+    margin-left:10px!important;
+    margin-right:10px!important;
+    border-radius:18px!important;
+  }
+  .product-card,
+  .modal-panel,
+  .product-modal,
+  .checkout-panel,
+  .checkout-modal{
+    border-radius:15px!important;
+  }
+  .store-tools{
+    border-radius:12px!important;
+  }
+  .ace-store-footer{
+    border-radius:18px 18px 0 0!important;
+  }
+}
+</style>
 </head>
 <body>
   <div class="noise"></div>
