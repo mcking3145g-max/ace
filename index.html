@@ -1219,6 +1219,99 @@ body.ace-menu-open{overflow:auto!important}
   .ace-time-columns{grid-template-columns:1.4fr .8fr .8fr!important}
 }
 </style>
+<style id="ace-session-header-v2">
+/* Compact session hero used by every pack page */
+.session-page{
+  min-height:100svh!important;
+  padding:88px 4vw 80px!important;
+}
+.session-page-inner{
+  width:min(100%,1500px)!important;
+}
+.session-back{
+  margin-bottom:24px!important;
+}
+.session-page-head{
+  display:grid!important;
+  grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr)!important;
+  gap:clamp(28px,6vw,90px)!important;
+  align-items:end!important;
+  margin:0 0 44px!important;
+  padding:34px 0 38px!important;
+  border-top:1px solid rgba(255,255,255,.10)!important;
+  border-bottom:1px solid rgba(255,255,255,.14)!important;
+}
+.session-page-title{
+  min-width:0!important;
+}
+.session-page-head .session-kicker{
+  margin-bottom:12px!important;
+}
+.session-page-head h1{
+  margin:0!important;
+  max-width:760px!important;
+  font-size:clamp(44px,6vw,86px)!important;
+  line-height:.86!important;
+  letter-spacing:-.058em!important;
+  text-wrap:balance!important;
+}
+.session-page-head p{
+  align-self:end!important;
+  margin:0 0 4px!important;
+  max-width:520px!important;
+  color:#8f8f8b!important;
+  font-size:13px!important;
+  line-height:1.65!important;
+}
+.session-builder{
+  margin-top:0!important;
+}
+.session-builder-main{
+  border-top:1px solid rgba(255,255,255,.12)!important;
+}
+
+@media(max-width:900px){
+  .session-page{padding-top:78px!important}
+  .session-page-head{
+    grid-template-columns:1fr!important;
+    gap:18px!important;
+    padding:28px 0 30px!important;
+    margin-bottom:36px!important;
+  }
+  .session-page-head h1{
+    max-width:none!important;
+    font-size:clamp(42px,10vw,72px)!important;
+  }
+  .session-page-head p{
+    max-width:620px!important;
+    margin:0!important;
+  }
+}
+@media(max-width:560px){
+  .session-page{
+    padding:72px 14px 60px!important;
+  }
+  .session-back{
+    margin-bottom:18px!important;
+  }
+  .session-page-head{
+    padding:22px 0 24px!important;
+    margin-bottom:28px!important;
+    gap:14px!important;
+  }
+  .session-page-head .session-kicker{
+    margin-bottom:9px!important;
+  }
+  .session-page-head h1{
+    font-size:46px!important;
+    line-height:.9!important;
+  }
+  .session-page-head p{
+    font-size:12px!important;
+    line-height:1.55!important;
+  }
+}
+</style>
 </head>
 <body>
 <header class="site-head ace-nav-v3" id="siteHead">
@@ -1440,8 +1533,10 @@ body.ace-menu-open{overflow:auto!important}
     <button class="session-back" type="button" data-session-back>← BACK TO PACKS</button>
 
     <header class="session-page-head">
-      <span class="session-kicker">ACE SESSION BUILDER</span>
-      <h1 id="sessionPageTitle">Hours Pack</h1>
+      <div class="session-page-title">
+        <span class="session-kicker">ACE SESSION BUILDER</span>
+        <h1 id="sessionPageTitle">Hours Pack</h1>
+      </div>
       <p id="sessionPageDescription">Choose your time, setup and preferred booking window.</p>
     </header>
 
