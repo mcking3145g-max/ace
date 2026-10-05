@@ -2093,6 +2093,176 @@ select:focus{
   }
 }
 </style>
+<style id="ace-product-actions-v3">
+/* Product CTAs: make the rental action unmistakable without making cards noisy */
+.product-card .card-actions{
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  gap:8px!important;
+  margin-top:14px!important;
+  padding-top:0!important;
+}
+
+.product-card .card-actions .card-rental-cta{
+  position:relative!important;
+  width:100%!important;
+  min-height:54px!important;
+  padding:0 12px 0 14px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:12px!important;
+  border:1px solid #0a0b0c!important;
+  border-radius:9px!important;
+  background:#0a0b0c!important;
+  color:#fff!important;
+  box-shadow:none!important;
+  text-align:left!important;
+  overflow:hidden!important;
+  transform:none!important;
+  transition:background .22s ease,border-color .22s ease,transform .22s ease!important;
+}
+.product-card .card-actions .card-rental-cta::before{
+  display:none!important;
+}
+.product-card .card-actions .card-rental-cta::after{
+  content:""!important;
+  position:absolute!important;
+  left:0!important;
+  top:0!important;
+  bottom:0!important;
+  width:3px!important;
+  background:linear-gradient(180deg,var(--ace-cyan,#62d9ea),var(--ace-pink,#d95a98))!important;
+}
+.product-card .card-actions .card-rental-cta:hover{
+  transform:translateY(-1px)!important;
+  background:#111315!important;
+  border-color:#111315!important;
+  color:#fff!important;
+}
+.card-rental-copy{
+  display:grid!important;
+  gap:3px!important;
+}
+.card-rental-copy small{
+  color:rgba(255,255,255,.42)!important;
+  font-size:6.5px!important;
+  font-weight:800!important;
+  letter-spacing:.12em!important;
+  line-height:1!important;
+}
+.card-rental-copy strong{
+  color:#fff!important;
+  font-size:9px!important;
+  font-weight:850!important;
+  letter-spacing:.08em!important;
+  line-height:1!important;
+}
+.card-rental-icon{
+  flex:0 0 31px!important;
+  width:31px!important;
+  height:31px!important;
+  display:grid!important;
+  place-items:center!important;
+  border-radius:50%!important;
+  background:rgba(255,255,255,.08)!important;
+  color:var(--ace-cyan-soft,#9de8f1)!important;
+}
+.card-rental-icon svg{
+  width:15px!important;
+  height:15px!important;
+}
+.product-card .card-actions .card-rental-cta.added{
+  background:#10221d!important;
+  border-color:#1d8c64!important;
+  color:#d9fff0!important;
+}
+.card-rental-added{
+  width:100%!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  color:#d9fff0!important;
+  font-size:9px!important;
+  font-weight:850!important;
+  letter-spacing:.08em!important;
+}
+
+.product-card .card-actions .card-details-link{
+  width:100%!important;
+  min-height:30px!important;
+  padding:5px 1px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  border:0!important;
+  border-top:0!important;
+  border-radius:0!important;
+  background:transparent!important;
+  color:#4a4b49!important;
+  box-shadow:none!important;
+  font-size:7.5px!important;
+  font-weight:800!important;
+  letter-spacing:.09em!important;
+  transform:none!important;
+}
+.product-card .card-actions .card-details-link::before{display:none!important}
+.product-card .card-actions .card-details-link i{
+  font-style:normal!important;
+  font-size:13px!important;
+  color:#777875!important;
+  transition:transform .22s ease,color .22s ease!important;
+}
+.product-card .card-actions .card-details-link:hover{
+  color:#0a0b0c!important;
+  background:transparent!important;
+}
+.product-card .card-actions .card-details-link:hover i{
+  transform:translateX(3px)!important;
+  color:#0a0b0c!important;
+}
+
+/* Keep the main rental action obvious on narrower cards and phones. */
+@media(max-width:768px){
+  .product-card .card-actions{
+    margin-top:11px!important;
+    gap:6px!important;
+  }
+  .product-card .card-actions .card-rental-cta{
+    min-height:50px!important;
+    padding:0 10px!important;
+    border-radius:8px!important;
+  }
+  .card-rental-copy small{display:none!important}
+  .card-rental-copy strong{
+    font-size:8px!important;
+    letter-spacing:.06em!important;
+  }
+  .card-rental-icon{
+    flex-basis:28px!important;
+    width:28px!important;
+    height:28px!important;
+  }
+  .product-card .card-actions .card-details-link{
+    min-height:28px!important;
+    font-size:7px!important;
+  }
+}
+@media(max-width:480px){
+  .product-card .card-actions .card-rental-cta{
+    min-height:46px!important;
+    padding:0 8px!important;
+  }
+  .card-rental-copy strong{
+    font-size:7.4px!important;
+  }
+  .card-rental-icon{
+    flex-basis:26px!important;
+    width:26px!important;
+    height:26px!important;
+  }
+}
+</style>
 </head>
 <body>
   <div class="noise"></div>
@@ -2650,10 +2820,17 @@ select:focus{
               <span class="stock">Available</span>
             </div>
             <div class="card-actions">
-              <button class="button secondary" type="button" data-view-product="${product.id}">View details</button>
-              <button class="button" type="button" data-add="${product.id}">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h2l2.4 10.7a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L21 7H6"/><path d="M12 9v5M9.5 11.5h5"/></svg>
-                Add to rental
+              <button class="button card-rental-cta" type="button" data-add="${product.id}" aria-label="Add ${product.name} to rental list">
+                <span class="card-rental-copy">
+                  <small>BUILD YOUR RENTAL</small>
+                  <strong>ADD TO RENTAL LIST</strong>
+                </span>
+                <span class="card-rental-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3h2l2.4 10.7a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L21 7H6"/><path d="M12 9v5M9.5 11.5h5"/></svg>
+                </span>
+              </button>
+              <button class="button secondary card-details-link" type="button" data-view-product="${product.id}">
+                <span>VIEW DETAILS</span><i>→</i>
               </button>
             </div>
           </div>
@@ -2788,8 +2965,8 @@ select:focus{
       if(button){
         const original = button.innerHTML;
         button.classList.add('added');
-        button.innerHTML = '✓ Added';
-        setTimeout(() => {button.classList.remove('added');button.innerHTML = original},900);
+        button.innerHTML = '<span class="card-rental-added">✓ ADDED TO RENTAL LIST</span>';
+        setTimeout(() => {button.classList.remove('added');button.innerHTML = original},1400);
       }
     }
 
