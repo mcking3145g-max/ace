@@ -1567,6 +1567,73 @@ body.ace-menu-open{overflow:auto!important}
   content:none!important;
 }
 </style>
+<style id="ace-nav-size-v1">
+/* Slightly larger homepage navbar */
+.ace-nav-v3{
+  height:76px!important;
+  padding:0 clamp(20px,3.2vw,54px)!important;
+}
+.ace-menu-trigger{
+  width:42px!important;
+  height:42px!important;
+  gap:5px!important;
+}
+.ace-menu-trigger span{
+  width:22px!important;
+}
+.ace-menu-trigger span:nth-child(2){
+  width:15px!important;
+}
+.ace-menu-trigger:hover span:nth-child(2){
+  width:22px!important;
+}
+.ace-nav-actions{
+  gap:20px!important;
+}
+.ace-store-link{
+  font-size:9px!important;
+  letter-spacing:.15em!important;
+}
+.ace-cart-link{
+  width:38px!important;
+  height:42px!important;
+}
+.ace-cart-link svg{
+  width:20px!important;
+  height:20px!important;
+}
+.ace-home-cart-count{
+  right:-2px!important;
+  top:5px!important;
+  min-width:15px!important;
+  height:15px!important;
+  font-size:7px!important;
+}
+@media(max-width:700px){
+  .ace-nav-v3{
+    height:66px!important;
+    padding:0 16px!important;
+  }
+  .ace-menu-trigger{
+    width:40px!important;
+    height:40px!important;
+  }
+  .ace-menu-trigger span{
+    width:21px!important;
+  }
+  .ace-menu-trigger span:nth-child(2){
+    width:14px!important;
+  }
+  .ace-cart-link{
+    width:36px!important;
+    height:40px!important;
+  }
+  .ace-cart-link svg{
+    width:19px!important;
+    height:19px!important;
+  }
+}
+</style>
 </head>
 <body>
 <header class="site-head ace-nav-v3" id="siteHead">
