@@ -798,30 +798,28 @@ body.ace-menu-open{overflow:auto!important}
 }
 </style>
 <style id="ace-pack-flip-v1">
-/* 3D pack-card flip interaction */
-.pack-portals{perspective:1400px}
+/* Calm, standard card flip. Back side shows useful choices. */
+.pack-portals{perspective:2200px}
 .pack-portal{
+  position:relative!important;
+  min-height:248px!important;
   padding:0!important;
   overflow:visible!important;
-  background:transparent!important;
   border:0!important;
   border-radius:0!important;
-  perspective:1200px!important;
-  transform-style:preserve-3d!important;
-  min-height:248px!important;
+  background:transparent!important;
+  perspective:2200px!important;
+  transform:none!important;
 }
 .pack-portal::before,.pack-portal::after{display:none!important}
-.pack-portal:hover{
-  transform:translateY(-3px)!important;
-  background:transparent!important;
-}
+.pack-portal:hover{transform:none!important;background:transparent!important}
+
 .pack-flip{
   position:absolute!important;
   inset:0!important;
   display:block!important;
   transform-style:preserve-3d!important;
-  transition:transform .72s cubic-bezier(.2,.74,.18,1)!important;
-  will-change:transform!important;
+  transition:transform .48s cubic-bezier(.4,0,.2,1)!important;
 }
 .pack-face{
   position:absolute!important;
@@ -833,10 +831,9 @@ body.ace-menu-open{overflow:auto!important}
   border-radius:5px!important;
   backface-visibility:hidden!important;
   -webkit-backface-visibility:hidden!important;
-  transform-style:preserve-3d!important;
 }
 .pack-front{
-  background:linear-gradient(180deg,#0d0d0d 0%,#090909 100%)!important;
+  background:#0b0b0b!important;
   transform:rotateY(0deg)!important;
 }
 .pack-front::after{
@@ -847,21 +844,17 @@ body.ace-menu-open{overflow:auto!important}
   bottom:0!important;
   height:2px!important;
   background:linear-gradient(90deg,var(--pink),var(--cyan))!important;
-  opacity:.36!important;
+  opacity:.3!important;
   transform:scaleX(.18)!important;
   transform-origin:left!important;
-  transition:transform .5s var(--ease),opacity .4s ease!important;
+  transition:transform .32s ease,opacity .32s ease!important;
 }
 .pack-back{
   display:flex!important;
   flex-direction:column!important;
-  justify-content:space-between!important;
-  background:
-    radial-gradient(circle at 88% 15%,rgba(0,217,255,.10),transparent 33%),
-    radial-gradient(circle at 8% 90%,rgba(255,46,143,.09),transparent 35%),
-    #0b0b0b!important;
+  background:#0d0d0d!important;
   transform:rotateY(180deg)!important;
-  border-color:rgba(255,255,255,.17)!important;
+  border-color:rgba(255,255,255,.16)!important;
 }
 .pack-back::after{
   content:""!important;
@@ -871,52 +864,72 @@ body.ace-menu-open{overflow:auto!important}
   bottom:0!important;
   height:2px!important;
   background:linear-gradient(90deg,var(--pink),var(--cyan))!important;
+  opacity:.72!important;
 }
 .pack-back-kicker{
-  color:rgba(255,255,255,.42)!important;
+  color:rgba(255,255,255,.38)!important;
   font-size:8px!important;
   font-weight:800!important;
   letter-spacing:.16em!important;
 }
 .pack-back-title{
   display:block!important;
-  margin-top:18px!important;
+  margin-top:10px!important;
   color:#fff!important;
-  font-size:clamp(34px,3.6vw,54px)!important;
-  line-height:.82!important;
-  letter-spacing:-.06em!important;
-  font-weight:750!important;
+  font-size:clamp(25px,2.7vw,40px)!important;
+  line-height:.95!important;
+  letter-spacing:-.045em!important;
+  font-weight:720!important;
   text-transform:uppercase!important;
 }
-.pack-back-copy{
-  max-width:360px!important;
-  margin-top:auto!important;
-  padding-top:20px!important;
-  color:rgba(255,255,255,.48)!important;
-  font-size:10px!important;
-  line-height:1.55!important;
+.pack-back-options{
+  display:grid!important;
+  grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  gap:0!important;
+  margin-top:22px!important;
+  border-top:1px solid rgba(255,255,255,.1)!important;
+}
+.pack-back-options>span{
+  display:flex!important;
+  align-items:center!important;
+  gap:10px!important;
+  min-height:34px!important;
+  border-bottom:1px solid rgba(255,255,255,.08)!important;
+  color:rgba(255,255,255,.7)!important;
+  font-size:9px!important;
   letter-spacing:.02em!important;
+}
+.pack-back-options>span:nth-child(odd){
+  padding-right:14px!important;
+  border-right:1px solid rgba(255,255,255,.08)!important;
+}
+.pack-back-options>span:nth-child(even){padding-left:14px!important}
+.pack-back-options strong{
+  min-width:20px!important;
+  color:rgba(255,255,255,.32)!important;
+  font-size:7px!important;
+  letter-spacing:.1em!important;
 }
 .pack-back-action{
   display:flex!important;
   justify-content:space-between!important;
   align-items:center!important;
-  margin-top:20px!important;
+  margin-top:auto!important;
+  padding-top:16px!important;
   color:#fff!important;
-  font-size:9px!important;
+  font-size:8px!important;
   font-weight:800!important;
-  letter-spacing:.14em!important;
+  letter-spacing:.13em!important;
 }
 .pack-back-action i{
   font-style:normal!important;
-  font-size:16px!important;
+  font-size:14px!important;
 }
 .pack-portal:hover .pack-front::after,
 .pack-portal:focus-visible .pack-front::after{
-  opacity:1!important;
+  opacity:.8!important;
   transform:scaleX(1)!important;
 }
-
 @media(hover:hover) and (pointer:fine){
   .pack-portal:hover .pack-flip,
   .pack-portal:focus-visible .pack-flip{
@@ -926,10 +939,11 @@ body.ace-menu-open{overflow:auto!important}
 @media(max-width:560px){
   .pack-portal{min-height:220px!important}
   .pack-face{padding:22px!important}
-  .pack-back-title{font-size:38px!important}
-  .pack-back-copy{font-size:9px!important}
+  .pack-back-title{font-size:30px!important}
+  .pack-back-options{margin-top:16px!important}
+  .pack-back-options>span{min-height:30px!important;font-size:8px!important}
   .pack-front::after,.pack-back::after{left:22px!important;right:22px!important}
-  .pack-portal:active .pack-flip{transform:scale(.985)!important}
+  .pack-portal:active .pack-flip{transform:scale(.99)!important}
 }
 @media(prefers-reduced-motion:reduce){
   .pack-flip{transition:none!important}
@@ -1024,10 +1038,16 @@ body.ace-menu-open{overflow:auto!important}
             <b>OPEN PACK <i>→</i></b>
           </span>
           <span class="pack-face pack-back">
-            <span class="pack-back-kicker">ACE GAMING / 01</span>
-            <span class="pack-back-title">HOURS<br>PACK</span>
-            <span class="pack-back-copy">Pick your time. Pick your setup. Start playing.</span>
-            <span class="pack-back-action">OPEN PACK <i>↗</i></span>
+            <span class="pack-back-kicker">CHOOSE YOUR TIME</span>
+            <span class="pack-back-title">Hours Pack</span>
+            <span class="pack-back-options">
+              <span><strong>01</strong> 1 Hour</span>
+              <span><strong>03</strong> 3 Hours</span>
+              <span><strong>05</strong> 5 Hours</span>
+              <span><strong>08</strong> 8 Hours</span>
+              <span><strong>10</strong> 10 Hours</span>
+            </span>
+            <span class="pack-back-action">SELECT A PACK <i>→</i></span>
           </span>
         </span>
       </button>
@@ -1042,10 +1062,14 @@ body.ace-menu-open{overflow:auto!important}
             <b>OPEN PACK <i>→</i></b>
           </span>
           <span class="pack-face pack-back">
-            <span class="pack-back-kicker">ACE GAMING / 02</span>
-            <span class="pack-back-title">DAY<br>PACKS</span>
-            <span class="pack-back-copy">Stay longer. Play more. Make the whole day yours.</span>
-            <span class="pack-back-action">OPEN PACK <i>↗</i></span>
+            <span class="pack-back-kicker">CHOOSE YOUR DAY</span>
+            <span class="pack-back-title">Day Packs</span>
+            <span class="pack-back-options">
+              <span><strong>½</strong> Half Day</span>
+              <span><strong>01</strong> 1 Day</span>
+              <span><strong>02</strong> 2 Days</span>
+            </span>
+            <span class="pack-back-action">SELECT A PACK <i>→</i></span>
           </span>
         </span>
       </button>
@@ -1060,10 +1084,15 @@ body.ace-menu-open{overflow:auto!important}
             <b>OPEN PACK <i>→</i></b>
           </span>
           <span class="pack-face pack-back">
-            <span class="pack-back-kicker">ACE GAMING / 03</span>
-            <span class="pack-back-title">MONTH<br>PACKS</span>
-            <span class="pack-back-copy">Built for regular players who want more time at Ace.</span>
-            <span class="pack-back-action">OPEN PACK <i>↗</i></span>
+            <span class="pack-back-kicker">CHOOSE YOUR PLAN</span>
+            <span class="pack-back-title">Month Packs</span>
+            <span class="pack-back-options">
+              <span><strong>½</strong> Half Month</span>
+              <span><strong>01</strong> 1 Month</span>
+              <span><strong>02</strong> 2 Months</span>
+              <span><strong>03</strong> 3 Months</span>
+            </span>
+            <span class="pack-back-action">SELECT A PACK <i>→</i></span>
           </span>
         </span>
       </button>
@@ -1078,10 +1107,15 @@ body.ace-menu-open{overflow:auto!important}
             <b>OPEN PACK <i>→</i></b>
           </span>
           <span class="pack-face pack-back">
-            <span class="pack-back-kicker">ACE GAMING / 04</span>
-            <span class="pack-back-title">PS5<br>PACKS</span>
-            <span class="pack-back-copy">Bring the squad. Up to four players on one session.</span>
-            <span class="pack-back-action">OPEN PACK <i>↗</i></span>
+            <span class="pack-back-kicker">PLAYSTATION 5</span>
+            <span class="pack-back-title">PS5 Packs</span>
+            <span class="pack-back-options">
+              <span><strong>01</strong> 1 Hour</span>
+              <span><strong>02</strong> 2 Hours</span>
+              <span><strong>03</strong> 3 Hours</span>
+              <span><strong>04</strong> Up to 4 Players</span>
+            </span>
+            <span class="pack-back-action">SELECT A PACK <i>→</i></span>
           </span>
         </span>
       </button>
@@ -1096,10 +1130,14 @@ body.ace-menu-open{overflow:auto!important}
             <b>OPEN PACK <i>→</i></b>
           </span>
           <span class="pack-face pack-back">
-            <span class="pack-back-kicker">ACE GAMING / 05</span>
-            <span class="pack-back-title">SIM<br>RACING</span>
-            <span class="pack-back-copy">Full racing setup. No warm-up. Straight to the grid.</span>
-            <span class="pack-back-action">OPEN PACK <i>↗</i></span>
+            <span class="pack-back-kicker">CHOOSE YOUR RACE</span>
+            <span class="pack-back-title">Sim Racing</span>
+            <span class="pack-back-options">
+              <span><strong>30</strong> 30 Minutes</span>
+              <span><strong>01</strong> 1 Hour</span>
+              <span><strong>02</strong> 2 Hours</span>
+            </span>
+            <span class="pack-back-action">SELECT A SESSION <i>→</i></span>
           </span>
         </span>
       </button>
@@ -1114,10 +1152,14 @@ body.ace-menu-open{overflow:auto!important}
             <b>OPEN EVENT <i>→</i></b>
           </span>
           <span class="pack-face pack-back">
-            <span class="pack-back-kicker">ACE GAMING / 06</span>
-            <span class="pack-back-title">PRIVATE<br>EVENTS</span>
-            <span class="pack-back-copy">Birthdays, tournaments and private group sessions.</span>
-            <span class="pack-back-action">OPEN EVENT <i>↗</i></span>
+            <span class="pack-back-kicker">CHOOSE YOUR EVENT</span>
+            <span class="pack-back-title">Private Events</span>
+            <span class="pack-back-options">
+              <span><strong>01</strong> Birthdays</span>
+              <span><strong>02</strong> Tournaments</span>
+              <span><strong>03</strong> Group Play</span>
+            </span>
+            <span class="pack-back-action">BUILD EVENT <i>→</i></span>
           </span>
         </span>
       </button>
