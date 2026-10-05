@@ -1832,6 +1832,142 @@ body.store-menu-open{overflow:auto!important}
   .cart-footer{padding:18px 14px!important}
 }
 </style>
+<style id="ace-store-premium-color-v1">
+:root{
+  --ace-cyan:#62d9ea;
+  --ace-cyan-soft:#9de8f1;
+  --ace-pink:#d95a98;
+  --ace-pink-soft:#efa5c6;
+  --ace-ink:#070809;
+  --ace-surface:#0b0d0f;
+}
+body{
+  background:
+    radial-gradient(circle at 10% 4%,rgba(98,217,234,.045),transparent 22%),
+    radial-gradient(circle at 92% 14%,rgba(217,90,152,.04),transparent 20%),
+    var(--ace-ink)!important;
+}
+::selection{background:rgba(98,217,234,.28);color:#fff}
+
+/* Header */
+.ace-store-nav-v3{
+  background:
+    linear-gradient(180deg,rgba(5,7,8,.84),rgba(5,7,8,.34) 72%,transparent)!important;
+}
+.store-main-site-link:hover{color:var(--ace-cyan-soft)!important}
+
+/* Store hero */
+.store-hero-v2{
+  background-color:#070809!important;
+}
+.store-hero-v2::after{
+  background:
+    linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.34)),
+    linear-gradient(90deg,rgba(5,7,8,.64),transparent 44%)!important;
+}
+.store-hero-v2 .eyebrow{
+  color:var(--ace-cyan-soft)!important;
+}
+.store-hero-v2 .hero-copy strong{
+  color:#f5f5f2!important;
+}
+.store-hero-v2 .hero-copy .outline{
+  -webkit-text-stroke:1px rgba(157,232,241,.52)!important;
+  color:transparent!important;
+}
+
+/* Filters + controls */
+.filter-button.active,
+.filter-button:hover{
+  color:var(--ace-cyan-soft)!important;
+  border-color:rgba(98,217,234,.24)!important;
+}
+.search-input:focus,
+select:focus{
+  border-color:rgba(98,217,234,.26)!important;
+}
+
+/* Product catalogue */
+.product-card{
+  border-color:rgba(255,255,255,.07)!important;
+  box-shadow:none!important;
+}
+.product-card:hover{
+  border-color:rgba(98,217,234,.18)!important;
+}
+.product-card .product-category{
+  color:#686b6c!important;
+}
+.product-card .availability{
+  color:#1a9b72!important;
+}
+.product-card .product-actions button:hover,
+.product-card .product-actions a:hover{
+  color:#116f7d!important;
+}
+
+/* Product detail + cart */
+.product-modal,
+.cart-drawer{
+  background:
+    linear-gradient(145deg,rgba(98,217,234,.025),rgba(217,90,152,.018)),
+    #0a0b0c!important;
+}
+.add-to-cart,
+.checkout-button,
+.cart-footer .button.primary{
+  background:
+    linear-gradient(90deg,rgba(98,217,234,.12),rgba(217,90,152,.08)),
+    #111315!important;
+  border-color:rgba(98,217,234,.20)!important;
+}
+.add-to-cart:hover,
+.checkout-button:hover,
+.cart-footer .button.primary:hover{
+  border-color:rgba(217,90,152,.30)!important;
+}
+
+/* Campaign */
+.ace-campaign-v2::after{
+  background:
+    linear-gradient(90deg,rgba(5,7,8,.74),rgba(5,7,8,.30) 52%,rgba(5,7,8,.56))!important;
+}
+.ace-campaign-v2 .campaign-index,
+.ace-campaign-v2 .campaign-kicker{
+  color:var(--ace-cyan-soft)!important;
+}
+
+/* Full-page cart */
+.full-cart-kicker{
+  color:var(--ace-cyan-soft)!important;
+}
+.full-cart-browse{
+  border-color:rgba(98,217,234,.28)!important;
+}
+.full-cart-browse:hover{
+  color:var(--ace-pink-soft)!important;
+  border-color:rgba(217,90,152,.34)!important;
+}
+
+/* Store footer */
+.ace-store-footer{
+  background:
+    radial-gradient(circle at 8% 10%,rgba(98,217,234,.035),transparent 24%),
+    radial-gradient(circle at 92% 18%,rgba(217,90,152,.03),transparent 22%),
+    #08090a!important;
+}
+.ace-store-footer a:hover{
+  color:var(--ace-cyan-soft)!important;
+}
+
+@media(max-width:700px){
+  body{
+    background:
+      radial-gradient(circle at 20% 3%,rgba(98,217,234,.035),transparent 20%),
+      #070809!important;
+  }
+}
+</style>
 </head>
 <body>
   <div class="noise"></div>
