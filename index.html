@@ -1945,6 +1945,100 @@ body{
   }
 }
 </style>
+<style id="ace-global-curves-v1">
+/* Consistent premium radius system across the main Ace site */
+:root{
+  --ace-r-sm:10px;
+  --ace-r-md:14px;
+  --ace-r-lg:18px;
+  --ace-r-xl:24px;
+}
+
+/* Navigation + menus */
+.ace-menu-panel{border-radius:var(--ace-r-lg)!important;overflow:hidden!important}
+.ace-menu-links a{border-radius:var(--ace-r-sm)!important}
+
+/* Media / experience surfaces */
+.media-card,
+.duo-card,
+.pack-face,
+.session-page-head,
+.session-step,
+.session-summary{
+  border-radius:var(--ace-r-lg)!important;
+  overflow:hidden!important;
+}
+.media-card img,
+.duo-card img,
+.media-card video,
+.duo-card video{
+  border-radius:inherit!important;
+}
+.cinema{
+  border-radius:var(--ace-r-xl)!important;
+  overflow:hidden!important;
+  margin-left:clamp(12px,2.5vw,34px)!important;
+  margin-right:clamp(12px,2.5vw,34px)!important;
+}
+.cinema video,.cinema img{border-radius:inherit!important}
+
+/* Booking cards */
+.pack-portal{border-radius:var(--ace-r-lg)!important}
+.pack-front,.pack-back{border-radius:var(--ace-r-lg)!important}
+.pack-back-options>span{
+  border-radius:8px!important;
+}
+
+/* Session builder controls */
+.duration-option,
+.setup-option,
+.ace-picker-trigger,
+.ace-picker-popover,
+.ace-calendar-day,
+.ace-time-grid button,
+.ace-period-grid button,
+.ace-time-apply,
+.session-confirm{
+  border-radius:var(--ace-r-md)!important;
+}
+.session-back{
+  border-radius:12px!important;
+}
+
+/* General buttons/interactive surfaces */
+button,
+a.button,
+.compact-footer-cta{
+  -webkit-tap-highlight-color:transparent;
+}
+.compact-footer-cta{
+  border-radius:var(--ace-r-md)!important;
+}
+.compact-footer{
+  border-radius:var(--ace-r-xl) var(--ace-r-xl) 0 0!important;
+  overflow:hidden!important;
+}
+
+/* Keep curves refined on mobile */
+@media(max-width:700px){
+  .cinema{
+    margin-left:10px!important;
+    margin-right:10px!important;
+    border-radius:18px!important;
+  }
+  .media-card,
+  .duo-card,
+  .pack-face,
+  .session-page-head,
+  .session-step,
+  .session-summary{
+    border-radius:14px!important;
+  }
+  .compact-footer{
+    border-radius:18px 18px 0 0!important;
+  }
+}
+</style>
 </head>
 <body>
 <header class="site-head ace-nav-v3" id="siteHead">
