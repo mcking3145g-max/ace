@@ -1627,6 +1627,24 @@ body.store-menu-open{overflow:auto!important}
   filter:none!important;
 }
 </style>
+<style id="ace-user-pc-photos-v3">
+.product-card[data-product-id="pc-4060-7600"] .product-image img,
+.product-card[data-product-id="pc-7700xt-ryzen"] .product-image img{
+  width:100%!important;
+  height:100%!important;
+  object-fit:contain!important;
+  object-position:center!important;
+  padding:10px!important;
+  mix-blend-mode:normal!important;
+  background:#f1f1ee!important;
+  filter:none!important;
+  transform:none!important;
+}
+.product-card[data-product-id="pc-4060-7600"]:hover .product-image img,
+.product-card[data-product-id="pc-7700xt-ryzen"]:hover .product-image img{
+  transform:scale(1.015)!important;
+}
+</style>
 </head>
 <body>
   <div class="noise"></div>
@@ -2774,7 +2792,7 @@ body.store-menu-open{overflow:auto!important}
       }
     });
 
-    const premiumProductImages={"pc-4060":"assets/products/ace-gen-pc-4060.svg","pc-4060-7600":"assets/products/ace-gen-pc-4060-7600.svg","pc-7700xt-i5":"assets/products/ace-gen-pc-7700-intel.svg","pc-7700xt-ryzen":"assets/products/ace-gen-pc-7700-ryzen.svg","keyboard-chgbk25":"https://tlggaming.b-cdn.net/image/cache/catalog/products/Gaming%20Keyboards/cosmic%20byte/gk-25%20blue%20switch/gk%2025%2026-1200x1200.jpg","mouse-razer-deathadder":"https://xoticpc.com/cdn/shop/files/RazerDeathAdderEssentialMAIN.png?v=1721942918","mouse-logitech-g402":"https://www.gameshop.my/cdn/shop/products/logitech_g402_hyperion_fury_fps_gaming_mouse.jpg?v=1591178194","headphones-ant-esports":"https://5.imimg.com/data5/SELLER/Default/2022/4/PC/KV/WJ/9432891/ant-esports-h1000-wired-gaming-headset-with-mic-rgb-light.jpg","headset-logitech-g431":"https://logitech.onlinesalestore.pk/cdn/shop/files/logitechg4317.1surroundsoundgamingheadsetspecs01.jpg?v=1700746557","mousepad-cybeart-l":"https://cybeart.in/cdn/shop/products/MP-RA45-CYB01_1.jpg?v=1699555864","mousepad-cybeart-xxl":"https://cybeart.in/cdn/shop/products/MP-RA90-CYB01.jpg?v=1699555863","monitor-samsung-144":"https://www.promotech.com/wp-content/uploads/2023/11/3487a4f7-32ec-46ed-a2e1-c52f89dfaca6.jpg","monitor-aoc-240":"./assets/products/aoc-240hz-monitor-exact.svg","monitor-viewsonic-240":"https://www.viewsonic.com/vsAssetFile/ap/img/slides/_lcd_display_%28new%29/XG2709A/GPG-24-MON-VX2779AJ-HD-PRO-Product%20Photo_LF02_pc.jpg","monitor-gigabyte-165":"https://ddtech.mx/assets/uploads/f45103209bedfb58f790ed2b34912e61.jpg","ram-16gb":"./assets/products/kingston-fury-16gb-ram-exact.svg","ram-32gb":"https://cdn.atacadoconnect.com/produtos/1311747/memoria-ram-kingston-fury-renegade-rgb-32gb-ddr5-6400mhz-kf564c32rsa-32-1311747-14680.webp"};
+    const premiumProductImages={"pc-4060":"assets/products/ace-gen-pc-4060.svg","pc-4060-7600":"https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/94d27fcb-c946-488d-9584-ece45773dff1.png","pc-7700xt-i5":"assets/products/ace-gen-pc-7700-intel.svg","pc-7700xt-ryzen":"https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/a592ea22-aa2a-4b65-bddb-cd5402cdc246.png","keyboard-chgbk25":"https://tlggaming.b-cdn.net/image/cache/catalog/products/Gaming%20Keyboards/cosmic%20byte/gk-25%20blue%20switch/gk%2025%2026-1200x1200.jpg","mouse-razer-deathadder":"https://xoticpc.com/cdn/shop/files/RazerDeathAdderEssentialMAIN.png?v=1721942918","mouse-logitech-g402":"https://www.gameshop.my/cdn/shop/products/logitech_g402_hyperion_fury_fps_gaming_mouse.jpg?v=1591178194","headphones-ant-esports":"https://5.imimg.com/data5/SELLER/Default/2022/4/PC/KV/WJ/9432891/ant-esports-h1000-wired-gaming-headset-with-mic-rgb-light.jpg","headset-logitech-g431":"https://logitech.onlinesalestore.pk/cdn/shop/files/logitechg4317.1surroundsoundgamingheadsetspecs01.jpg?v=1700746557","mousepad-cybeart-l":"https://cybeart.in/cdn/shop/products/MP-RA45-CYB01_1.jpg?v=1699555864","mousepad-cybeart-xxl":"https://cybeart.in/cdn/shop/products/MP-RA90-CYB01.jpg?v=1699555863","monitor-samsung-144":"https://www.promotech.com/wp-content/uploads/2023/11/3487a4f7-32ec-46ed-a2e1-c52f89dfaca6.jpg","monitor-aoc-240":"./assets/products/aoc-240hz-monitor-exact.svg","monitor-viewsonic-240":"https://www.viewsonic.com/vsAssetFile/ap/img/slides/_lcd_display_%28new%29/XG2709A/GPG-24-MON-VX2779AJ-HD-PRO-Product%20Photo_LF02_pc.jpg","monitor-gigabyte-165":"https://ddtech.mx/assets/uploads/f45103209bedfb58f790ed2b34912e61.jpg","ram-16gb":"./assets/products/kingston-fury-16gb-ram-exact.svg","ram-32gb":"https://cdn.atacadoconnect.com/produtos/1311747/memoria-ram-kingston-fury-renegade-rgb-32gb-ddr5-6400mhz-kf564c32rsa-32-1311747-14680.webp"};
     products.forEach(product=>{
       product.originalArtwork=product.image;
       if(premiumProductImages[product.id]) product.image=premiumProductImages[product.id];
