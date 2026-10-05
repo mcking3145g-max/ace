@@ -951,6 +951,274 @@ body.ace-menu-open{overflow:auto!important}
   .pack-back{display:none!important}
 }
 </style>
+<style id="ace-custom-datetime-v1">
+/* Custom Ace date/time pickers — replaces browser-native UI */
+.ace-picker-row{
+  position:relative!important;
+  display:grid!important;
+  grid-template-columns:1fr 1fr!important;
+  gap:10px!important;
+  margin-left:73px!important;
+  overflow:visible!important;
+}
+.ace-picker-field{
+  position:relative!important;
+  display:grid!important;
+  gap:9px!important;
+}
+.ace-picker-label{
+  color:#747471!important;
+  font-size:8px!important;
+  font-weight:800!important;
+  letter-spacing:.12em!important;
+  text-transform:uppercase!important;
+}
+.ace-picker-trigger{
+  width:100%!important;
+  height:54px!important;
+  padding:0 16px!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  gap:18px!important;
+  border:1px solid rgba(255,255,255,.13)!important;
+  border-radius:4px!important;
+  background:#0c0c0c!important;
+  color:#f2f2ef!important;
+  font:inherit!important;
+  text-align:left!important;
+  cursor:pointer!important;
+  transition:border-color .2s ease,background .2s ease!important;
+}
+.ace-picker-trigger:hover,
+.ace-picker-trigger[aria-expanded="true"]{
+  border-color:rgba(255,255,255,.34)!important;
+  background:#101010!important;
+}
+.ace-picker-trigger>span{
+  font-size:12px!important;
+  letter-spacing:.01em!important;
+}
+.ace-picker-trigger i{
+  color:rgba(255,255,255,.38)!important;
+  font-size:15px!important;
+  font-style:normal!important;
+  transition:transform .2s ease!important;
+}
+.ace-picker-trigger[aria-expanded="true"] i{transform:rotate(180deg)!important}
+
+.ace-picker-popover{
+  position:absolute!important;
+  z-index:40!important;
+  top:calc(100% + 8px)!important;
+  left:0!important;
+  width:min(340px,calc(100vw - 34px))!important;
+  padding:16px!important;
+  border:1px solid rgba(255,255,255,.14)!important;
+  border-radius:8px!important;
+  background:rgba(10,10,10,.985)!important;
+  box-shadow:0 22px 60px rgba(0,0,0,.42)!important;
+  backdrop-filter:blur(18px)!important;
+  -webkit-backdrop-filter:blur(18px)!important;
+  animation:acePickerIn .18s ease both!important;
+}
+.ace-picker-popover[hidden]{display:none!important}
+@keyframes acePickerIn{
+  from{opacity:0;transform:translateY(-5px)}
+  to{opacity:1;transform:none}
+}
+
+.ace-picker-head{
+  display:grid!important;
+  grid-template-columns:34px 1fr 34px!important;
+  align-items:center!important;
+  gap:8px!important;
+  margin-bottom:14px!important;
+}
+.ace-picker-head strong{
+  text-align:center!important;
+  color:#f6f6f3!important;
+  font-size:11px!important;
+  font-weight:750!important;
+  letter-spacing:.02em!important;
+}
+.ace-picker-head button,
+.ace-picker-foot button{
+  border:0!important;
+  background:transparent!important;
+  color:rgba(255,255,255,.55)!important;
+  font:inherit!important;
+  cursor:pointer!important;
+}
+.ace-picker-head button{
+  width:34px!important;
+  height:34px!important;
+  font-size:16px!important;
+}
+.ace-picker-head button:hover{color:#fff!important;background:#151515!important}
+
+.ace-calendar-week,
+.ace-calendar-grid{
+  display:grid!important;
+  grid-template-columns:repeat(7,1fr)!important;
+  gap:3px!important;
+}
+.ace-calendar-week{
+  margin-bottom:5px!important;
+  color:rgba(255,255,255,.32)!important;
+  font-size:7px!important;
+  font-weight:800!important;
+  letter-spacing:.08em!important;
+  text-align:center!important;
+}
+.ace-calendar-week span{padding:5px 0!important}
+.ace-calendar-day{
+  aspect-ratio:1!important;
+  min-height:34px!important;
+  display:grid!important;
+  place-items:center!important;
+  border:1px solid transparent!important;
+  border-radius:4px!important;
+  background:transparent!important;
+  color:rgba(255,255,255,.78)!important;
+  font-size:10px!important;
+  cursor:pointer!important;
+  transition:background .16s ease,border-color .16s ease,color .16s ease!important;
+}
+.ace-calendar-day:hover:not(:disabled){
+  background:#151515!important;
+  border-color:rgba(255,255,255,.12)!important;
+  color:#fff!important;
+}
+.ace-calendar-day.today{
+  border-color:rgba(255,255,255,.22)!important;
+}
+.ace-calendar-day.selected{
+  background:#f1f1ef!important;
+  border-color:#f1f1ef!important;
+  color:#070707!important;
+  font-weight:800!important;
+}
+.ace-calendar-day.muted{color:rgba(255,255,255,.18)!important}
+.ace-calendar-day:disabled{
+  color:rgba(255,255,255,.12)!important;
+  cursor:not-allowed!important;
+}
+.ace-picker-foot{
+  display:flex!important;
+  justify-content:space-between!important;
+  align-items:center!important;
+  gap:12px!important;
+  margin-top:12px!important;
+  padding-top:12px!important;
+  border-top:1px solid rgba(255,255,255,.09)!important;
+}
+.ace-picker-foot button{
+  padding:4px 0!important;
+  font-size:7px!important;
+  font-weight:800!important;
+  letter-spacing:.12em!important;
+}
+.ace-picker-foot button:hover{color:#fff!important}
+
+.ace-time-picker{right:0!important;left:auto!important;width:min(370px,calc(100vw - 34px))!important}
+.ace-time-title{
+  margin-bottom:14px!important;
+  color:rgba(255,255,255,.38)!important;
+  font-size:8px!important;
+  font-weight:800!important;
+  letter-spacing:.14em!important;
+}
+.ace-time-columns{
+  display:grid!important;
+  grid-template-columns:1.6fr .8fr .8fr!important;
+  gap:10px!important;
+}
+.ace-time-columns>div>span{
+  display:block!important;
+  margin-bottom:7px!important;
+  color:rgba(255,255,255,.3)!important;
+  font-size:7px!important;
+  font-weight:800!important;
+  letter-spacing:.12em!important;
+}
+.ace-time-grid{
+  display:grid!important;
+  grid-template-columns:repeat(3,1fr)!important;
+  gap:5px!important;
+  max-height:168px!important;
+  overflow:auto!important;
+  scrollbar-width:thin!important;
+  scrollbar-color:#333 transparent!important;
+}
+.ace-minute-grid{grid-template-columns:1fr!important}
+.ace-time-grid button,
+.ace-period-grid button{
+  min-height:38px!important;
+  border:1px solid rgba(255,255,255,.09)!important;
+  border-radius:4px!important;
+  background:#0e0e0e!important;
+  color:rgba(255,255,255,.66)!important;
+  font-size:9px!important;
+  cursor:pointer!important;
+}
+.ace-time-grid button:hover,
+.ace-period-grid button:hover{
+  background:#151515!important;
+  color:#fff!important;
+}
+.ace-time-grid button.active,
+.ace-period-grid button.active{
+  background:#f1f1ef!important;
+  border-color:#f1f1ef!important;
+  color:#070707!important;
+  font-weight:800!important;
+}
+.ace-period-grid{
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  gap:5px!important;
+}
+.ace-time-apply{
+  width:100%!important;
+  margin-top:14px!important;
+  padding:13px 0!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:space-between!important;
+  border:0!important;
+  border-top:1px solid rgba(255,255,255,.13)!important;
+  background:transparent!important;
+  color:#fff!important;
+  font-size:8px!important;
+  font-weight:800!important;
+  letter-spacing:.13em!important;
+  cursor:pointer!important;
+}
+.ace-time-apply span{font-size:15px!important}
+
+@media(max-width:900px){
+  .ace-picker-row{margin-left:0!important}
+}
+@media(max-width:560px){
+  .ace-picker-row{grid-template-columns:1fr!important}
+  .ace-picker-popover{
+    position:fixed!important;
+    z-index:600!important;
+    left:12px!important;
+    right:12px!important;
+    top:auto!important;
+    bottom:12px!important;
+    width:auto!important;
+    max-height:min(78vh,620px)!important;
+    overflow:auto!important;
+    border-radius:10px!important;
+  }
+  .ace-time-picker{left:12px!important;right:12px!important;width:auto!important}
+  .ace-calendar-day{min-height:38px!important}
+  .ace-time-columns{grid-template-columns:1.4fr .8fr .8fr!important}
+}
+</style>
 </head>
 <body>
 <header class="site-head ace-nav-v3" id="siteHead">
@@ -1200,9 +1468,60 @@ body.ace-menu-open{overflow:auto!important}
             <span>03</span>
             <div><small>PREFERRED TIME</small><h2>When do you want to play?</h2></div>
           </div>
-          <div class="session-date-time">
-            <label><span>Date</span><input id="sessionDate" type="date"></label>
-            <label><span>Time</span><input id="sessionTime" type="time"></label>
+          <div class="session-date-time ace-picker-row">
+            <div class="ace-picker-field">
+              <span class="ace-picker-label">Date</span>
+              <button class="ace-picker-trigger" id="datePickerTrigger" type="button" aria-expanded="false">
+                <span id="datePickerValue">Choose date</span>
+                <i>⌄</i>
+              </button>
+              <input id="sessionDate" type="hidden" value="">
+              <div class="ace-picker-popover ace-calendar" id="datePickerPopover" hidden>
+                <div class="ace-picker-head">
+                  <button type="button" id="calendarPrev" aria-label="Previous month">←</button>
+                  <strong id="calendarMonth">October 2026</strong>
+                  <button type="button" id="calendarNext" aria-label="Next month">→</button>
+                </div>
+                <div class="ace-calendar-week">
+                  <span>MO</span><span>TU</span><span>WE</span><span>TH</span><span>FR</span><span>SA</span><span>SU</span>
+                </div>
+                <div class="ace-calendar-grid" id="calendarGrid"></div>
+                <div class="ace-picker-foot">
+                  <button type="button" id="calendarToday">TODAY</button>
+                  <button type="button" id="calendarClear">CLEAR</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="ace-picker-field">
+              <span class="ace-picker-label">Time</span>
+              <button class="ace-picker-trigger" id="timePickerTrigger" type="button" aria-expanded="false">
+                <span id="timePickerValue">Choose time</span>
+                <i>⌄</i>
+              </button>
+              <input id="sessionTime" type="hidden" value="">
+              <div class="ace-picker-popover ace-time-picker" id="timePickerPopover" hidden>
+                <div class="ace-time-title">PREFERRED TIME</div>
+                <div class="ace-time-columns">
+                  <div>
+                    <span>HOUR</span>
+                    <div class="ace-time-grid" id="hourGrid"></div>
+                  </div>
+                  <div>
+                    <span>MIN</span>
+                    <div class="ace-time-grid ace-minute-grid" id="minuteGrid"></div>
+                  </div>
+                  <div>
+                    <span>PERIOD</span>
+                    <div class="ace-period-grid" id="periodGrid">
+                      <button type="button" data-period="AM">AM</button>
+                      <button type="button" data-period="PM">PM</button>
+                    </div>
+                  </div>
+                </div>
+                <button class="ace-time-apply" id="timeApply" type="button">SET TIME <span>→</span></button>
+              </div>
+            </div>
           </div>
         </section>
       </div>
@@ -1486,6 +1805,132 @@ routeSession();
   updateHomeCart();
   addEventListener('storage',updateHomeCart);
   addEventListener('pageshow',updateHomeCart);
+})();
+</script>
+<script id="ace-custom-datetime-js">
+(()=>{
+  const dateInput=document.getElementById('sessionDate');
+  const timeInput=document.getElementById('sessionTime');
+  const dateTrigger=document.getElementById('datePickerTrigger');
+  const timeTrigger=document.getElementById('timePickerTrigger');
+  const dateValue=document.getElementById('datePickerValue');
+  const timeValue=document.getElementById('timePickerValue');
+  const datePop=document.getElementById('datePickerPopover');
+  const timePop=document.getElementById('timePickerPopover');
+  const monthLabel=document.getElementById('calendarMonth');
+  const grid=document.getElementById('calendarGrid');
+  const prev=document.getElementById('calendarPrev');
+  const next=document.getElementById('calendarNext');
+  const todayBtn=document.getElementById('calendarToday');
+  const clearBtn=document.getElementById('calendarClear');
+  const hourGrid=document.getElementById('hourGrid');
+  const minuteGrid=document.getElementById('minuteGrid');
+  const periodGrid=document.getElementById('periodGrid');
+  const applyTime=document.getElementById('timeApply');
+  if(!dateInput||!timeInput)return;
+
+  const pad=n=>String(n).padStart(2,'0');
+  const toISO=d=>d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+  const today=new Date(); today.setHours(0,0,0,0);
+  let view=new Date(today.getFullYear(),today.getMonth(),1);
+  let selectedDate=null;
+  let selectedHour=7,selectedMinute=0,selectedPeriod='PM';
+
+  function closeAll(except){
+    [[datePop,dateTrigger],[timePop,timeTrigger]].forEach(([p,t])=>{
+      if(p!==except){p.hidden=true;t.setAttribute('aria-expanded','false')}
+    });
+  }
+  function toggle(pop,trigger){
+    const opening=pop.hidden;
+    closeAll(opening?pop:null);
+    pop.hidden=!opening;
+    trigger.setAttribute('aria-expanded',String(opening));
+  }
+  dateTrigger.addEventListener('click',()=>toggle(datePop,dateTrigger));
+  timeTrigger.addEventListener('click',()=>toggle(timePop,timeTrigger));
+
+  function prettyDate(d){
+    return d.toLocaleDateString(undefined,{day:'2-digit',month:'short',year:'numeric'});
+  }
+  function renderCalendar(){
+    monthLabel.textContent=view.toLocaleDateString(undefined,{month:'long',year:'numeric'});
+    const y=view.getFullYear(),m=view.getMonth();
+    const first=new Date(y,m,1);
+    const startOffset=(first.getDay()+6)%7;
+    const start=new Date(y,m,1-startOffset);
+    grid.innerHTML='';
+    for(let i=0;i<42;i++){
+      const d=new Date(start); d.setDate(start.getDate()+i); d.setHours(0,0,0,0);
+      const btn=document.createElement('button');
+      btn.type='button';
+      btn.className='ace-calendar-day';
+      btn.textContent=d.getDate();
+      if(d.getMonth()!==m)btn.classList.add('muted');
+      if(d.getTime()===today.getTime())btn.classList.add('today');
+      if(selectedDate&&d.getTime()===selectedDate.getTime())btn.classList.add('selected');
+      if(d<today)btn.disabled=true;
+      btn.addEventListener('click',()=>{
+        selectedDate=new Date(d);
+        dateInput.value=toISO(d);
+        dateValue.textContent=prettyDate(d);
+        renderCalendar();
+        datePop.hidden=true; dateTrigger.setAttribute('aria-expanded','false');
+        dateInput.dispatchEvent(new Event('change',{bubbles:true}));
+      });
+      grid.appendChild(btn);
+    }
+  }
+  prev.addEventListener('click',()=>{view=new Date(view.getFullYear(),view.getMonth()-1,1);if(view<new Date(today.getFullYear(),today.getMonth(),1))view=new Date(today.getFullYear(),today.getMonth(),1);renderCalendar()});
+  next.addEventListener('click',()=>{view=new Date(view.getFullYear(),view.getMonth()+1,1);renderCalendar()});
+  todayBtn.addEventListener('click',()=>{
+    selectedDate=new Date(today);view=new Date(today.getFullYear(),today.getMonth(),1);
+    dateInput.value=toISO(today);dateValue.textContent=prettyDate(today);renderCalendar();
+    datePop.hidden=true;dateTrigger.setAttribute('aria-expanded','false');
+    dateInput.dispatchEvent(new Event('change',{bubbles:true}));
+  });
+  clearBtn.addEventListener('click',()=>{
+    selectedDate=null;dateInput.value='';dateValue.textContent='Choose date';renderCalendar();
+    datePop.hidden=true;dateTrigger.setAttribute('aria-expanded','false');
+    dateInput.dispatchEvent(new Event('change',{bubbles:true}));
+  });
+
+  function renderTime(){
+    hourGrid.innerHTML='';
+    for(let h=1;h<=12;h++){
+      const b=document.createElement('button');b.type='button';b.textContent=pad(h);
+      b.classList.toggle('active',h===selectedHour);
+      b.addEventListener('click',()=>{selectedHour=h;renderTime()});
+      hourGrid.appendChild(b);
+    }
+    minuteGrid.innerHTML='';
+    [0,15,30,45].forEach(m=>{
+      const b=document.createElement('button');b.type='button';b.textContent=pad(m);
+      b.classList.toggle('active',m===selectedMinute);
+      b.addEventListener('click',()=>{selectedMinute=m;renderTime()});
+      minuteGrid.appendChild(b);
+    });
+    periodGrid.querySelectorAll('[data-period]').forEach(b=>b.classList.toggle('active',b.dataset.period===selectedPeriod));
+  }
+  periodGrid.addEventListener('click',e=>{
+    const b=e.target.closest('[data-period]');if(!b)return;
+    selectedPeriod=b.dataset.period;renderTime();
+  });
+  applyTime.addEventListener('click',()=>{
+    let h24=selectedHour%12+(selectedPeriod==='PM'?12:0);
+    timeInput.value=pad(h24)+':'+pad(selectedMinute);
+    timeValue.textContent=pad(selectedHour)+':'+pad(selectedMinute)+' '+selectedPeriod;
+    timePop.hidden=true;timeTrigger.setAttribute('aria-expanded','false');
+    timeInput.dispatchEvent(new Event('change',{bubbles:true}));
+  });
+
+  document.addEventListener('click',e=>{
+    if(!e.target.closest('.ace-picker-field'))closeAll(null);
+  });
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeAll(null)});
+
+  renderCalendar();
+  renderTime();
 })();
 </script>
 </body>
