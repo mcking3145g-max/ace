@@ -1968,6 +1968,131 @@ select:focus{
   }
 }
 </style>
+<style id="ace-store-nav-match-home-v1">
+/* Rental-page navbar matches the homepage navbar exactly in structure and proportion. */
+.ace-store-nav-v3{
+  position:fixed!important;
+  z-index:210!important;
+  top:0!important;
+  left:0!important;
+  right:0!important;
+  width:100%!important;
+  height:76px!important;
+  min-height:76px!important;
+  display:grid!important;
+  grid-template-columns:1fr 1fr!important;
+  align-items:center!important;
+  padding:0 clamp(20px,3.2vw,54px)!important;
+  background:linear-gradient(180deg,rgba(5,7,8,.82),rgba(5,7,8,.30) 72%,transparent)!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+.store-menu-trigger{
+  justify-self:start!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  gap:5px!important;
+  width:42px!important;
+  height:42px!important;
+  padding:0!important;
+  border:0!important;
+  background:transparent!important;
+  cursor:pointer!important;
+}
+.store-menu-trigger span{
+  display:block!important;
+  width:22px!important;
+  height:1px!important;
+  background:rgba(255,255,255,.9)!important;
+  transition:width .32s var(--ace-ease)!important;
+}
+.store-menu-trigger span:nth-child(2){width:15px!important}
+.store-menu-trigger:hover span:nth-child(2){width:22px!important}
+
+.store-nav-brand{display:none!important}
+
+.store-nav-actions{
+  grid-column:2!important;
+  justify-self:end!important;
+  display:flex!important;
+  align-items:center!important;
+  gap:20px!important;
+}
+.store-main-site-link{
+  display:block!important;
+  font-size:9px!important;
+  font-weight:800!important;
+  letter-spacing:.15em!important;
+  color:rgba(255,255,255,.84)!important;
+  transition:color .25s ease!important;
+}
+.store-main-site-link:hover{color:var(--ace-cyan-soft,#9de8f1)!important}
+
+.store-cart-button{
+  position:relative!important;
+  display:grid!important;
+  place-items:center!important;
+  width:38px!important;
+  height:42px!important;
+  padding:0!important;
+  border:0!important;
+  background:transparent!important;
+  color:#fff!important;
+  cursor:pointer!important;
+}
+.store-cart-button svg{
+  width:20px!important;
+  height:20px!important;
+  fill:none!important;
+  stroke:currentColor!important;
+  stroke-width:1.55!important;
+  stroke-linecap:round!important;
+  stroke-linejoin:round!important;
+}
+.store-cart-button .cart-count{
+  position:absolute!important;
+  right:-2px!important;
+  top:5px!important;
+  display:grid!important;
+  place-items:center!important;
+  min-width:15px!important;
+  height:15px!important;
+  padding:0 3px!important;
+  border-radius:999px!important;
+  background:#fff!important;
+  color:#050505!important;
+  font-size:7px!important;
+  font-weight:900!important;
+}
+
+@media(max-width:700px){
+  .ace-store-nav-v3{
+    height:66px!important;
+    min-height:66px!important;
+    padding:0 16px!important;
+  }
+  .store-menu-trigger{
+    width:40px!important;
+    height:40px!important;
+  }
+  .store-menu-trigger span{width:21px!important}
+  .store-menu-trigger span:nth-child(2){width:14px!important}
+  .store-main-site-link{
+    display:block!important;
+    font-size:8px!important;
+  }
+  .store-nav-actions{gap:12px!important}
+  .store-cart-button{
+    width:36px!important;
+    height:40px!important;
+  }
+  .store-cart-button svg{
+    width:19px!important;
+    height:19px!important;
+  }
+}
+</style>
 </head>
 <body>
   <div class="noise"></div>
@@ -1976,13 +2101,8 @@ select:focus{
     <button class="store-menu-trigger" id="storeMenuTrigger" type="button" aria-label="Open store menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
-
-    <a class="brand store-nav-brand" href="#store" aria-label="Ace Gaming store home">
-      <img class="brand-logo" src="https://d2ol7oe51mr4n9.cloudfront.net/user_3Hpr5mgqGFvHNl67lTxKfzvNYbw/b412bae1-d3a6-4abd-9cb0-8f19a4333e05.png" alt="Ace Gaming">
-    </a>
-
-    <div class="store-nav-actions">
-      <a class="store-main-site-link" href="./index.html">MAIN SITE</a>
+<div class="store-nav-actions">
+      <a class="store-main-site-link" href="./index.html">HOME</a>
       <button class="store-cart-button" id="cartButton" type="button" aria-label="Open rental cart">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.1 10.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L21 8H6.1"/><circle cx="10" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
         <span class="cart-count" id="cartCount">0</span>
