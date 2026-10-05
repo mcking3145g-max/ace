@@ -1557,6 +1557,16 @@ body.ace-menu-open{overflow:auto!important}
   .ace-picker-trigger{border-radius:11px!important}
 }
 </style>
+<style id="ace-session-no-accent-lines-v1">
+/* Remove cyan/pink accent lines from all session-builder pages */
+.duration-option.active::after,
+.setup-option.active::after,
+.session-summary::before,
+.session-page-head::before{
+  display:none!important;
+  content:none!important;
+}
+</style>
 </head>
 <body>
 <header class="site-head ace-nav-v3" id="siteHead">
