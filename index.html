@@ -2628,7 +2628,7 @@ textarea{
     </div>
     <div>
       <h4>RENTALS</h4>
-      <span>1 / 2 / 3 Months</span>
+      <span>1 / 2 / 3 / 6 Months</span>
       <span>Pickup or Delivery</span>
     </div>
   </div>
@@ -2671,7 +2671,7 @@ textarea{
             <label class="field">Phone number<input name="phone" autocomplete="tel" inputmode="tel" required placeholder="+91 00000 00000"></label>
             <label class="field full">Email address<input name="email" type="email" autocomplete="email" required placeholder="you@example.com"></label>
             <label class="field full">Delivery address<textarea name="address" autocomplete="street-address" required placeholder="House, street, area, city and PIN code"></textarea></label>
-            <label class="field">Rental period<select name="duration" id="checkoutDuration"><option value="1">1 month</option><option value="2">2 months</option><option value="3">3 months</option></select></label>
+            <label class="field">Rental period<select name="duration" id="checkoutDuration"><option value="1">1 month</option><option value="2">2 months</option><option value="3">3 months</option><option value="6">6 months</option></select></label>
             <label class="field">Pickup or delivery<select name="method"><option>Home delivery</option><option>Store pickup</option></select></label>
             <label class="field full">Notes (optional)<textarea name="notes" placeholder="Preferred delivery time or anything Ace Gaming should know"></textarea></label>
             <label class="field honeypot" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
@@ -2808,23 +2808,23 @@ textarea{
     const products = [
       {
         id:'pc-4060', category:'pc', categoryName:'Gaming PC Rental', badge:'Most popular', hot:true, image:productArt.pcPro,
-        name:'RTX 4060 Gaming PC', price:7999, plans:{1:7999,2:7999,3:7999}, rating:'4.9',
+        name:'RTX 4060 + Ryzen 5 5700X Gaming PC', price:7999, plans:{1:7999,2:7499,3:6999,6:6499}, rating:'4.9',
         description:'A modern high-performance gaming PC with fast storage, strong airflow and reliable power for smooth gameplay and creator work.',
-        mini:['Ryzen 7 5700','RTX 4060 8GB','16GB RAM'],
-        specs:[['Processor','AMD Ryzen 7 5700 — 8 cores / 16 threads, up to 4.6GHz'],['Graphics Card','Colorful GeForce RTX 4060 8GB'],['Motherboard','B450M'],['Memory','XPG 16GB (1 × 16GB) DDR4 3200MHz'],['Storage','WD 1TB NVMe SSD'],['Cabinet','Lian Li'],['Power Supply','Ant Esports 550W 80+ Bronze']],
+        mini:['Ryzen 5 5700X','RTX 4060 8GB','16GB RAM'],
+        specs:[['Processor','AMD Ryzen 5 5700X'],['Graphics Card','Colorful GeForce RTX 4060 8GB'],['Motherboard','B450M'],['Memory','XPG 16GB (1 × 16GB) DDR4 3200MHz'],['Storage','WD 1TB NVMe SSD'],['Cabinet','Lian Li'],['Power Supply','Ant Esports 550W 80+ Bronze']],
         bestFor:['Gaming','Streaming','Content creation','Esports']
       },
       {
         id:'pc-4060-7600', category:'pc', categoryName:'Gaming PC Rental', badge:'New', hot:true, image:productArt.pcPro,
-        name:'RTX 4060 + Ryzen 5 7600 Gaming PC', price:8999, plans:{1:8999,2:8999,3:8999}, rating:'4.9',
-        description:'A fast modern gaming build pairing RTX 4060 graphics with Ryzen 5 7600 performance and 16GB memory.',
-        mini:['Ryzen 5 7600','RTX 4060 8GB','16GB RAM'],
-        specs:[['Processor','AMD Ryzen 5 7600'],['Graphics Card','GeForce RTX 4060 8GB'],['Memory','16GB RAM']],
+        name:'RTX 4060 Ti + Ryzen 5 7600 Gaming PC', price:8999, plans:{1:8999,2:8499,3:7999,6:7499}, rating:'4.9',
+        description:'A fast modern gaming build pairing RTX 4060 Ti graphics with Ryzen 5 7600 performance and 16GB memory.',
+        mini:['Ryzen 5 7600','RTX 4060 Ti 8GB','16GB RAM'],
+        specs:[['Processor','AMD Ryzen 5 7600'],['Graphics Card','GeForce RTX 4060 Ti 8GB'],['Memory','16GB RAM']],
         bestFor:['High-FPS gaming','Competitive play','Streaming','Everyday creator work']
       },
       {
         id:'pc-7700xt-i5', category:'pc', categoryName:'Gaming PC Rental', badge:'Premium Intel', image:productArt.pcElite,
-        name:'RX 7700 XT Intel i5 Gaming PC', price:12999, plans:{1:12999,2:11999,3:10999}, rating:'5.0',
+        name:'RX 7700 XT + Intel i5-12600K 12th Gen Gaming PC', price:12999, plans:{1:12999,2:12499,3:11999,6:10499}, rating:'5.0',
         description:'A premium 1440p gaming and content-creation setup with powerful Intel processing, Radeon graphics and advanced liquid cooling.',
         mini:['Intel Core i5-12600K','RX 7700 XT 12GB','32GB DDR5'],
         specs:[['Processor','Intel Core i5-12600K'],['Graphics Card','Sapphire Radeon RX 7700 XT 12GB'],['Motherboard','MSI PRO Z790-A WIFI (DDR5)'],['Memory','Adata XPG 32GB DDR5 6000MHz CL30'],['Primary Storage','1TB Kingston Fury Renegade NVMe Gen4 SSD'],['Secondary Storage','Crucial 500GB SATA SSD'],['CPU Cooler','Thermaltake TH240 V2 ARGB 240mm AIO'],['Cabinet','Thermaltake S200 TG ARGB Mid Tower'],['Power Supply','Cooler Master 650W V3 Bronze']],
@@ -2833,7 +2833,7 @@ textarea{
       },
       {
         id:'pc-7700xt-ryzen', category:'pc', categoryName:'Gaming PC Rental', badge:'Premium Ryzen', image:productArt.pcRyzen,
-        name:'RX 7700 XT Ryzen Gaming PC', price:12999, plans:{1:12999,2:11999,3:10999}, rating:'5.0',
+        name:'RX 7700 XT + Ryzen 5 7600 Gaming PC', price:10999, plans:{1:10999,2:10499,3:9999,6:9499}, rating:'5.0',
         description:'A high-end Ryzen gaming PC for premium 1440p performance, smooth multitasking and demanding modern games.',
         mini:['Ryzen 5 7600','RX 7700 XT 12GB','16GB RAM'],
         specs:[['Processor','AMD Ryzen 5 7600'],['Graphics Card','AMD Radeon RX 7700 XT 12GB'],['Motherboard','MSI B650M-P PRO'],['Memory','16GB RAM'],['CPU Cooler','Cooler Master Hyper H212'],['Power Supply','Cooler Master 650W V3 Bronze']],
@@ -3057,7 +3057,7 @@ textarea{
             <h3><a href="#product/${product.id}" data-view-product="${product.id}">${product.name}</a></h3>
             <ul class="mini-specs">${product.mini.filter(spec => !spec.includes('₹')).map(spec => `<li>${spec}</li>`).join('')}</ul>
             <div class="price-line">
-              <span><b class="price ${originalPrice(product) ? 'discounted' : ''}">${money(discountedPrice(product))}</b><small class="price-suffix">/ month</small>${product.plans ? `<small class="mrp" style="text-decoration:none;color:#9b9caf">2 mo: ${money(product.plans[2])}/mo · 3 mo: ${money(product.plans[3])}/mo</small>` : ''}</span>
+              <span><b class="price ${originalPrice(product) ? 'discounted' : ''}">${money(discountedPrice(product))}</b><small class="price-suffix">/ month</small>${product.plans ? `<small class="mrp" style="text-decoration:none;color:#9b9caf">2 mo: ${money(product.plans[2])}/mo · 3 mo: ${money(product.plans[3])}/mo · 6 mo: ${money(product.plans[6])}/mo</small>` : ''}</span>
               <span class="stock">Available</span>
             </div>
             <div class="card-actions">
@@ -3273,7 +3273,7 @@ textarea{
           <select id="cartDuration">
             <option value="1" ${rentalDuration === 1 ? 'selected' : ''}>1 month</option>
             <option value="2" ${rentalDuration === 2 ? 'selected' : ''}>2 months</option>
-            <option value="3" ${rentalDuration === 3 ? 'selected' : ''}>3 months</option>
+            <option value="3" ${rentalDuration === 3 ? 'selected' : ''}>3 months</option><option value="6" ${rentalDuration === 6 ? 'selected' : ''}>6 months</option>
           </select>
         </div>
         <div class="cart-totals">
@@ -3339,7 +3339,7 @@ textarea{
               <select id="detailRentalDuration">
                 <option value="1" ${rentalDuration === 1 ? 'selected' : ''}>1 month</option>
                 <option value="2" ${rentalDuration === 2 ? 'selected' : ''}>2 months</option>
-                <option value="3" ${rentalDuration === 3 ? 'selected' : ''}>3 months</option>
+                <option value="3" ${rentalDuration === 3 ? 'selected' : ''}>3 months</option><option value="6" ${rentalDuration === 6 ? 'selected' : ''}>6 months</option>
               </select>
             </div>
             <div class="quantity-buy">
@@ -3350,7 +3350,7 @@ textarea{
               <button class="button secondary" type="button" data-back-store>Continue browsing</button>
               <button class="button" type="button" data-rent-now="${product.id}">Rent now</button>
             </div>
-            <div class="assurance"><div><strong>Performance tested</strong>Checked for stability</div><div><strong>Flexible period</strong>Choose 1, 2 or 3 months</div><div><strong>Rental confirmation</strong>Terms verified by Ace Gaming</div></div>
+            <div class="assurance"><div><strong>Performance tested</strong>Checked for stability</div><div><strong>Flexible period</strong>Choose 1, 2, 3 or 6 months</div><div><strong>Rental confirmation</strong>Terms verified by Ace Gaming</div></div>
           </div>
         </div>`;
       if(push) history.pushState({product:id},'',`#product/${id}`);
@@ -3418,7 +3418,7 @@ textarea{
             <label class="field">Phone number<input name="phone" autocomplete="tel" inputmode="tel" required placeholder="+91 00000 00000"></label>
             <label class="field full">Email address<input name="email" type="email" autocomplete="email" required placeholder="you@example.com"></label>
             <label class="field full">Delivery address<textarea name="address" autocomplete="street-address" required placeholder="House, street, area, city and PIN code"></textarea></label>
-            <label class="field">Rental period<select name="duration" id="checkoutDuration"><option value="1" ${rentalDuration === 1 ? 'selected' : ''}>1 month</option><option value="2" ${rentalDuration === 2 ? 'selected' : ''}>2 months</option><option value="3" ${rentalDuration === 3 ? 'selected' : ''}>3 months</option></select></label>
+            <label class="field">Rental period<select name="duration" id="checkoutDuration"><option value="1" ${rentalDuration === 1 ? 'selected' : ''}>1 month</option><option value="2" ${rentalDuration === 2 ? 'selected' : ''}>2 months</option><option value="3" ${rentalDuration === 3 ? 'selected' : ''}>3 months</option><option value="6" ${rentalDuration === 6 ? 'selected' : ''}>6 months</option></select></label>
             <label class="field">Pickup or delivery<select name="method"><option>Home delivery</option><option>Store pickup</option></select></label>
             <label class="field full">Notes (optional)<textarea name="notes" placeholder="Preferred delivery time or anything Ace Gaming should know"></textarea></label>
             <label class="field honeypot" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
