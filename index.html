@@ -978,6 +978,12 @@ footer{border-top:1px solid var(--ace-line)!important;background:#101010!importa
   .clean-store-hero-copy p{max-width:92%!important;font-size:13px!important}
 }
 </style>
+<style id="ace-pc-price-row-v1">
+/* Keep the four gaming PCs together in one desktop row, ordered cheapest to highest price. */
+@media (min-width:1180px){
+  .product-grid{grid-template-columns:repeat(4,minmax(0,1fr))!important}
+}
+</style>
 <style id="ace-store-responsive-motion-v1">
 /* Store motion, responsiveness and performance */
 html{overflow-x:hidden}
@@ -3169,7 +3175,13 @@ textarea{
 
     function renderProducts(){
       const grid = document.getElementById('productGrid');
-      grid.innerHTML = products.map(productCard).join('') + '<div class="no-products" id="noProducts" hidden>No rentals match your search.</div>';
+      const orderedProducts = [...products].sort((a,b) => {
+        if(a.category === 'pc' && b.category === 'pc') return discountedPrice(a) - discountedPrice(b);
+        if(a.category === 'pc') return -1;
+        if(b.category === 'pc') return 1;
+        return 0;
+      });
+      grid.innerHTML = orderedProducts.map(productCard).join('') + '<div class="no-products" id="noProducts" hidden>No rentals match your search.</div>';
       requestAnimationFrame(() => {
         document.querySelectorAll('.product-card').forEach((card,index) => setTimeout(() => card.classList.add('visible'),35 + index * 40));
       });
