@@ -156,6 +156,19 @@
           'Please confirm availability and the final price.'
         ].join('\n');
 
+
+        // Notify the owner independently of a customer pressing Send in WhatsApp.
+        const alertDetails={
+          kind:'booking',orderId:'ACE-'+Date.now(),
+          customerName:name,phone,service,players,date:bookingDate,time:bookingTime,
+          notes:details,pageUrl:location.href
+        };
+        try{
+          const payload=new Blob([JSON.stringify(alertDetails)],{type:'application/json'});
+          if(navigator.sendBeacon){navigator.sendBeacon('/api/order-notify',payload);}
+          else{fetch('/api/order-notify',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(alertDetails),keepalive:true}).catch(()=>{});}
+        }catch(error){console.warn('Order alert unavailable; WhatsApp remains available.',error);}
+
         location.href=`https://wa.me/${ACE_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
       });
     })();

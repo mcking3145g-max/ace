@@ -2530,6 +2530,21 @@ document.getElementById('sessionConfirm').addEventListener('click',()=>{
   const date=sessionDate.value||'Not selected';
   const time=sessionTime.value||'Not selected';
   const message=['ACE GAMING — BOOKING REQUEST','', 'Pack: '+packData[activePack].title,'Duration / Type: '+activeDuration,summarySetupLabel.textContent+': '+activeSetup,'Preferred date: '+date,'Preferred time: '+time,'','Please confirm availability and the final price.'].join('\n');
+
+  // Fire-and-forget with keepalive so opening WhatsApp does not cancel the alert.
+  const bookingAlert={
+    kind:'booking',orderId:'ACE-'+Date.now(),
+    pack:packData[activePack].title,duration:String(activeDuration),
+    setup:String(activeSetup),date:String(date),time:String(time),
+    itemsSummary:summarySetupLabel.textContent+': '+activeSetup,
+    pageUrl:location.href
+  };
+  try{
+    const payload=new Blob([JSON.stringify(bookingAlert)],{type:'application/json'});
+    if(navigator.sendBeacon){navigator.sendBeacon('/api/order-notify',payload);}
+    else{fetch('/api/order-notify',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(bookingAlert),keepalive:true}).catch(()=>{});}
+  }catch(error){console.warn('Order alert unavailable; WhatsApp remains available.',error);}
+
   window.open('https://wa.me/918390543241?text='+encodeURIComponent(message),'_blank','noopener,noreferrer');
 });
 function routeSession(){

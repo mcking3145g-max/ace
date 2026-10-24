@@ -2663,7 +2663,7 @@ textarea{
           <div class="checkout-head-copy">
             <span class="checkout-kicker">Ace Gaming Rentals</span>
             <h2 id="checkoutTitle">Finish your rental request</h2>
-            <p>Review your setup, add your details and continue securely to WhatsApp.</p>
+            <p>Review your setup and send Ace Gaming your rental request.</p>
           </div>
           <button class="close-button" type="button" data-close-checkout aria-label="Close rental request">×</button>
         </div>
@@ -2683,10 +2683,10 @@ textarea{
             <label class="field honeypot" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
             <p class="form-status" id="checkoutStatus" role="status" aria-live="polite"></p>
             <button class="button checkout-submit" type="submit">
-              <span>Save &amp; open WhatsApp</span>
+              <span>Send request &amp; open WhatsApp</span>
               <span class="checkout-submit-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m9 18 6-6-6-6"/></svg></span>
             </button>
-            <p class="submit-note">Your request is saved first. You will review and send the prepared message in WhatsApp.</p>
+            <p class="submit-note">We will try to alert Ace Gaming automatically. You can also send a copy in WhatsApp.</p>
           </form>
           <aside class="checkout-summary">
             <div class="summary-head">
@@ -3413,7 +3413,7 @@ textarea{
     function resetCheckout(){
       document.getElementById('checkoutContent').innerHTML = `
         <div class="checkout-head">
-          <div class="checkout-head-copy"><span class="checkout-kicker">Ace Gaming Rentals</span><h2 id="checkoutTitle">Finish your rental request</h2><p>Review your setup, add your details and continue securely to WhatsApp.</p></div>
+          <div class="checkout-head-copy"><span class="checkout-kicker">Ace Gaming Rentals</span><h2 id="checkoutTitle">Finish your rental request</h2><p>Review your setup and send Ace Gaming your rental request.</p></div>
           <button class="close-button" type="button" data-close-checkout aria-label="Close rental request">×</button>
         </div>
         <div class="checkout-grid">
@@ -3428,8 +3428,8 @@ textarea{
             <label class="field full">Notes (optional)<textarea name="notes" placeholder="Preferred delivery time or anything Ace Gaming should know"></textarea></label>
             <label class="field honeypot" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
             <p class="form-status" id="checkoutStatus" role="status" aria-live="polite"></p>
-            <button class="button checkout-submit" type="submit"><span>Save &amp; open WhatsApp</span><span class="checkout-submit-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m9 18 6-6-6-6"/></svg></span></button>
-            <p class="submit-note">Your request is saved first. You will review and send the prepared message in WhatsApp.</p>
+            <button class="button checkout-submit" type="submit"><span>Send request &amp; open WhatsApp</span><span class="checkout-submit-icon"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m9 18 6-6-6-6"/></svg></span></button>
+            <p class="submit-note">We will try to alert Ace Gaming automatically. You can also send a copy in WhatsApp.</p>
           </form>
           <aside class="checkout-summary">
             <div class="summary-head"><span class="summary-step">01</span><div><span class="summary-kicker">Order review</span><h3>Your rental setup</h3></div></div>
@@ -3546,6 +3546,23 @@ textarea{
       return `https://wa.me/${ACE_WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
     }
 
+
+// Notify the owner independently of WhatsApp; keep this server-side.
+async function notifyAceRental(order){
+  const response=await fetch('/api/order-notify',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    credentials:'same-origin',
+    body:JSON.stringify({...order,kind:'rental'})
+  });
+  if(!response.ok){
+    throw new Error('Owner alert is unavailable (HTTP '+response.status+').');
+  }
+  const result=await response.json();
+  if(!result.sent)throw new Error('Owner alert was not confirmed.');
+  return true;
+}
+
     async function handleOrderSubmit(form){
       if(!form.reportValidity()) return;
       const submitButton = form.querySelector('button[type="submit"]');
@@ -3572,10 +3589,20 @@ textarea{
       };
       const whatsappUrl = buildWhatsAppUrl(order);
       let savedToSheets = false;
+      let ownerAlertSent = false;
 
       submitButton.disabled = true;
-      submitButton.textContent = 'Preparing WhatsApp booking…';
-      setCheckoutStatus('Preparing your rental details for WhatsApp…');
+      submitButton.textContent = 'Sending rental request…';
+      setCheckoutStatus('Notifying Ace Gaming about your rental request…');
+
+      // The recipient gets an independent mobile push from the bot, even if the
+      // customer forgets to press Send in WhatsApp.
+      try{
+        await notifyAceRental(order);
+        ownerAlertSent = true;
+      }catch(error){
+        console.warn('Automatic owner alert unavailable. WhatsApp fallback remains available.',error);
+      }
 
       if(sheetsConnectionReady()){
         try{
@@ -3590,9 +3617,9 @@ textarea{
       document.getElementById('checkoutContent').innerHTML = `
         <div class="success-state">
           <div class="success-icon">✓</div>
-          <span class="eyebrow">${savedToSheets ? 'Saved & ready' : 'WhatsApp booking ready'}</span>
-          <h2>Opening WhatsApp…</h2>
-          <p>Your request number is <strong>${orderId}</strong>. Your complete customer, rental-period, delivery and item details are prepared for <strong>+91 83905 43241</strong>.</p>
+          <span class="eyebrow">${ownerAlertSent ? 'Request sent to Ace Gaming' : savedToSheets ? 'Saved in order sheet' : 'WhatsApp follow-up required'}</span>
+          <h2>${ownerAlertSent ? 'Ace Gaming has been notified' : 'Please send your request on WhatsApp'}</h2>
+          <p>Reference <strong>${orderId}</strong>. ${ownerAlertSent ? 'An alert has been sent to the Ace Gaming team. You may also send this message on WhatsApp.' : 'The automatic alert could not be confirmed. Please press Send in WhatsApp to make sure Ace Gaming receives your request.'} Contact: <strong>+91 83905 43241</strong>.</p>
           <a class="button" href="${whatsappUrl}">Open WhatsApp now</a>
         </div>`;
       rentalNowItems = null;
